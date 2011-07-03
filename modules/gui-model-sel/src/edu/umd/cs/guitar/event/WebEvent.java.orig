@@ -1,0 +1,34 @@
+package edu.umd.cs.guitar.event;
+
+import java.util.Hashtable;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+
+import edu.umd.cs.guitar.model.GComponent;
+
+public class WebEvent implements GEvent {
+	WebElement el;
+	
+	public WebEvent(WebElement e) { 
+		el = e;
+	}
+	
+	@Override
+	public boolean isSupportedBy(GComponent gComponent) {
+		return true;
+	}
+
+	@Override
+	public void perform(GComponent gComponent, Object parameters,
+			Hashtable<String, List<String>> optionalData) {
+		el.click();
+	}
+
+	@Override
+	public void perform(GComponent gComponent,
+			Hashtable<String, List<String>> optionalData) {
+		el.click();
+	}
+
+}

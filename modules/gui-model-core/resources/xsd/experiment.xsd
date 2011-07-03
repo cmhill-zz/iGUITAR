@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" jaxb:version="1.0">
+
+
+ 
+<xs:include schemaLocation="guitar.xsd"/>
+
+ 
+	<xs:annotation>
+		<xs:documentation>
+
+			This is the formal description of the experimentation data structures 
+			used by GUITAR Group.
+
+			Copyright (c) 2009. The GUITAR group at the University
+			of Maryland. Names of owners of this group may be obtained by
+			sending	an e-mail to atif@cs.umd.edu
+
+			Permission is hereby granted, free of
+			charge, to any person
+			obtaining a copy of
+			this software and associated
+			documentation files (the "Software"), to
+			deal in the
+			Software without
+			restriction, including without limitation
+			the rights to use, copy,
+			modify, merge, publish, distribute,
+			sublicense, and/or sell copies of
+			the Software, and to
+			permit persons
+			to whom the Software is furnished
+			to do so,
+			subject to the following
+			conditions:
+
+			The above copyright
+			notice and this permission notice shall
+			be included in all copies or
+			substantial portions of the
+			Software.
+
+			THE
+			SOFTWARE IS PROVIDED "AS IS",
+			WITHOUT WARRANTY OF ANY
+			KIND, EXPRESS OR
+			IMPLIED, INCLUDING BUT NOT
+			LIMITED TO THE
+			WARRANTIES OF
+			MERCHANTABILITY, FITNESS FOR A PARTICULAR
+			PURPOSE AND NONINFRINGEMENT.
+			IN NO EVENT SHALL THE AUTHORS
+			OR
+			COPYRIGHT
+			HOLDERS BE LIABLE FOR ANY
+			CLAIM, DAMAGES OR
+			OTHER LIABILITY,
+			WHETHER IN
+			AN ACTION OF CONTRACT,
+			TORT OR
+			OTHERWISE, ARISING FROM, OUT
+			OF OR IN
+			CONNECTION WITH THE
+			SOFTWARE OR THE USE OR OTHER DEALINGS IN
+			THE
+			SOFTWARE.
+		</xs:documentation>
+		
+	</xs:annotation>
+
+	<xs:element name="EventMachine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EventStateSet" type="EventStateSetType"/>
+				<xs:element name="TransitionSet" type="TransitionSetType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="EventStateSetType">
+		<xs:sequence>		
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EventState" type="EventStateType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="EventStateType">
+		<xs:sequence>
+			<xs:element name="EventStateId" type="xs:string"/> 
+			<xs:element name="Initial" type="xs:boolean"/> 
+			<xs:element name="EventSet" type="EventSetType"/>
+		
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="EventSetType">
+		<xs:sequence>
+		<!--
+				<xs:annotation>
+					   <xs:appinfo>
+						  <jaxb:property collectionType="java.util.Set"/>
+					   </xs:appinfo>
+				</xs:annotation>
+		-->
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EventId" type="xs:string">
+			</xs:element>
+			
+		
+		</xs:sequence>
+		
+	</xs:complexType>
+	
+	<xs:complexType name="TransitionSetType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Transition" type="TransitionType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TransitionType">
+		<xs:sequence>
+			<xs:element name="Source" type="xs:string"/>
+			<xs:element name="Target" type="xs:string"/>
+			<xs:element name="EventSequence" type="EventSequenceType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EventSequenceType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EventId" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="EventSequenceSetType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EventSequence" type="EventSequenceType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+<!-- Event Map -->
+
+	<xs:complexType name="EventMapElementType">
+		<xs:sequence>
+			<xs:element name="EventId" type="xs:string"/>
+			<xs:element name="WidgetId" type="xs:string"/>
+			
+			<xs:element name="Type" type="xs:string"/>
+			<xs:element name="Initial" type="xs:boolean"/>
+			<xs:element name="Action" type="xs:string"/>
+
+			<xs:element maxOccurs="1" minOccurs="0" name="Optional" type="AttributesType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="WidgetMapElementType">
+		<xs:sequence>
+			<xs:element name="WidgetId" type="xs:string"/>
+			<xs:element name="Window" type="ComponentType"/>
+			<xs:element name="Component" type="ComponentType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+		<xs:complexType name="EventMapType">
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="EventMapElement" type="EventType"/>
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="WidgetMapType">
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="WidgetMapElement" type="WidgetMapElementType"/>
+			</xs:sequence>
+		</xs:complexType>
+	
+		<xs:element name="GUIMap">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="EventMap" type="EventMapType"/>
+					<xs:element name="WidgetMap" type="WidgetMapType"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+			
+	
+<!-- Event Traces --> 
+		<xs:element name="EventTrace">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="InitialEventSet" type="EventSetType"/>
+				<xs:element name="EventEffectSet" type="EventEffectSetType"/>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+
+		<xs:complexType name="EventEffectSetType"> 
+			<xs:sequence>		
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="EventEffect" type="EventEffectType"/>
+			</xs:sequence>
+		</xs:complexType>	
+
+		<xs:complexType name="EventEffectType">
+			<xs:sequence>
+				<xs:element name="EventId" type="xs:string"/>
+				<xs:element name="EventSet" type="EventSetType"/>
+			</xs:sequence>
+		</xs:complexType>	
+		
+	
+</xs:schema>

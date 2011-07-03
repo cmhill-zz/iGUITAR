@@ -1,0 +1,9 @@
+# This is the configuration file for WebRipper
+#
+# Anything after a pound character will be treated
+# as a comment.
+
+# LINKS TO GRAB
+# format <html tag name>; <properties seperated by ;>:<gui tag to be associated with>
+
+a:href;widget

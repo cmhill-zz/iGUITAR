@@ -1,0 +1,3927 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GUIStructure>
+    <GUI>
+        <Window>
+            <Attributes>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A9%3A%22SHEN2010O%22%3B%7D</Value>
+                </Property>
+                <Property>
+                    <Name>Modal</Name>
+                    <Value>true</Value>
+                </Property>
+                <Property>
+                    <Name>Rootwindow</Name>
+                    <Value>false</Value>
+                </Property>
+            </Attributes>
+        </Window>
+        <Container>
+            <Contents>
+                <Container>
+                    <Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w4117607820</Value>
+                        </Property>
+                        <Property>
+                            <Name>Class</Name>
+                            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>X</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>Y</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                        </Property>
+                        <Property>
+                            <Name>Title</Name>
+                            <Value>body</Value>
+                        </Property>
+                    </Attributes>
+                    <Contents>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997240</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w897221470</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>0</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>0</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>script</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997364</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>411</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>90</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376845568</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>417</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>96</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997426</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>695</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>91</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376849412</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>701</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>97</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997488</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>92</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>52</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376853256</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>98</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>58</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997550</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>142</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>248</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376857100</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>148</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>254</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997612</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>426</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>280</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376860944</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>432</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>286</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997674</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>751</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>342</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376864788</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>757</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>348</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997736</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>421</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>589</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376868632</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>427</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>595</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997798</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>112</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>567</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376872476</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>118</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>573</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997860</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>636</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>591</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376876320</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>642</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>597</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997922</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>46</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>761</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376880164</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>52</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>767</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232997984</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>367</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>878</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376884008</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>373</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>884</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998046</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>659</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>937</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376887852</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>665</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>943</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998108</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>162</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1164</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376891696</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>168</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1170</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998170</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>678</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1195</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376895540</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>684</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1201</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998232</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>321</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1369</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376899384</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>327</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1375</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998294</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>671</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1452</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376903228</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>677</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1458</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998356</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>425</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1188</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376907072</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>431</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1194</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998418</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>121</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1401</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376910916</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>127</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1407</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998480</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>93</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1632</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376914760</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>99</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1638</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998542</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>616</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1755</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376918604</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>622</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1761</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998604</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>311</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1728</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376922448</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>317</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1734</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998666</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>755</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1997</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376926292</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>761</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>2003</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w232998728</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>53</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>1879</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w3376930136</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>59</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>1885</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                    </Contents>
+                </Container>
+            </Contents>
+        </Container>
+    </GUI>
+    <GUI>
+        <Window>
+            <Attributes>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A9%3A%22SNOW2009D%22%3B%7D</Value>
+                </Property>
+                <Property>
+                    <Name>Modal</Name>
+                    <Value>true</Value>
+                </Property>
+                <Property>
+                    <Name>Rootwindow</Name>
+                    <Value>false</Value>
+                </Property>
+            </Attributes>
+        </Window>
+        <Container>
+            <Contents>
+                <Container>
+                    <Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w2043230756</Value>
+                        </Property>
+                        <Property>
+                            <Name>Class</Name>
+                            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>X</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>Y</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                        </Property>
+                        <Property>
+                            <Name>Title</Name>
+                            <Value>body</Value>
+                        </Property>
+                    </Attributes>
+                    <Contents>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898216</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3969122446</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>0</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>0</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>script</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898340</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>28</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>86</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561177760</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>34</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>92</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898402</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>559</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>120</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561181604</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>565</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>126</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898464</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>268</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>93</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561185448</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>274</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>99</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898526</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>88</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>326</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561189292</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>94</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>332</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898588</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>508</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>350</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561193136</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>514</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>356</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898650</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>254</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>579</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561196980</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>260</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>585</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898712</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>680</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>539</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561200824</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>686</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>545</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3304898774</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>415</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>825</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w561204668</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>421</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>831</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                    </Contents>
+                </Container>
+            </Contents>
+        </Container>
+    </GUI>
+    <GUI>
+        <Window>
+            <Attributes>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A7%3A%22AT2009J%22%3B%7D</Value>
+                </Property>
+                <Property>
+                    <Name>Modal</Name>
+                    <Value>true</Value>
+                </Property>
+                <Property>
+                    <Name>Rootwindow</Name>
+                    <Value>false</Value>
+                </Property>
+            </Attributes>
+        </Window>
+        <Container>
+            <Contents>
+                <Container>
+                    <Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w3212434308</Value>
+                        </Property>
+                        <Property>
+                            <Name>Class</Name>
+                            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>X</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>Y</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                        </Property>
+                        <Property>
+                            <Name>Title</Name>
+                            <Value>body</Value>
+                        </Property>
+                    </Attributes>
+                    <Contents>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w3417925208</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>a</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w4082149376</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>0</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>0</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>script</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                    </Contents>
+                </Container>
+            </Contents>
+        </Container>
+    </GUI>
+    <GUI>
+        <Window>
+            <Attributes>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>http://www.phand.net/</Value>
+                </Property>
+                <Property>
+                    <Name>Modal</Name>
+                    <Value>true</Value>
+                </Property>
+                <Property>
+                    <Name>Rootwindow</Name>
+                    <Value>true</Value>
+                </Property>
+            </Attributes>
+        </Window>
+        <Container>
+            <Contents>
+                <Container>
+                    <Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w2008449468</Value>
+                        </Property>
+                        <Property>
+                            <Name>Class</Name>
+                            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>X</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>Y</Name>
+                            <Value>0</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                        </Property>
+                        <Property>
+                            <Name>Title</Name>
+                            <Value>body</Value>
+                        </Property>
+                    </Attributes>
+                    <Contents>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879784828</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>20</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>h2</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879772242</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>69</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>p</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w527215044</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>8</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>69</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>img</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Widget>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879772304</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>293</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>p</Value>
+</Property>
+                            </Attributes>
+                        </Widget>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879786858</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>328</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>ul</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733604</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>48</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>328</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+</Widget>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733666</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>348</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477242652</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>348</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+                <Property>
+                    <Name>Invokelist</Name>
+                    <Value>http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A9%3A%22SHEN2010O%22%3B%7D</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733728</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>48</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>367</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+</Widget>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733790</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>387</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477250340</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>387</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+                <Property>
+                    <Name>Invokelist</Name>
+                    <Value>http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A9%3A%22SNOW2009D%22%3B%7D</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733852</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>406</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477254184</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>406</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+                <Property>
+                    <Name>Invokelist</Name>
+                    <Value>http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A7%3A%22AT2009J%22%3B%7D</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733914</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>425</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477258028</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>425</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548733976</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>444</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477261872</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>444</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548734038</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>463</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477265716</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>463</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548734100</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>48</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>482</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+</Widget>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548734162</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>502</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477273404</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>502</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548734224</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>521</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1477277248</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>521</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879772428</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>556</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>p</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w526821636</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>8</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>556</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>br</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879786982</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>610</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>ul</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548971932</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>610</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1492015144</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>610</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548971994</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>629</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1492018988</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>629</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548972056</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>648</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1492022832</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>648</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548972118</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>667</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1492026676</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>667</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548972180</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>686</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1492030520</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>686</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w548972242</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>705</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w1492034364</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>705</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879772552</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>740</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>p</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Widget>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w526829324</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>8</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>740</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>br</Value>
+        </Property>
+    </Attributes>
+</Widget>
+                            </Contents>
+                        </Container>
+                        <Container>
+                            <Attributes>
+<Property>
+    <Name>ID</Name>
+    <Value>w879787106</Value>
+</Property>
+<Property>
+    <Name>Class</Name>
+    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+</Property>
+<Property>
+    <Name>Type</Name>
+    <Value>SYSTEM INTERACTION</Value>
+</Property>
+<Property>
+    <Name>X</Name>
+    <Value>8</Value>
+</Property>
+<Property>
+    <Name>Y</Name>
+    <Value>794</Value>
+</Property>
+<Property>
+    <Name>ReplayableAction</Name>
+    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+</Property>
+<Property>
+    <Name>Title</Name>
+    <Value>ul</Value>
+</Property>
+                            </Attributes>
+                            <Contents>
+<Container>
+    <Attributes>
+        <Property>
+            <Name>ID</Name>
+            <Value>w527732876</Value>
+        </Property>
+        <Property>
+            <Name>Class</Name>
+            <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+        </Property>
+        <Property>
+            <Name>Type</Name>
+            <Value>SYSTEM INTERACTION</Value>
+        </Property>
+        <Property>
+            <Name>X</Name>
+            <Value>68</Value>
+        </Property>
+        <Property>
+            <Name>Y</Name>
+            <Value>794</Value>
+        </Property>
+        <Property>
+            <Name>ReplayableAction</Name>
+            <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+        </Property>
+        <Property>
+            <Name>Title</Name>
+            <Value>li</Value>
+        </Property>
+    </Attributes>
+    <Contents>
+        <Widget>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>w175193672</Value>
+                </Property>
+                <Property>
+                    <Name>Class</Name>
+                    <Value>org.openqa.selenium.firefox.FirefoxWebElement</Value>
+                </Property>
+                <Property>
+                    <Name>Type</Name>
+                    <Value>SYSTEM INTERACTION</Value>
+                </Property>
+                <Property>
+                    <Name>X</Name>
+                    <Value>68</Value>
+                </Property>
+                <Property>
+                    <Name>Y</Name>
+                    <Value>794</Value>
+                </Property>
+                <Property>
+                    <Name>ReplayableAction</Name>
+                    <Value>edu.umd.cs.guitar.event.WebEvent</Value>
+                </Property>
+                <Property>
+                    <Name>Title</Name>
+                    <Value>a</Value>
+                </Property>
+            </Attributes>
+        </Widget>
+    </Contents>
+</Container>
+                            </Contents>
+                        </Container>
+                    </Contents>
+                </Container>
+            </Contents>
+        </Container>
+    </GUI>
+</GUIStructure>

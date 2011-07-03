@@ -1,0 +1,55 @@
+
+GUITAR Version 1.2
+
+Released on Jan. 25, 2010.
+
+This version of GUITAR is released as a collection of four tools (JFCRipper, GUIStructure2EFGConvert, TestCaseGenerator, JFCReplayer). It is downloadable as a .zip archive called GUITAR.v1.2.zip.
+
+The .zip archive contains a set of README* files that explain how to use and run the tool.
+
+What's New in this release
+
+    * Several bugs were fixed.
+    * The entire code was refactored. The Core and Plugin architecture was cleaned up.
+==========
+
+
+GUITAR Version 1.1
+
+Released on Sep. 22, 2009.
+
+This version of GUITAR is released as a collection of four tools (JFCRipper, GUIStructure2EFGConvert, TestCaseGenerator, JFCReplayer). It is downloadable as a .zip archive called GUITAR.v1.1.zip. Each tool is also individually downloadable (JFCRipper.v1.1.zip, GUIStructure2EFGConvert.v1.1.zip, TestCaseGenerator.v1.1.zip, JFCReplayer.v1.1.zip).
+
+Each .zip archive contains a set of README* files that explain how to use and run the tool.
+
+What's New in this release
+
+    * The GUITAR.v1.1.zip archive comes with a very small GUI program (installed in the ./aut/ folder) that can be used as a "Hello World" example; all the execution scripts settings default to the example. The settings are handled via .properties files.
+    * We have a README-USERS.txt file that explains how to run the Hello World program.
+    * The TestCaseGenerator has a new plugin that does a random walk of the event-flow graph and outputs test cases. 
+==========
+
+GUITAR Version 1.0
+
+Released on Sep. 14, 2009.
+
+This version of GUITAR is released as a collection of four tools
+(JFCGUIRipper, GUIStructure2EFGConvert, TestCaseGenerator,
+JFCGUIReplayer). It is downloadable as a .zip archive called
+GUITAR.v1.0.zip. Each tool is also individually downloadable
+(JFCGUIRipper.v1.0.zip, GUIStructure2EFGConvert.v1.0.zip,
+TestCaseGenerator.v1.0.zip, JFCGUIReplayer.v1.0.zip).
+
+Each .zip archive contains a set of README* files that explain how to
+use and run the tool.
+
+What's New in this release
+  * we have removed the GUITAR GUI so that the tools can be run in
+  batch mode.
+
+  * the JFCGUIRipper and JFCGUIReplayer work with Java programs that
+  use Java Foundation Classes (JFC).
+
+  * the TestCaseGenerator generates test cases by length. You can
+  change the length setting to generate longer test cases.
+

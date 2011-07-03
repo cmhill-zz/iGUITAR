@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+	<Tag name="a" type="widget">
+		<Property name="href" />
+	</Tag>
+	<Tag name="img" type="widget">
+		<Property name="src" />
+		<Property name="alt" />
+		<Property name="width" />
+		<Property name="height" />
+	</Tag>
+	<Tag name="input" type="widget">
+		<Property name="type" />
+		<Property name="name" />
+		<Property name="value" />
+		<Property name="size" />
+		<Property name="maxlength" />
+	</Tag>
+	<Tag name="embed" type="widget">
+		<Property name="src" />
+		<Property name="width" />
+		<Property name="height" />
+	</Tag>
+	<Tag name="script" type="widget">
+		<Property name="src" />
+		<Property name="type" />
+	</Tag>
+	<Tag name="link" type="widget">
+		<Property name="rel" />
+		<Property name="type" />
+		<Property name="href" />
+	</Tag>
+</Configuration>
