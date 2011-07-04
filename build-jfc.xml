@@ -55,6 +55,7 @@
 
 <project name="jfc.tool" default="dist" basedir=".">
 	<import file="build-utils.xml" as="utils" />
+	
 	<include file="${basedir}/build-core.xml" as="core" />
 
 	<!-- tool constants -->
@@ -72,12 +73,6 @@
 	<property name="jg.name" value="${jfc.name}-guitar" />
 	<property name="jg.modules" value="gui-model-core,gui-model-${jfc.name},${jrp-spec.modules},${jrl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules}" />
 	
-	<property name="tmp.dir" value="${global.dist.guitar.dir}.bak" />
-	<target name="backup-guitar" description="backup">
-		<move todir="${tmp.dir}" failonerror="false">
-			<fileset dir="${global.dist.guitar.dir}" />
-		</move>
-	</target>
 	
 	<!-- ${jfc.name}-replayer -->
 	<target name="dist-rl" description="distribute ${jfc.name}replayer tool">
@@ -87,7 +82,12 @@
 		</antcall>
 	</target>
 
-
+	<property name="tmp.dir" value="${global.dist.guitar.dir}.bak" />
+	<target name="backup-guitar" description="backup">
+		<move todir="${tmp.dir}" failonerror="false">
+			<fileset dir="${global.dist.guitar.dir}" />
+		</move>
+	</target>
 
 	<target name="pack-rl" depends="backup-guitar,dist-rl" description="pack ${jfc.name}replayer tool">
 		<!-- package -->

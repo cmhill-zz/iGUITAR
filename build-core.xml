@@ -54,6 +54,9 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
 <project name="core.tool" basedir=".">
+
+	<property name="platform-core.name" value="platform-core" />
+	<property name="platform-core-spec.modules" value="gui-model-core,gui-ripper-core,gui-replayer-core" />
 	
 	<property name="s2g.name" value="guistructure2graph" />
 	<property name="s2g-spec.modules" value="guistructure2graph-core,guistructure2graph-efg" />
@@ -71,7 +74,33 @@
 	<property name="a2e-spec.modules" value="abs2exec-tc-core,abs2exec-tc-efg2eig,abs2exec-tc-path2root" />
 	<property name="a2e.modules" value="gui-model-core,${a2e-spec.modules}" />
 
+	<property name="core.name" value="core-guitar" />
+	<property name="core.modules" value="${platform-core-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules}"/>
 
+	<!-- all core -->
+	<!-- ${jfc.name}guitar  -->
+	<target name="dist" description="distribute guitar-core">
+		<antcall target="dist-tool">
+			<param name="modules" value="${core.modules}" />
+			<param name="platform" value="${core.name}" />
+		</antcall>
+
+	</target>
+	
+	<target name="pack" depends="backup-guitar,dist" description="pack core tools">
+		<!-- package -->
+		<antcall target="pack-tool">
+			<param name="tool" value="${core.name}" />
+		</antcall>
+		<!-- restore guitar -->
+		<delete dir="${global.dist.guitar.dir}" />
+		<move todir="${global.dist.guitar.dir}" failonerror="false">
+			<fileset dir="${tmp.dir}" />
+		</move>
+
+	</target>
+
+	
 	<!-- guistructure2graph -->
 	<target name="dist-s2g" description="distribute guistructure to graph module">
 		<antcall target="dist-tool">
@@ -163,5 +192,12 @@
 		<antcall target="clean-tool">
 			<param name="tool" value="${g2g.name}" />
 		</antcall>
+	</target>
+	
+	<property name="tmp.dir" value="${global.dist.guitar.dir}.bak" />
+	<target name="backup-guitar" description="backup">
+		<move todir="${tmp.dir}" failonerror="false">
+			<fileset dir="${global.dist.guitar.dir}" />
+		</move>
 	</target>
 </project>

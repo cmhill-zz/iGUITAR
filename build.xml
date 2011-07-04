@@ -65,7 +65,9 @@
 	
 	<target name="dist" description="Release all tools" depends="jfc.dist,sel.dist" />
 
-	<target name="release" description="Release all tools" depends="release-jfc,release-sel" />
+	<target name="release" description="Release all tools" depends="release-core,release-jfc,release-sel" />
+
+	<target name="release-core" description="Release all sel modules" depends="core.pack" />
 	<target name="release-jfc" description="Release all jfc modules" depends="jfc.pack-rp,jfc.pack-rl,jfc.pack" />
 	<target name="release-sel" description="Release all sel modules" depends="sel.pack-rp,sel.pack-rl,sel.pack" />
 	
@@ -86,6 +88,8 @@
 		</delete>
 		
 	</target>
+	
+
 	
 
 </project>
