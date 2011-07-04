@@ -28,7 +28,7 @@ import org.apache.commons.cli.HelpFormatter;
 
 import edu.umd.cs.guitar.util.Util;
 
-public class GReplayerConfiguration {
+public class NewGReplayerConfiguration {
 
     // Subclasses should add their own options to this list
     protected Options opts;
@@ -36,7 +36,7 @@ public class GReplayerConfiguration {
     // Useful for subclasses to get command line options
     protected CommandLine cmd;
 
-    public GReplayerConfiguration() {
+    public NewGReplayerConfiguration() {
         opts = new Options();
         opts.addOption( "g", "gui-file", true, "GUI file path" );
         opts.addOption( "e", "efg-file", true, "EFG file path" );

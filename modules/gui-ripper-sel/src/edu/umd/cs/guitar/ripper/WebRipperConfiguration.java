@@ -10,12 +10,14 @@ import org.apache.commons.cli.MissingOptionException;
  * 
  * @author
  */
-public class WebRipperConfiguration extends NewGRipperConfiguration {
-
+public class WebRipperConfiguration extends NewGRipperConfiguration{
+	public static enum Browser {Firefox, IE, HTMLUnit, Chrome};
 	public String WEBSITE_URL, DOT_FILE; // website to rip/crawl
 	public int DEPTH = 3;   // depth = max depth of links to explore starting from the main URL
 	public int WIDTH = 1;   // width = max number of links to scan on a single page
 	public String PROFILE = null; // Firefox profile to use
+	public Browser BROWSER = null; // Browser to use
+	public String BROWSER_PATH = null; // Browser to use
 	public boolean help = false;
 
     public WebRipperConfiguration() {
@@ -24,6 +26,8 @@ public class WebRipperConfiguration extends NewGRipperConfiguration {
 		opts.addOption( "d", "depth", true, "max depth of links to explore starting from the main URL" );
         opts.addOption( "g", "graph-file", true, "desired file name for DOT file and JPEG graph of website structure");
         opts.addOption( "p", "profile", true, "desired Firefox profile to use");
+        opts.addOption( "b", "browser", true, "desired browser to use. One of {Firefox, IE, HTMLUnit, Chrome}");
+        opts.addOption( "bp", "browser-path", true, "path to the browser executable, if different from its default location");
     }
 
     public void parseArguments(String[] args) throws ParseException {
@@ -35,6 +39,12 @@ public class WebRipperConfiguration extends NewGRipperConfiguration {
 
 		if(cmd.getOptionValue("depth") != null)
 			DEPTH = Integer.parseInt(cmd.getOptionValue("depth"));
+		
+		if(cmd.getOptionValue("browser") != null)
+			BROWSER = Enum.valueOf(Browser.class, (cmd.getOptionValue("browser")));
+		
+		if(cmd.getOptionValue("browser-path") != null)
+			BROWSER_PATH = (cmd.getOptionValue("browser-path"));
 		
 		DOT_FILE = cmd.getOptionValue("graph-file");
 		

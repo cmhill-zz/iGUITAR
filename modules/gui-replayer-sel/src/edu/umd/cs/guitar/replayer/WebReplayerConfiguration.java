@@ -26,7 +26,7 @@ package edu.umd.cs.guitar.replayer;
 
 import org.apache.commons.cli.ParseException;
 
-import edu.umd.cs.guitar.replayer.sel.GReplayerConfiguration;
+import edu.umd.cs.guitar.replayer.sel.NewGReplayerConfiguration;
 
 /**
  * Class contains the runtime configurations of JFC GUITAR Ripper
@@ -35,7 +35,7 @@ import edu.umd.cs.guitar.replayer.sel.GReplayerConfiguration;
  * 
  * @author <a href="mailto:baonn@cs.umd.edu"> Bao Nguyen </a>
  */
-public class WebReplayerConfiguration extends GReplayerConfiguration {
+public class WebReplayerConfiguration extends NewGReplayerConfiguration {
 
     public WebReplayerConfiguration() {
         opts.addOption( null, "website-url", true, "main class name for the application under test" );

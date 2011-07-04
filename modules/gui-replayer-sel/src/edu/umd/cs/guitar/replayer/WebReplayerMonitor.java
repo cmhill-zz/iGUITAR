@@ -18,8 +18,10 @@ import edu.umd.cs.guitar.model.WebWindowHandler;
 import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.PropertyType;
-import edu.umd.cs.guitar.replayer.sel.GReplayerConfiguration;
 import edu.umd.cs.guitar.util.GUITARLog;
+
+import edu.umd.cs.guitar.replayer.sel.NewGReplayerConfiguration;
+
 
 /*	
  *  Copyright (c) 2009-@year@. The GUITAR group at the University of Maryland. Names of owners of this group may
@@ -53,7 +55,7 @@ public class WebReplayerMonitor extends GReplayerMonitor {
 	private FirefoxDriver driver;
 	private WebWindowHandler handler;
 
-	public WebReplayerMonitor(GReplayerConfiguration config) {
+	public WebReplayerMonitor(NewGReplayerConfiguration config) {
 		// TODO Auto-generated constructor stub
 	}
 

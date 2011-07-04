@@ -21,15 +21,15 @@ import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.replayer.monitor.GTestMonitor;
 import edu.umd.cs.guitar.replayer.monitor.StateMonitorFull;
-import edu.umd.cs.guitar.replayer.sel.GReplayerConfiguration;
+import edu.umd.cs.guitar.replayer.sel.NewGReplayerConfiguration;
 import edu.umd.cs.guitar.replayer.sel.GUITARConstants;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 @Deprecated
 public abstract class ReplayerMain {
-    protected GReplayerConfiguration config;
+    protected NewGReplayerConfiguration config;
 
-    public ReplayerMain(GReplayerConfiguration config) {
+    public ReplayerMain(NewGReplayerConfiguration config) {
         this.config = config;
     }
 

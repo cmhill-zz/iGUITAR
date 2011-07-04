@@ -18,7 +18,7 @@ guitar_lib=$tool_guitar_dir/jars
 shared_lib=$tool_guitar_dir/shared
 
 # Main classes 
-tcgen_launcher=edu.umd.cs.guitar.testcase.TestcaseGenerator
+tcgen_launcher=edu.umd.cs.guitar.testcase.TestCaseGenerator
 
 for file in `find $guitar_lib/ -name "*.jar"`
 do

@@ -1,4 +1,3 @@
-This build script will build  tools for GUITAR suite.
 The script supports the following targets:
 
 	dist: distribute all tools for all platforms.
@@ -11,6 +10,9 @@ The script supports the following targets:
 	
 	clean: clean all builds
 
-Currrent platforms supported
+Currrent platforms supported:
 	jfc: Java Swing 
 	sel: Selenium 
+
+Build a specific module:
+	ant -f modules/[module name]/build.xml [target]

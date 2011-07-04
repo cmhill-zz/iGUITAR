@@ -29,7 +29,9 @@ import java.util.TreeSet;
 import org.openqa.selenium.RenderedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import edu.umd.cs.guitar.event.EventManager;
@@ -161,13 +163,9 @@ public class WebRipperMonitor extends GRipperMonitor {
 				return;
 			}
 		} else {
-			if(!component.hasChildren())
-				GUITARLog.Info("TCC: Terminal Component " + component.getTitle());
 			if(!((WebComponent) component).hasLinkParent()) {
-				if(!el.getTagName().equals("input") || el.getAttribute("type") == null || !el.getAttribute("type").equals("submit"))
-					el.click();
-			} else
-				GUITARLog.Info("TCC: not clicking");
+				((WebComponent) component).getElement().click();
+			}
 				
 		}
 	}
@@ -291,8 +289,19 @@ public class WebRipperMonitor extends GRipperMonitor {
 			System.setProperty("webdriver.firefox.profile", config.PROFILE);
 			GUITARLog.Info("Profile found.");
 		}
-			
-		driver = new FirefoxDriver();
+		System.out.println("Browser : "  + config.BROWSER);
+		if(config.BROWSER == null || config.BROWSER == WebRipperConfiguration.Browser.Firefox)
+			driver = new FirefoxDriver();
+		else if (config.BROWSER == WebRipperConfiguration.Browser.Chrome) {
+			if(config.BROWSER_PATH != null)
+				System.setProperty("webdriver.chrome.bin", config.BROWSER_PATH);
+			driver = new ChromeDriver();
+		} else if (config.BROWSER == WebRipperConfiguration.Browser.HTMLUnit) {
+			driver = new HtmlUnitDriver();
+		} else {
+			driver = new InternetExplorerDriver();
+		}
+		
 		driverHtml = new HtmlUnitDriver();
 		
 		handler = new WebWindowHandler(driver);
