@@ -117,8 +117,9 @@
 		<mkdir dir="${global.dist.tools.dir}" />
 		<tar destfile="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar" basedir="${global.dist.guitar.dir}" />
 		<bzip2 src="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar" destfile="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar.bz2"/>
+		<delete file="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar"/>
 	</target>
-
+	
 	<!-- Parameterized task to distribute a tool
 			Parameters: 
 				tool:  name of tool
