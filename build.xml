@@ -70,9 +70,9 @@
 	
 	<!-- Help -->
 	<target name="help">
-		<echo message="This build script will create the complete GUITAR suite of tools!" />
-		<echo message="The script supports the following targets:" />
-		<echo message="dist-(tool name): simply invokes the build.xml files in each module." />
+		<loadfile property="mytext" srcFile="ant-tasks.txt"/> 
+		<echo message="${mytext}"> </echo> 
+	
 	</target>
 
 	<!-- clean -->
