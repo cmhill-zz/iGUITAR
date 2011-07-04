@@ -147,6 +147,7 @@ public class StateMonitorFull extends GTestMonitor {
 		monitor = replayer.getMonitor();
 		gApplication = monitor.getApplication();
 
+		// TODO: Remove this to be platform independent 
 		new QueueTool().waitEmpty(delay);
 
 		GUIStructure initialState = getCurrentState();

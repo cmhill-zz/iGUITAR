@@ -1,0 +1,36 @@
+package edu.umd.cs.guitar.ripper;
+
+import edu.umd.cs.guitar.model.GIDGenerator;
+<<<<<<< local
+import edu.umd.cs.guitar.model.WEBDefaultIDGenerator;
+=======
+import edu.umd.cs.guitar.model.WebDefaultIDGenerator;
+>>>>>>> other
+
+public class WebRipperMain extends RipperMain {
+<<<<<<< local
+
+=======
+	
+>>>>>>> other
+    public WebRipperMain(GRipperConfiguration config) {
+        super(config);
+    }
+
+    protected GRipperMonitor createMonitor() {
+<<<<<<< local
+        return new WEBRipperMonitor(config);
+=======
+        return new WebRipperMonitor(config);
+>>>>>>> other
+    }
+
+    protected GIDGenerator getIdGenerator() {
+<<<<<<< local
+        return WEBDefaultIDGenerator.getInstance();
+=======
+        return WebDefaultIDGenerator.getInstance();
+>>>>>>> other
+    }
+
+}
