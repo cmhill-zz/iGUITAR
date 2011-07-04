@@ -56,7 +56,7 @@
 <project name="build.utils" default="help" basedir=".">
 	<property file="build.properties" />
 
-		
+
 	<!--=========================
 			Utilitity tasks
 		=========================-->
@@ -87,12 +87,22 @@
 		<echo message="dist-(tool name): simply invokes the build.xml files in each module." />
 	</target>
 
-	<!-- clean -->
-	<target name="clean">
-		<delete dir="${global.dist.dir}"></delete>
-	</target>
-	
-
+	<!-- get svn revision -->
+	<macrodef name="svnrevision">
+		<sequential>
+			<exec executable="svnversion" outputproperty="repository.revision">
+				<arg value="-c" />
+				<redirector>
+					<outputfilterchain>
+						<tokenfilter>
+							<replaceregex pattern="[0-9]+\:" replace="" />
+							<replaceregex pattern="[M]" replace="" />
+						</tokenfilter>
+					</outputfilterchain>
+				</redirector>
+			</exec>
+		</sequential>
+	</macrodef>
 	<!--=========================
 		Parameterized tasks
 	=========================-->
@@ -103,9 +113,10 @@
 				modules: modules included in the tool
 	-->
 	<target name="pack-tool">
-		<set.timestamp />
-		<mkdir dir="${global.dist.tools.dir}"/>
-		<tar destfile="${global.dist.tools.dir}/${tool}-${current.time}.tar" basedir="${global.dist.guitar.dir}" />
+		<svnrevision />
+		<mkdir dir="${global.dist.tools.dir}" />
+		<tar destfile="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar" basedir="${global.dist.guitar.dir}" />
+		<bzip2 src="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar" destfile="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar.bz2"/>
 	</target>
 
 	<!-- Parameterized task to distribute a tool
@@ -113,14 +124,14 @@
 				tool:  name of tool
 				modules: modules included in the 
 	-->
-	<target name="dist-tool" >
+	<target name="dist-tool">
 		<for list="${modules}" param="module">
 			<sequential>
 				<!-- build submodules -->
 				<antcall target="dist-module">
 					<param name="module" value="@{module}" />
 				</antcall>
-	
+
 				<!-- copy example -->
 				<copy todir="${global.dist.guitar.dir}">
 					<fileset dir="example-aut" includes="${platform}-aut/**" />
