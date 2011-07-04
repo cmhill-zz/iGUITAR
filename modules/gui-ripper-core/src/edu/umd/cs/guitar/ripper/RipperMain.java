@@ -28,9 +28,9 @@ import edu.umd.cs.guitar.util.GUITARLog;
     monitor, the id generator, and the widget configuration file.
  */
 public abstract class RipperMain {
-    protected GWebRipperConfiguration config;
+    protected NewGRipperConfiguration config;
 
-    public RipperMain(GWebRipperConfiguration config) {
+    public RipperMain(NewGRipperConfiguration config) {
         this.config = config;
     }
 
@@ -87,16 +87,6 @@ public abstract class RipperMain {
         // Load configuration file from disk
         Configuration conf = (Configuration) IO.readObjFromFile(
             config.CONFIG_FILE, Configuration.class);
-
-//        if (conf != null) {
-//            // Load the terminal/ignored windows from the configuration
-//            loadWidgetConfiguration(
-//                conf.getTerminalComponents().getFullComponent(),
-//                JFCConstants.terminalWidgetSignature);
-//            loadWidgetConfiguration(
-//                conf.getIgnoredComponents().getFullComponent(),
-//                GUITARConstants.ignoredWidgetSignature);
-//        }
 
         GRipperMonitor monitor = createMonitor();
         ripper.setMonitor(monitor);

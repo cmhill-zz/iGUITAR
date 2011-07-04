@@ -7,7 +7,7 @@ import edu.umd.cs.guitar.model.WebDefaultIDGenerator;
 
 
 public class WebRipperMain extends RipperMain {
-    public WebRipperMain(GWebRipperConfiguration config) {
+    public WebRipperMain(NewGRipperConfiguration config) {
         super(config);
     }
 

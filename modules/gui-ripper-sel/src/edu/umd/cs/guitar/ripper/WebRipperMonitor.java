@@ -62,7 +62,7 @@ public class WebRipperMonitor extends GRipperMonitor {
 	private WebDot dotGraph;
 	private String domainName;
 	
-	public WebRipperMonitor(GWebRipperConfiguration config) {
+	public WebRipperMonitor(NewGRipperConfiguration config) {
 		super();
 		this.config = (WebRipperConfiguration) config;
 	}

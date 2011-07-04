@@ -12,15 +12,15 @@ public class PluginFactory {
                IllegalAccessException, InvocationTargetException
     {
         // Find constructor for the configuration
-        Constructor<GWebRipperConfiguration> pluginInit =
+        Constructor<NewGRipperConfiguration> pluginInit =
             plugin.configType().getConstructor();
-        GWebRipperConfiguration configuration = pluginInit.newInstance();
+        NewGRipperConfiguration configuration = pluginInit.newInstance();
 
         configuration.parseArguments(args);
 
         // Create the RipperMain with this configuration
         Constructor ripperInit =
-            plugin.ripperType().getConstructor(GWebRipperConfiguration.class);
+            plugin.ripperType().getConstructor(NewGRipperConfiguration.class);
         return (RipperMain) ripperInit.newInstance(configuration);
     }
 

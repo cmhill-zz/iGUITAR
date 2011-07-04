@@ -8,7 +8,7 @@ import org.apache.commons.cli.HelpFormatter;
 
 import edu.umd.cs.guitar.util.Util;
 
-public class GWebRipperConfiguration {
+public class NewGRipperConfiguration {
 
     // Subclasses should add their own options to this list
     protected Options opts;
@@ -16,7 +16,7 @@ public class GWebRipperConfiguration {
     // Useful for subclasses to get command line options
     protected CommandLine cmd;
 
-    public GWebRipperConfiguration() {
+    public NewGRipperConfiguration() {
         opts = new Options();
         opts.addOption( "g", "gui-file", true, "destination GUI file path" );
         opts.addOption( "l", "log-file", true, "log file name" );

@@ -10,7 +10,7 @@ import org.apache.commons.cli.MissingOptionException;
  * 
  * @author
  */
-public class WebRipperConfiguration extends GWebRipperConfiguration {
+public class WebRipperConfiguration extends NewGRipperConfiguration {
 
 	public String WEBSITE_URL, DOT_FILE; // website to rip/crawl
 	public int DEPTH = 3;   // depth = max depth of links to explore starting from the main URL
