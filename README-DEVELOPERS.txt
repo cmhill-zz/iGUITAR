@@ -1,7 +1,7 @@
 SOURCE CODE NOTES
 
 I. HOW TO BUILD
-	Execute ant at root level for help
+	Execute ant without any parameter at root level for help on various tasks supported
 
 II. DIRECTORY LAYOUT
 
