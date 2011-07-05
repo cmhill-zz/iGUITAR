@@ -49,7 +49,7 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-<project name="${module}" default="help" basedir=".">
+<project name="build-module-common" default="help" basedir=".">
 	<!-- Environment vars-->
 	<property file="./build.properties" />
 	<available file="${pre.antfile}" property="filePresent" />

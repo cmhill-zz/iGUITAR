@@ -49,7 +49,7 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-<project name="${module}" default="help" basedir=".">
+<project name="gui-model-core" default="help" basedir=".">
 	<!-- Environment vars-->
 	<property file="${basedir}/build-local.properties" />
 	<property file="${basedir}/../../build-module-common.properties" />
