@@ -1,13 +1,13 @@
 The script supports the following targets:
 
 	dist: distribute all tools for all platforms.
-	[platform].dist: distribute all tools for a specific [platform].
-	[platform].dist-rp: distribute ripper for a specific [platform].
-	[platform].dist-rl: distribute replayer for a specific [platform].
+	[platform].dist: distribute all tools for a specific [platform]. Result is distributed under dist/guitar
+	[platform].dist-rp: distribute ripper for a specific [platform]. Result is distributed under dist/guitar
+	[platform].dist-rl: distribute replayer for a specific [platform]. Result is distributed under dist/guitar
 
-	release: release all tools for all platform.		
-	release-[platform]: release all tools for a specific [platform].	
-	
+	release: release all tools for all platforms. Result is distributed under dist/tools
+	release-[platform]: release all tools for a specific [platform]. Result is distributed under dist/tools
+
 	clean: clean all builds
 
 Currrent platforms supported:
