@@ -24,7 +24,7 @@ read -p "Press ENTER to continue..."
 echo "About to replay" 
 read -p "Press ENTER to continue..."
 
-SAMPLE_TEST=find TC -name "*.test" | tail -n1
-./sel-replayer.sh --website-url $website -g GUITAR-Default.GUI -e GUITAR-Default.EFG -t TC/t_e1212955360_e450847860.tst
+SAMPLE_TEST=find TC -name "*.tst" | tail -n1
+./sel-replayer.sh --website-url $website -g GUITAR-Default.GUI -e GUITAR-Default.EFG -t TC/$SAMPLE_TEST
 
 popd

@@ -1,9 +1,9 @@
 The script supports the following targets:
 
 	dist: distribute all tools for all platforms.
-	dist-[platform]: distribute all tools for a specific [platform].
-	dist-[platform].rp: distribute ripper for a specific [platform].
-	dist-[platform].rl: distribute replayer for a specific [platform].
+	[platform].dist: distribute all tools for a specific [platform].
+	[platform].dist-rp: distribute ripper for a specific [platform].
+	[platform].dist-rl: distribute replayer for a specific [platform].
 
 	release: release all tools for all platform.		
 	release-[platform]: release all tools for a specific [platform].	
