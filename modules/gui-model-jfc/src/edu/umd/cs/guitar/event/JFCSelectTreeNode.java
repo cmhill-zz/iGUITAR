@@ -26,11 +26,8 @@ import java.util.List;
 
 import javax.swing.JTree;
 import javax.swing.text.Position;
-import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
-
-import org.netbeans.jemmy.EventTool;
 
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.JFCConstants;

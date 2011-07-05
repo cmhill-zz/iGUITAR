@@ -21,23 +21,18 @@
 package edu.umd.cs.guitar.ripper;
 
 import java.io.InputStream;
-import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.kohsuke.args4j.CmdLineException;
 
-import edu.umd.cs.guitar.model.GHashcodeGenerator;
 import edu.umd.cs.guitar.model.GIDGenerator;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.IO;
 import edu.umd.cs.guitar.model.JFCConstants;
-import edu.umd.cs.guitar.model.JFCDefaultHashcodeGenerator;
 import edu.umd.cs.guitar.model.JFCDefaultIDGeneratorSimple;
 import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentListType;
@@ -52,7 +47,6 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.ripper.filter.GComponentFilter;
 import edu.umd.cs.guitar.ripper.filter.JFCIgnoreSignExpandFilter;
 import edu.umd.cs.guitar.ripper.filter.JFCTabFilter;
-import edu.umd.cs.guitar.ripper.filter.JFCTreeFilter;
 import edu.umd.cs.guitar.util.DefaultFactory;
 import edu.umd.cs.guitar.util.GUITARLog;
 
