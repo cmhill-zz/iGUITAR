@@ -1,0 +1,32 @@
+#!/bin/bash
+aut_classpath=./jfc-aut
+mainclass=Project
+gui_file=GUITAR-Default.GUI
+efg_file=GUITAR-Default.EFG
+
+SCRIPT_DIR=`dirname $0`
+pushd $SCRIPT_DIR
+
+# rip
+echo "About to rip" 
+read -p "Press ENTER to continue..."
+./jfcripper.sh -cp $aut_classpath -c $mainclass -g  $gui_file -e $efg_file
+
+# convert GUI to EFG
+echo "About to convert GUI to EFG " 
+read -p "Press ENTER to continue..."
+./gui2efg.sh GUITAR-Default.GUI GUITAR-Default.EFG
+
+# generate test case 
+echo "About to generate test cases" 
+read -p "Press ENTER to continue..."
+./tc-gen-sq.sh GUITAR-Default.EFG 2 0 TC
+
+# replay
+echo "About to replay" 
+read -p "Press ENTER to continue..."
+
+SAMPLE_TEST=find TC -name "*.test" | tail -n1
+./jfcreplayer.sh --website-url $website -g GUITAR-Default.GUI -e GUITAR-Default.EFG -t TC/t_e1212955360_e450847860.tst
+
+popd
