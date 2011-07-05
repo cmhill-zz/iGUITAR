@@ -58,8 +58,6 @@
 	<property name="debug" value="true" />
 
 	<!-- third party jar files for distribution -->
-	<echo message="./" />
-	<echo message="${shared.lib.dir}" />
 	<fileset id="3rd-dist.file.ref" dir="${shared.lib.dir}" includes="*.jar" erroronmissingdir="false" />
 
 	<!-- PRE File -->
