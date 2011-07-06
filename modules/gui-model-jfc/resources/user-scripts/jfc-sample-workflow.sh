@@ -5,19 +5,27 @@
 # The output can be found in Demo directory  
 
 #------------------------
-# Running script dir 
+# Running in script dir 
 SCRIPT_DIR=`dirname $0`
 
 #------------------------
+# application directory 
+aut_dir=$SCRIPT_DIR/jfc-aut/RadioButton/
+
 # application classpath 
-aut_classpath=$SCRIPT_DIR/jfc-aut
+aut_classpath=$aut_dir/RadioButton/bin
 
 #------------------------
 # Sample command line arguments 
 mainclass="Project"
+
+# Enable these lines to test with a lager application called CrosswordSage (http://crosswordsage.sourceforge.net/)
+#aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/:$SCRIPT_DIR/jfc-aut/CrosswordSage/CrosswordSage.jar
+#mainclass="crosswordsage.MainScreen"
+
 args=""
 jvm_options=""
-configuration="$SCRIPT_DIR/configuration.xml"
+configuration="$aut_dir/guitar-config/configuration.xml"
 intial_wait=1000
 ripper_delay=500
 
