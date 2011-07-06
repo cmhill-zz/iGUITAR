@@ -13,7 +13,7 @@ SCRIPT_DIR=`dirname $0`
 aut_dir=$SCRIPT_DIR/jfc-aut/RadioButton/
 
 # application classpath 
-aut_classpath=$aut_dir/RadioButton/bin
+aut_classpath=$aut_dir/bin
 
 #------------------------
 # Sample command line arguments 
