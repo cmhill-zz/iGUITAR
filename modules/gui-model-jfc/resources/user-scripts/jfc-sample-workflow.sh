@@ -69,7 +69,7 @@ eval $cmd
 
 # convert GUI to EFG
 echo ""
-echo "About to convert GUI to EFG " 
+echo "About to convert GUI structure file to Event Flow Graph (EFG) file" 
 read -p "Press ENTER to continue..."
 cmd="$SCRIPT_DIR/gui2efg.sh $gui_file $efg_file"
 echo $cmd
@@ -77,7 +77,7 @@ eval $cmd
 
 # generate test case 
 echo ""
-echo "About to generate test cases" 
+echo "About to generate test cases to cover all possible $tc_length-way event interactions" 
 read -p "Press ENTER to continue..."
 cmd="$SCRIPT_DIR/tc-gen-sq.sh $efg_file $tc_length 0 $testcases_dir"
 echo $cmd
@@ -85,7 +85,7 @@ eval $cmd
 
 # replay
 echo ""
-echo "About to replay  $testcase_num sample test case(s)" 
+echo "About to replay $testcase_num sample test case(s)" 
 read -p "Press ENTER to continue..."
 
 for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`  
