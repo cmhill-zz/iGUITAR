@@ -95,8 +95,6 @@ do
 	test_name=${test_name%.*}
 
 	cmd="$SCRIPT_DIR/jfc-replayer.sh -cp $aut_classpath -c  $mainclass -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta" 
-
-
 	echo $cmd 
 	$cmd
 done
