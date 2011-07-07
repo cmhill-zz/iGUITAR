@@ -41,7 +41,7 @@ relayer_delay=200
 
 # output 
 
-output_dir="Demo"
+output_dir="$SCRIPT_DIR/Demo"
 
 gui_file="$output_dir/Demo.GUI"
 efg_file="$output_dir/Demo.EFG"
