@@ -30,7 +30,7 @@ intial_wait=1000
 ripper_delay=500
 
 tc_length=2
-testcase_num=2
+testcase_num=3
 
 relayer_delay=200
 
@@ -50,32 +50,49 @@ logs_dir="$output_dir/Demo.logs"
 
 # directory prepartion
 mkdir -p $output_dir
+mkdir -p $testcases_dir
+mkdir -p $states_dir
+mkdir -p $logs_dir
 
 # rip
 echo ""
-echo "About to rip application " 
+echo "About to rip the application " 
 read -p "Press ENTER to continue..."
-$SCRIPT_DIR/jfc-ripper.sh -cp $aut_classpath -c $mainclass -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file
+cmd="$SCRIPT_DIR/jfc-ripper.sh -cp $aut_classpath -c $mainclass -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file"
+echo $cmd
+eval $cmd
 
 # convert GUI to EFG
 echo ""
 echo "About to convert GUI to EFG " 
 read -p "Press ENTER to continue..."
-$SCRIPT_DIR/gui2efg.sh $gui_file $efg_file 
+cmd="$SCRIPT_DIR/gui2efg.sh $gui_file $efg_file"
+echo $cmd
+eval $cmd
 
 # generate test case 
 echo ""
 echo "About to generate test cases" 
 read -p "Press ENTER to continue..."
-$SCRIPT_DIR/tc-gen-sq.sh $efg_file $tc_length $testcase_num  $testcases_dir
+cmd="$SCRIPT_DIR/tc-gen-sq.sh $efg_file $tc_length 0 $testcases_dir"
+echo $cmd
+eval $cmd 
 
 # replay
 echo ""
-echo "About to replay test cases " 
+echo "About to replay  $testcase_num sample test case(s)" 
 read -p "Press ENTER to continue..."
 
-for testcase in `find $testcases_dir -name "*.tst"`  
+for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`  
 do
-	$SCRIPT_DIR/jfc-replayer.sh 
+	# get test name 
+	test_name=`basename $testcase`
+	test_name=${test_name%.*}
+
+	cmd="$SCRIPT_DIR/jfc-replayer.sh -cp $aut_classpath -c  $mainclass -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta" 
+
+
+	echo $cmd 
+	$cmd
 done
 
