@@ -41,9 +41,9 @@ output_dir="Demo"
 gui_file="$output_dir/Demo.GUI"
 efg_file="$output_dir/Demo.EFG"
 log_file="$output_dir/Demo.log"
-states_dir="$output_dir/Demo.states"
-testcases_dir="$output_dir/Demo.testcases"
-logs_dir="$output_dir/Demo.logs"
+states_dir="$output_dir/states"
+testcases_dir="$output_dir/testcases"
+logs_dir="$output_dir/logs"
 
 #------------------------
 # Main workflow 
