@@ -15,14 +15,19 @@ aut_dir=$SCRIPT_DIR/jfc-aut/RadioButton/
 # application classpath 
 aut_classpath=$aut_dir/bin
 
-#------------------------
-# Sample command line arguments 
+# application main class
 mainclass="Project"
 
-# Enable these lines to test with a lager application called CrosswordSage (http://crosswordsage.sourceforge.net/)
+# Comment out the following 2 lines to change the 
+# classpath and main class to run the demo 
+# with a real world application call CrosswordSage 
+# (http://crosswordsage.sourceforge.net/)
+
 #aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/:$SCRIPT_DIR/jfc-aut/CrosswordSage/CrosswordSage.jar
 #mainclass="crosswordsage.MainScreen"
 
+#------------------------
+# Sample command line arguments 
 args=""
 jvm_options=""
 configuration="$aut_dir/guitar-config/configuration.xml"
