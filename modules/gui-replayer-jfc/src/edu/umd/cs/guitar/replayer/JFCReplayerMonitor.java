@@ -30,6 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.netbeans.jemmy.EventTool;
+import org.netbeans.jemmy.QueueTool;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
@@ -389,5 +390,12 @@ public class JFCReplayerMonitor extends GReplayerMonitor {
 
 		return false;
 	}
+
+    @Override
+    public void delay(int delay)
+    {
+        new QueueTool().waitEmpty(delay);
+        
+    }
 
 }

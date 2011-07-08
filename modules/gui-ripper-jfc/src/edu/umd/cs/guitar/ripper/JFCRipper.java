@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.apache.log4j.Level;
 import org.kohsuke.args4j.CmdLineException;
 
 import edu.umd.cs.guitar.model.GIDGenerator;
@@ -89,18 +90,10 @@ public class JFCRipper {
 		}
 		System.setProperty(GUITARLog.LOGFILE_NAME_SYSTEM_PROPERTY,
 				JFCRipperConfiguration.LOG_FILE);
-		// PropertyConfigurator.configure(JFCConstants.LOG4J_PROPERTIES_FILE);
-		// URL logFile = this.getClass().getClassLoader().getResource(
-		// JFCConstants.LOG4J_PROPERTIES_FILE);
-		// PropertyConfigurator.configure(logFile);
 
-		// org.apache.log4j.helpers.Loader.getResource(resource, Logger.class)
-
-		// GUITARLog.log =
-		// Logger.getLogger(JFCRipperMain.class.getSimpleName());
 		long nStartTime = System.currentTimeMillis();
 		ripper = new Ripper(GUITARLog.log);
-
+		
 		// -------------------------
 		// Setup configuration
 		// -------------------------

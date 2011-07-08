@@ -23,7 +23,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.netbeans.jemmy.QueueTool;
 
 import edu.umd.cs.guitar.exception.GException;
 import edu.umd.cs.guitar.model.GApplication;
@@ -42,6 +41,10 @@ import edu.umd.cs.guitar.replayer.GReplayerMonitor;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**
+ * Collect current GUI states 
+ * 
+ * <p>
+ * 
  * @author <a href="mailto:baonn@cs.umd.edu"> Bao Nguyen </a>
  */
 public class StateMonitorFull extends GTestMonitor {
@@ -125,15 +128,6 @@ public class StateMonitorFull extends GTestMonitor {
 	GApplication gApplication;
 	GReplayerMonitor monitor;
 
-	/**
-	 * @param sStateFile
-	 */
-	@Deprecated
-	public StateMonitorFull(String sStateFile) {
-		super();
-		this.sStateFile = sStateFile;
-
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -146,9 +140,10 @@ public class StateMonitorFull extends GTestMonitor {
 		outTestCase = factory.createTestCase();
 		monitor = replayer.getMonitor();
 		gApplication = monitor.getApplication();
+		
+		monitor.delay(delay);
 
-		// TODO: Remove this to be platform independent 
-		new QueueTool().waitEmpty(delay);
+	
 
 		GUIStructure initialState = getCurrentState();
 
@@ -186,14 +181,7 @@ public class StateMonitorFull extends GTestMonitor {
 		GUITARLog.log.info("Delaying for " + delay
 				+ " ms to get a stable GUI state....");
 
-		//TODO :Move this out of the core
-		new QueueTool().waitEmpty(delay);
-		// try {
-		// Thread.sleep(delay);
-		// } catch (InterruptedException e) {
-		// // TODO Auto-generated catch block
-		// GUITARLog.log.error(e);
-		// }
+		monitor.delay(delay);
 
 		GUITARLog.log.info("Recording GUI state....");
 

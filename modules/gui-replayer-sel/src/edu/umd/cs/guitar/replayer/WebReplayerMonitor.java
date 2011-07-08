@@ -136,4 +136,11 @@ public class WebReplayerMonitor extends GReplayerMonitor {
 		handler = new WebWindowHandler(driver);
 		handler.setUp();
 	}
+
+    @Override
+    public void delay(int delay)
+    {
+        // TODO Auto-generated method stub
+        
+    }
 }

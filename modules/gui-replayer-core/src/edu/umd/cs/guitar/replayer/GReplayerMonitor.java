@@ -81,18 +81,6 @@ public abstract class GReplayerMonitor {
      */
     public abstract GWindow getWindow(String sWindowTitle);
 
-//    /**
-//     * 
-//     * Get component from its ID and the host window
-//     * 
-//     * <p>
-//     * 
-//     * @param sComponentID
-//     * @param gWindow
-//     * @return GComponent
-//     */
-//   // public abstract GComponent getComponent(String sComponentID, GWindow gWindow);
-
     /**
      * Get an action from its name
      * 
@@ -133,6 +121,13 @@ public abstract class GReplayerMonitor {
     public GApplication getApplication() {
         return application;
     }
+
+    /**
+     * Delay for a <code> delay </code> milliseconds
+     * 
+     * @param delay
+     */
+    abstract public void delay(int delay);
     
     
 

@@ -98,22 +98,6 @@ public class JFCRipperMointor extends GRipperMonitor {
 	/**
 	 * Constructor
 	 * 
-	 * @param logger
-	 *            logger to keep track of output
-	 * @param sMainClass
-	 *            full name of the main class
-	 * 
-	 */
-	@Deprecated
-	public JFCRipperMointor(String sMainClass, Logger logger) {
-		super();
-		// this.logger = logger;
-		JFCRipperConfiguration.MAIN_CLASS = sMainClass;
-	}
-
-	/**
-	 * Constructor
-	 * 
 	 * <p>
 	 * 
 	 * @param configuration
@@ -123,16 +107,6 @@ public class JFCRipperMointor extends GRipperMonitor {
 		super();
 		// this.logger = logger;
 		this.configuration = configuration;
-	}
-
-	/**
-	 * @param main_class
-	 */
-	@Deprecated
-	public JFCRipperMointor(String main_class) {
-		super();
-		JFCRipperConfiguration.MAIN_CLASS = main_class;
-		// this.logger = Logger.getLogger(this.getClass().getSimpleName());
 	}
 
 	List<String> sRootWindows = new ArrayList<String>();
@@ -187,10 +161,6 @@ public class JFCRipperMointor extends GRipperMonitor {
 	@Override
 	public void expandGUI(GComponent component) {
 
-		// JFCXComponent jComponent = (JFCXComponent) component;
-		// Accessible aComponent = jComponent.getAComponent();
-		// GComponent gComponent = new JFCXComponent(aComponent);
-
 		if (component == null)
 			return;
 
@@ -203,13 +173,7 @@ public class JFCRipperMointor extends GRipperMonitor {
 		GUITARLog.log.info("Waiting  " + configuration.DELAY
 				+ "ms for a new window to open");
 
-		// new QueueTool().waitEmpty(configuration.DELAY);
 		new EventTool().waitNoEvent(configuration.DELAY);
-
-		// try {
-		// Thread.sleep(configuration.DELAY);
-		// } catch (InterruptedException e) {
-		// }
 	}
 
 	/*
@@ -279,9 +243,6 @@ public class JFCRipperMointor extends GRipperMonitor {
 		for (GWindow window : retWindowList) {
 			GUITARLog.log.debug("Window title: " + window.getTitle());
 		}
-
-		// Debugger.pause("Press ENTER to continue");
-		// //
 
 		try {
 			Thread.sleep(50);

@@ -22,13 +22,14 @@ mainclass="Project"
 # application. The example is for CrosswordSage, another real world example
 # in the jfc-aut directory (http://crosswordsage.sourceforge.net/)
 
-#aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/:$SCRIPT_DIR/jfc-aut/CrosswordSage/CrosswordSage.jar
+#aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/bin:$SCRIPT_DIR/jfc-aut/CrosswordSage/bin/CrosswordSage.jar
 #mainclass="crosswordsage.MainScreen"
 
 #------------------------
 # Sample command line arguments 
 args=""
 jvm_options=""
+
 # configuration for the application
 # you can specify widgets to ignore during ripping 
 # and terminal widgets 

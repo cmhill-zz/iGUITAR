@@ -37,107 +37,107 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
 /**
- * Global runtime log for GUITAR
+ * Global runtime log for GUITAR TODO: Find a better way for logging instead of
+ * using a global mechanism
  * 
  * <p>
  * 
  * @author Bao Nguyen
- * 
  */
-public class GUITARLog {
- 
-   /**
+public class GUITARLog
+{
+
+    /**
     * 
     */
-   public static final
-   String LOGFILE_NAME_SYSTEM_PROPERTY = "logfile.name";
- 
-   public static
-   Logger log;
- 
- 
-   /**
+    public static final String LOGFILE_NAME_SYSTEM_PROPERTY = "logfile.name";
+
+    public static Logger log;
+
+    /**
     * 
     */
-   private static final
-   String LOG_LAYOUT_PATTERN = "%-6r [%t] %-5p - %m%n";
+    private static final String LOG_LAYOUT_PATTERN = "%-6r [%t] %-5p - %n";
 
-
-   /**
+    /**
     * 
     */
-   private static final
-   String GUITAR_DEFAULT_LOG = "GUITAR-Default.log";
+    private static final String GUITAR_DEFAULT_LOG = "GUITAR-Default.log";
 
+    /**
+     * Logging level
+     */
+    private static Level level = Level.DEBUG;
 
-   /**
-    * Logging level
-    */
-   private static
-   Level level = Level.DEBUG;
+    static
+    {
+        log = Logger.getLogger(GUITARLog.class);
 
+        PatternLayout layout = new org.apache.log4j.PatternLayout();
+        layout.setConversionPattern(LOG_LAYOUT_PATTERN);
 
-   static {
-      log = Logger.getLogger("GUITARLog");
+        // ConsoleAppender stdout = new ConsoleAppender(layout);
+        // log.addAppender(stdout);
 
-      PatternLayout layout = new org.apache.log4j.PatternLayout();
-      layout.setConversionPattern(LOG_LAYOUT_PATTERN);
+        FileAppender file = null;
 
-      ConsoleAppender stdout = new ConsoleAppender(layout);
-      log.addAppender(stdout);
+        String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
 
-      FileAppender file = null;
+        if (logFileName == null)
+        {
+            logFileName = GUITAR_DEFAULT_LOG;
+        }
 
-      String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
+        try
+        {
+            file = new FileAppender(layout, logFileName, false);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
-      if (logFileName == null) {
-         logFileName = GUITAR_DEFAULT_LOG;
-      }
+        log.addAppender(file);
+        log.setLevel(level);
+    }
 
-      try {
-         file = new FileAppender(layout, logFileName, false);
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
+    /**
+     * Log the given string 'str' as Debug
+     * 
+     * @return
+     */
+    public static void Debug(String str)
+    {
+        if (Level.DEBUG.isGreaterOrEqual(GUITARLog.level))
+        {
+            System.out.println("Debug: " + str);
+        }
+    }
 
-      log.addAppender(file);
-      log.setLevel(level);
-   }
+    /**
+     * Log the given string 'str' as Info.
+     * 
+     * @return
+     */
+    public static void Info(String str)
+    {
+        if (Level.INFO.isGreaterOrEqual(GUITARLog.level))
+        {
+            System.out.println("Info: " + str);
+        }
+    }
 
-   /**
-    * Log the given string 'str' as Debug
-    *
-    * @return
-    */
-   public static
-   void Debug(String str) {
-      if (Level.DEBUG.isGreaterOrEqual(GUITARLog.level)) {
-         System.out.println("Debug: " + str);
-      }
-   }
-
-   /**
-    * Log the given string 'str' as Info.
-    *
-    * @return
-    */
-   public static
-   void Info(String str) {
-      if (Level.INFO.isGreaterOrEqual(GUITARLog.level)) {
-         System.out.println("Info: " + str);
-      }
-   }
-
-   /**
-    * Log the given string 'str' as Error.
-    *
-    * @return
-    */
-   public static
-   void Error(String str) {
-      if (Level.ERROR.isGreaterOrEqual(GUITARLog.level)) {
-         System.out.println("Error: " + str);
-      }
-   }
+    /**
+     * Log the given string 'str' as Error.
+     * 
+     * @return
+     */
+    public static void Error(String str)
+    {
+        if (Level.ERROR.isGreaterOrEqual(GUITARLog.level))
+        {
+            System.out.println("Error: " + str);
+        }
+    }
 
 } // End of class

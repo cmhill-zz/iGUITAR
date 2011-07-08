@@ -41,169 +41,167 @@ import edu.umd.cs.guitar.testcase.plugin.TCPlugin;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**
- * 
- * Main class of the Test Case Generator. Run the specified converter,
- * with the specifier parameters
+ * Main class of the Test Case Generator. Run the specified converter, with the
+ * specifier parameters
  * 
  * @author <a href="mailto:charlie.biger@gmail.com"> Charlie BIGER </a>
- * 
  */
-public class TestCaseGenerator {
+public class TestCaseGenerator
+{
 
-   public static void main(String[] args)
-   {
-      setupLog();
+    public static void main(String[] args)
+    {
+        setupLog();
 
-      /*
-       * Manually search for the plugin argument,
-       * and let it parse the arguments.
-       */
-      String pluginName = "";
+        /*
+         * Manually search for the plugin argument, and let it parse the
+         * arguments.
+         */
+        String pluginName = "";
 
-      for (int i = 0; i < args.length; i++) {
+        for (int i = 0; i < args.length; i++)
+        {
 
-         if (args[i].equals("-p") || args[i].equals("--plugin")) {
+            if (args[i].equals("-p") || args[i].equals("--plugin"))
+            {
 
-            if (i + 1 < args.length) {
+                if (i + 1 < args.length)
+                {
 
-               pluginName = args[i + 1];
-               break;
+                    pluginName = args[i + 1];
+                    break;
 
-            } else {
-               // Testcase generator plugin name not specified
-               System.out.println("Missing plugin argument -p");
+                }
+                else
+                {
+                    // Testcase generator plugin name not specified
+                    System.out.println("Missing plugin argument -p");
 
-               System.exit(0);
+                    System.exit(0);
+                }
             }
-         }
-      }
-  
-      if (pluginName.equals("")) {
-         System.out.println("Missing plugin argument -p");
-         System.exit(0);
-      }
+        }
 
-      CmdLineParser parser =
-         new CmdLineParser(new TestCaseGeneratorConfiguration());
-
-      try {
-         // By default the plugin is put in the same package with TCPlugin
-         if (!pluginName.contains(TCPlugin.class.getPackage().getName())) {
-            pluginName = TCPlugin.class.getPackage().getName() + "." +
-                            pluginName;
-         }
-
-         Class<?> converterClass = Class.forName(pluginName);
-         TCPlugin generator = (TCPlugin) converterClass.newInstance();
-
-         TestCaseGeneratorConfiguration configuration =
-            generator.getConfiguration();
-
-         if (configuration == null) {
+        if (pluginName.equals(""))
+        {
+            System.out.println("Missing plugin argument -p");
             System.exit(0);
-         }
-   
-         parser = new CmdLineParser(configuration);
-         parser.parseArgument(args);
+        }
 
-         if (!configuration.isValid()
-             || (TestCaseGeneratorConfiguration.HELP)) {
-            throw new CmdLineException("");
-         }
+        CmdLineParser parser = new CmdLineParser(new TestCaseGeneratorConfiguration());
 
-         if (!generator.isValidArgs()) {
-            throw new CmdLineException("Invalid plugin arguments ");
-         }
+        try
+        {
+            // By default the plugin is put in the same package with TCPlugin
+            if (!pluginName.contains(TCPlugin.class.getPackage().getName()))
+            {
+                pluginName = TCPlugin.class.getPackage().getName() + "." + pluginName;
+            }
 
-         System.out.println("Plugin: " +
-                            TestCaseGeneratorConfiguration.PLUGIN);
+            Class<?> converterClass = Class.forName(pluginName);
+            TCPlugin generator = (TCPlugin) converterClass.newInstance();
 
-         // Reading EFG
-         System.out.println("Reading EFG...");
-         EFG efg = (EFG) IO.readObjFromFile(
-            TestCaseGeneratorConfiguration.EFG_FILE, EFG.class);
+            TestCaseGeneratorConfiguration configuration = generator.getConfiguration();
 
-         generator.generate(efg,
-                            TestCaseGeneratorConfiguration.OUTPUT_DIR,
+            if (configuration == null)
+            {
+                System.exit(0);
+            }
+
+            parser = new CmdLineParser(configuration);
+            parser.parseArgument(args);
+
+            if (!configuration.isValid() || (TestCaseGeneratorConfiguration.HELP)) { throw new CmdLineException(""); }
+
+            if (!generator.isValidArgs()) { throw new CmdLineException("Invalid plugin arguments "); }
+
+            System.out.println("Plugin: " + TestCaseGeneratorConfiguration.PLUGIN);
+
+            // Reading EFG
+            System.out.println("Reading EFG...");
+            EFG efg = (EFG) IO.readObjFromFile(TestCaseGeneratorConfiguration.EFG_FILE, EFG.class);
+
+            generator.generate(efg, TestCaseGeneratorConfiguration.OUTPUT_DIR,
                             TestCaseGeneratorConfiguration.MAX_NUMBER);
 
-      } catch (CmdLineException e) {
-         System.err.println(e.getMessage());
-         System.err.println();
-         System.err.println("Usage: java [JVM options] "
-                            + TestCaseGenerator.class.getName()
+        }
+        catch (CmdLineException e)
+        {
+            GUITARLog.log.error(e.getMessage());
+            GUITARLog.log.error("");
+            GUITARLog.log.error("Usage: java [JVM options] " + TestCaseGenerator.class.getName()
                             + " [TC generator options] \n");
 
-         System.err.println("where [TC generator options] include:");
-         System.err.println();
+            GUITARLog.log.error("where [TC generator options] include:");
+            GUITARLog.log.error("");
 
-         parser.printUsage(System.err);
-         System.exit(0);
+            parser.printUsage(System.err);
+            System.exit(0);
 
-      } catch (ClassNotFoundException e) {
-         System.out.println("Plugin cannot be found. Please make sure " +
-                            "that the plugin name is correct and the " +
-                            "corresponding .jar file can be reached.");
+        }
+        catch (ClassNotFoundException e)
+        {
+            GUITARLog.log.error("Plugin cannot be found. Please make sure "
+                            + "that the plugin name is correct and the " + "corresponding .jar file can be reached.");
 
-         e.printStackTrace();
+            e.printStackTrace();
 
-      } catch (InstantiationException e) {
-         System.out.println("Plugin is defined as an Abstract class, " +
-                            "or an interface, or its constructor is not " +
-                            "accessible without parameters.");
+        }
+        catch (InstantiationException e)
+        {
+            GUITARLog.log.error("Plugin is defined as an Abstract class, "
+                            + "or an interface, or its constructor is not " + "accessible without parameters.");
 
-         System.out.println("Please Report this bug");
+            GUITARLog.log.error("Please Report this bug");
 
-      } catch (IllegalAccessException e) {
-         System.out.println("Plugin is not accessible");
-      }
+        }
+        catch (IllegalAccessException e)
+        {
+            GUITARLog.log.error("Plugin is not accessible");
+        }
 
-      printInfo();
-   }
+        printInfo();
+    }
 
-   /**
+    /**
     * 
     */
-   private static void printInfo()
-   {
-      GUITARLog.log.info("================================");
-      GUITARLog.log.info("EFG File: "
-                         + TestCaseGeneratorConfiguration.EFG_FILE);
-      GUITARLog.log.info("Plugin: " + TestCaseGeneratorConfiguration.PLUGIN);
-      GUITARLog.log.info("Test cases #: "
-                         + TestCaseGeneratorConfiguration.MAX_NUMBER);
+    private static void printInfo()
+    {
+        GUITARLog.log.info("================================");
+        GUITARLog.log.info("EFG File: " + TestCaseGeneratorConfiguration.EFG_FILE);
+        GUITARLog.log.info("Plugin: " + TestCaseGeneratorConfiguration.PLUGIN);
+        GUITARLog.log.info("Test cases #: " + TestCaseGeneratorConfiguration.MAX_NUMBER);
 
-      GUITARLog.log.info("Output dir: "
-                         + TestCaseGeneratorConfiguration.OUTPUT_DIR);
-      GUITARLog.log.info("================================");
-   }
+        GUITARLog.log.info("Output dir: " + TestCaseGeneratorConfiguration.OUTPUT_DIR);
+        GUITARLog.log.info("================================");
+    }
 
-   /**
+    /**
      * 
      */
-   private static void setupLog()
-   {
-      System.setProperty(GUITARLog.LOGFILE_NAME_SYSTEM_PROPERTY,
-      TestCaseGenerator.class.getSimpleName()+ ".log");
+    private static void setupLog()
+    {
+        System.setProperty(GUITARLog.LOGFILE_NAME_SYSTEM_PROPERTY, TestCaseGenerator.class.getSimpleName() + ".log");
 
-      //  try {
-      //   GUITARLog.log = Logger.getLogger(TestCaseGenerator.class
-      //     .getSimpleName());
-      //
-      //   final File logFile = new File("TestCaseGenerator.log");
-      //   final String LOG_PATTERN = "%m%n";
-      //   final PatternLayout pl = new PatternLayout(LOG_PATTERN);
-      //
-      //   final FileAppender rfp = new RollingFileAppender(pl, logFile
-      //     .getCanonicalPath(), true);
-      //
-      //   final ConsoleAppender cp = new ConsoleAppender(pl);
-      //
-      //   GUITARLog.log.addAppender(rfp);
-      //   GUITARLog.log.addAppender(cp);
-      //
-      //  } catch (IOException e) {
-      //   e.printStackTrace();
-      //  }
-   }
+        // try {
+        // GUITARLog.log = Logger.getLogger(TestCaseGenerator.class
+        // .getSimpleName());
+        //
+        // final File logFile = new File("TestCaseGenerator.log");
+        // final String LOG_PATTERN = "%m%n";
+        // final PatternLayout pl = new PatternLayout(LOG_PATTERN);
+        //
+        // final FileAppender rfp = new RollingFileAppender(pl, logFile
+        // .getCanonicalPath(), true);
+        //
+        // final ConsoleAppender cp = new ConsoleAppender(pl);
+        //
+        // GUITARLog.log.addAppender(rfp);
+        // GUITARLog.log.addAppender(cp);
+        //
+        // } catch (IOException e) {
+        // e.printStackTrace();
+        // }
+    }
 }

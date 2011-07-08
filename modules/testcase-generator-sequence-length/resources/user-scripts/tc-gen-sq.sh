@@ -15,7 +15,6 @@ fi
 
 tool_guitar_dir=`dirname $0`
 guitar_lib=$tool_guitar_dir/jars
-shared_lib=$tool_guitar_dir/shared
 
 # Main classes 
 tcgen_launcher=edu.umd.cs.guitar.testcase.TestCaseGenerator
