@@ -20,7 +20,7 @@ mainclass="Project"
 
 # Change the following 2 lines for the classpath and the main class of your 
 # application. The example is for CrosswordSage, another real world example
-# included in the jfc-aut directory (http://crosswordsage.sourceforge.net/)
+# in the jfc-aut directory (http://crosswordsage.sourceforge.net/)
 
 #aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/:$SCRIPT_DIR/jfc-aut/CrosswordSage/CrosswordSage.jar
 #mainclass="crosswordsage.MainScreen"
