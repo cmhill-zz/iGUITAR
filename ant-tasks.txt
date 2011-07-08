@@ -10,7 +10,7 @@ The script supports the following targets:
 
 	clean: clean all builds
 
-Currrent platforms supported:
+Currrently supported platforms:
 	jfc: Java Swing 
 	sel: Selenium 
 
