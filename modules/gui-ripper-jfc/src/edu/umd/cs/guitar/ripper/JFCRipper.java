@@ -131,7 +131,7 @@ public class JFCRipper {
 		logWidget.setOpenWindow(lOpenWins);
 		logWidget.setCloseWindow(lCloseWins);
 
-		IO.writeObjToFile(logWidget, JFCRipperConfiguration.LOG_WIDGET_FILE);
+//		IO.writeObjToFile(logWidget, JFCRipperConfiguration.LOG_WIDGET_FILE);
 
 		// ------------------
 		// Elapsed time:

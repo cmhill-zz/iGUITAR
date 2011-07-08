@@ -1,7 +1,9 @@
 #!/bin/bash
 
+tool_guitar_dir=`dirname $0`
+guitar_lib=$tool_guitar_dir/jars
 classpath=.
-for file in `find jars -name '*.jar'` 
+for file in `find $guitar_lib -name '*.jar'` 
 do
 	classpath=$classpath:$file
 done

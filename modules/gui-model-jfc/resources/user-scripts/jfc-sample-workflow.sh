@@ -18,9 +18,10 @@ aut_classpath=$aut_dir/bin
 # application main class
 mainclass="Project"
 
-# Comment out the following 2 lines to change the 
-# classpath and main class to run the demo 
-# with a real world application call CrosswordSage 
+# Change the following 2 lines for 
+# the classpath and the main class of your 
+# application. This example is for 
+# CrosswordSage, another real world example
 # (http://crosswordsage.sourceforge.net/)
 
 #aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/:$SCRIPT_DIR/jfc-aut/CrosswordSage/CrosswordSage.jar
@@ -41,7 +42,7 @@ relayer_delay=200
 
 # output 
 
-output_dir="$SCRIPT_DIR/Demo"
+output_dir="./Demo"
 
 gui_file="$output_dir/Demo.GUI"
 efg_file="$output_dir/Demo.EFG"
@@ -64,6 +65,12 @@ echo ""
 echo "About to rip the application " 
 read -p "Press ENTER to continue..."
 cmd="$SCRIPT_DIR/jfc-ripper.sh -cp $aut_classpath -c $mainclass -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file"
+
+# add application arguments if needed 
+if [ ! -z $args ] 
+then 
+	cmd="$cmd -a \"$args\"" 
+fi
 echo $cmd
 eval $cmd
 
@@ -94,8 +101,14 @@ do
 	test_name=`basename $testcase`
 	test_name=${test_name%.*}
 
-	cmd="$SCRIPT_DIR/jfc-replayer.sh -cp $aut_classpath -c  $mainclass -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta" 
+	cmd="$SCRIPT_DIR/jfc-replayer.sh -cp $aut_classpath -c  $mainclass -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta -cf $configuration"
+
+	# add application arguments if needed 
+	if [ ! -z $args ] 
+	then 
+		cmd="$cmd -a \"$args\" " 
+	fi	
 	echo $cmd 
-	$cmd
+	eval $cmd
 done
 

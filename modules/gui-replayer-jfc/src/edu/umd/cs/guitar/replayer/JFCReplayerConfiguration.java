@@ -72,10 +72,10 @@ public class JFCReplayerConfiguration extends GReplayerConfiguration {
 	@Option(name = "-c", usage = "<REQUIRED> main class name for the Application Under Test ", aliases = "--main-class")
 	static String MAIN_CLASS = null;
 
-	@Option(name = "-a", usage = "arguments for the Application Under Test, separated by ';' ", aliases = "--arguments")
+	@Option(name = "-a", usage = "arguments for the Application Under Test, separated by ':' ", aliases = "--arguments")
 	static String ARGUMENT_LIST;
 
-	@Option(name = "-u", usage = "URLs for the Application Under Test, separated by ';' ", aliases = "--urls")
+	@Option(name = "-u", usage = "URLs for the Application Under Test, separated by ':' ", aliases = "--urls")
 	static public String URL_LIST;
 
 	@Option(name = "-j", usage = "Java Virtual Machine options for the Application Under Test", aliases = "--jvm-options")
