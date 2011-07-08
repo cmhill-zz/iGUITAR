@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This is a sample script to demonstrate 
-# GUITAR's workflow 
+# GUITAR general workflow 
 # The output can be found in Demo directory  
 
 #------------------------
@@ -29,42 +29,72 @@ mainclass="Project"
 # Sample command line arguments 
 args=""
 jvm_options=""
+# configuration for the application
+# you can specify widgets to ignore during ripping 
+# and terminal widgets 
 configuration="$aut_dir/guitar-config/configuration.xml"
+
+# intial waiting time
+# change this if your application need more time to start
 intial_wait=1000
+
+# delay time between two events during ripping 
 ripper_delay=500
 
+# the length of test suite
 tc_length=2
+
+# maximum number of test case to run in the demo
 testcase_num=3
 
+# delay time between two events during replaying  
+# this number is generally smaller than the $ripper_delay
 relayer_delay=200
 
-# output 
+#------------------------
+# Output artifacts 
+#------------------------
 
+# Directory to store all output of the workflow 
 output_dir="./Demo"
 
+# GUI structure file
 gui_file="$output_dir/Demo.GUI"
+
+# EFG file 
 efg_file="$output_dir/Demo.EFG"
+
+# Log file for the ripper 
+# You can examine this file to get the widget 
+# signature to ignore during ripping 
 log_file="$output_dir/Demo.log"
-states_dir="$output_dir/states"
+
+# Test case directory  
 testcases_dir="$output_dir/testcases"
+
+# GUI states directory  
+states_dir="$output_dir/states"
+
+# Replaying log directory 
 logs_dir="$output_dir/logs"
 
 #------------------------
 # Main workflow 
+#------------------------
 
-# directory prepartion
+# Preparing output directories
 mkdir -p $output_dir
 mkdir -p $testcases_dir
 mkdir -p $states_dir
 mkdir -p $logs_dir
 
-# rip
+# Ripping
 echo ""
 echo "About to rip the application " 
 read -p "Press ENTER to continue..."
 cmd="$SCRIPT_DIR/jfc-ripper.sh -cp $aut_classpath -c $mainclass -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file"
 
-# add application arguments if needed 
+# Adding application arguments if needed 
 if [ ! -z $args ] 
 then 
 	cmd="$cmd -a \"$args\"" 
@@ -72,7 +102,7 @@ fi
 echo $cmd
 eval $cmd
 
-# convert GUI to EFG
+# Converting GUI structure to EFG
 echo ""
 echo "About to convert GUI structure file to Event Flow Graph (EFG) file" 
 read -p "Press ENTER to continue..."
@@ -80,7 +110,7 @@ cmd="$SCRIPT_DIR/gui2efg.sh $gui_file $efg_file"
 echo $cmd
 eval $cmd
 
-# generate test case 
+# Generating test cases
 echo ""
 echo "About to generate test cases to cover all possible $tc_length-way event interactions" 
 read -p "Press ENTER to continue..."
@@ -88,20 +118,20 @@ cmd="$SCRIPT_DIR/tc-gen-sq.sh $efg_file $tc_length 0 $testcases_dir"
 echo $cmd
 eval $cmd 
 
-# replay
+# Replaying generated test cases
 echo ""
 echo "About to replay $testcase_num sample test case(s)" 
 read -p "Press ENTER to continue..."
 
 for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`  
 do
-	# get test name 
+	# getting test name 
 	test_name=`basename $testcase`
 	test_name=${test_name%.*}
 
 	cmd="$SCRIPT_DIR/jfc-replayer.sh -cp $aut_classpath -c  $mainclass -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta -cf $configuration"
 
-	# add application arguments if needed 
+	# adding application arguments if needed 
 	if [ ! -z $args ] 
 	then 
 		cmd="$cmd -a \"$args\" " 
