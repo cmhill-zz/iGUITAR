@@ -45,9 +45,6 @@ ripper_delay=500
 # the length of test suite
 tc_length=2
 
-# maximum number of test case to run in the demo
-testcase_num=3
-
 # delay time between two events during replaying  
 # this number is generally smaller than the $ripper_delay
 relayer_delay=200
@@ -121,8 +118,9 @@ eval $cmd
 
 # Replaying generated test cases
 echo ""
-echo "About to replay $testcase_num sample test case(s)" 
-read -p "Press ENTER to continue..."
+echo "About to replay test case(s)" 
+echo "Enter the test case number: "
+read testcase_num
 
 for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`  
 do
