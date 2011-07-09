@@ -78,38 +78,21 @@ public class GUITARLog
     {
         log = Logger.getLogger(GUITARLog.class);
 
-////        System.setProperty(GUITARLog.LOGFILE_NAME_SYSTEM_PROPERTY, GUITAR_DEFAULT_LOG);
-//
-//        PatternLayout layout = new org.apache.log4j.PatternLayout();
-//        layout.setConversionPattern(LOG_LAYOUT_PATTERN);
-//
-//        FileAppender file = null;
-//
-//        String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
-//
-//        if (logFileName == null)
-//        {
-//            logFileName = GUITAR_DEFAULT_LOG;
-//        }
-//
-//        try
-//        {
-//            file = new FileAppender(layout, logFileName, false);
-//        }
-//        catch (IOException e)
-//        {
-//            e.printStackTrace();
-//        }
-//
-//        log.addAppender(file);
-//        log.setLevel(level);
-        
+        // Assign log file name
+        if (System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY) == null)
+        {
+            System.setProperty(LOGFILE_NAME_SYSTEM_PROPERTY, GUITAR_DEFAULT_LOG);
+        }
+      
+
+        // Set up log4j configuration
         if (System.getProperty("log4j.configuration") == null)
         {
             Properties props = new Properties();
             InputStream stream = null;
             try
             {
+                // Try to find the configuration file in classpath
                 stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(
                                 GUITARConstants.DEFAULT_LOGGING_CONFIGURATION);
                 if (stream != null)
@@ -125,7 +108,8 @@ public class GUITARLog
 
             PropertyConfigurator.configure(props);
 
-            // Unable to load log4j properties file
+            // If unable to load log4j configuration file then use a default
+            // configuration
             if (stream == null)
             {
                 PatternLayout layout = new org.apache.log4j.PatternLayout();
@@ -133,15 +117,9 @@ public class GUITARLog
 
                 FileAppender file = null;
 
-                String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
-
-                if (logFileName == null)
-                {
-                    logFileName = GUITAR_DEFAULT_LOG;
-                }
-
                 try
                 {
+                    String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
                     file = new FileAppender(layout, logFileName, false);
                 }
                 catch (IOException e)
