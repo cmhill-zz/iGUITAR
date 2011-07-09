@@ -49,7 +49,7 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-<project name="graph2graph-efg2eicg" default="help" basedir=".">
+<project name="graph2graph-efg2ecig" default="help" basedir=".">
 	<!-- Environment vars-->
 	<property file="${basedir}/build-local.properties" />
 	<property file="${basedir}/../../build-module-common.properties" />
