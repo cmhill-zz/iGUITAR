@@ -35,7 +35,7 @@ import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
  * 
  */
 @Deprecated
-public interface GUITARConstants {
+public interface WebGUITARConstants {
 
 	public static List<AttributesTypeWrapper> terminalWidgetSignature =
         new LinkedList<AttributesTypeWrapper>();

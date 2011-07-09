@@ -6,8 +6,8 @@ function usage {
 	echo "Usage: $0 -cp <aut classpath> [guitar arguments]"
 }
 
-tool_guitar_dir=`dirname $0`
-guitar_lib=$tool_guitar_dir/jars
+base_dir=`dirname $0`
+guitar_lib=$base_dir/jars
 
 if [ $# -lt 2 ] 
 then
@@ -28,7 +28,7 @@ fi
 
 guitar_args=${@:3}
 
-classpath=$addtional_classpath:$classpath
+classpath=$addtional_classpath:$classpath:$base_dir
 
 # Main classes 
 replayer_launcher=edu.umd.cs.guitar.replayer.JFCReplayerMain
@@ -44,7 +44,7 @@ then
 JAVA_CMD_PREFIX=java
 fi
 
-classpath=$guitar_classpath
+classpath=$base_dir:$guitar_classpath
 
 if [ ! -z $addtional_classpath ] 
 then

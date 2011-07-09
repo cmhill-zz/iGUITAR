@@ -30,6 +30,14 @@ package edu.umd.cs.guitar.model;
  * 
  */
 public interface GUITARConstants {
+    
+
+    /**
+     * The location of the default guitar logging configuration (.glc) file.
+     * Currently unused 
+     */
+    public static final String DEFAULT_LOGGING_CONFIGURATION = "guitar-default.glc";
+
 
 	public static final String COMPONENT_ID_PREFIX = "w";
 
@@ -37,11 +45,8 @@ public interface GUITARConstants {
 	// Tag names
 	// ---------------------------
 
-	// final static String TITLE_TAG_NAME = "Title";
 	final static String ID_TAG_NAME = "ID";
 	final static String TITLE_TAG_NAME = "Title";
-
-	// final static String FULL_ID_TAG_NAME = "FullID";
 
 	final static String ROOTWINDOW_TAG_NAME = "Rootwindow";
 	final static String MODAL_TAG_NAME = "Modal";

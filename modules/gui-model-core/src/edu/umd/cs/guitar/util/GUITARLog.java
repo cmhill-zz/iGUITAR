@@ -29,17 +29,22 @@
 package edu.umd.cs.guitar.util;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
+import org.apache.log4j.PropertyConfigurator;
+
+import edu.umd.cs.guitar.model.GUITARConstants;
 
 /**
  * Global runtime log for GUITAR TODO: Find a better way for logging instead of
  * using a global mechanism
- * 
  * <p>
  * 
  * @author Bao Nguyen
@@ -73,32 +78,86 @@ public class GUITARLog
     {
         log = Logger.getLogger(GUITARLog.class);
 
-        PatternLayout layout = new org.apache.log4j.PatternLayout();
-        layout.setConversionPattern(LOG_LAYOUT_PATTERN);
-
-        // ConsoleAppender stdout = new ConsoleAppender(layout);
-        // log.addAppender(stdout);
-
-        FileAppender file = null;
-
-        String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
-
-        if (logFileName == null)
+////        System.setProperty(GUITARLog.LOGFILE_NAME_SYSTEM_PROPERTY, GUITAR_DEFAULT_LOG);
+//
+//        PatternLayout layout = new org.apache.log4j.PatternLayout();
+//        layout.setConversionPattern(LOG_LAYOUT_PATTERN);
+//
+//        FileAppender file = null;
+//
+//        String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
+//
+//        if (logFileName == null)
+//        {
+//            logFileName = GUITAR_DEFAULT_LOG;
+//        }
+//
+//        try
+//        {
+//            file = new FileAppender(layout, logFileName, false);
+//        }
+//        catch (IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+//
+//        log.addAppender(file);
+//        log.setLevel(level);
+        
+        if (System.getProperty("log4j.configuration") == null)
         {
-            logFileName = GUITAR_DEFAULT_LOG;
+            Properties props = new Properties();
+            InputStream stream = null;
+            try
+            {
+                stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(
+                                GUITARConstants.DEFAULT_LOGGING_CONFIGURATION);
+                if (stream != null)
+                {
+                    props.load(stream);
+                }
+            }
+            catch (IOException io)
+            {
+                io.printStackTrace();
+                System.exit(-1);
+            }
+
+            PropertyConfigurator.configure(props);
+
+            // Unable to load log4j properties file
+            if (stream == null)
+            {
+                PatternLayout layout = new org.apache.log4j.PatternLayout();
+                layout.setConversionPattern(LOG_LAYOUT_PATTERN);
+
+                FileAppender file = null;
+
+                String logFileName = System.getProperty(LOGFILE_NAME_SYSTEM_PROPERTY);
+
+                if (logFileName == null)
+                {
+                    logFileName = GUITAR_DEFAULT_LOG;
+                }
+
+                try
+                {
+                    file = new FileAppender(layout, logFileName, false);
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+
+                log.addAppender(file);
+                log.setLevel(level);
+            }
+        }
+        else
+        {
+            System.out.println("log4j was installed");
         }
 
-        try
-        {
-            file = new FileAppender(layout, logFileName, false);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        log.addAppender(file);
-        log.setLevel(level);
     }
 
     /**

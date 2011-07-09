@@ -22,7 +22,7 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.replayer.monitor.GTestMonitor;
 import edu.umd.cs.guitar.replayer.monitor.StateMonitorFull;
 import edu.umd.cs.guitar.replayer.sel.NewGReplayerConfiguration;
-import edu.umd.cs.guitar.replayer.sel.GUITARConstants;
+import edu.umd.cs.guitar.replayer.sel.WebGUITARConstants;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 @Deprecated
@@ -88,10 +88,10 @@ public abstract class ReplayerMain {
             // Load the terminal/ignored windows from the configuration
             loadWidgetConfiguration(
                 conf.getTerminalComponents().getFullComponent(),
-                GUITARConstants.terminalWidgetSignature);
+                WebGUITARConstants.terminalWidgetSignature);
             loadWidgetConfiguration(
                 conf.getIgnoredComponents().getFullComponent(),
-                GUITARConstants.ignoredWidgetSignature);
+                WebGUITARConstants.ignoredWidgetSignature);
         }
     }
 

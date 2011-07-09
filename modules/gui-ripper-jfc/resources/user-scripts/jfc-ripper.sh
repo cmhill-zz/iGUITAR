@@ -5,8 +5,8 @@
 function usage {
 	echo "Usage: jfcripper.sh.sh -cp <aut classpath> [guitar arguments]"
 }
-
-guitar_lib=`dirname $0`/jars
+base_dir=`dirname $0`
+guitar_lib=$base_dir/jars
 
 
 if [ $# -lt 2 ] 
@@ -45,16 +45,15 @@ then
 JAVA_CMD_PREFIX=java
 fi
 
-classpath=$guitar_classpath
+classpath=$base_dir:$guitar_classpath
 
 if [ ! -z $addtional_classpath ] 
 then
 	classpath=$classpath:$addtional_classpath
 else
-	classpath=$classpath.
+	classpath=$classpath
 fi
 
 RIPPER_CMD="$JAVA_CMD_PREFIX -cp $classpath $replayer_launcher $guitar_args"
-
 exec $RIPPER_CMD
 

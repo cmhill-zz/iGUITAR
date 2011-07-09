@@ -1,10 +1,13 @@
 #!/bin/bash
+base_dir=`dirname $0`
+guitar_lib=$base_dir/jars
 
-classpath=.
-for file in `find jars -name '*.jar'` 
+
+for file in `find $guitar_lib -name '*.jar'` 
 do
 	classpath=$classpath:$file
 done
+classpath=$classpath:$base_dir
 
 
 cmd="java"

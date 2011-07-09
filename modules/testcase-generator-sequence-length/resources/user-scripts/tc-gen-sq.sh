@@ -13,8 +13,8 @@ then
 fi
 
 
-tool_guitar_dir=`dirname $0`
-guitar_lib=$tool_guitar_dir/jars
+base_dir=`dirname $0`
+guitar_lib=$base_dir/jars
 
 # Main classes 
 tcgen_launcher=edu.umd.cs.guitar.testcase.TestCaseGenerator
@@ -35,7 +35,7 @@ max=$3
 tc_dir=$4
 plugin=SequenceLengthCoverage
 
-classpath=$guitar_classpath
+classpath=$guitar_classpath:$base_dir
 
 TCGEN_CMD="$JAVA_CMD_PREFIX -cp $classpath $tcgen_launcher -p $plugin -e $efg -m $max -d $tc_dir -l $length"
 $TCGEN_CMD
