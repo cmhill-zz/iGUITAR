@@ -119,7 +119,7 @@ eval $cmd
 # Replaying generated test cases
 echo ""
 echo "About to replay test case(s)" 
-echo "Enter the test case number: "
+echo "Enter the number of test case(s): "
 read testcase_num
 
 for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`  
