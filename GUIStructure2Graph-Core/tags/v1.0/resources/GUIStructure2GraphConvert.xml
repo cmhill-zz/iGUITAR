@@ -1,0 +1,57 @@
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Ant run file for guitar-GUIStructure2GraphConverter.
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant's home directory
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Charlie Biger, charlie.biger@gmail.com
+             
+   Version:  $Revision: 1$
+             $Date: 2009-09-03$
+             $Author: Bao Nguyen$
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<project name="GUIStructure2GraphConvert" default="run" basedir=".">
+	<property file="GUIStructure2GraphConvert.properties" />
+	<property name="deprecation" value="on" />
+
+	<property name="GraphConverter.launcher" value="edu.umd.cs.guitar.graph.GUIStructure2GraphConverter" />
+
+	<path id="GraphConverter.classpath.ref">
+		<pathelement location="${application.classpath}:${basedir}" />
+		<fileset dir="${jars.dir}" includes="*.jar" />
+	</path>
+
+
+	<!-- exécution du JAR -->
+	<target name="run">
+
+		<java classname="${GraphConverter.launcher}" fork="true">
+			<classpath>
+				<pathelement location="${basedir}" />
+				<fileset dir="${jars.dir}" includes="*.jar" />
+			</classpath>
+			<jvmarg value="-Xss1024k" />
+			<jvmarg value="-Xms512m" />
+			<jvmarg value="-Xmx512m" />
+			<!--<jvmarg value="-verbose:class" />-->
+
+			<arg value="${converter}" />
+			<arg value="${inputFile}" />
+			<arg value="${outputFile}" />
+		</java>
+	</target>
+
+
+</project>

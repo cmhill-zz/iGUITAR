@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<project default="export" basedir="." name="test">
+
+  <!-- Properties -->
+  <property name="guitar.root" value="https://guitar.svn.sourceforge.net/svnroot/guitar" />
+  <property name="export.dir" value="../../.." />
+
+  <property name="lib.dir" value="lib" />
+  <property name="debug" value="true" />
+  <property name="coverage.dir" value="${basedir}/coverage" />
+  <property name="out.instr.dir" value="${basedir}/outinstr" />
+	<property name="cobertura.dir" value="../../../shared/cobertura" />
+
+	
+  <!-- For documentation purposes, link to each src directory that we've checked out. -->
+  <path id="source.ref">
+    <dirset dir="${export.dir}">
+      <include name="**/src" />
+    </dirset>
+  </path>
+
+
+  <!-- Library loading stuff for svnant -->
+  <path id="svnant.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>  
+
+  <!-- load the svn task -->
+  <typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
+
+  <!-- Cobertura Files Not Included in Distribution -->
+
+  <path id="cobertura.lib">
+    <fileset dir="${cobertura.dir}">
+      <include name="cobertura.jar" />
+      <include name="lib/**/*.jar" />
+    </fileset>
+  </path >
+
+  <!-- Path to Cobertura Tasks -->
+
+  <taskdef classpathref="cobertura.lib" resource="tasks.properties"  />
+
+
+  <!-- Allow support for ant-contrib, which gives us variables... -->
+  <path id="antcontrib.lib">
+    <pathelement location="lib/ant-contrib.jar" />
+  </path>
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="antcontrib.lib"/>
+
+    <!-- We'll use this in a second... -->
+    <path id="run.classpath" >
+      <fileset dir="${export.dir}">
+        <include  name="jars/**/*.jar" />
+      </fileset>
+    </path>
+
+    <path id="entire.classpath">
+                                <fileset dir="${out.instr.dir}">
+                                        <include name="**/*.jar"/>
+                                </fileset>
+      <path refid="run.classpath" />
+      <pathelement path="${basedir}/inputs/DummyPlugin" />
+    </path>
+	
+	<path id="real.classpath">
+		<fileset dir="${out.instr.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${export.dir}">
+			<include  name="**/*.jar" />
+		</fileset>
+    </path>
+
+
+  <target name="run" >
+
+    <ant dir="${export.dir}/TestCaseGenerator-Core/install" antfile="build.xml" target="clean">
+		<property name="debug" value="true" />
+	</ant>
+    <ant dir="${export.dir}/TestCaseGenerator-Core/install" antfile="build.xml" target="pre">
+		<property name="debug" value="true" />
+	</ant> 
+    <ant dir="${export.dir}/TestCaseGenerator-Core/install" antfile="build.xml" target="updateDepends">
+		<property name="debug" value="true" />
+	</ant> 
+    <ant dir="${export.dir}/TestCaseGenerator-Core/install" antfile="build.xml" target="dist">
+		<property name="debug" value="true" />
+	</ant> 
+	
+    <ant dir="${export.dir}/GUITARModel-Core/install" antfile="build.xml" target="clean">
+		<property name="debug" value="true" />
+	</ant>
+    <ant dir="${export.dir}/GUITARModel-Core/install" antfile="build.xml" target="pre">
+		<property name="debug" value="true" />
+	</ant> 
+    <ant dir="${export.dir}/GUITARModel-Core/install" antfile="build.xml" target="updateDepends">
+		<property name="debug" value="true" />
+	</ant> 
+    <ant dir="${export.dir}/GUITARModel-Core/install" antfile="build.xml" target="dist">
+		<property name="debug" value="true" />
+	</ant> 
+
+    <ant dir="${export.dir}/TestCaseGenerator-Plugin-OpeningSequenceCoverage/install" antfile="build.xml" target="clean">
+		<property name="debug" value="true" />
+	</ant>
+    <ant dir="${export.dir}/TestCaseGenerator-Plugin-OpeningSequenceCoverage/install" antfile="build.xml" target="pre">
+		<property name="debug" value="true" />
+	</ant> 
+    <ant dir="${export.dir}/TestCaseGenerator-Plugin-OpeningSequenceCoverage/install" antfile="build.xml" target="updateDepends">
+		<property name="debug" value="true" />
+	</ant> 
+    <ant dir="${export.dir}/TestCaseGenerator-Plugin-OpeningSequenceCoverage/install" antfile="build.xml" target="dist">
+		<property name="debug" value="true" />
+	</ant> 
+	
+	<mkdir dir="${coverage.dir}" />
+	<mkdir dir="${out.instr.dir}" />
+
+    <delete file="${coverage.dir}/cobertura.ser" />
+
+    <cobertura-instrument datafile="${coverage.dir}/cobertura.ser" todir="${out.instr.dir}" >
+			<fileset dir="${export.dir}/jars">
+				<include name="TestCaseGenerator-Core.jar" />
+				<include name="TestCaseGenerator-Plugin-OpeningSequenceCoverage.jar"/>
+			</fileset>
+		</cobertura-instrument>
+
+    <var name="input" value="SingleButton" />
+    <var name="plugin" value="OpeningSequenceCoverage" />
+    <var name="length" value="3" />
+    <var name="max-num" value="50" />
+    <antcall target="run-template" />
+
+    <var name="input" value="TwoIndependent" />
+    <var name="plugin" value="OpeningSequenceCoverage" />
+    <var name="length" value="2" />
+    <var name="max-num" value="50" />
+    <antcall target="run-template" />
+
+    <var name="input" value="TwoCycle" />
+    <var name="plugin" value="OpeningSequenceCoverage" />
+    <var name="length" value="6" />
+    <var name="max-num" value="50" />
+    <antcall target="run-template" />
+
+    <!-- Checking SequenceLengthCoverage's handling of valid args -->
+    <var name="plugin" value="OpeningSequenceCoverage" />
+    <antcall target="run-template-noargs" />
+
+    <!-- Exploits an error where an ''unreachable root'' error occurs, covers-->
+    <!--an error case in SequenceLengthPlugin -->
+    <var name="input" value="OldRadioButton" />
+    <var name="plugin" value="OpeningSequenceCoverage" />
+    <var name="length" value="3" />
+    <var name="max-num" value="50" />
+    <antcall target="run-template" />
+	
+	<antcall target="generate-report" />
+
+  </target>
+
+  <!-- Template target for running TestCaseGenerator, with coverage stubs, assuming proper argument format. -->
+  <target name="run-template" depends="">
+
+    <echo message="Running run-template with input=${input}, plugin=${plugin}, max-num=${max-num}, length=${length}" />
+
+    <!--Clean up where the test cases go... -->
+	   <delete dir="${basedir}/TC" /> 
+
+   <java classname="edu.umd.cs.guitar.testcase.TestcaseGenerator"
+          dir="${basedir}" fork="true" classpathref="real.classpath">
+		<sysproperty key="net.sourceforge.cobertura.datafile" file="${coverage.dir}/cobertura.ser" />
+
+      <!-- Arguments to TestCaseGenerator -->
+			<arg value="-d" />
+			<arg value="${basedir}/TC" />
+
+			<arg value="-e" />
+			<arg value="${basedir}/inputs/${input}/${input}.EFG.xml" />
+
+			<arg value="-l" />
+			<arg value="${length}" />
+
+			<arg value="-m" />
+			<arg value="${max-num}" />
+
+			<arg value="-p" />
+			<arg value="${plugin}" />
+			
+			<classpath>
+	            <path refid="cobertura.lib" />
+			</classpath>
+    </java>
+
+    <!-- Create a check.xml file that verifies if the output from the above java command is the same as the ground truth.-->
+    <java classpath="${lib.dir}" classname="generate_ant_test" fork="true" failonerror="true">
+
+      <!--The oracle directory-->
+      <arg value="inputs/${input}/ground_truth/${plugin}/length-${length}/max-${max-num}" />
+
+      <!--The testing directory-->
+      <arg value="TC" />
+
+      <!-- The build file to create -->
+      <arg value="check.xml" />
+    </java>
+
+    <!-- We may have to wait for this above build.xml to be generated. -->
+    <waitfor maxwait="30" maxwaitunit="second">
+      <available file="check.xml"/>
+    </waitfor>
+
+    <!-- Call the new check.xml file to verify.  Because the RandomTestCase
+    plugin generates permuted test cases, we can't check currently. -->
+    <ant antfile="check.xml" />
+    <!--<if>-->
+      <!--<not>-->
+        <!--<equals arg1="${plugin}" arg2="RandomTestCase" />-->
+        <!--</not>-->
+      <!--<then>-->
+        <!--<ant antfile="check.xml" />-->
+        <!--</then>-->
+      <!--</if>-->
+  </target>
+
+
+
+  <!-- This version of run-template passes only the (required) plugin parameter
+  as an option.  TestCaseGenerator should be complain because length was not
+  set.  This checks the isValidArgs() function of some length-dependent plugins
+  (i.e. SequenceLengthPlugin) -->
+  <target name="run-template-noargs" depends="">
+
+    <!--Clean up where the test cases go... -->
+<!--    <delete dir="${basedir}/TC" /> -->
+
+    <java classname="edu.umd.cs.guitar.testcase.TestcaseGenerator"
+          dir="${basedir}" fork="true" classpathref="real.classpath" >
+
+
+      <!-- Arguments to TestCaseGenerator -->
+      <!-- Just the minimally required ones -->
+			<arg value="-p" />
+			<arg value="${plugin}" />
+    </java>
+
+  </target>
+
+
+
+
+  <!-- The following target is a run that asks for the help menu of
+  TestCaseGenerator.  This covers the code dealing with invocation usage. -->
+  <target name="run-help" depends="">
+
+    <!--Clean up where the test cases go... -->
+<!--    <delete dir="${basedir}/TC" /> -->
+
+    <java classname="edu.umd.cs.guitar.testcase.TestcaseGenerator"
+          dir="${basedir}" fork="true" classpathref="real.classpath" >
+
+
+      <!-- Just request help -->
+			<arg value="--help" />
+    </java>
+
+  </target>
+
+
+
+
+  <target name="run-log-perms">
+
+
+    <!-- We need to know what OS we're on for this one... -->
+    <condition property="isWindows">
+      <os family="windows" />
+    </condition>
+
+    <condition property="isLinux">
+      <os family="unix" />
+    </condition>
+
+    <!--Clean up where the test cases go... -->
+<!--    <delete dir="${basedir}/TC" /> -->
+
+    <touch file="${basedir}/TestcaseGenerator.log" />
+
+    <if>
+      <equals arg1="${isLinux}" arg2="true" />
+      <then>
+        <chmod file="${basedir}/TestcaseGenerator.log" perm="a-w" />
+      </then>
+      <else>
+        <attrib file="${basedir}/TestcaseGenerator.log" readonly="true" />
+      </else>
+    </if>
+
+    <java classname="edu.umd.cs.guitar.testcase.TestcaseGenerator"
+          dir="${basedir}" fork="true" classpathref="real.classpath" >
+
+
+      <!-- Just request help -->
+			<arg value="--help" />
+    </java>
+
+    <delete file="${basedir}/TestcaseGenerator.log" />
+
+  </target>
+
+  <!-- Generates a report (in html, txt, and xml format).  The html version is
+  only for a human to browse, hudson will interact only with the xml file.  The
+  txt version is generated for completeness :). -->
+  <target name="generate-report">
+
+    <mkdir dir="${coverage.dir}" />
+    <delete file="${coverage.dir}/*.html" />
+    <cobertura-report format="xml" destdir="${coverage.dir}" datafile="${coverage.dir}/cobertura.ser">
+     <fileset dir="${basedir}/${export.dir}/TestCaseGenerator-Core/src/">
+        <include name="**/*.java" />
+    </fileset>
+		     <fileset dir="${basedir}/${export.dir}/TestCaseGenerator-Plugin-OpeningSequenceCoverage/src/">
+        <include name="**/*.java" />
+    </fileset>
+    </cobertura-report>
+    
+    <cobertura-report format="html" destdir="${coverage.dir}" datafile="${coverage.dir}/cobertura.ser">
+     <fileset dir="${basedir}/${export.dir}/TestCaseGenerator-Core/src/">
+        <include name="**/*.java" />
+    </fileset>
+		     <fileset dir="${basedir}/${export.dir}/TestCaseGenerator-Plugin-OpeningSequenceCoverage/src/">
+        <include name="**/*.java" />
+    </fileset>
+    </cobertura-report>
+  </target>
+
+  <!-- Clean target -->
+  <target name="clean" depends="">
+    <delete dir="${basedir}/TC" />
+    <delete dir="${coverage.dir}" />
+    <delete dir="${out.instr.dir}" />
+    <delete file="check.xml" />
+  </target>
+
+</project>

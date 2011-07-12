@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	Copyright (c) 2009. The GUITAR group at the University of Maryland. Names of owners 
+	of this group may be obtained by sending an e-mail to atif@cs.umd.edu
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+	software and associated documentation files (the "Software"), to deal in the Software 
+	without restriction, including without limitation the rights to use, copy, modify, merge, 
+	publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons 
+	to whom the Software is furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or 
+	substantial portions of the Software. 
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+	BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+	DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Ant build file for GUITAR-RIPPER.
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant 1.7.1 or higher
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Bao N. Nguyen, baonn@cs.umd.edu
+             
+   Version:  $Revision: 1$
+             $Date: 2009-08-16$
+             $Author: Bao N. Nguyen$
+ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="${module}" default="help" basedir=".">
+	<!-- Environment vars-->
+
+	<property file="./build.properties" />
+	<available file="${pre.antfile}" property="filePresent" />
+	<available file="${post.antfile}" property="postFilePresent" />
+	<property name="debug" value="true" />
+
+	<!-- third party jar files for distribution -->
+	<echo message="./" />
+	<echo message="${shared.lib.dir}" />
+	<fileset id="3rd-dist.file.ref" dir="${shared.lib.dir}" includes="*.jar" erroronmissingdir="false" />
+
+	<!-- PRE File -->
+
+	<target description="Build dependencies" name="pre" if="filePresent">
+
+		<ant antfile="${pre.antfile}" dir="${basedir}" inheritAll="false">
+			<property name="debug" value="true" />
+			<property file="./build.properties" />
+		</ant>
+	</target>
+
+	<!-- POST File -->
+
+	<target description="Build dependencies" name="post" if="postFilePresent">
+
+		<ant antfile="${post.antfile}" dir="${basedir}" inheritAll="false">
+			<property name="debug" value="true" />
+			<property file="./build.properties" />
+		</ant>
+	</target>
+
+
+	<!--  - - - - - - - -  
+		PUBLIC TASKS 
+	- - - - - - - - - -->
+
+	<!-- Help -->
+	<target description="help" name="help">
+		<echo message="${module} help" />
+	</target>
+
+	<!-- Build -->
+	<target description="Build the project" name="build">
+		<echo message="${module}" />
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" debug="${debug}" deprecation="${deprecation}">
+			<classpath>
+				<fileset dir="${dist.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+				<fileset dir="${shared.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+				<fileset dir="${guitar.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+
+
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- Jar -->
+	<target name="jar" depends="build">
+		<mkdir dir="${dist.lib.dir}" />
+		<delete file="${dist.lib.dir}/${module}.jar" />
+		<jar jarfile="${dist.lib.dir}/${module}.jar" update="true">
+			<fileset dir="${build.dir}">
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- Builds all the modules needed to build the current module -->
+	<target name="updateDepends">
+		<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+			<classpath>
+				<pathelement location="${ant.dir}/ant-contrib-0.6.jar" />
+			</classpath>
+		</taskdef>
+
+		<!-- Load the svn task for ant -->
+		<path id="svnant.classpath">
+			<fileset dir="${ant.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</path>
+		<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
+
+		<!-- For each module that we need -->
+		<for list="${needsModules}" param="letter">
+			<sequential>
+
+				<!-- Is the needed .jar file already present -->
+				<available file="${dist.lib.dir}/@{letter}.jar" property="@{letter}.jar.present" />
+				<if>
+					<equals arg1="${@{letter}.jar.present}" arg2="true" />
+					<then>
+						<echo message="@{letter}.jar is present" />
+					</then>
+
+					<!-- otherwise check if folder is also not present -->
+					<else>
+						<property name="@{letter}.folder.present" value="false" />
+						<echo message="@{letter}.jar is NOT present. Checking the folder ${dist.dir}/@{letter}" />
+						<available file="${dist.dir}/@{letter}" type="dir" property="@{letter}.folder.present" />
+						<if>
+							<equals arg1="${@{letter}.folder.present}" arg2="false" />
+							<then>
+								<echo message="The folder ${dist.dir}/@{letter} is NOT present. Getting from svn" />
+								<!-- the folder does not exist, get it via SVN checkout  -->
+								<svn>
+									<checkout url="https://guitar.svn.sourceforge.net/svnroot/guitar/@{letter}/trunk" destPath="${dist.dir}/@{letter}" />
+								</svn>
+							</then>
+							<else>
+								<echo message="************** @{letter} folder is present" />
+							</else>
+						</if>
+
+						<!-- We have the folder. Compile the folder and get the jar -->
+						<ant antfile="build.xml" target="all" dir="${dist.dir}/@{letter}/install" inheritAll="false">
+						</ant>
+					</else>
+				</if>
+			</sequential>
+		</for>
+	</target>
+
+	<!-- Distribute -->
+	<target name="dist" depends="jar" description="Create a jar for the GUITAR-Core project">
+		<copy todir="${dist.lib.dir}" flatten="true">
+			<fileset refid="3rd-dist.file.ref" erroronmissingdir="false" />
+		</copy>
+	</target>
+
+	<target name="copy" if="filesToCopy">
+		<echo message="${dist.dir}" />
+		<copy todir="${dist.dir}" flatten="true">
+			<fileset dir="${basedir}/.." includes="${filesToCopy}" />
+		</copy>
+	</target>
+
+	<!-- Java doc -->
+	<target description="create javadocs" name="doc">
+		<mkdir dir="${dist.doc.dir}" />
+		<mkdir dir="${dist.doc.dir}/${module}" />
+		<property name="ps" value="${path.separator}" />
+		<property name="ydocInstallPath" value="${ydocinstall.dir}" />
+		<javadoc sourcepath="${src.dir}" destdir="${dist.doc.dir}/${module}">
+			<classpath>
+				<fileset dir="${dist.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+				<fileset dir="${shared.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+				<fileset dir="${guitar.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+			</classpath>
+			<doclet name="ydoc.doclets.YStandard" path="${ydocInstallPath}/lib/ydoc.jar${ps}${ydocInstallPath}/resources${ps}${ydocInstallPath}/doc">
+				<param name="-author" />
+				<param name="-generic" />
+				<param name="-umlautogen" />
+				<param name="-filterpath" value="${ydocInstallPath}/lib/ydoc.jar" />
+				<param name="-filter" value="ydoc.filters.ExcludeFilter" />
+				<param name="-tag" value="y.precondition" />
+				<param name="-tag" value="y.postcondition" />
+				<param name="-tag" value="y.complexity" />
+				<param name="-tag" value="param" />
+				<param name="-tag" value="return" />
+				<param name="-tag" value="see" />
+				<param name="-tag" value="y.uml" />
+			</doclet>
+		</javadoc>
+	</target>
+
+
+	<!-- Clean -->
+	<target description="clean project" name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="all" depends="clean,pre,updateDepends,dist,post,copy,doc">
+		<echo message="This is ${module}" />
+	</target>
+</project>

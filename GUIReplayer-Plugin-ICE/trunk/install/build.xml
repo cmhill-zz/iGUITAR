@@ -1,0 +1,142 @@
+
+<project name="GUIReplayer-Plugin-ICE" basedir="../.." default="all">
+
+  <property name="module" value="GUIReplayer-Plugin-ICE" />
+  <property name="src.dir" value="${module}/src" />
+  <property name="bin.dir" value="${module}/bin" />
+  <property name="instrumented.dir" value="${module}/instrumented" />
+  <property name="jar.dir" value="./jars" />
+  <property name="shared.lib.dir" value="./shared" />
+  <property name="ant.dir" value="${shared.lib.dir}/ant/lib" />
+  <property name="resources.dir" value="${module}/resources" />
+  <property name="coverage.dir" value="./coverage" />
+
+  <property environment="env" />
+  <available property="ice_lib.dir" file="${env.ICE_HOME}/lib/Ice.jar"
+             value="${env.ICE_HOME}/lib/Ice.jar" />
+  <available property="ice_lib.dir" file="/usr/local/share/java/Ice.jar"
+             value="/usr/local/share/java" />
+  <available property="ice_lib.dir" file="/usr/share/java/Ice.jar"
+             value="/usr/share/java" />
+
+  <!-- Cobertura -->
+  <property name="cobertura.dir" value="${shared.lib.dir}/cobertura" />
+  <path id="cobertura.lib">
+    <fileset dir="${cobertura.dir}">
+      <include name="cobertura.jar" />
+      <include name="lib/**/*.jar" />
+    </fileset>
+  </path>
+
+  <taskdef resource="tasks.properties" classpathref="cobertura.lib" />
+
+  <target name="updateDepends">
+    <!-- Load svn task -->
+    <path id="svnant.classpath">
+      <fileset dir="${ant.dir}">
+        <include name="*.jar" />
+      </fileset>
+    </path>
+    <typedef resource="org/tigris/subversion/svnant/svnantlib.xml"
+             classpathref="svnant.classpath" />
+
+    <!-- Build the core module -->
+    <ant antfile="GUIReplayer-Core/install/build.xml" target="all"
+         inheritAll="false" useNativeBasedir="true" />
+
+    <!-- Build the model plugin -->
+    <ant antfile="GUITARModel-Plugin-ICE/install/build.xml" target="all"
+         inheritAll="false" />
+  </target>
+
+  <target name="build" depends="updateDepends">
+    <mkdir dir="${bin.dir}" />
+
+    <!-- Compile main source files -->
+    <javac srcdir="${src.dir}" destdir="${bin.dir}" debug="true">
+      <include name="**/*.java" />
+      <classpath>
+        <fileset dir="${ice_lib.dir}" includes="Ice.jar" />
+        <fileset dir="${jar.dir}" includes="**/*.jar" />
+      </classpath>
+    </javac>
+
+    <jar destfile="${jar.dir}/GUIReplayer-Plugin-ICE.jar">
+      <fileset dir="${bin.dir}" includes="**/*.class" />
+    </jar>
+  </target>
+
+  <target name="instrument" depends="build" if="instrument">
+    <mkdir dir="${coverage.dir}" />
+    <cobertura-instrument
+       datafile="${coverage.dir}/${module}.ser" todir="${instrumented.dir}">
+      <fileset dir="${bin.dir}" includes="edu/**/*.class" />
+    </cobertura-instrument>
+
+    <jar destfile="${jar.dir}/${module}.jar" update="true">
+      <fileset dir="${instrumented.dir}" includes="**/*.class" />
+    </jar>
+
+    <!-- Merge all of the cobertura files into a single file -->
+    <cobertura-merge>
+      <fileset dir="${coverage.dir}" includes="**/*.ser" />
+    </cobertura-merge>
+  </target>
+
+  <!-- Remember to build the plugin with the "instrument" property set to
+       true and then run the program.
+
+       This has no dependencies as the instrumentation would have happened
+       on a previous call to this file.
+    -->
+  <target name="report">
+    <mkdir dir="${coverage.dir}" />
+    <cobertura-report format="xml" destdir="${coverage.dir}"
+                      datafile="cobertura.ser">
+      <fileset dir="${src.dir}" includes="**/*.java" />
+      <fileset dir="GUITARModel-Plugin-ICE/src" includes="**/*.java" />
+    </cobertura-report>
+
+    <cobertura-report format="html" destdir="${coverage.dir}"
+                      datafile="cobertura.ser">
+      <fileset dir="${src.dir}" includes="**/*.java" />
+      <fileset dir="GUITARModel-Plugin-ICE/src" includes="**/*.java" />
+    </cobertura-report>
+  </target>
+
+  <target name="clean">
+    <delete dir="${generated.dir}" />
+    <delete dir="${bin.dir}" />
+    <delete dir="${instrumented.dir}" />
+
+    <delete file="${coverage.dir}/${module}.ser" />
+    <delete file="${jar.dir}/${module}.jar" />
+
+    <ant antfile="GUITARModel-Plugin-ICE/install/build.xml" target="clean"
+         inheritAll="false" />
+  </target>
+
+  <target name="run">
+    <taskdef resource="edu/umd/cs/guitar/ant/antlib.xml">
+      <classpath>
+        <pathelement location="${jar.dir}/guitar-ant.jar" />
+      </classpath>
+    </taskdef>
+
+    <replayer guiFile="Project.GUI.xml" efgFile="Project.EFG.xml">
+      <classpath>
+        <fileset dir="${jar.dir}" includes="**/*.jar" />
+        <fileset dir="${shared.lib.dir}/cobertura" includes="cobertura.jar" />
+        <fileset dir="${ice_lib.dir}" includes="Ice.jar" />
+      </classpath>
+
+      <tests>
+        <fileset dir="./TC" includes="**/*.tst" />
+      </tests>
+
+      <host name="localhost" config="${resources.dir}/config/localhost.cfg" />
+    </replayer>
+  </target>
+
+  <target name="all" depends="build,instrument" />
+</project>

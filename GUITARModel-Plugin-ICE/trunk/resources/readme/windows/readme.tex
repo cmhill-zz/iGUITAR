@@ -1,0 +1,41 @@
+\documentclass[12pt,letterpage]{article}
+\title{Ice Windows Implementation}
+\author{Jonathan Sternberg}
+\date{January 19, 2011}
+\begin{document}
+\maketitle
+
+\section{Purpose}
+
+The purpose of this implementation is to create a Windows specific ripper/replayer. This implementation uses calls specific to the Windows operating system to find and interact with widgets.
+
+\section{Requirements}
+
+\subsection{Required Software}
+
+The windows implementation is written using C\# and .NET 3.5. To compile and run the windows implementation, you need to meet all of the following.
+
+\begin{itemize}
+\item Windows XP SP2 or above
+\item .NET Framework 3.5 or above
+\item NAnt 0.90 or above \footnote{This project is very new and a bit unstable}
+\item Ice 3.4.1 or above \footnote{The windows implementation was tested using the latest version of Ice. It will probably work with older versions, but it is only tested with the latest. ZeroC also provides no support for older versions of Ice unless you are a paying customer (GUITAR uses it under the GPL license and is not a paying customer)}
+\end{itemize}
+
+The windows implementation may compile on older versions of the above software, but it's not tested with these and not guaranteed to work. Please file all bug reports using the above to the sourceforge bug tracker. If while testing you find that the software works on a configuration not listed above, tell us so we can include it in the list of things that work.
+
+\section{Compilation}
+
+The NAnt build tool is used to build the windows implementation. This was chosen because while Ant is an appropriate build tool for Java, it is very difficult to use with C\#. NAnt was built specifically for building C\# code and made more sense to use than Ant.
+
+From the \emph{ROOT/GUITARModel-Plugin-ICE} directory, you can build the code using the following command.
+
+\begin{verbatim}
+nant /f:impl/windows/nant.build
+\end{verbatim}
+
+If you are in the impl/windows folder, you can just type \emph{nant} and it will automatically pick up the nant.build file.
+
+Compilation will create a dll named \emph{GUITARModel-Plugin-ICE.dll} inside of \emph{ROOT/lib}.
+
+\end{document}

@@ -1,0 +1,73 @@
+
+\section{How To Use the Plugin}
+
+It must be remembered that the Ice plugin only exists to delegate tasks to a specific implementation. The plugin by itself cannot do anything without one of the implementations being run on the target computer. For instructions on how to use a specific implementation, look at their readme's. This section will only describe how to use the plugin within GUITAR.
+
+\subsection{Code Directory Structure}
+
+GUITAR uses a non-traditional repository structure. If you do not follow this directory structure, the GUITAR build and execution scripts won't work.
+
+The code should be organized differently on your computer than how it is organized in the central repository.
+
+Make a "guitar" folder. This is the folder where all GUITAR related plugins will be kept and all runtime files are saved. This folder should not be under version control.
+
+Each plugin for GUITAR acts as its own repository. Each one contains a trunk, branches, and tags section\footnote{This guide will use the trunk, but you can replace trunk with a branch or tag easily}. Only one of these should be checked out at anytime.
+
+All GUITAR plugins require the shared folder. We'll check that one out first. This requires the subversion program to be installed on your computer.
+
+\begin{verbatim}
+svn checkout https://guitar.svn.sourceforge.net/svnroot/guitar/shared
+\end{verbatim}
+
+Now the procedure to checkout any plugin is the exact same. Just fill in the blanks below\footnote{\emph{co} is the same as \emph{checkout}}.
+\begin{verbatim}
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           {module_name}/trunk {module_name}
+\end{verbatim}
+
+If we were to checkout the GUITARModel-Core, we would fill in the \emph{module\_name} as \emph{GUITARModel-Core} like below.
+\begin{verbatim}
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUITARModel-Core/trunk GUITARModel-Core
+\end{verbatim}
+
+Here is the full list of commands to checkout the Ice plugin in full.
+\begin{verbatim}
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/shared
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUITARModel-Core/trunk GUITARModel-Core
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUITARModel-Plugin-ICE/trunk GUITARModel-Plugin-ICE
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUIRipper-Core/trunk GUIRipper-Core
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUIRipper-Plugin-ICE/trunk GUIRipper-Plugin-ICE
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUIReplayer-Core/trunk GUIReplayer-Core
+svn co https://guitar.svn.sourceforge.net/svnroot/guitar/\
+           GUIReplayer-Plugin-ICE/trunk GUIReplayer-Plugin-ICE
+\end{verbatim}
+
+\subsection{Requirements}
+
+The following software tools are needed to build the Ice plugin.
+
+\begin{itemize}
+\item Ant 1.7 or above
+\item Java JDK 1.6 or above
+\item Ice 3.3 or above \footnote{May work with older versions of Ice, but it has not been tested with anything older than Ice 3.3}
+\end{itemize}
+
+The Ice plugin will build on all OS's that support the above\footnote{The portion of the build script that searches for the Ice library is currently configured to work on Windows and Debian Linux (including Ubuntu). You may need to add additional search locations if Ice is installed in a non-default location}.
+
+You can configure the Ice library location by setting the \emph{ICE\_HOME} environment variable. This is required on Windows because there's no default install location on Windows.
+
+\subsection{Compilation}
+
+Building the Ice plugin is similar to buiding the other plugins in GUITAR. Make sure that \emph{ant} and \emph{ICE\_HOME/bin} are on your path and run the following in the GUITARModel-Plugin-ICE folder\footnote{The all is optional since all is the default target}:
+
+\begin{verbatim}
+ant -f install/build.xml all
+\end{verbatim}
+
+If the command ends with \emph{BUILD SUCCESSFUL} then you have successfully built the GUITARModel plugin for Ice. Otherwise, consult the error message for help.

@@ -1,0 +1,42 @@
+
+<project name="GUITARModel-Plugin-Ice" basedir="../.." default="all">
+  <property name="generated.dir" value="generated" />
+  <property name="src.dir" value="impl/windows/src" />
+  <property name="dll.dir" value="../lib" />
+  <property name="ice_home.dir" value="${environment::get-variable('ICE_HOME')}" />
+
+  <target name="slice">
+    <mkdir dir="${generated.dir}" />
+    <exec program="slice2cs">
+      <arg value="--output-dir" />
+      <arg value="${generated.dir}" />
+      <arg value="slice/model.ice" />
+    </exec>
+  </target>
+
+  <target name="build" depends="slice">
+    <mkdir dir="${dll.dir}" />
+    <csc debug="true" output="${dll.dir}/GUITARModel-Plugin-Ice.dll" target="library">
+      <sources basedir="${src.dir}">
+        <include name="**/*.cs" />
+        <include name="${project::get-base-directory()}/${generated.dir}/model.cs" />
+        <exclude name="Main.cs" />
+      </sources>
+
+      <references>
+        <include name="WindowsBase.dll" />
+        <include name="UIAutomationClient.dll" asis="true" />
+        <include name="UIAutomationTypes.dll" asis="true" />
+        <include name="${ice_home.dir}/bin/Ice.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name="copy">
+    <copy file="${ice_home.dir}/bin/Ice.dll" todir="${dll.dir}" />
+  </target>
+
+  <target name="all" depends="build,copy">
+    <echo message="Built Windows extension for GUITARModel-Plugin-Ice" />
+  </target>
+</project>

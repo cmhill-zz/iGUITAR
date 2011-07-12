@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EFG>
+    <Events>
+        <Event>
+            <EventId>e0</EventId>
+            <WidgetId>w0</WidgetId>
+            <Type>SYSTEM INTERACTION</Type>
+            <Initial>true</Initial>
+            <Action>edu.umd.cs.guitar.event.JFCActionHandler</Action>
+        </Event>
+        <Event>
+            <EventId>e1</EventId>
+            <WidgetId>w1</WidgetId>
+            <Type>SYSTEM INTERACTION</Type>
+            <Initial>true</Initial>
+            <Action>edu.umd.cs.guitar.event.JFCActionHandler</Action>
+        </Event>
+    </Events>
+    <EventGraph>
+        <Row>
+            <E>1</E>
+            <E>0</E>
+        </Row>
+        <Row>
+            <E>0</E>
+            <E>1</E>
+        </Row>
+    </EventGraph>
+</EFG>

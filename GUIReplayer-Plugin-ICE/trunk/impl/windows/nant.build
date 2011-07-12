@@ -1,0 +1,28 @@
+
+<project name="GUIReplayer-Plugin-Ice" basedir="../.." default="all">
+  <property name="src.dir" value="impl/windows/src" />
+  <property name="dll.dir" value="../lib" />
+  <property name="ice_home.dir" value="${environment::get-variable('ICE_HOME')}" />
+
+  <target name="build">
+    <mkdir dir="${dll.dir}" />
+    <csc debug="true" output="${dll.dir}/WGReplayer.exe" target="exe">
+      <sources basedir="${src.dir}">
+        <include name="**/*.cs" />
+      </sources>
+
+      <references>
+        <include name="${ice_home.dir}/bin/Ice.dll" />
+        <include name="${dll.dir}/GUITARModel-Plugin-Ice.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name="copy">
+    <copy file="${ice_home.dir}/bin/Ice.dll" todir="${dll.dir}" />
+  </target>
+  
+  <target name="all" depends="build,copy">
+    <echo message="Built Windows extension for GUIReplayer-Plugin-Ice" />
+  </target>
+</project>

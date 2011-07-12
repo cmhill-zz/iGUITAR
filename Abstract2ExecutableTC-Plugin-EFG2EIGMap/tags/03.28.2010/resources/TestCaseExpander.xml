@@ -1,0 +1,62 @@
+
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Ant run file for guitar-testcase generator.
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant's home directory
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Charlie Biger, charlie.biger@gmail.com
+             
+   Version:  $Revision: 1$
+             $Date: 2009-09-03$
+             $Author: Bao Nguyen$
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<project name="TestCaseExpander" default="run" basedir=".">
+
+
+
+	<property file="${properties}" />
+
+	<property name="TestCaseExpander.Laucher" value="edu.umd.cs.guitar.testcase.TestCaseExpander" />
+	<property name="jars.dir" value="jars" />
+
+	<property name="deprecation" value="on" />
+
+	<!-- exécution du JAR -->
+	<target name="run">
+		<java classname="${TestCaseExpander.Laucher}" fork="true">
+			<classpath>
+				<pathelement location="${basedir}" />
+				<fileset dir="${jars.dir}" includes="*.jar" />
+			</classpath>
+			<jvmarg value="-Xss1024k" />
+			<jvmarg value="-Xms512m" />
+			<jvmarg value="-Xmx512m" />
+
+
+			<arg value="-i" />
+			<arg value="${input}" />
+
+			<arg value="-o" />
+			<arg value="${output}" />
+
+			<arg value="-m" />
+			<arg value="${mapping}" />
+
+			<arg value="-d" />
+
+		</java>
+	</target>
+
+</project>

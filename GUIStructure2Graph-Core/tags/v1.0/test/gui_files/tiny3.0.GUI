@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GUIStructure>
+<!--Test events in container : 1 window 
+ERROR: only 1 event generated
+-->  
+  <GUI>
+        <Window>
+            <Attributes>
+                <Property>
+                    <Name>ID</Name>
+                    <Value>Window 0</Value>
+                </Property>
+                <Property>
+                    <Name>Modal</Name>
+                    <Value>false</Value>
+                </Property>
+                <Property>
+                    <Name>Rootwindow</Name>
+                    <Value>true</Value>
+                </Property>
+            </Attributes>
+        </Window>
+        <Container>
+			<Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w00</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.JFCActionHandler</Value>
+                        </Property>
+                    </Attributes>
+            <Contents>
+                     				
+				<Widget>
+                    <Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w02</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.JFCActionHandler</Value>
+                        </Property>
+                        
+                    </Attributes>
+                </Widget>
+            </Contents>
+        </Container>
+		<Widget>
+                    <Attributes>
+                        <Property>
+                            <Name>ID</Name>
+                            <Value>w03</Value>
+                        </Property>
+                        <Property>
+                            <Name>Type</Name>
+                            <Value>SYSTEM INTERACTION</Value>
+                        </Property>
+                        <Property>
+                            <Name>ReplayableAction</Name>
+                            <Value>edu.umd.cs.guitar.event.JFCActionHandler</Value>
+                        </Property>
+                        
+                    </Attributes>
+                </Widget>
+    </GUI>
+</GUIStructure>

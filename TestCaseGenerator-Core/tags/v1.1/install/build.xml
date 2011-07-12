@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Ant build file for guitar-TestCaseGenerator.
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant's home directory
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Charlie Biger, charlie.biger@gmail.com
+             
+   Version:  $Revision: 0$
+             $Date: 2009-08-03$
+             $Author: Charlie Biger$
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+<project name="TestCaseGenerator" default="help" basedir="..">
+	<property file="build.properties" />
+	<property name="deprecation" value="on" />
+
+	<fileset id="jars.ref" dir="${jars.dir}" includes="**/*.jar" erroronmissingdir="false" />
+	<fileset id="shared.ref" dir="${lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+
+	<path id="build.classpath">
+		<fileset refid="jars.ref" erroronmissingdir="false" />
+		<fileset refid="shared.ref" erroronmissingdir="false" />
+	</path>
+
+	<pathconvert property="manifest.classpath" pathsep=" ">
+		<path refid="build.classpath" />
+		<mapper>
+			<chainedmapper>
+				<flattenmapper />
+				<globmapper from="*.jar" to="*.jar" />
+			</chainedmapper>
+		</mapper>
+	</pathconvert>
+
+
+	<!-- Distribute -->
+	<target name="dist" depends="jar">
+		<copy file="resources/${ant.project.name}.xml" todir=".." />
+		<copy file="resources/${ant.project.name}.properties" todir=".." />
+		<copy file="resources/README-${ant.project.name}.txt" todir=".." />
+
+		<copy todir="${jars.dir}">
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		</copy>
+
+	</target>
+
+	<!-- jar -->
+	<target name="jar" depends="build">
+		<mkdir dir="${jars.dir}" />
+		<jar jarfile="${jars.dir}/${ant.project.name}.jar" update="true">
+			<!--
+			<manifest>
+				<attribute name="Main-Class" value="edu.umd.cs.guitar.${ant.project.name}.${main-class}" />
+				<attribute name="Class-Path" value="${manifest.classpath}" />
+			</manifest>
+			
+			-->
+			<fileset dir="${build.dir}">
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- Build -->
+
+	<target description="Build the project" name="build">
+		<mkdir dir="${build.dir}" />
+
+		<javac srcdir="${src.dir}" destdir="${build.dir}" debug="${debug}" deprecation="${deprecation}" debuglevel="lines,vars,source">
+			<classpath>
+				<fileset refid="jars.ref" erroronmissingdir="false" />
+				<fileset refid="shared.ref" erroronmissingdir="false" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target description="echo the help" name="help">
+		<echo file="${ant.project.name}.txt" append="true">
+		</echo>
+	</target>
+
+	<!--Javadoc -->
+	<target description="Create Javadoc" name="doc">
+		<mkdir dir="${doc.dir}/${ant.project.name}" />
+		<javadoc sourcepath="${src.dir}" destdir="${doc.dir}/${ant.project.name}" author="true" version="true" use="true" package="true" verbose="true" />
+	</target>
+
+	<!-- Clean -->
+	<target description="clean project" depends="dist" name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${doc.dir}" />
+		<delete dir="${jars.dir}" />
+	</target>
+
+	<!-- Update jar in shared - need to commit to update the repository  -->
+	<target description="update local shared dir" name="updateShared" depends="jar">
+		<copy file="${jars.dir}/${ant.project.name}.jar" todir="${shared.lib.dir}/${guitar.lib.dir}" />
+	</target>
+
+</project>
+

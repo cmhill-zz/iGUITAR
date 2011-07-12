@@ -1,0 +1,50 @@
+
+\section{Creating a Plugin}
+
+\subsection{Communicators, Adapters, and Servants}
+
+Ice utilizes a remote procedure call mechanism that allows the plugin to be written in Java and the specific implementation to be written in any language supported by Ice. For the plugin to work, a few servants need to be available when the plugin is run.
+
+A servant is an object on the server side that can be manipulated with remote procedure calls. The application, windows, and components would each be different servants. Servants are stored and controlled through an adapter. Only one adapter is needed, but the implementation must create the adapter. Since the implementation is the server side, it must provide the adapter and the servants.
+
+The communicator is the center of the Ice runtime. This object must be initialized before using any functions from Ice. You can manually create the communicator as detailed in the Ice manual, or you can use the Ice.Application class which will automatically construct the communicator. It is highly suggested to have the implementation's main program implement Ice.Application as it initializes the communicator, provides the boilerplate code to set up Ice, and already implements the Singleton pattern for the communicator. It already does everything that I would personally suggest doing when writing the server implementation.
+
+The adapter must be created using \emph{default -p 10000}. This tells Ice to accept incoming connections on port 10000 for the server side program. Once the adapter is created, it need not be created again. It is suggested that you implement the adapter with the Singleton pattern.
+
+After creating the adapter, it must be activated. Activating the adapter allows clients to connect to the servants.
+
+More information about adapters can be found in the Ice manual located on their website at http://www.zeroc.com.
+
+The Ice implementation requires the following servants to exist before being run. Some of these servants are specific to the ripper/replayer, while some are needed for both.
+\begin{itemize}
+\item Required
+  \begin{itemize}
+  \item Application
+  \item Constants
+  \item Events\footnote{This is a special case explained later}
+  \end{itemize}
+\item Ripper only
+  \begin{itemize}
+  \item RipperMonitor
+  \end{itemize}
+\end{itemize}
+
+Application should be a sevant to the Application class defined in the slice file. The Application class controls the creation of new processes. The Application interface should be implemented as a factory pattern for Process objects. When connect is called, it should return a new Process servant that can be used to get the root windows and destroy the application. The process should clean up all resources after disconnect is called.
+
+Constants should be a servant to the Constants class defined in the slice file. The Constants class is for implementation specific constants that could not be built into the plugin itself.
+
+The RipperMonitor should only exist for the Ripper implementation. It keeps track of windowing events, setting up the ripper environment, cleaning up the ripper environment, and how to click on various components. The RipperMonitor is another proxy that was made because it was implementation specific and could not be abstracted into the Ice plugin itself.
+
+Windows and Components are also interacted with through proxies, but they do not have designated names. Window and Component servants are lazily created whenever the window/component is needed. For this reason, windows and components should both add themselves as servants using addWithUUID so having a unique name is not an issue.
+
+Events available for the implementation should be made immediately available on the program startup. Their servant names should match whatever their \emph{getEventType()} function returns. This method of getting events is only used in the Replayer, but it's easy enough to have the events get created on startup in both the ripper and replayer.
+
+Events are a special case because the plugin does not define events that need to be present. The implementation decides what events need to be available by which ones it uses.
+
+\subsection{Entry Programs}
+
+Both the ripper and replayer for an implementation should contain entry programs that setup the application for the ripper and replayer.
+
+This entry program should create the communicator, adapter, and any servants necessary for the plugin (which are specified above). This program should also forward its command line arguments to Ice for special configuration. It may also be helpful for a plugin to offer a default configuration file that will be loaded by the Ice runtime.
+
+It is suggested that the Ice.Application class be used for the entry program. Consult the Ice documentation for more information about the Ice.Application class.

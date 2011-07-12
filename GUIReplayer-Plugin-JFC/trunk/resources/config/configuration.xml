@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+	
+	<IgnoredComponents>
+		<FullComponent>
+			<Window>
+				<Attributes>
+					<Property>
+                    <Name>ID</Name>
+                    <Value>rotate</Value>
+					</Property>
+				</Attributes>
+			</Window>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Class</Name>
+						<Value>javax.swing.JRadioButton</Value>
+					</Property>                    
+				</Attributes>
+			</Component>
+		</FullComponent>		
+		<FullComponent>	
+			<Window>
+				<Attributes>
+					<Property>
+                    <Name>ID</Name>
+                    <Value>Open</Value>
+					</Property>
+				</Attributes>
+			</Window>
+		</FullComponent>	
+		
+		<FullComponent>	
+			<Window>
+				<Attributes>
+					<Property>
+                    <Name>ID</Name>
+                    <Value>Choose a file to import</Value>
+					</Property>
+				</Attributes>
+			</Window>
+		</FullComponent>	
+		
+		
+		<FullComponent>	
+			<Window>
+				<Attributes>
+					<Property>
+                    <Name>ID</Name>
+                    <Value>Choose a file to export to</Value>
+					</Property>
+				</Attributes>
+			</Window>
+		</FullComponent>	
+		
+	</IgnoredComponents>
+	
+	<TerminalComponents>
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>Cancel</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>No</Value>
+					</Property>				
+				</Attributes>
+			</Component>
+		</FullComponent>
+				<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>close</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>reject</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>exit</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>ok</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+				<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>yes</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>insert</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>		
+		</TerminalComponents>
+	
+</Configuration>

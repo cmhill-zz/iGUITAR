@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="guitestruner" basedir="." default="full">
+
+    <property file="build.properties" />
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+	
+    <target name="build">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="src" destdir="${build.dir}" classpathref="classpath"/>
+    </target>
+
+    <target name="package">
+    	<mkdir dir="${dist.dir}"/>
+    	
+		<pathconvert property="manifest.classpath" pathsep=" ">
+			<path refid="classpath" />
+			<flattenmapper />
+		</pathconvert>
+		
+		<jar jarfile="${dist.dir}/guitestrunner.jar">
+			<fileset dir="${build.dir}">
+			</fileset>
+			<manifest>
+				<attribute name="Created-By" value="Scott McMaster, modified by Si Huang" />
+				<attribute name="Main-Class" value="edu.umd.cs.guitestrunner.Main" />
+				<attribute name="Class-Path" value="${manifest.classpath}" />
+			</manifest>
+		</jar>
+
+        <zip destfile="${dist.dir}/guitestrunner-src.zip" basedir="src">
+        </zip>
+        
+        <zip destfile="${dist.dir}/guitestrunner-full.zip">
+        	<fileset dir="${lib.dir}"/>
+        	<fileset dir="${dist.dir}" includes="**/*.jar"/> 
+        </zip>
+    </target>
+
+	<target name="full" depends="clean,build,package" />
+	
+</project>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	Copyright (c) 2009. The GUITAR group at the University of Maryland. Names of owners 
+	of this group may be obtained by sending an e-mail to atif@cs.umd.edu
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+	software and associated documentation files (the "Software"), to deal in the Software 
+	without restriction, including without limitation the rights to use, copy, modify, merge, 
+	publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons 
+	to whom the Software is furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or 
+	substantial portions of the Software. 
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+	BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+	DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Ant script for running JFCGUIRIPPER.
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant's home directory
+                 4. Config file jfcripper.properties is available 
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Bao N. Nguyen, baonn@cs.umd.edu
+             
+   Version:  $Revision: 1$
+             $Date: 2009-09-12$
+             $Author: Bao N. Nguyen$
+
+			 $Revision: 0$
+             $Date: 2009-07-27$
+             $Author: Bao N. Nguyen$
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="jfcripper" default="rip-application" basedir=".">
+
+	<!-- Environment vars-->
+
+	<!-- Replace  ${properties} by a file name if you don't want to pass
+		it through the commandline 
+		-->
+	<property file="${properties}" />
+
+	<property name="lib.dir" value="jars" />
+	<property name="ripper.lib" value="${lib.dir}/jfcguiripper.jar" />
+	<property name="ripper.launcher" value="edu.umd.cs.guitar.ripper.JFCRipperMain" />
+
+	<path id="ripper.classpath.ref">
+		<pathelement location="${application.classpath}:${basedir}" />
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</path>
+
+	<target name="debug" description="This task is just for debugging">
+		<echo message="${application.classpath}" />
+	</target>
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: rip-application                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="rip-application" description="rip the application under test">
+
+		<echo message="${application.classpath}" />
+		<java classname="${ripper.launcher}" fork="true">
+			<jvmarg value="-Xss20m" />
+			<jvmarg value="-Xms512m" />
+			<jvmarg value="-Xmx512m" />
+
+			<!-- <java classname="${application.main-class}" fork="true"> -->
+			<!-- Ripper arguments-->
+
+			<arg value="-a" />
+			<arg value="${application.arguments}" />
+
+			<arg value="-c" />
+			<arg value="${application.main-class}" />
+
+			<arg value="-u" />
+			<arg value="${application.urls}" />
+
+			<arg value="-j" />
+			<arg value="${application.jvm-options}" />
+			
+			<arg value="-cf" />
+			<arg value="${application.ripping.configuration}" />
+
+			<arg value="-i" />
+			<arg value="${ripper.initial-wait}" />
+
+			<arg value="-d" />
+			<arg value="${ripper.delay}" />
+
+			<arg value="-g" />
+			<arg value="${basedir}/${ripper.gui-file}" />
+
+			<arg value="-l" />
+			<arg value="${ripper.log-file}" />
+
+			<!-- - - - - - - - - - - - -
+			Other arguments 
+			- - - - - - - - - - - - - - -->
+			<!-- <arg value="-Dlog4j.configuration=jar:file:${lib.dir}/jfcguiripper.jar!/resources/config" /> -->
+
+			<classpath>
+				<!--				<pathelement location="${basedir}" /> -->
+				<!--<pathelement path="data/FreeMind/aut/bin/lib/freemind.jar" /> -->
+				<pathelement path="${application.classpath}" />
+				<fileset dir="${lib.dir}" includes="*.jar" />
+				<pathelement location="${ripper.lib}" />
+			</classpath>
+
+		</java>
+	</target>
+</project>

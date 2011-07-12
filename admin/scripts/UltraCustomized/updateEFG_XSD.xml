@@ -1,0 +1,79 @@
+<project name="MyProject" default="update" basedir=".">
+    <description>
+       This script updates all files/libraries generated from .xsd file.
+       Yes, I know that this is a horrible script but it gets the job done. TODO: clean it up one day.   
+    </description>
+
+  <!-- set global properties for this build -->
+  <property name="model" value="EFG"/>
+
+  <target name="update" 
+        description="process the xsd file" >
+   <!-- Invoke xjc 
+   <exec dir="./" executable="xjc.sh">
+    <arg line="-p edu.umd.cs.guitar.model -xmlschema http://guitar.svn.sourceforge.net/viewvc/guitar/GUITARSchema/trunk/${model}_XSD.xsd"/>
+   </exec>
+   -->
+
+  <echo message= "Usage: ant -v -lib ../local/jaxb-ri-20090206/lib/ -f update${model}_XSD.xml"/>
+
+  <delete dir="APIdocs"/>
+  <delete dir="edu"/>
+  <delete file="${model}.jar"/>
+
+  <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+<!--    <classpath>
+    <fileset dir="../../lib" includes="*.jar" excludes="ant.jar"/>
+    <fileset dir="../../..">
+      <include name="jaxp/**/*.jar"/>
+      <include name="jwsdp-shared/lib/**/*.jar"/>
+    </fileset>
+  </classpath>  -->
+  </taskdef>
+
+  <xjc schema="http://guitar.svn.sourceforge.net/viewvc/guitar/GUITARSchema/trunk/${model}.xsd"
+   package="edu.umd.cs.guitar.model" removeOldOutput="yes"/>
+
+  <javadoc
+   destdir="APIdocs/${model}" windowtitle="${model} API">
+   <fileset
+    dir="edu/umd/cs/guitar/model/" includes="**/*.java"/>
+
+    <bottom>
+<![CDATA[<a href="http://sourceforge.net/projects/guitar"><img
+src="http://sflogo.sourceforge.net/sflogo.php?group_id=155202&amp;type=8"
+width="80" height="15" alt="Get GUITAR - A GUI Testing Framework at
+SourceForge.net. Fast, secure and Free Open Source software downloads"
+/></a>]]>
+</bottom>
+  </javadoc>
+
+<!-- jar cvf .jar edu/  -->
+   <jar destfile="${model}.jar" basedir="edu"/>
+
+   <!-- sftp username,guitar@frs.sourceforge.net -->
+   <input
+    message="Please enter your sourceforge UserID:"
+    addproperty="uid"
+    defaultvalue="atifmemon"
+   />
+
+   <input
+    message="Please enter your sourceforge password:"
+    addproperty="pass"
+   />
+
+   <scp verbose="true" file="${model}.jar" todir="${uid},guitar@frs.sourceforge.net:/home/groups/g/gu/guitar/htdocs" password="${pass}" />
+
+   <echo message="The .jar is available at: http://guitar.sourceforge.net/${model}.jar"/>
+
+   <scp todir="${uid},guitar@frs.sourceforge.net:/home/groups/g/gu/guitar/htdocs/APIdocs/${model}" password="${pass}">
+    <fileset dir="APIdocs/${model}"/>
+   </scp>
+
+   <echo message="The documentation is available at: http://guitar.sourceforge.net/APIdocs/${model}"/>
+
+  </target>
+
+</project>
+

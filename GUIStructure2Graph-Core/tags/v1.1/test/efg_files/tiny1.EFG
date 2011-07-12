@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EFG>
+    <Events>
+        <Event>
+            <EventId>e0</EventId>
+            <WidgetId>w11</WidgetId>
+            <Type>SYSTEM INTERACTION</Type>
+            <Initial>false</Initial>
+            <Action>edu.umd.cs.guitar.event.JFCActionHandler</Action>
+        </Event>
+        <Event>
+            <EventId>e1</EventId>
+            <WidgetId>w01</WidgetId>
+            <Type>SYSTEM INTERACTION</Type>
+            <Initial>true</Initial>
+            <Action>edu.umd.cs.guitar.event.JFCActionHandler</Action>
+        </Event>
+        <Event>
+            <EventId>e2</EventId>
+            <WidgetId>w02</WidgetId>
+            <Type>UNRESTRICED FOCUS</Type>
+            <Initial>true</Initial>
+            <Action>edu.umd.cs.guitar.event.JFCActionHandler</Action>
+        </Event>
+    </Events>
+    <EventGraph>
+        <Row>
+            <E>1</E>
+            <E>1</E>
+            <E>1</E>
+        </Row>
+        <Row>
+            <E>0</E>
+            <E>1</E>
+            <E>1</E>
+        </Row>
+        <Row>
+            <E>1</E>
+            <E>1</E>
+            <E>1</E>
+        </Row>
+    </EventGraph>
+</EFG>

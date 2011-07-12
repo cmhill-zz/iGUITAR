@@ -1,0 +1,27 @@
+\section{Introduction}
+
+This document explains how the Ice plugin works, the rationale behind certain choices, and finally, how to implement a new implementation for the Ice plugin. The original GUITAR model was for there to be a Core module that implemented anything that was not platform specific. The plugins would implement the platform specific code.
+
+The Ice plugin is designed around that same philosophy. Its main function is to allow communication with an application through remote procedure calls. This offers several advantages.
+
+\begin{itemize}
+\item GUITAR program sandboxed away from tested application
+\item Implementation can be written in any language supported by Ice \footnote{This was done previously through JNI. JNI restricts us to using only C/C++ and it is very ugly to work with. Ice provides a more seamless transition between the two languages since the client/server are two different programs.}\footnote{Supported languages are C++, .NET (C\#), Java, Python, Objective-C, Python, Ruby, and PHP}
+\item Application does not have to be on the same computer as the ripper \footnote{This allows us to test applications on platforms that do not support Java, such as the iPhone}
+\item An appropriate build tool can be chosen depending on the language, rather than using ant for everything.
+\end{itemize}
+
+This does come at the cost of some downsides.
+
+\begin{itemize}
+\item Vulnerable to problems with internet connections \footnote{Even on a local computer, localhost would still need to be available}
+\item Two programs need to be run instead of one, making it slightly harder to set up.
+\end{itemize}
+
+Both of these are minor issues.
+
+\section{Requirements}
+
+This document assumes that you are familiar with the client/server model and have skimmed through the first several chapters of the Ice manual located in the documentation section of ZeroC's site at http://www.zeroc.com.
+
+You should have written the "Hello, world" example program in your language of choice and have a brief understanding of the slice language. You don't need to be able to write anything in the slice language, but the ability to read it will be helpful in developing your own implementation. It would also help if you have read the "Developing a File System" portion for the language of your choice, but this is not necessary.

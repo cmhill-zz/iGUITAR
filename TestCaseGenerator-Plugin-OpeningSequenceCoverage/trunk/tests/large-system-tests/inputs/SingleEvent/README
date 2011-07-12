@@ -1,0 +1,5 @@
+We create a simple EFG file here, SingleEvent.EFG.xml.  The EFG is simply a
+single event that links back to itself.  This exploits one branch of
+RandomTestCase, which checks for such a situation (supposedly).  Ideally a GUI
+program could be created that does this, rather than relying upon us creating
+an EFG directly.

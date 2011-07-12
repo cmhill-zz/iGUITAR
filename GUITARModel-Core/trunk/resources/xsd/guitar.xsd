@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:annotation>
+		<xs:documentation>
+
+			This is the formal description of the GUI Structure
+			used by
+			GUITAR.
+
+			Copyright (c) 2009. The GUITAR group at the University
+			of
+			Maryland. Names of owners of this group may be obtained by
+			sending
+			an e-mail to atif@cs.umd.edu
+
+			Permission is hereby granted, free of
+			charge, to any person
+			obtaining a copy of
+			this software and associated
+			documentation files (the "Software"), to
+			deal in the
+			Software without
+			restriction, including without limitation
+			the rights to use, copy,
+			modify, merge, publish, distribute,
+			sublicense, and/or sell copies of
+			the Software, and to
+			permit persons
+			to whom the Software is furnished
+			to do so,
+			subject to the following
+			conditions:
+
+			The above copyright
+			notice and this permission notice shall
+			be included in all copies or
+			substantial portions of the
+			Software.
+
+			THE
+			SOFTWARE IS PROVIDED "AS IS",
+			WITHOUT WARRANTY OF ANY
+			KIND, EXPRESS OR
+			IMPLIED, INCLUDING BUT NOT
+			LIMITED TO THE
+			WARRANTIES OF
+			MERCHANTABILITY, FITNESS FOR A PARTICULAR
+			PURPOSE AND NONINFRINGEMENT.
+			IN NO EVENT SHALL THE AUTHORS
+			OR
+			COPYRIGHT
+			HOLDERS BE LIABLE FOR ANY
+			CLAIM, DAMAGES OR
+			OTHER LIABILITY,
+			WHETHER IN
+			AN ACTION OF CONTRACT,
+			TORT OR
+			OTHERWISE, ARISING FROM, OUT
+			OF OR IN
+			CONNECTION WITH THE
+			SOFTWARE OR THE USE OR OTHER DEALINGS IN
+			THE
+			SOFTWARE.
+		</xs:documentation>
+	</xs:annotation>
+
+	<!--++++++++++++++++++++++
+		GUIStructue 
+	++++++++++++++++++++++-->
+
+
+	<!-- definition of complex elements -->
+
+	<xs:complexType name="PropertyType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="Name" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AttributesType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Property" type="PropertyType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ComponentType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="Attributes" type="AttributesType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Optional" type="AttributesType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ContainerType">
+		<xs:complexContent>
+			<xs:extension base="ComponentType">
+				<xs:sequence>
+					<xs:element name="Contents" type="ContentsType"/>
+
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ContentsType">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded" minOccurs="1">
+				<xs:element name="Widget" type="ComponentType"/>
+				<xs:element name="Container" type="ContainerType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GUIType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="Window" type="ComponentType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Container" type="ContainerType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--  Root element  -->
+	<xs:element name="GUIStructure">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="GUI" type="GUIType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element> 
+
+ 
+	<!--+++++++++++++++++++++++++
+		EFG 
+	+++++++++++++++++++++++++-->
+
+
+	<!-- definition of complex type -->
+	<xs:simpleType name="BooleanType">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+		<xs:complexType name="EventType"> <xs:sequence> <xs:element
+		name="Attributes" type="AttributesType" minOccurs="1" maxOccurs="1" />
+
+		</xs:sequence> </xs:complexType>
+	-->
+
+
+	<xs:complexType name="EventType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="EventId" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="WidgetId" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Type" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Initial" type="xs:boolean"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Action" type="xs:string"/>
+
+			<xs:element maxOccurs="1" minOccurs="0" name="Optional" type="AttributesType"/>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RowType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="E" type="BooleanType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EventsType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Event" type="EventType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EventGraphType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Row" type="RowType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- definition of complex elements -->
+
+	<xs:element name="EFG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="1" name="Events" type="EventsType"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="EventGraph" type="EventGraphType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<!-- ++++++++++++++++++++
+		Graph Mapping 
+	++++++++++++++++++++-->
+	
+	
+	<xs:complexType name="PathType"> 
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="EventId" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+		
+	<xs:complexType name="EdgeMappingType"> 
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="SourceId" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="TargetId" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Path" type="PathType"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+		
+	<xs:complexType name="EdgeMappingListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EdgeMapping" type="EdgeMappingType"/>
+		</xs:sequence>	
+	</xs:complexType>
+	
+	<xs:complexType name="InitialMappingType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="EventId" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Path" type="PathType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InitialMappingListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="IntialMapping" type="InitialMappingType"/>
+		</xs:sequence>	
+	</xs:complexType>
+
+
+	<xs:complexType name="MappingType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="InitialMappingList" type="InitialMappingListType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="EdgeMappingList" type="EdgeMappingListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="Mapping">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0" name="InitialMappingList" type="InitialMappingListType"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="EdgeMappingList" type="EdgeMappingListType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+<!--
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0" name="MappingEdges" type="MappingEdgeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+-->
+
+	<!-- ++++++++++++++++++++
+		Test case
+	++++++++++++++++++++--> 
+
+	<!-- definition of complex type -->
+
+	<xs:complexType name="StepType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="EventId" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="ReachingStep" type="xs:boolean"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Parameter" type="xs:string"/>
+
+			<xs:element maxOccurs="1" minOccurs="0" name="Optional" type="AttributesType"/>
+				
+			<xs:element maxOccurs="1" minOccurs="0" ref="GUIStructure">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+
+	<!-- definition of complex elements -->
+
+	<xs:element name="TestCase">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0" ref="GUIStructure"/>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="Step" type="StepType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- ++++++++++++++++++++
+		Configuration
+	++++++++++++++++++++-->
+
+	<xs:complexType name="FullComponentType">
+		<xs:sequence>
+			<xs:element name="Window" type="ComponentType"/>
+			<xs:element name="Component" type="ComponentType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ComponentListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="FullComponent" type="FullComponentType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="Configuration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IgnoredComponents" type="ComponentListType"/>
+				<xs:element name="TerminalComponents" type="ComponentListType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+		<xs:element name="LogWidget">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OpenWindow" type="ComponentListType"/>
+				<xs:element name="CloseWindow" type="ComponentListType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="shared/ant/lib/activation.jar"/>
+	<classpathentry kind="lib" path="shared/ant/lib/collection-setter-injector.jar"/>
+	<classpathentry kind="lib" path="shared/ant/lib/jaxb-api.jar"/>
+	<classpathentry kind="lib" path="shared/ant/lib/jaxb-impl.jar"/>
+	<classpathentry kind="lib" path="shared/ant/lib/jaxb-xjc.jar"/>
+	<classpathentry kind="lib" path="shared/ant/lib/jaxb1-impl.jar"/>
+	<classpathentry kind="lib" path="shared/ant/lib/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="shared/args4j-2.0.10.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/guireplayer.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/guiripper.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/GUIStructure2GraphConvert.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/GUIStructure2GraphPlugins.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/guitarmodel.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/jfcmodel.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/jfcreplayer.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/jfcripper.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/TestCaseGeneratorCore.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/TestCaseGeneratorPlugins-CoverAllEvents.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/TestCaseGeneratorPlugins-CoverAllFGEdges.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/TestCaseGeneratorPlugins-MinEdgeCoverage.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/TestCaseGeneratorPlugins-MinEventCoverage.jar"/>
+	<classpathentry kind="lib" path="shared/guitarlib/TestCaseGeneratorPlugins-RandomTestCase.jar"/>
+	<classpathentry kind="lib" path="shared/jemmy.jar"/>
+	<classpathentry kind="lib" path="shared/log4j-1.2.15.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

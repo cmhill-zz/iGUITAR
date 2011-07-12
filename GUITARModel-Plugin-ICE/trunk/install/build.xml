@@ -1,0 +1,124 @@
+
+<project name="GUITARModel-Plugin-ICE" basedir="../.." default="all">
+
+  <property name="module" value="GUITARModel-Plugin-ICE" />
+  <property name="src.dir" value="${module}/src" />
+  <property name="slice.dir" value="${module}/slice" />
+  <property name="generated.dir" value="${module}/generated" />
+  <property name="bin.dir" value="${module}/bin" />
+  <property name="instrumented.dir" value="${module}/instrumented" />
+  <property name="jar.dir" value="./jars" />
+  <property name="shared.lib.dir" value="./shared" />
+  <property name="ant.dir" value="${shared.lib.dir}/ant/lib" />
+  <property name="coverage.dir" value="./coverage" />
+
+  <property environment="env" />
+  <!-- Search for the Ice jar -->
+  <available property="ice_lib.dir" file="${env.ICE_HOME}/lib/Ice.jar"
+             value="${env.ICE_HOME}/lib" />
+  <available property="ice_lib.dir" file="/usr/local/share/java/Ice.jar"
+             value="/usr/local/share/java" />
+  <available property="ice_lib.dir" file="/usr/share/java/Ice.jar"
+             value="/usr/share/java" />
+
+  <!-- Cobertura -->
+  <property name="cobertura.dir" value="${shared.lib.dir}/cobertura" />
+  <path id="cobertura.lib">
+    <fileset dir="${cobertura.dir}">
+      <include name="cobertura.jar" />
+      <include name="lib/**/*.jar" />
+    </fileset>
+  </path>
+
+  <taskdef resource="tasks.properties" classpathref="cobertura.lib" />
+
+  <target name="slice">
+    <taskdef name="slice2java"
+             classpath="${ice_lib.dir}/ant-ice.jar"
+             classname="Slice2JavaTask" />
+    <mkdir dir="${generated.dir}" />
+    <slice2java outputdir="${generated.dir}">
+      <fileset dir="${module}/slice" includes="**/*.ice" />
+    </slice2java>
+  </target>
+
+  <target name="updateDepends">
+    <!-- Load svn task -->
+    <path id="svnant.classpath">
+      <fileset dir="${ant.dir}">
+        <include name="*.jar" />
+      </fileset>
+    </path>
+    <typedef resource="org/tigris/subversion/svnant/svnantlib.xml"
+             classpathref="svnant.classpath" />
+
+    <!--<svn failonerror="true">
+      <checkout url="https://guitar.svn.sourceforge.net/svnroot/guitar/GUITARModel-Core/trunk" destPath="GUITARModel-Core" />
+    </svn>-->
+
+    <!-- Build the core modules -->
+    <ant antfile="GUITARModel-Core/install/build.xml" target="all"
+         inheritAll="false" useNativeBasedir="true" />
+  </target>
+
+  <target name="build" depends="slice,updateDepends">
+    <mkdir dir="${bin.dir}" />
+
+    <!-- Compile generated slice files first -->
+    <javac srcdir="${generated.dir}" destdir="${bin.dir}" debug="true">
+      <include name="**/*.java" />
+      <classpath>
+        <fileset dir="${ice_lib.dir}" includes="Ice.jar" />
+      </classpath>
+    </javac>
+
+    <!-- Compile main source files including the generated files -->
+    <javac srcdir="${src.dir}" destdir="${bin.dir}" debug="true">
+      <include name="**/*.java" />
+      <classpath>
+        <fileset dir="${ice_lib.dir}" includes="Ice.jar" />
+        <fileset dir="${jar.dir}" includes="**/*.jar" />
+      </classpath>
+    </javac>
+
+    <jar destfile="${jar.dir}/${module}.jar">
+      <fileset dir="${bin.dir}" includes="**/*.class" />
+    </jar>
+  </target>
+
+  <!-- An optional directive for instrumenting the code.
+       Remember building with instrumentation only instruments the code.
+       To get any meaningful data, run the program with the instrumented
+       code and then call the "report" target.
+
+       This build file will not automatically call report.
+    -->
+  <target name="instrument" depends="build" if="instrument">
+    <mkdir dir="${coverage.dir}" />
+    <cobertura-instrument
+       datafile="${coverage.dir}/${module}.ser" todir="${instrumented.dir}">
+      <fileset dir="${bin.dir}" includes="edu/**/*.class" />
+    </cobertura-instrument>
+
+    <jar destfile="${jar.dir}/${module}.jar" update="true">
+      <fileset dir="${instrumented.dir}" includes="**/*.class" />
+    </jar>
+  </target>
+
+  <target name="doc">
+    <echo message="TODO: Generate documentation" />
+  </target>
+
+  <target name="all" depends="build,instrument">
+    <echo message="Built module ${module}" />
+  </target>
+
+  <target name="clean">
+    <delete dir="${generated.dir}" />
+    <delete dir="${bin.dir}" />
+    <delete dir="${instrumented.dir}" />
+
+    <delete file="${module}/cobertura.ser" />
+    <delete file="${jar.dir}/${module}.jar" />
+  </target>
+</project>

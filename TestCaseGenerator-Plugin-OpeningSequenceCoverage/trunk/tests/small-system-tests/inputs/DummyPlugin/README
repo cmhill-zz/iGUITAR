@@ -1,0 +1,4 @@
+We have constructed a new concrete class extending TCPlugin called DummyPlugin.
+This has trivial stub methods, but a private constructor.  The reflection code
+in TestCaseGenerator should throw an IllegalAccessException, which allows us to
+handle covering code handling that exception.

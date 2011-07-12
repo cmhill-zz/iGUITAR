@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.9555555555555556" branch-rate="0.7352941176470589" lines-covered="86" lines-valid="90" branches-covered="25" branches-valid="34" complexity="2.466666666666667" version="1.9.3" timestamp="1273444206039">
+	<sources>
+		<source>../../src</source>
+	</sources>
+	<packages>
+		<package name="edu.umd.cs.guitar.testcase.plugin" line-rate="0.9555555555555556" branch-rate="0.7352941176470589" complexity="2.466666666666667">
+			<classes>
+				<class name="edu.umd.cs.guitar.testcase.plugin.MaxEventTestCase" filename="edu/umd/cs/guitar/testcase/plugin/MaxEventTestCase.java" line-rate="1.0" branch-rate="0.9090909090909091" complexity="2.466666666666667">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="49" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="generate" signature="(Ledu/umd/cs/guitar/model/data/EFG;Ljava/lang/String;I)V" line-rate="1.0" branch-rate="0.875">
+							<lines>
+								<line number="59" hits="1" branch="false"/>
+								<line number="60" hits="1" branch="false"/>
+								<line number="62" hits="1" branch="false"/>
+								<line number="64" hits="1" branch="false"/>
+								<line number="65" hits="1" branch="false"/>
+								<line number="67" hits="1" branch="false"/>
+								<line number="69" hits="1" branch="false"/>
+								<line number="72" hits="1" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="2" branch="false"/>
+								<line number="74" hits="2" branch="false"/>
+								<line number="75" hits="2" branch="false"/>
+								<line number="76" hits="2" branch="false"/>
+								<line number="78" hits="1" branch="false"/>
+								<line number="79" hits="1" branch="false"/>
+								<line number="82" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="85" hits="2" branch="false"/>
+								<line number="86" hits="2" branch="false"/>
+								<line number="87" hits="2" branch="false"/>
+								<line number="88" hits="2" branch="false"/>
+								<line number="91" hits="2" branch="false"/>
+								<line number="95" hits="5" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="98" hits="5" branch="false"/>
+								<line number="100" hits="5" branch="false"/>
+								<line number="101" hits="5" branch="false"/>
+								<line number="103" hits="15" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="104" hits="10" branch="false"/>
+								<line number="105" hits="10" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="106" hits="4" branch="false"/>
+								<line number="110" hits="5" branch="false"/>
+								<line number="111" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="112" hits="2" branch="false"/>
+								<line number="114" hits="3" branch="false"/>
+								<line number="115" hits="3" branch="false"/>
+								<line number="116" hits="3" branch="false"/>
+								<line number="117" hits="3" branch="false"/>
+								<line number="119" hits="3" branch="false"/>
+								<line number="120" hits="3" branch="false"/>
+								<line number="123" hits="2" branch="false"/>
+								<line number="124" hits="2" branch="false"/>
+								<line number="125" hits="2" branch="false"/>
+								<line number="126" hits="2" branch="false"/>
+								<line number="127" hits="2" branch="false"/>
+								<line number="130" hits="2" branch="false"/>
+								<line number="131" hits="2" branch="false"/>
+								<line number="132" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="133" hits="2" branch="false"/>
+								<line number="134" hits="2" branch="false"/>
+								<line number="135" hits="2" branch="false"/>
+								<line number="137" hits="2" branch="false"/>
+								<line number="141" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getConfiguration" signature="()Ledu/umd/cs/guitar/testcase/TestCaseGeneratorConfiguration;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="165" hits="1" branch="false"/>
+								<line number="166" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInitialEvents" signature="()Ljava/util/List;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="171" hits="1" branch="false"/>
+								<line number="172" hits="1" branch="false"/>
+								<line number="173" hits="1" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="174" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="175" hits="1" branch="false"/>
+								<line number="178" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="isValidArgs" signature="()Z" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="152" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="153" hits="1" branch="false"/>
+								<line number="154" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="49" hits="4" branch="false"/>
+						<line number="59" hits="1" branch="false"/>
+						<line number="60" hits="1" branch="false"/>
+						<line number="62" hits="1" branch="false"/>
+						<line number="64" hits="1" branch="false"/>
+						<line number="65" hits="1" branch="false"/>
+						<line number="67" hits="1" branch="false"/>
+						<line number="69" hits="1" branch="false"/>
+						<line number="72" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="2" branch="false"/>
+						<line number="74" hits="2" branch="false"/>
+						<line number="75" hits="2" branch="false"/>
+						<line number="76" hits="2" branch="false"/>
+						<line number="78" hits="1" branch="false"/>
+						<line number="79" hits="1" branch="false"/>
+						<line number="82" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="85" hits="2" branch="false"/>
+						<line number="86" hits="2" branch="false"/>
+						<line number="87" hits="2" branch="false"/>
+						<line number="88" hits="2" branch="false"/>
+						<line number="91" hits="2" branch="false"/>
+						<line number="95" hits="5" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="98" hits="5" branch="false"/>
+						<line number="100" hits="5" branch="false"/>
+						<line number="101" hits="5" branch="false"/>
+						<line number="103" hits="15" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="104" hits="10" branch="false"/>
+						<line number="105" hits="10" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="106" hits="4" branch="false"/>
+						<line number="110" hits="5" branch="false"/>
+						<line number="111" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="112" hits="2" branch="false"/>
+						<line number="114" hits="3" branch="false"/>
+						<line number="115" hits="3" branch="false"/>
+						<line number="116" hits="3" branch="false"/>
+						<line number="117" hits="3" branch="false"/>
+						<line number="119" hits="3" branch="false"/>
+						<line number="120" hits="3" branch="false"/>
+						<line number="123" hits="2" branch="false"/>
+						<line number="124" hits="2" branch="false"/>
+						<line number="125" hits="2" branch="false"/>
+						<line number="126" hits="2" branch="false"/>
+						<line number="127" hits="2" branch="false"/>
+						<line number="130" hits="2" branch="false"/>
+						<line number="131" hits="2" branch="false"/>
+						<line number="132" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="133" hits="2" branch="false"/>
+						<line number="134" hits="2" branch="false"/>
+						<line number="135" hits="2" branch="false"/>
+						<line number="137" hits="2" branch="false"/>
+						<line number="141" hits="1" branch="false"/>
+						<line number="152" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="153" hits="1" branch="false"/>
+						<line number="154" hits="1" branch="false"/>
+						<line number="165" hits="1" branch="false"/>
+						<line number="166" hits="1" branch="false"/>
+						<line number="171" hits="1" branch="false"/>
+						<line number="172" hits="1" branch="false"/>
+						<line number="173" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="174" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="175" hits="1" branch="false"/>
+						<line number="178" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="edu.umd.cs.guitar.testcase.plugin.MaxEventTestCase$EventComparator" filename="edu/umd/cs/guitar/testcase/plugin/MaxEventTestCase.java" line-rate="0.6363636363636364" branch-rate="0.4166666666666667" complexity="2.466666666666667">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ledu/umd/cs/guitar/testcase/plugin/MaxEventTestCase;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="compare" signature="(Ledu/umd/cs/guitar/testcase/plugin/MaxEventTestCase$EventTypeWeight;Ledu/umd/cs/guitar/testcase/plugin/MaxEventTestCase$EventTypeWeight;)I" line-rate="0.6666666666666666" branch-rate="0.4166666666666667">
+							<lines>
+								<line number="226" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="227" hits="1" branch="false"/>
+								<line number="230" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="231" hits="0" branch="false"/>
+								<line number="234" hits="4" branch="true" condition-coverage="25% (1/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="235" hits="0" branch="false"/>
+								<line number="236" hits="4" branch="true" condition-coverage="25% (1/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="237" hits="0" branch="false"/>
+								<line number="240" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="compare" signature="(Ljava/lang/Object;Ljava/lang/Object;)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="222" hits="13" branch="false"/>
+							</lines>
+						</method>
+						<method name="equals" signature="(Ledu/umd/cs/guitar/testcase/plugin/MaxEventTestCase$EventTypeWeight;)Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="245" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="222" hits="13" branch="false"/>
+						<line number="226" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="227" hits="1" branch="false"/>
+						<line number="230" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="231" hits="0" branch="false"/>
+						<line number="234" hits="4" branch="true" condition-coverage="25% (1/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="235" hits="0" branch="false"/>
+						<line number="236" hits="4" branch="true" condition-coverage="25% (1/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="237" hits="0" branch="false"/>
+						<line number="240" hits="4" branch="false"/>
+						<line number="245" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="edu.umd.cs.guitar.testcase.plugin.MaxEventTestCase$EventTypeWeight" filename="edu/umd/cs/guitar/testcase/plugin/MaxEventTestCase.java" line-rate="1.0" branch-rate="1.0" complexity="2.466666666666667">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ledu/umd/cs/guitar/testcase/plugin/MaxEventTestCase;Ledu/umd/cs/guitar/model/data/EventType;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="192" hits="2" branch="false"/>
+								<line number="193" hits="2" branch="false"/>
+								<line number="194" hits="2" branch="false"/>
+								<line number="195" hits="2" branch="false"/>
+								<line number="196" hits="2" branch="false"/>
+								<line number="197" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEventType" signature="()Ledu/umd/cs/guitar/model/data/EventType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="217" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="incTimesUsed" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="202" hits="3" branch="false"/>
+								<line number="203" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="incTimesVisited" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="205" hits="3" branch="false"/>
+								<line number="206" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="isTerminalNode" signature="()Z" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="199" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="resetTimesVisited" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="214" hits="2" branch="false"/>
+								<line number="215" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="timesUsed" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="208" hits="12" branch="false"/>
+							</lines>
+						</method>
+						<method name="timesVisited" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="211" hits="18" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="192" hits="2" branch="false"/>
+						<line number="193" hits="2" branch="false"/>
+						<line number="194" hits="2" branch="false"/>
+						<line number="195" hits="2" branch="false"/>
+						<line number="196" hits="2" branch="false"/>
+						<line number="197" hits="2" branch="false"/>
+						<line number="199" hits="8" branch="false"/>
+						<line number="202" hits="3" branch="false"/>
+						<line number="203" hits="3" branch="false"/>
+						<line number="205" hits="3" branch="false"/>
+						<line number="206" hits="3" branch="false"/>
+						<line number="208" hits="12" branch="false"/>
+						<line number="211" hits="18" branch="false"/>
+						<line number="214" hits="2" branch="false"/>
+						<line number="215" hits="2" branch="false"/>
+						<line number="217" hits="11" branch="false"/>
+					</lines>
+				</class>
+				<class name="edu.umd.cs.guitar.testcase.plugin.MaxEventTestCaseConfiguration" filename="edu/umd/cs/guitar/testcase/plugin/MaxEventTestCaseConfiguration.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="28" hits="2" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>

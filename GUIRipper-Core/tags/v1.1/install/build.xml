@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	Copyright (c) 2009. The GUITAR group at the University of Maryland. Names of owners 
+	of this group may be obtained by sending an e-mail to atif@cs.umd.edu
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+	software and associated documentation files (the "Software"), to deal in the Software 
+	without restriction, including without limitation the rights to use, copy, modify, merge, 
+	publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons 
+	to whom the Software is furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or 
+	substantial portions of the Software. 
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+	BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+	DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Ant build file for GUITAR-RIPPER.
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant 1.7.1 or higher
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Bao N. Nguyen, baonn@cs.umd.edu
+             
+   Version:  $Revision: 1$
+             $Date: 2009-08-16$
+             $Author: Bao N. Nguyen$
+ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="guiripper" default="help" basedir="..">
+
+	<!-- Environment vars-->
+
+	<property file="build.properties" />
+	<property name="guitar.version" value="3.0" />
+
+	<property name="ant.dir" value="${shared.lib.dir}/${ant.lib.dir}" />
+
+
+	<!-- guitar dependent jar files for distribution -->
+
+	<!-- MODIFY THIS LIST FOR EACH PROJECT -->
+
+	<fileset id="guitarlib.file.ref" dir="${shared.lib.dir}/${guitar.lib.dir}" erroronmissingdir="false">
+		<include name="${guitarmodel.lib}" />
+	</fileset >
+	<!-- third party jar files for distribution -->
+	<fileset id="3rd-dist.file.ref" dir="${shared.lib.dir}" includes="*.jar" erroronmissingdir="false" />
+
+	<!-- all jar files for distribution -->
+
+	<path id="dist.lib.path.ref">
+		<fileset refid="3rd-dist.file.ref" erroronmissingdir="false" />
+		<fileset refid="guitarlib.file.ref" erroronmissingdir="false" />
+	</path>
+
+
+	<!-- jar files for ant tasks DON'T go with the distribution -->
+	<path id="ant.lib.path.ref">
+		<fileset dir="${ant.dir}" includes="**/*.jar" />
+	</path>
+
+
+
+	<!-- XSD File -->
+	<property name="xsd.dir" value="${resources.dir}/xsd" />
+	<property name="package.domain" value="edu.umd.cs.guitar.model.data" />
+	<property name="datamodel.package.dir" value="edu/umd/cs/guitar/model/data" />
+	<property name="deprecation" value="on" />
+	<property name="debug" value="off" />
+
+
+
+	<!-- Generate source code files from xsd files -->
+	<!--
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<path refid="ant.lib.path.ref" />
+		</classpath>
+	</taskdef>
+
+	<uptodate property="xmlBuild.notRequired" targetfile="jaxb.properties">
+		<srcfiles dir="${xsd.dir}" includes="*.xsd/" />
+	</uptodate>
+
+	<target name="xmlBuild" unless="xmlBuild.notRequired">
+		<mkdir dir="${src.dir}" />
+		<mkdir dir="${src.dir}/${datamodel.package.dir}" />
+
+		<xjc target="${src.dir}" removeOldOutput="yes" package="${package.domain}">
+			<schema dir="${xsd.dir}" includes="guitar.xsd" />
+			<arg value="-Xcollection-setter-injector" />
+			<produces dir="${src.dir}/${datamodel.package.dir}" includes="**/*" />
+		</xjc>
+		<xjc target="${src.dir}" removeOldOutput="yes" package="${package.domain}">
+			<schema dir="${xsd.dir}" includes="exeinfo.xsd" />
+			<arg value="-Xcollection-setter-injector" />
+			<produces dir="${src.dir}/${datamodel.package.dir}" includes="**/*" />
+		</xjc>
+	</target>
+-->
+
+	<!--  - - - - - - - -  
+		PUBLIC TASKS 
+	- - - - - - - - - -->
+
+	<!-- Help -->
+	<target description="help" name="help">
+		<echo message="${ant.project.name} help" />
+	</target>
+
+	<!-- Build -->
+	<!-- <target description="Build the project" depends="xmlBuild" name="build"> -->
+
+	<target description="Build the project" name="build">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}/${dist.lib.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" debug="${debug}}" deprecation="${deprecation}}">
+			<classpath>
+				<fileset dir="${dist.dir}/${dist.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+				<!-- <fileset dir="${shared.lib.dir}" includes="**/*.jar" erroronmissingdir="false" /> -->
+				<path refid="dist.lib.path.ref" />
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- Jar -->
+	<target name="jar" depends="build">
+		<mkdir dir="${dist.dir}/${dist.lib.dir}" />
+		<jar jarfile="${dist.dir}/${dist.lib.dir}/${ant.project.name}.jar" update="true">
+			<fileset dir="${build.dir}">
+			</fileset>
+		</jar>
+		<!-- <delete dir="${build.dir}" /> -->
+	</target>
+
+	<!-- Distribute -->
+	<target name="dist" depends="jar" description="Create a jar for the GUITAR-Core project">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/${dist.lib.dir}" />
+		<copy todir="${dist.dir}/${dist.lib.dir}" flatten="true">
+					<fileset refid="3rd-dist.file.ref" erroronmissingdir="false" />
+		</copy>
+
+		<!-- MODIFY THIS LIST FOR EACH PROJECT -->
+		<!--
+		<copy todir="${dist.dir}">
+			<fileset dir="${basedir}" includes="${resources.dir}/config/*" />
+			<fileset dir="${basedir}/${resources.dir}/user-scripts/" includes="**/*" />
+
+		</copy>
+		-->
+
+	</target>
+
+	<!-- Java doc -->
+	<target description="create javadocs" name="doc">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/${dist.doc.dir}" />
+		<mkdir dir="${dist.dir}/${dist.doc.dir}/${ant.project.name}" />
+		<javadoc sourcepath="${src.dir}" destdir="${dist.dir}/${dist.doc.dir}/${ant.project.name}" />
+	</target>
+
+
+	<!-- Clean -->
+	<target description="clean project" name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}/${dist.lib.dir}" />
+		<delete dir="${src.dir}/${datamodel.package.dir}" />
+	</target>
+
+	<!-- Update jar in shared - need to commit to update the repository  -->
+	<target description="update local shared dir" name="updateShared" depends="jar">
+		<copy file="${dist.dir}/${dist.lib.dir}/${ant.project.name}.jar" todir="${shared.lib.dir}/${guitar.lib.dir}" />
+	</target>
+</project>

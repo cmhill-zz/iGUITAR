@@ -1,0 +1,59 @@
+
+<project name="GUIRipper-Plugin-Ice" basedir="../.." default="all">
+  <property name="generated.dir" value="generated" />
+  <property name="src.dir" value="impl/windows/src" />
+  <property name="dll.dir" value="../lib" />
+
+  <property name="ice_home.dir" value="${environment::get-variable('ICE_HOME')}" />
+
+  <target name="slice">
+    <mkdir dir="${generated.dir}" />
+    <exec program="slice2cs">
+      <arg value="--output-dir" />
+      <arg value="${generated.dir}" />
+      <arg value="-I" />
+      <arg value="../GUITARModel-Plugin-ICE/slice" />
+      <arg value="slice/ripper.ice" />
+    </exec>
+  </target>
+
+  <target name="build" depends="slice">
+    <mkdir dir="${dll.dir}" />
+    <csc debug="true" output="${dll.dir}/GUIRipper-Plugin-Ice.dll" target="library">
+      <sources basedir="${src.dir}">
+        <include name="**/*.cs" />
+        <include name="${project::get-base-directory()}/${generated.dir}/ripper.cs" />
+        <exclude name="Main.cs" />
+      </sources>
+
+      <references>
+        <include name="WindowsBase.dll" />
+        <include name="UIAutomationClient.dll" asis="true" />
+        <include name="UIAutomationTypes.dll" asis="true" />
+        <include name="${ice_home.dir}/bin/Ice.dll" />
+        <include name="${dll.dir}/GUITARModel-Plugin-Ice.dll" />
+      </references>
+    </csc>
+
+    <!-- Compile main server program -->
+    <csc debug="true" output="${dll.dir}/WGRipper.exe" target="exe">
+      <sources basedir="${src.dir}">
+        <include name="Main.cs" />
+      </sources>
+
+      <references>
+        <include name="${ice_home.dir}/bin/Ice.dll" />
+        <include name="${dll.dir}/GUITARModel-Plugin-ICE.dll" />
+        <include name="${dll.dir}/GUIRipper-Plugin-ICE.dll" />
+      </references>
+    </csc>
+  </target>
+
+  <target name="copy">
+    <copy file="${ice_home.dir}/bin/Ice.dll" todir="${dll.dir}" />
+  </target>
+
+  <target name="all" depends="build,copy">
+    <echo message="Built Windows extension for GUIRipper-Plugin-Ice" />
+  </target>
+</project>

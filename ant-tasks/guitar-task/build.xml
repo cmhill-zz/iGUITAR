@@ -1,0 +1,21 @@
+
+<project name="guitar-task" basedir="." default="build">
+
+  <target name="build">
+    <mkdir dir="bin" />
+    <javac srcdir="src" destdir="bin" />
+  </target>
+
+  <target name="package" depends="build">
+    <jar destfile="guitar-ant.jar">
+      <fileset dir="bin" includes="**/*.class" />
+      <fileset dir="src" includes="edu/umd/cs/guitar/ant/antlib.xml" />
+    </jar>
+  </target>
+
+  <target name="install" depends="package">
+    <copy file="guitar-ant.jar" todir="../../jars" />
+  </target>
+
+</project>
+

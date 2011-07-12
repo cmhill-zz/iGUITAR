@@ -1,0 +1,62 @@
+
+\section{Implementation}
+
+To integrate the Ice plugin within GUITAR, it was necessary to implement all of the required abstract classes. The abstract classes within GUITAR are designed around the idea that they fulfill some low-level operation that is specific to the GUI framework used. These include the following:
+
+\begin{itemize}
+\item Application Management
+\item Window Management
+\item Specific Accessibility Library
+\end{itemize}
+
+This functionality is largely the same for both the ripper and replayer. Both plugins require an application to start and a way to manage components and events. The Model plugin covers the common implementation for the ripper and replayer.
+
+The Model plugin contains the following abstract classes\footnote{GUITAR Abstract classes are all prefixed with a "G". Similarly, the prefix for derived classes matches the plugin name}:
+
+\begin{itemize}
+\item GApplication
+\item GWindow
+\item GComponent
+\item GEvent
+\end{itemize}
+
+\subsection{Application}
+
+This merely acts as a frontend to the server side implementation of the Application interface. It does very little on its own. The \emph{getAllWindow()} function returns a \emph{Set$<$GWindow$>$} in the GApplication interface. Because the slice language for Ice lacks a \emph{Set} type, this is implemented using a \emph{Dictionary}\footnote{For those more familiar with Java or C++, maps and dictionaries are the same data structure}.
+
+Because a placeholder type was needed, an Integer was chosen. This integer value is not looked at and can be anything. We suggest that the Integer represent the unique id of the window to avoid conflicts with the numbers.
+
+\subsection{Window}
+
+The \emph{Window} class represents a GUI window. A GUI window is a specific type of component that acts as the root component for the rest of the GUI components. While the window is a specific type of component, it is not a component in GUITAR. If you want the internal component that represents the window, the \emph{getContainer()} function should be used.
+
+The window class is another wrapper around the underlying Ice proxy. This proxy is used to make remote procedure calls to the window on the server side.
+
+\subsection{Component}
+
+A component is any widget in a GUI library. This includes buttons, labels, menus, etc. A component can have other components as children (such as a menu has menu items as children). A component will also have a list of events that can be performed on it.
+
+There is also a list of terminal and ignored components for the ripper/replayer. This configuration is read on the client side at runtime. A terminal widget is anything that if touched, will kill the application (such as a close button). Ignored widgets are ones that the ripper is told not to touch, but won't necessarily kill the application.
+
+A widget is terminal if it matches all of the properties specified for a component in the configuration file. The configuration file does not need to specify every field for a widget. For example, if the configuration file only specifies the title for a terminal widget, then any component that has that title will be considered terminal.
+
+A terminal widget will never be touched and applies to both windows and components (but mostly only makes sense with components). An ignored widget only applies to windows. Components are not affected by being labeled as "ignored".
+
+\subsection{Event}
+
+The plugins implementation of event is another wrapper around the proxy. Normally, plugins will implement all of their events by extending the GEvent class. This doesn't work for the Ice plugin because the Ice plugin itself doesn't define any events. The implementation on the server side defines the events and only sends back proxies promising something will happen if used.
+
+For this reason, the Ice plugin serializes and recreates its events differently. Each event for the target platform should be implemented as a single servant. The \emph{getEventType()} function should return a string that uniquely identifies the type on the server side.
+
+Events on the server side should be offered as a servant with the same name as this string. This way, the replayer can find the correct event and re-use it on a component.
+
+Events are serialized through this field. If it changes for an event, all previous GUI files will not work.
+
+\subsection{Ripper}
+
+The ripper has one class that is specific to itself. The \emph{RipperMonitor} sets up the application and watches if any windows open and close after each step taken during the ripper.
+
+\subsection{Replayer}
+
+The replayer uses common elements from the model only. It does not have any specific portions that need to be implemented on the server side language. If everything has been done correctly for the ripper and model, the replayer should just work.
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Dummy Ant build file. 
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path to ant's home directory
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Atif M Memon, atif@cs.umd.edu
+             
+   Version:  $Revision: 0$
+             $Date: 2009-08-12$
+             $Author: Atif M Memon$
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="typicalproject" default="createTEST" basedir="../..">
+
+	<target name="createTEST">
+			<echo message="Creating folder..."/> 
+			<mkdir dir="TEST" />
+			<echo message="Done creating folder..."/> 
+	</target>
+
+</project>
+

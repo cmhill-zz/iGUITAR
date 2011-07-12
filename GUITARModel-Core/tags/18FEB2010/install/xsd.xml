@@ -1,0 +1,51 @@
+<project name="GUITARModel-xsd" default="xmlBuild" basedir=".">
+
+  <!-- Environment Variables -->
+
+  <property name="debug" value="true" />
+  <property file="./build.properties" />
+  
+  <!-- jar files for ant tasks DON'T go with the distribution -->
+	<path id="ant.lib.path.ref"> 
+		<fileset dir="${ant.dir}" includes="**/*.jar" />
+	</path> 
+  
+  	<!-- PRE File -->
+	<property name="xsd.dir" value="${resources.dir}/xsd" />
+	<property name="package.domain" value="edu.umd.cs.guitar.model.data" />
+	<property name="datamodel.package.dir" value="edu/umd/cs/guitar/model/data" />
+	<property name="deprecation" value="on" />
+	<property name="debug" value="off"  />
+
+	<!-- Generate source code files from PRE files -->
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<path refid="ant.lib.path.ref" /> 
+			<fileset dir="${ant.dir}" includes="**/*.jar" erroronmissingdir="false" /> 
+				<fileset dir="${dist.lib.dir}" includes="**/*.jar" erroronmissingdir="false" /> 
+				<fileset dir="${guitar.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+		</classpath>
+	</taskdef>
+
+	<uptodate property="xmlBuild.notRequired" targetfile="jaxb.properties">
+		<srcfiles dir="${xsd.dir}" includes="*.xsd/" />
+	</uptodate>
+
+	<target name="xmlBuild" unless="xmlBuild.notRequired">
+		<mkdir dir="${src.dir}" />
+		<mkdir dir="${src.dir}/${datamodel.package.dir}" />
+
+		<xjc target="${src.dir}" removeOldOutput="yes" package="${package.domain}">
+			<schema dir="${xsd.dir}" includes="guitar.xsd" /> 
+			
+			<arg value="-Xcollection-setter-injector" />
+			<produces dir="${src.dir}/${datamodel.package.dir}" includes="**/*" />
+		</xjc>
+		<!--<xjc target="${src.dir}" removeOldOutput="yes" package="${package.domain}" extension="true">
+			<schema dir="${xsd.dir}" includes="exeinfo.xsd" />
+			<arg value="-Xcollection-setter-injector" />
+			<produces dir="${src.dir}/${datamodel.package.dir}" includes="**/*" />
+		</xjc> -->
+	</target>
+
+	</project>

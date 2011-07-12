@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<project default="run" basedir="." name="test">
+
+  <!-- Properties -->
+  <property name="guitar.root" value="https://guitar.svn.sourceforge.net/svnroot/guitar" />
+  <property name="export.dir" value="${basedir}/export" />
+  <property name="main.dir" value="../${basedir}" />
+  <property name="lib.dir" value="${basedir}/lib" />
+  <property name="doc.dir" value="${basedir}/doc" />
+  <property name="build.dir" value="${basedir}/build" />
+
+  <property name="shared.pruned.dir" value="${export.dir}/shared" />
+  <property name="cobertura.dir" value="${shared.pruned.dir}/cobertura" />
+
+  <property name="instr.dir" value="${basedir}/instr" />
+  <property name="cobertura.instr.dir" value="${instr.dir}/cobertura" />
+
+  <property name="coverage.dir" value="${doc.dir}/coverage" />
+
+
+  <!-- For documentation purposes, link to each src directory that we've checked out. -->
+  <path id="source.ref">
+    <dirset dir="${export.dir}">
+      <include name="**/src" />
+    </dirset>
+  </path>
+
+
+  <!-- Library loading stuff for svnant -->
+  <path id="lib.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>  
+
+  <!-- load the svn task -->
+  <typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="lib.classpath" />
+
+
+  <!-- load cobertura resources, already in the shared directory of GUITAR -->
+  <path id="cobertura.classpath">
+    <fileset dir="${cobertura.dir}">
+      <include name="cobertura.jar" />
+      <include name="lib/**/*.jar" />
+    </fileset>
+  </path>
+    
+
+
+  <!-- Allow support for ant-contrib, which gives us variables... -->
+  <path id="antcontrib.lib">
+    <pathelement location="lib/ant-contrib.jar" />
+  </path>
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="antcontrib.lib"/>
+
+
+  <!-- Begin targets -->
+
+  <target name="init" depends="">
+    <mkdir dir="${export.dir}" />
+  </target>
+
+  <!-- SVN-Related stuff -->
+
+  <!-- Overall export target -->
+  <target name="export" depends="TestCaseGenerator">
+
+    <!-- Export *another* copy of the shared directory, and explicitly delete
+    the guitarlib directory. -->
+    <svn javahl="false">
+      <export srcUrl="${guitar.root}/shared" destPath="${shared.pruned.dir}" />
+    </svn>
+    <delete dir="${shared.pruned.dir}/guitarlib" />
+  </target>
+
+  <!-- Meta-targets for entire tools -->
+  <target name="TestCaseGenerator" depends="TestCaseGeneratorCore, TestCaseGenerator-Plugins">
+  </target>
+
+
+  <!-- Meta-target for all test case generator plugins -->
+  <target name="TestCaseGenerator-Plugins" depends="MaxEventTestCase">
+  </target>
+
+  <target name="TestCaseGeneratorCore" depends="init">
+    <svn javahl="false">
+      <export srcUrl="${guitar.root}/TestCaseGenerator-Core/trunk" destPath="${export.dir}/TestCaseGenerator" />
+    </svn>
+  </target>
+
+  <target name="MaxEventTestCase" depends="init">
+    <svn javahl="false">
+      <export srcUrl="${guitar.root}/TestCaseGenerator-Plugin-MaxEventTestCase/trunk" destPath="${export.dir}/MaxEventTestCase" />
+    </svn>
+  </target>
+
+ 
+
+
+
+
+  <target name="generate-reports" depends="">
+
+    <taskdef resource="tasks.properties" classpathref="cobertura.classpath" />
+
+    <!-- Cobertura's report -->
+    <cobertura-report datafile="${cobertura.instr.dir}/cobertura.ser" format="xml" destdir="${coverage.dir}/cobertura" >
+
+    <!-- Load each source directory individually -->
+    <fileset dir="${export.dir}/MaxEventTestCase/src">
+    <include name="**/*.java"/>
+    </fileset>
+    <fileset dir="${export.dir}/TestCaseGenerator/src">
+    <include name="**/*.java"/>
+    </fileset>
+
+    </cobertura-report>
+
+    <cobertura-report datafile="${cobertura.instr.dir}/cobertura.ser" format="html" destdir="${coverage.dir}/cobertura" >
+
+    <!--Load each source directory individually -->
+    <fileset dir="${export.dir}/MaxEventTestCase/src">
+    <include name="**/*.java"/>
+    </fileset>
+    <fileset dir="${export.dir}/TestCaseGenerator/src">
+    <include name="**/*.java"/>
+    </fileset>
+
+    </cobertura-report>
+
+  </target>
+
+  <target name="coverage" depends="">
+  </target>
+
+
+  <!-- Targets for JUnit testing related work in Phase 4 of CMSC737 class project. -->
+  <target name="run" depends="clean_export,export,init-junit,init-junit,run-junit,javadocs,generate-reports">
+  <!--<target name="run" depends="init-junit,run-junit,generate-reports">-->
+  </target>
+
+  <target name="init-junit" depends="">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${doc.dir}"/>
+    <echo message= "${doc.dir}; ${build.dir}; ${export.dir}"/>
+    <path id="build.jars">
+      <fileset dir="${export.dir}/jars">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
+
+    <!-- First, build the mock objects -->
+    <javac srcdir="./src" destdir="${build.dir}" debug="yes">
+      <classpath>
+        <path refid="lib.classpath" />
+      </classpath>
+      <include name="**/mock/**/*.java" />
+    </javac>
+
+    <jar jarfile="${shared.pruned.dir}/guitarmodelmock.jar">
+      <fileset dir="${build.dir}" />
+    </jar>
+
+    <!-- Next, build each of the packages we test using their ant scripts -->
+    <ant dir="${basedir}/export/TestCaseGenerator" antfile="install/build.xml" target="dist" inheritAll="false">
+      <!--<property file="${basedir}/export/TestCaseGenerator/install/build.properties" /> -->
+      <property name="debug" value="yes"/>
+      <property name="src.dir" value="./src"/>
+      <property name="dist.lib.dir" value="../jars" />
+      <property name="build.dir" value="./bin" />
+      <property name="resources.dir" value="./resources" />
+      <property name="shared.lib.dir" value="../shared" />
+      <property name="guitar.lib.dir" value="../shared/guitarlib" />
+      <property name="ant.dir" value="../shared/ant/lib" />
+      <property name="ydocinstall.dir" value="../shared/ydoc-3.0_01-jdk1.5" />
+      <property name="filesToCopy" value="./resources/*" />
+      <property name="dist.dir" value="../" />
+      <property name="dist.doc.dir" value="docs" />
+      <property name="lib.dir" value="${shared.pruned.dir}" />
+      <property name="module" value="TestCaseGenerator-Core" />
+    </ant>
+
+    <ant dir="${basedir}/export/MaxEventTestCase" antfile="install/build.xml" target="dist" inheritAll="false">
+      <property name="src.dir" value="./src"/>
+      <property name="dist.lib.dir" value="../jars" />
+      <property name="build.dir" value="./bin" />
+      <property name="resources.dir" value="./resources" />
+      <property name="shared.lib.dir" value="../shared" />
+      <property name="guitar.lib.dir" value="../shared/guitarlib" />
+      <property name="ant.dir" value="../shared/ant/lib" />
+      <property name="ydocinstall.dir" value="../shared/ydoc-3.0_01-jdk1.5" />
+      <property name="filesToCopy" value="./resources/help/*" />
+      <property name="dist.dir" value="../" />
+      <property name="dist.doc.dir" value="docs" />
+      <property name="module" value="TestCaseGenerator-Plugin-MaxEventTestCase" />
+      <property name="needsModules" value="TestCaseGenerator-Core" />
+      <property name="lib.dir" value="${shared.pruned.dir}" />
+    </ant>
+
+ 
+
+
+    <!-- Finally, build the testing code -->
+    <javac srcdir="${basedir}/src" destdir="${build.dir}" debug="yes">
+      <classpath>
+        <path refid="lib.classpath" />
+        <path refid="build.jars" />
+      </classpath>
+      <include name="**/testcase/*.java" />
+    </javac>
+
+    <jar jarfile="${shared.pruned.dir}/guitarmodelmock.jar">
+      <fileset dir="${build.dir}" />
+    </jar>
+<taskdef resource="tasks.properties" classpathref="cobertura.classpath" />
+
+    
+  </target>
+
+  <!-- Actually runs the junit tests. -->
+  <target name="run-junit" depends="">
+    <ant dir="." antfile="build.xml" target="init-junit"/>
+    <!-- Instrument with cobertura -->
+    <mkdir dir="${cobertura.instr.dir}" />
+    <cobertura-instrument todir="${cobertura.instr.dir}" datafile="${cobertura.instr.dir}/cobertura.ser" >
+    <fileset dir="${export.dir}/jars" >
+    <include name="guitarmodelmock.jar"/>
+    <include name="TestCaseGenerator-Plugin-MaxEventTestCase.jar"/>
+    <include name="TestCaseGenerator-Core.jar"/>
+      <!--includeClasses regex="edu\.umd\.cs\.guitar\.testcase\..*" />
+      <excludeClasses regex=".*\.test\.integration-tests\..*" />
+
+      <instrumentationClasspath>
+        <path refid="build.jars" />
+      </instrumentationClasspath -->
+      </fileset>
+
+    </cobertura-instrument>
+
+    <mkdir dir="${doc.dir}/junit" />
+
+    <junit printsummary="yes" showoutput="yes" haltonfailure="no" fork="yes" >
+      <classpath >
+        <path refid="cobertura.classpath" />
+        <fileset dir="${cobertura.instr.dir}">
+        <include name ="**/*.jar"/>
+        </fileset>
+        <fileset dir="${export.dir}/jars" >
+        <include name="**/*.jar"/>
+        </fileset>
+        
+      </classpath>
+
+      <formatter type="xml" />
+      <formatter type="plain" />
+
+      <sysproperty key="net.sourceforge.cobertura.datafile" file="${cobertura.instr.dir}/cobertura.ser" />
+
+
+      <!-- Run the tests -->
+      <test name="edu.umd.cs.guitar.testcase.integration.RandomPluginTest" todir="${doc.dir}/junit" />
+      <test name="edu.umd.cs.guitar.testcase.integration.CornerCaseIntegrationTest" todir="${doc.dir}/junit" />
+      <test name="edu.umd.cs.guitar.testcase.integration.HelpIntegrationTest" todir="${doc.dir}/junit" />
+      <test name="edu.umd.cs.guitar.testcase.integration.TestcaseGeneratorIntegrationTest" todir="${doc.dir}/junit" />
+
+    </junit>
+
+  </target>
+
+  <!-- Builds javadocs for testing code -->
+  <target name="javadocs" depends="">
+    <javadoc destdir="${doc.dir}/javadoc" author="true" windowtitle="TestcaseGenerator.tool's integration test API.">
+      <classpath>
+        <path refid="lib.classpath" />
+        <path refid="build.jars" />
+      </classpath>
+      <fileset dir="src" defaultexcludes="">
+        <include name="edu/umd/cs/guitar/**/*.java" />
+      <!--<exclude name="" />-->
+      </fileset>
+    </javadoc>
+  </target>
+
+  <!-- Clean targets -->
+
+  <!-- Cleans everything -->
+  <target name="clean" depends="pseudo-clean">
+    <delete dir="${export.dir}" />
+  </target>
+
+  <!-- Cleans all built code but doesn't clear the checked out modules that
+  we're testing.-->
+  <target name="pseudo-clean" depends="">
+    <delete dir="${export.dir}"/>
+    <delete dir="${export.dir}/jars"/>
+    <delete dir="${instr.dir}" />
+    <delete dir="${build.dir}" />
+    <delete dir="${doc.dir}" />
+  </target>
+
+    <target name="clean_export">
+    <delete dir="${export.dir}" />
+    </target>
+
+</project>
+
+

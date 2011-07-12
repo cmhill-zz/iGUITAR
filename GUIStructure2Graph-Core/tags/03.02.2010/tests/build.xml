@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<project name="unit-tests" default="help" basedir="..">
+
+<!-- Environment Variables -->
+
+  <property name="debug" value="true" />
+  <property file="build.properties" />
+  <property name="guitar.version" value="3.0" />
+
+  <property name="ant.dir" value="${shared.lib.dir}/${ant.lib.dir}" />
+  <property name="test.dir" value="tests" />
+  <property name="cobertura.dir" value="${shared.lib.dir}/cobertura" />
+  <property name="report.dir" value="${test.dir}/reports" />
+  <property name="coverage.dir" value="${test.dir}/coverage" />
+  <property name="jar.dir" value="${test.dir}/jars" />
+  <property name="doc.dir" value="${test.dir}/doc" />
+  
+  
+  <!-- Second Party Dependencies Included in Distribution -->
+
+  <fileset id="guitarlib.file.ref" dir="${shared.lib.dir}/${guitar.lib.dir}" erroronmissingdir="false">
+    <include name="${guitarmodel.lib}" />
+  </fileset >
+
+  <!-- Third Party Jar Files Included in Distribution -->
+
+  <fileset id="3rd-dist.file.ref" dir="${shared.lib.dir}" includes="*.jar" erroronmissingdir="false" />
+
+  <!-- All Jar Files Included in Distribution -->
+
+  <path id="dist.lib.path.ref">
+    <fileset refid="3rd-dist.file.ref" erroronmissingdir="false" />
+    <fileset refid="guitarlib.file.ref" erroronmissingdir="false" />
+  </path>
+
+  <!-- Ant Jar Files Not Included in Distibution -->
+
+  <path id="ant.lib.path.ref">
+    <fileset dir="${ant.dir}" includes="**/*.jar" />
+  </path>
+
+  <!-- Cobertura Files Not Included in Distribution -->
+
+  <path id="cobertura.lib">
+    <fileset dir="${cobertura.dir}">
+      <include name="cobertura.jar" />
+      <include name="lib/**/*.jar" />
+    </fileset>
+  </path >
+
+  <!-- JUnit Jars Not Included in Distribution -->
+
+  <path id="junit.lib">
+    <fileset dir="${shared.lib.dir}">
+      <include name="junit.jar" />
+      <include name="ant-junit.jar" />
+    </fileset>
+  </path>
+
+  <!-- Path to Cobertura Tasks -->
+
+  <taskdef resource="tasks.properties" classpathref="cobertura.lib" />
+
+  <!-- Path to JUnit Tasks -->
+
+  <taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask" classpathref="junit.lib" />
+  
+  <!-- Help -->
+	<target description="help" name="help">
+		<echo message="$module-${ant.project.name} help" />
+	</target>
+
+	<!-- Build the GUIStructure2graphConvert -->
+
+  <target description="Build dependencies" name="build-deps">
+    <ant antfile="install/build.xml" target="dist" dir="${basedir}" inheritAll="false">
+      <property name="debug" value="true" />
+      <property file="build.properties" />
+    </ant>
+  </target>
+
+<!-- Instrument the GUITARModel Classes -->
+	
+	
+	<target description="Instrument the GUIModel Classes" name="instrument" depends="build-deps">
+    <mkdir dir="${jar.dir}" />
+    <mkdir dir="${coverage.dir}" />
+
+    <delete file="${coverage.dir}/cobertura.ser" />
+
+    <cobertura-instrument datafile="${coverage.dir}/cobertura.ser" todir="${jar.dir}" >
+      <fileset dir="${dist.dir}/${dist.lib.dir}">
+	<include name="${module}.jar" />
+      </fileset>
+    </cobertura-instrument>
+  </target>
+
+  <!-- Build the Unit Tests -->
+
+  <target description="Build the unit tests" name="build-tests" depends="build-deps">
+    <javac srcdir="${test.dir}" destdir="${test.dir}" debug="${debug}" deprecation="${deprecation}"  debuglevel="vars,lines,source">
+      <classpath>
+	<fileset dir="${shared.lib.dir}/guitarlib" includes="**/*.jar" erroronmissingdir="false" />
+	<path refid="dist.lib.path.ref" />
+	<path refid="junit.lib" />
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- Build the Jar File -->
+
+  <target name="jar" depends="build-tests" description="Fold the Unit Test into the Jar File">
+    <mkdir dir="${jar.dir}" />
+
+    <jar jarfile="${jar.dir}/${module}-unit-tests.jar" update="true">
+      <fileset dir="${test.dir}" includes="**/*.class" />
+    </jar>
+  </target>
+  
+  <!-- Execute the Unit Tests -->
+
+  <target name="execute" depends="jar,instrument" description="Execute the Unit Tests">
+    <mkdir dir="${report.dir}" />
+		   			
+
+    <junit fork="yes" timeout="10000" dir="${basedir}">
+
+      <sysproperty key="net.sourceforge.cobertura.datafile" file="${coverage.dir}/cobertura.ser" />
+
+      <classpath>
+	<pathelement location="${jar.dir}/${module}.jar" />
+      </classpath>
+      
+      <classpath>
+	<pathelement location="${jar.dir}/${module}-unit-tests.jar" />
+	<pathelement location="${shared.lib.dir}/log4j-1.2.15.jar" />
+	<pathelement location="${shared.lib.dir}/guitarlib/guitarmodel.jar" />
+      </classpath>
+
+      <classpath>
+	<path refid="cobertura.lib" />
+	<path refid="junit.lib" />
+      </classpath>
+      
+      <formatter type="xml" />
+
+      <batchtest todir="${report.dir}" >
+	<fileset dir="${test.dir}">
+	  <include name="**/*.java" />
+	</fileset>
+      </batchtest>
+    </junit>
+	
+  </target>
+  <!-- Compile Cobertura Info -->
+
+  <target name="report" description="Compile the Cobertura Code Coverage Report" depends="execute">
+    <mkdir dir="${coverage.dir}" />
+    <delete file="${coverage.dir}/*.html" />
+    <cobertura-report format="xml" destdir="${coverage.dir}" srcdir="${src.dir}"  datafile="${coverage.dir}/cobertura.ser" />
+    <cobertura-report format="html" destdir="${coverage.dir}" srcdir="${src.dir}"  datafile="${coverage.dir}/cobertura.ser" />
+  </target>
+
+  <!-- Build the Unit Test Javadoc -->
+
+  <!-- Java doc -->
+	<target description="create javadocs" name="doc">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/${dist.doc.dir}" />
+		<mkdir dir="${dist.dir}/${dist.doc.dir}/${ant.project.name}" />
+		<property name="ps" value="${path.separator}"/>		
+        <property name="ydocInstallPath" value="${shared.lib.dir}/${ydocinstall.dir}"/>
+		<javadoc sourcepath="${test.dir}" destdir="${dist.dir}/${dist.doc.dir}/${ant.project.name}" >
+			<classpath>
+				<fileset dir="${dist.dir}/${dist.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+				<path refid="dist.lib.path.ref" />
+			</classpath>
+            <doclet name="ydoc.doclets.YStandard"
+			path="${ydocInstallPath}/lib/ydoc.jar${ps}${ydocInstallPath}/resources${ps}${ydocInstallPath}/doc">
+				<!--path="${shared.ydoc-3/0_01-jdk1.5/lib/ydoc.jar}">-->
+                <param name="-author"/>
+                <param name="-generic"/>
+                <param name="-umlautogen"/>
+                <param name="-filterpath" value="${ydocInstallPath}/lib/ydoc.jar"/>
+                <param name="-filter"     value="ydoc.filters.ExcludeFilter"/>
+                <param name="-tag" value="y.precondition"/>
+                <param name="-tag" value="y.postcondition"/>
+                <param name="-tag" value="y.complexity"/>
+                <param name="-tag" value="param"/>
+                <param name="-tag" value="return"/>
+                <param name="-tag" value="see"/>
+                <param name="-tag" value="y.uml"/>
+            </doclet>		
+		</javadoc>
+		
+	</target>
+
+
+  <!-- Clean -->
+
+  <target description="Clean the build" name="clean">
+    <ant antfile="install/build.xml" target="clean" dir="${basedir}" inheritAll="false" />
+
+    <delete dir="${report.dir}" />
+    <delete dir="${coverage.dir}" />
+    <delete dir="${jar.dir}" />
+
+    <delete>
+      <fileset dir="${test.dir}">
+	<include name="**/*.class" />
+      </fileset>
+    </delete>
+  </target>
+  
+  <target name = "all" depends= "clean,report,doc">
+  <echo message="GUIStructure2GraphConvert Tests" />
+  
+  </target>
+  
+</project>
