@@ -31,7 +31,7 @@
 
    Precondition: 1. Ant should be installed.
                  2. JAVA_HOME environment variable contains the path to JDK1.6 or higher
-                 3. ANT_HOME environment variable contains the path to ant 1.7.1 or higher
+                 3. ANT_HOME environment variable contains the path to ant 1.8.2 or higher
 
    Language: XML
    Compiler: Ant
