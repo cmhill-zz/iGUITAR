@@ -112,6 +112,7 @@ public class GUITARLog
             // configuration
             if (stream == null)
             {
+                System.err.println("Log configuration file not found");
                 PatternLayout layout = new org.apache.log4j.PatternLayout();
                 layout.setConversionPattern(LOG_LAYOUT_PATTERN);
 

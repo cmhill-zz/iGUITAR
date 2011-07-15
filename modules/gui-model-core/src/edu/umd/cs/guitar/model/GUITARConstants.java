@@ -36,7 +36,7 @@ public interface GUITARConstants {
      * The location of the default guitar logging configuration (.glc) file.
      * Currently unused 
      */
-    public static final String DEFAULT_LOGGING_CONFIGURATION = "guitar-default.glc";
+    public static final String DEFAULT_LOGGING_CONFIGURATION = "edu/umd/cs/guitar/guitar-default.glc";
 
 
 	public static final String COMPONENT_ID_PREFIX = "w";
