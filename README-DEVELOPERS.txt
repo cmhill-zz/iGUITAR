@@ -2,7 +2,22 @@
 # DEVELOPER NOTES
 ##############################
 
-I. DIRECTORY LAYOUT
+
+I. CHECKING OUT AND BUILDING:
+=====================
+
+1. Checkout guitar trunk
+	svn co https://guitar.svn.sourceforge.net/svnroot/guitar/trunk guitar
+
+2. Move to source code directory 
+	cd guitar 
+	
+3. Run ant at the top level without any parameter  for help on various tasks supported 
+	ant 
+
+
+II. DIRECTORY LAYOUT
+=====================
 
 |-dist: 
 |	|- guitar:built artifacts
@@ -28,11 +43,8 @@ I. DIRECTORY LAYOUT
 |-scripts: misc scripts 
 
 
-II. HOW TO BUILD TOOLS AND MODULES
-
-- Execute ant at the top level without any parameter  for help on various tasks supported
-
-III. HOW TO ADD A NEW MODULE 
+III. ADDING A NEW MODULE 
+=====================
 
 1. add a <module> directory directly under modules
 
@@ -43,6 +55,7 @@ III. HOW TO ADD A NEW MODULE
 For more detail on each module design and implementation  refer to java doc under dist/guitar/docs
 	
 IV. MISCELLANEOUS 
+=====================
 
 - The default log4j level is set to DEBUG. To run GUITAR tool with a different log4j configuration file add  the 
 flag -Dlog4j.configuration=<log4j configuration file> to the java call
