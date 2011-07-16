@@ -134,7 +134,7 @@ public class GUITARLog
         }
         else
         {
-            System.out.println("log4j was installed");
+            log.debug("log4j was installed");
         }
 
     }
