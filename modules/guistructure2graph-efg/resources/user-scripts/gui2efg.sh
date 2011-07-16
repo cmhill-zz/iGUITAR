@@ -9,12 +9,14 @@ do
 done
 classpath=$classpath:$base_dir
 
-# Run with a clean log4j by default
-JAVA_CMD_PREFIX="java -Dlog4j.configuration=log/guitar-clean.glc"
+# Change GUITAR_OPTS variable to run with the clean log file  
+GUITAR_OPTS="$GUITAR_OPTS -Dlog4j.configuration=log/guitar-clean.glc"
+
+JAVA_CMD_PREFIX="java"
 
 main_class=edu.umd.cs.guitar.graph.GUIStructure2GraphConverter
 
-$JAVA_CMD_PREFIX -cp $classpath $main_class  EFGConverter $@
+$JAVA_CMD_PREFIX $GUITAR_OPTS -cp $classpath $main_class  EFGConverter $@
 
 
 

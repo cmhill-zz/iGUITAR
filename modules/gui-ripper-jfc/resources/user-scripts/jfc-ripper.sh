@@ -32,7 +32,7 @@ guitar_args=${@:3}
 classpath=$addtional_classpath:$classpath
 
 # Main classes 
-replayer_launcher=edu.umd.cs.guitar.ripper.JFCRipperMain
+ripper_launcher=edu.umd.cs.guitar.ripper.JFCRipperMain
 
 
 for file in `find $guitar_lib/ -name "*.jar"`
@@ -40,10 +40,14 @@ do
     guitar_classpath=${file}:${guitar_classpath}
 done
 
+
+# Change GUITAR_OPTS variable to run with the clean log file  
+GUITAR_OPTS="$GUITAR_OPTS -Dlog4j.configuration=log/guitar-clean.glc"
+
 if [ -z "$JAVA_CMD_PREFIX" ];
 then
     # Run with clean log file 
-    JAVA_CMD_PREFIX="java -Dlog4j.configuration=log/guitar-clean.glc"
+    JAVA_CMD_PREFIX="java"
 fi
 
 classpath=$base_dir:$guitar_classpath
@@ -55,6 +59,6 @@ else
 	classpath=$classpath
 fi
 
-RIPPER_CMD="$JAVA_CMD_PREFIX -cp $classpath $replayer_launcher $guitar_args"
+RIPPER_CMD="$JAVA_CMD_PREFIX $GUITAR_OPTS -cp $classpath $ripper_launcher $guitar_args"
 exec $RIPPER_CMD
 

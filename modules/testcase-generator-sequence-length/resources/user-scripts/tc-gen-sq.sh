@@ -24,9 +24,12 @@ do
 	guitar_classpath=${file}:${guitar_classpath}
 done
 
+# Change GUITAR_OPTS variable to run with the clean log file  
+GUITAR_OPTS="$GUITAR_OPTS -Dlog4j.configuration=log/guitar-clean.glc"
+
 if [ -z "$JAVA_CMD_PREFIX" ];
 then
-    JAVA_CMD_PREFIX="java -Dlog4j.configuration=log/guitar-clean.glc"
+    JAVA_CMD_PREFIX="java"
 fi
 
 efg=$1
@@ -37,7 +40,7 @@ plugin=SequenceLengthCoverage
 
 classpath=$guitar_classpath:$base_dir
 
-TCGEN_CMD="$JAVA_CMD_PREFIX -cp $classpath $tcgen_launcher -p $plugin -e $efg -m $max -d $tc_dir -l $length"
+TCGEN_CMD="$JAVA_CMD_PREFIX $GUITAR_OPTS -cp $classpath $tcgen_launcher -p $plugin -e $efg -m $max -d $tc_dir -l $length"
 $TCGEN_CMD
 
 

@@ -39,10 +39,12 @@ do
 guitar_classpath=${file}:${guitar_classpath}
 done
 
+# Change GUITAR_OPTS variable to run with the clean log file  
+GUITAR_OPTS="$GUITAR_OPTS -Dlog4j.configuration=log/guitar-clean.glc"
+
 if [ -z "$JAVA_CMD_PREFIX" ];
 then
-    JAVA_CMD_PREFIX="java -Dlog4j.configuration=log/guitar-clean.glc"
-
+    JAVA_CMD_PREFIX="java"
 fi
 
 classpath=$base_dir:$guitar_classpath
@@ -54,7 +56,7 @@ else
 	classpath=$classpath.
 fi
 
-REPLAYER_CMD="$JAVA_CMD_PREFIX -cp $classpath $replayer_launcher $guitar_args"
+REPLAYER_CMD="$JAVA_CMD_PREFIX $GUITAR_OPTS -cp $classpath $replayer_launcher $guitar_args"
 
 #echo $REPLAYER_CMD
 exec $REPLAYER_CMD
