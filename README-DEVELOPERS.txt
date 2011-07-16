@@ -53,6 +53,7 @@ III. ADDING A NEW MODULE
 3. add the appropriate build.properties file with module specific variables and dependencies
 
 For more detail on each module design and implementation  refer to java doc under dist/guitar/docs
+
 	
 IV. MISCELLANEOUS 
 =====================
