@@ -4,7 +4,7 @@
 
 
 I. CHECKING OUT AND BUILDING:
-=====================
+==========================================
 
 1. Checkout guitar trunk
 	svn co https://guitar.svn.sourceforge.net/svnroot/guitar/trunk guitar
@@ -17,7 +17,7 @@ I. CHECKING OUT AND BUILDING:
 
 
 II. DIRECTORY LAYOUT
-=====================
+==========================================
 
 |-dist: 
 |	|- guitar:built artifacts
@@ -44,7 +44,7 @@ II. DIRECTORY LAYOUT
 
 
 III. ADDING A NEW MODULE 
-=====================
+==========================================
 
 1. add a <module> directory directly under modules
 
@@ -56,7 +56,7 @@ For more detail on each module design and implementation  refer to java doc unde
 
 	
 IV. MISCELLANEOUS 
-=====================
+==========================================
 
 - The default log4j level is set to DEBUG. To run GUITAR tool with a different log4j configuration file add  the 
 flag -Dlog4j.configuration=<log4j configuration file> to the java call
