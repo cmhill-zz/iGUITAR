@@ -49,7 +49,7 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-<project name="build-module-common" default="help" basedir=".">
+<project name="build-module-common" default="dist" basedir=".">
 	<!-- Environment vars-->
 	<property file="./build.properties" />
 	<available file="${pre.antfile}" property="filePresent" />
@@ -94,9 +94,9 @@
 	<target description="Build the project" name="build">
 		<echo message="${module}" />
 		<mkdir dir="${build.dir}" />
-		<!-- delete current jar to avoid cycle in classpath --> 
-		<delete file="${dist.guitar.lib.dir}/${module}.jar"/>
-	
+		<!-- delete current jar to avoid cycle in classpath -->
+		<delete file="${dist.guitar.lib.dir}/${module}.jar" />
+
 		<javac srcdir="${src.dir}" destdir="${build.dir}" debug="${debug}" deprecation="${deprecation}">
 			<classpath>
 				<fileset dir="${dist.guitar.lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
@@ -112,9 +112,11 @@
 		<mkdir dir="${dist.lib.dir}" />
 		<mkdir dir="${dist.guitar.lib.dir}" />
 		<!-- <delete file="${guitar.lib.dir}/${module}.jar" /> -->
-		<jar jarfile="${dist.guitar.lib.dir}/${module}.jar" update="true">
-			<fileset dir="${build.dir}">
+		<jar jarfile="${dist.guitar.lib.dir}/${module}.jar" update="true" >
+			<fileset dir="${build.dir}" erroronmissingdir="false">
 			</fileset>
+			<fileset dir="${resources.dir}/jar" erroronmissingdir="false">
+						</fileset>
 		</jar>
 	</target>
 
@@ -216,8 +218,13 @@
 	<!-- Distribute -->
 	<target name="dist" depends="pre,updateDepends,jar,post,copy,doc" description="Create a jar for the GUITAR-Core project">
 		<!-- copy resource files  -->
+	
 		<copy todir="${dist.guitar.dir}" flatten="true">
-			<fileset dir="resources" excludes="**/*.xsd" includes="*/*" erroronmissingdir="false" />
+			<fileset dir="resources" erroronmissingdir="false">
+				<include name ="config/*" />
+				<include name ="user-scripts/*" />
+				<include name ="help/*" />
+			</fileset>
 		</copy>
 
 		<copy todir="${dist.lib.dir}" flatten="true">

@@ -26,7 +26,7 @@ done
 
 if [ -z "$JAVA_CMD_PREFIX" ];
 then
-    JAVA_CMD_PREFIX="java -Dlog4j.configuration=edu/umd/cs/guitar/log/guitar-clean.glc"
+    JAVA_CMD_PREFIX="java -Dlog4j.configuration=log/guitar-clean.glc"
 fi
 
 efg=$1

@@ -43,7 +43,7 @@ done
 if [ -z "$JAVA_CMD_PREFIX" ];
 then
     # Run with clean log file 
-    JAVA_CMD_PREFIX="java -Dlog4j.configuration=edu/umd/cs/guitar/log/guitar-clean.glc"
+    JAVA_CMD_PREFIX="java -Dlog4j.configuration=log/guitar-clean.glc"
 fi
 
 classpath=$base_dir:$guitar_classpath
