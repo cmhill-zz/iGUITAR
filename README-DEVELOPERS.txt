@@ -52,6 +52,8 @@ III. ADDING A NEW MODULE
 
 3. add the appropriate build.properties file with module specific variables and dependencies
 
+4. add necessary libraries to lib directory
+
 For more detail on each module design and implementation  refer to java doc under dist/guitar/docs
 
 	
