@@ -21,7 +21,7 @@ package edu.umd.cs.guitar.replayer;
 
 import org.kohsuke.args4j.Option;
 
-import edu.umd.cs.guitar.ripper.SitarConfiguration;
+import edu.umd.cs.guitar.swt.launcher.SitarConfiguration;
 
 /**
  * Configuration specific to {@link SitarReplayer}. The configuration options

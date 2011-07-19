@@ -34,7 +34,7 @@ import edu.umd.cs.guitar.model.SitarWindow;
 import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.PropertyType;
-import edu.umd.cs.guitar.ripper.SitarMonitor;
+import edu.umd.cs.guitar.swt.launcher.SitarMonitor;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**
@@ -235,5 +235,23 @@ public class SitarReplayerMonitor extends GReplayerMonitor {
 	public SitarApplication getApplication() {
 		return application;
 	}
+
+    /* (non-Javadoc)
+     * @see edu.umd.cs.guitar.replayer.GReplayerMonitor#delay(int)
+     */
+    @Override
+    public void delay(int delay)
+    {
+        // Using "standard" delay instead of monitoring event queue 
+        try
+        {
+            Thread.sleep(delay);
+        }
+        catch (InterruptedException e)
+        {
+            GUITARLog.log.error(e);
+        }
+        
+    }
 
 }

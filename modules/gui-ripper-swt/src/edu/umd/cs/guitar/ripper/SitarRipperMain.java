@@ -34,6 +34,10 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.spi.StringArrayOptionHandler;
 
+import edu.umd.cs.guitar.swt.launcher.SitarRipperConfiguration;
+import edu.umd.cs.guitar.swt.launcher.SitarRunner;
+import edu.umd.cs.guitar.swt.launcher.URLArrayOptionHandler;
+
 
 /**
  * This class provides the <code>main</code> method of SitarRipper. 

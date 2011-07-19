@@ -32,8 +32,8 @@ import edu.umd.cs.guitar.model.data.TestCase;
 import edu.umd.cs.guitar.replayer.monitor.GTestMonitor;
 import edu.umd.cs.guitar.replayer.monitor.PauseMonitor;
 import edu.umd.cs.guitar.replayer.monitor.SitarStateMonitorFull;
-import edu.umd.cs.guitar.ripper.SitarExecutor;
-import edu.umd.cs.guitar.ripper.SitarRunner;
+import edu.umd.cs.guitar.swt.launcher.SitarExecutor;
+import edu.umd.cs.guitar.swt.launcher.SitarRunner;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**

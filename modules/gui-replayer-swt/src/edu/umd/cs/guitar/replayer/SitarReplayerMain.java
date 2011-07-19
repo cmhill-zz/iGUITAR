@@ -25,8 +25,8 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.spi.StringArrayOptionHandler;
 
-import edu.umd.cs.guitar.ripper.SitarRunner;
-import edu.umd.cs.guitar.ripper.URLArrayOptionHandler;
+import edu.umd.cs.guitar.swt.launcher.SitarRunner;
+import edu.umd.cs.guitar.swt.launcher.URLArrayOptionHandler;
 
 /**
  * Entry class for SitarReplayer.

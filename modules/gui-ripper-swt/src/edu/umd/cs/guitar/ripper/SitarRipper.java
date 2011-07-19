@@ -47,6 +47,9 @@ import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.ripper.filter.GComponentFilter;
 import edu.umd.cs.guitar.ripper.filter.SitarIgnoreWidgetFilter;
+import edu.umd.cs.guitar.swt.launcher.SitarExecutor;
+import edu.umd.cs.guitar.swt.launcher.SitarRipperConfiguration;
+import edu.umd.cs.guitar.swt.launcher.SitarRunner;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**

@@ -1,9 +1,9 @@
 #!/bin/bash
 ##################################
-# JFC GUITAR Ripper
+# SWT GUITAR Ripper
 ##################################
 function usage {
-	echo "Usage: jfcripper.sh.sh -cp <aut classpath> [guitar arguments]"
+	echo "Usage: swt-ripper.sh.sh -cp <aut classpath> [guitar arguments]"
 }
 base_dir=`dirname $0`
 guitar_lib=$base_dir/jars
@@ -32,7 +32,7 @@ guitar_args=${@:3}
 classpath=$addtional_classpath:$classpath
 
 # Main classes 
-ripper_launcher=edu.umd.cs.guitar.ripper.JFCRipperMain
+ripper_launcher=edu.umd.cs.guitar.ripper.SitarRipperMain
 
 
 for file in `find $guitar_lib/ -name "*.jar"`
