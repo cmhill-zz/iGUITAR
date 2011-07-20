@@ -1,4 +1,17 @@
+GUITAR Version 1.3
+Released on Jul. 20, 2011.
 
+What's new in this release
+
+	* Add 2 platform specific modules: web and swt
+	* Completely refactor code structure and build system
+	* Add some graph converters to convert GUITAR EFG format to some standard format readable by other tools (e.g., graphviz, gephi)
+	* Fix the GUI freezing problem during ripping 
+	* Support matching window title with regular expressions
+	* Add 1 more real aut for JFC platform 
+	* Add bash launching and sample workflow scripts 
+
+==============================
 GUITAR Version 1.2
 
 Released on Jan. 25, 2010.
@@ -11,7 +24,7 @@ What's New in this release
 
     * Several bugs were fixed.
     * The entire code was refactored. The Core and Plugin architecture was cleaned up.
-==========
+==============================
 
 
 GUITAR Version 1.1

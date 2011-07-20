@@ -1,0 +1,26 @@
+
+- Supply a better user guide
+
+- Test and setup sample workflow for swt and web
+
+- Create a common entry for all tools. It should do all common tasks such as log setup, cleanup ...Each tool should be a plugin running on the GUITAR platform 
+
+- Write a common launching script for all tools 
+
+- Write launching scripts for other platform (beyond Linux) - Or switch to a platform independent scripting language like python/ruby
+
+- Get rid of args4j: Use the java cli library, which is  more popular and well support : http://commons.apache.org/cli/. This will also allow to pass any additional java parameter to the tool with out using the $GUITAR_OPTS environment variable. 
+
+- Change gui2efg to use commons argument flags
+
+- Get rid of jemmy (used to delay between events) so GUITAR can work as an independent tool (low priority) 
+
+- Use maven build system instead of ant to better support module dependencies management
+
+- Migrate the UNO plugin to the framework, to work with OpenOffice GUI
+
+- Create a plugin for ICE so GUITAR can communicate with non-java GUIs
+
+- Cleanup and redefine APIs for GUITAR  
+
+
