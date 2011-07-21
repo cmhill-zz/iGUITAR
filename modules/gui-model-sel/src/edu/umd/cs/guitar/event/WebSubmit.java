@@ -19,7 +19,10 @@ public class WebSubmit implements GEvent {
 				if(((RenderedWebElement) ((WebComponent) gComponent).getElement()).isDisplayed()) {
 					if(((WebComponent) gComponent).getElement().getTagName().equals("input") && 
 							(((WebComponent) gComponent).getElement().getAttribute("type").equals("submit")) )
+					{
 						return true;
+						
+					}
 				}
 			}
 		}

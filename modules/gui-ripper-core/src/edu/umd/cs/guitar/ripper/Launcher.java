@@ -24,7 +24,6 @@ public class Launcher {
             RipperMain ripper = PluginFactory.createRipper(pluginArgs, plugin);
             ripper.execute();
         } catch (ParseException e) {
-            // Crash and die fucker
             System.err.println(e.getMessage());
             e.printStackTrace();
             System.exit(1);

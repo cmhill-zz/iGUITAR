@@ -17,6 +17,8 @@
 
 - Use maven build system instead of ant to better support module dependencies management
 
+- Group modules by platform (need to change the build system) 
+
 - Migrate the UNO plugin to the framework, to work with OpenOffice GUI
 
 - Create a plugin for ICE so GUITAR can communicate with non-java GUIs

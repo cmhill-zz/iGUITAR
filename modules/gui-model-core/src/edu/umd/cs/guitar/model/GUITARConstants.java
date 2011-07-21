@@ -38,8 +38,8 @@ public interface GUITARConstants {
      */
     public static final String DEFAULT_LOGGING_CONFIGURATION = "log/guitar-default.glc";
 
-
-	public static final String COMPONENT_ID_PREFIX = "w";
+    public static final String COMPONENT_ID_PREFIX = "w";
+    public static final String EVENT_ID_PREFIX = "e";
 
 	// ---------------------------
 	// Tag names

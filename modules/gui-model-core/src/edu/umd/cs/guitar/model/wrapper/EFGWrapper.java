@@ -34,7 +34,8 @@ import edu.umd.cs.guitar.model.data.RowType;
 /**
  * @author <a href="mailto:baonn@cs.umd.edu"> Bao Nguyen </a>
  */
-public class EFGWrapper {
+public class EFGWrapper
+{
 
     /**
      * 
@@ -51,15 +52,14 @@ public class EFGWrapper {
 
     /**
      * Generate efg graph (follow relations) from the GUI Structure
-     * 
      * <p>
      * 
      * @param dGUIStructure
      */
     @Deprecated
-    public void parseEFG(GUIStructure dGUIStructure) {
-        GUIStructureWrapper wGUIStrcuture = new GUIStructureWrapper(
-                dGUIStructure);
+    public void parseEFG(GUIStructure dGUIStructure)
+    {
+        GUIStructureWrapper wGUIStrcuture = new GUIStructureWrapper(dGUIStructure);
         wGUIStrcuture.parseData();
 
         // Create event list
@@ -67,7 +67,8 @@ public class EFGWrapper {
 
         List<GUITypeWrapper> wWindowList = wGUIStrcuture.lGUI;
 
-        for (GUITypeWrapper window : wWindowList) {
+        for (GUITypeWrapper window : wWindowList)
+        {
             readEventList(window.container);
         }
 
@@ -76,29 +77,30 @@ public class EFGWrapper {
         // Reading event name
         dEventList = factory.createEventsType();
 
-        for (EventWrapper wEvent : wEventList) {
+        for (EventWrapper wEvent : wEventList)
+        {
             EventType dEvent = factory.createEventType();
-            dEvent.setWidgetId(wEvent.component
-                    .getFirstValueByName(GUITARConstants.ID_TAG_NAME));
+            dEvent.setWidgetId(wEvent.component.getFirstValueByName(GUITARConstants.ID_TAG_NAME));
             dEvent.setAction(wEvent.action);
 
             String eventType;
 
-//            // Change to match Charlie's code
-//            if (wEvent.component.window.isRoot() && !wEvent.isHidden())
-//                eventType = "r";
-//            else
-//                eventType = "e";
-//
-//            dEvent.setEventId(eventType + wEventList.indexOf(wEvent));
-            dEvent.setEventId(EVENT_NAME_PREFIX+ wEventList.indexOf(wEvent));
+            // // Change to match Charlie's code
+            // if (wEvent.component.window.isRoot() && !wEvent.isHidden())
+            // eventType = "r";
+            // else
+            // eventType = "e";
+            //
+            // dEvent.setEventId(eventType + wEventList.indexOf(wEvent));
+            dEvent.setEventId(EVENT_NAME_PREFIX + wEventList.indexOf(wEvent));
 
             dEventList.getEvent().add(dEvent);
         }
         efg.setEvents(dEventList);
 
         eventGraph = new ArrayList<List<String>>();
-        for (List<String> row : eventGraph) {
+        for (List<String> row : eventGraph)
+        {
             row = new ArrayList<String>();
         }
         //
@@ -106,12 +108,14 @@ public class EFGWrapper {
 
         List<RowType> lRowList = new ArrayList<RowType>();
 
-        for (EventWrapper firstEvent : wEventList) {
+        for (EventWrapper firstEvent : wEventList)
+        {
             int indexFirst = wEventList.indexOf(firstEvent);
             System.out.println("Anlyzing row: " + indexFirst);
             RowType row = factory.createRowType();
 
-            for (EventWrapper secondEvent : wEventList) {
+            for (EventWrapper secondEvent : wEventList)
+            {
                 int indexSecond = wEventList.indexOf(secondEvent);
                 int cellValue = firstEvent.isFollowedBy(secondEvent);
                 row.getE().add(indexSecond, cellValue);
@@ -125,14 +129,16 @@ public class EFGWrapper {
     /**
      * @return the efg
      */
-    public EFG getEfg() {
+    public EFG getEfg()
+    {
         return efg;
     }
 
     /**
      * @param window
      */
-    private void readEventList(ComponentTypeWrapper component) {
+    private void readEventList(ComponentTypeWrapper component)
+    {
         // if (component.window != null) {
         // System.out.println(component.window.getID()
         // + " :"
@@ -140,11 +146,11 @@ public class EFGWrapper {
         // .getFirstValueByName(GUITARConstants.ID_TAG_NAME));
         // }
 
-        List<String> sActionList = component
-                .getValueListByName(GUITARConstants.EVENT_TAG_NAME);
+        List<String> sActionList = component.getValueListByName(GUITARConstants.EVENT_TAG_NAME);
 
         if (sActionList != null)
-            for (String action : sActionList) {
+            for (String action : sActionList)
+            {
                 EventWrapper wEvent = new EventWrapper();
                 wEvent.action = action;
                 wEvent.component = component;
@@ -153,7 +159,8 @@ public class EFGWrapper {
         List<ComponentTypeWrapper> wChildren = component.getChildren();
 
         if (wChildren != null)
-            for (ComponentTypeWrapper wChild : wChildren) {
+            for (ComponentTypeWrapper wChild : wChildren)
+            {
                 readEventList(wChild);
             }
     }
@@ -161,9 +168,70 @@ public class EFGWrapper {
     /**
      * @return the wEventList
      */
-    public List<EventWrapper> getwEventList() {
+    public List<EventWrapper> getwEventList()
+    {
         return wEventList;
     }
-    
 
+    public EventType getEventByID(String ID)
+    {
+        for (EventType event : this.efg.getEvents().getEvent())
+        {
+            if (ID.equals(event.getEventId()))
+                return event;
+        }
+        return null;
+
+    }
+
+    public void addEdge(String sourceID, String targetID)
+    {
+        addEdge(sourceID, targetID, GUITARConstants.FOLLOW_EDGE);
+    }
+
+    public EFGWrapper(EFG efg)
+    {
+        super();
+        this.efg = efg;
+    }
+
+    /**
+     * @param sourceID
+     * @param targetID
+     * @param relation
+     */
+    public void addEdge(String sourceID, String targetID, int relation)
+    {
+        EventType sourceEvent = getEventByID(sourceID);
+        EventType targetEvent = getEventByID(targetID);
+
+        int sourceIndex = efg.getEvents().getEvent().indexOf(sourceEvent);
+        int targeIndex = efg.getEvents().getEvent().indexOf(targetEvent);
+
+        RowType row = efg.getEventGraph().getRow().get(sourceIndex);
+        row.getE().set(targeIndex, relation);
+        efg.getEventGraph().getRow().set(sourceIndex, row);
+
+    }
+
+    /**
+     * @param sourceID
+     * @param targetID
+     * @return
+     */
+    public int getEdge(String sourceID, String targetID)
+    {
+        EventType source = getEventByID(sourceID);
+        EventType target = getEventByID(targetID);
+        if (source == null || target == null)
+            return GUITARConstants.NO_EDGE;
+
+        int nRow = efg.getEvents().getEvent().indexOf(source);
+
+        int nCol = efg.getEvents().getEvent().indexOf(target);
+
+        RowType row = efg.getEventGraph().getRow().get(nRow); 
+        return row.getE().get(nCol);
+
+    }
 }

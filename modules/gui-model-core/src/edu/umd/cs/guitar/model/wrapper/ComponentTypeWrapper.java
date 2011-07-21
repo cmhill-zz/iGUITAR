@@ -30,6 +30,8 @@ import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.ContainerType;
 import edu.umd.cs.guitar.model.data.ContentsType;
+import edu.umd.cs.guitar.model.data.EventType;
+import edu.umd.cs.guitar.model.data.EventsType;
 import edu.umd.cs.guitar.model.data.GUIStructure;
 import edu.umd.cs.guitar.model.data.ObjectFactory;
 import edu.umd.cs.guitar.model.data.PropertyType;
@@ -390,12 +392,12 @@ public class ComponentTypeWrapper {
 			lValue.add(sValue);
 		}
 
-//		if(lProperty==null){
-//			attributes.setProperty(new ArrayList<PropertyType>());
-//		}
-//		
-//		attributes.getProperty().add(property);
-		
+		// if(lProperty==null){
+		// attributes.setProperty(new ArrayList<PropertyType>());
+		// }
+		//		
+		// attributes.getProperty().add(property);
+
 		property.setValue(lValue);
 		lProperty.add(property);
 		attributes.setProperty(lProperty);
@@ -852,4 +854,41 @@ public class ComponentTypeWrapper {
 
 	}
 
+	/**
+	 * Get the list of event ID from widget
+	 * 
+	 * @return
+	 */
+	public List<EventType> getEventList() {
+
+		List<String> sActionList = this
+				.getValueListByName(GUITARConstants.EVENT_TAG_NAME);
+
+		List<EventType> eventList = null;
+
+		if (sActionList != null)
+			eventList = new ArrayList<EventType>();
+		for (String action : sActionList) {
+			EventType event = new EventType();
+
+			String wigetID = getFirstValueByName(GUITARConstants.ID_TAG_NAME);
+			String eventID = wigetID.replace(
+					GUITARConstants.COMPONENT_ID_PREFIX,
+					GUITARConstants.EVENT_ID_PREFIX);
+			String type = getFirstValueByName(GUITARConstants.TYPE_TAG_NAME);
+
+			String posFix = (sActionList.size() <= 1) ? "" : EVENT_ID_SPLITTER
+					+ Integer.toString(sActionList.indexOf(action));
+			eventID = eventID + posFix;
+			event.setEventId(eventID);
+			event.setWidgetId(wigetID);
+			event.setAction(action);
+			event.setType(type);
+			eventList.add(event);
+		}
+
+		return eventList;
+	}
+
+	private static final String EVENT_ID_SPLITTER = "_";
 }
