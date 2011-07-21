@@ -15,7 +15,7 @@ main_class=
 plugin=WebPluginInfo
 domain=edu.umd.cs.guitar.ripper
 
-$cmd -cp $classpath $domain.Launcher $domain.$plugin $@
+$cmd $GUITAR_OPTS -cp $classpath $domain.Launcher $domain.$plugin $@
 
 
 
