@@ -202,6 +202,7 @@
 			<xs:sequence>
 				<xs:element name="EventId" type="xs:string"/>
 				<xs:element name="EventSet" type="EventSetType"/>
+				<xs:element name="EventSetDis" type="EventSetType"/>
 			</xs:sequence>
 		</xs:complexType>	
 		

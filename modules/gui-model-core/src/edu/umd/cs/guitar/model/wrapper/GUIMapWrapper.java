@@ -19,6 +19,9 @@
  */
 package edu.umd.cs.guitar.model.wrapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -75,7 +78,7 @@ public class GUIMapWrapper extends GUIMap
         if (event == null)
             return null;
 
-        // Look up widgetID tpye from event
+        // Look up widgetID type from event
         String wID = event.getWidgetId();
         if (wID == null)
             return null;
@@ -85,5 +88,45 @@ public class GUIMapWrapper extends GUIMap
 
         return wMap;
 
+    }
+
+    /**
+     * get a widget property from event id
+     * 
+     * @param eID
+     *            event id
+     * @return
+     */
+    public String getWidgetProperty(String eID, String property)
+    {
+        WidgetMapElementType widget = getWidgetMap(eID);
+        ComponentType component = widget.getComponent();
+        ComponentTypeWrapper wComponent = new ComponentTypeWrapper(component);
+
+        return wComponent.getFirstValueByName(property);
+    }
+
+    /**
+     * Convert from event ID to a widget property. This method is used to
+     * convert event ID to some readable string
+     * 
+     * @return
+     */
+    public String toProperty(String eventID, String property)
+    {
+
+        String value = null;
+        if (eventID == null)
+            return value;
+
+        WidgetMapElementType widget = getWidgetMap(eventID);
+        if (widget != null)
+        {
+            ComponentType component = widget.getComponent();
+            ComponentTypeWrapper wComponent = new ComponentTypeWrapper(component);
+            value = wComponent.getFirstValueByName(property);
+        }
+
+        return value;
     }
 }
