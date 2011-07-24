@@ -10,17 +10,17 @@ import org.openqa.selenium.WebElement;
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.WebComponent;
 import edu.umd.cs.guitar.model.WebWindowHandler;
-import edu.umd.cs.guitar.model.WebDot.NodeType;
-import edu.umd.cs.guitar.util.GUITARLog;
 
 public class WebEvent implements GEvent {
 	
 	@Override
 	public boolean isSupportedBy(GComponent gComponent) {
 		if(gComponent instanceof WebComponent) {
-			if( ((WebComponent) gComponent).getElement() instanceof RenderedWebElement ) {
-				if(((RenderedWebElement) ((WebComponent) gComponent).getElement()).isDisplayed()) {
-					if(((WebComponent) gComponent).getElement().getTagName().equals("a"))
+			WebComponent webComponent = (WebComponent) gComponent;
+			if(webComponent.getElement() instanceof RenderedWebElement) {
+				RenderedWebElement renderedWebElement = (RenderedWebElement) webComponent.getElement();
+				if(renderedWebElement.isDisplayed()) {
+					if("a".equals(webComponent.getElement().getTagName().toLowerCase()))
 						return true; 
 				}
 			}
@@ -39,6 +39,7 @@ public class WebEvent implements GEvent {
 			Hashtable<String, List<String>> optionalData) {
 		//Should do this by using WebWindowHandler, not use getElement().click(), as clicking the 
 		//link will lead the current window away from the current page, whereas we want to keep both in memory
+		// smcmaster says: This is wrong; for "javascript:" URLs, click() is exactly what we should to.
 		if(gComponent instanceof WebComponent) { 
 			WebElement el = ((WebComponent) gComponent).getElement();
 			

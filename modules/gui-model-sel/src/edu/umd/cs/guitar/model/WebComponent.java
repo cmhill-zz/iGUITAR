@@ -19,12 +19,11 @@
  */
 package edu.umd.cs.guitar.model;
 
+import java.awt.Point;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-
-import java.awt.Point;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.RenderedWebElement;
@@ -32,10 +31,7 @@ import org.openqa.selenium.WebElement;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
-import edu.umd.cs.guitar.event.WebEvent;
-import edu.umd.cs.guitar.event.WebToggleCheckbox;
 import edu.umd.cs.guitar.model.data.PropertyType;
-import edu.umd.cs.guitar.util.GUITARLog;
 
 /**
  * Implementation for {@link GComponent} for Web interfaces
@@ -95,8 +91,6 @@ public class WebComponent extends GComponent {
 					GEvent gEvent = (GEvent) obj;
 					if (gEvent.isSupportedBy(this))
 						retEvents.add(gEvent);
-					else
-						GUITARLog.Debug(this + " NSB Not supported by " + event.getCanonicalName());
 				}
 			} catch (SecurityException e) {
 				// TODO Auto-generated catch block

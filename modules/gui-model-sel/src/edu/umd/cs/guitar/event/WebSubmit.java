@@ -8,26 +8,28 @@ import org.openqa.selenium.WebElement;
 
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.WebComponent;
-import edu.umd.cs.guitar.model.WebConstants;
 
 public class WebSubmit implements GEvent {
 
 	@Override
 	public boolean isSupportedBy(GComponent gComponent) {
-//		if(gComponent instanceof WebComponent) {
-//			if( ((WebComponent) gComponent).getElement() instanceof RenderedWebElement ) {
-//				if(((RenderedWebElement) ((WebComponent) gComponent).getElement()).isDisplayed()) {
-//					if(((WebComponent) gComponent).getElement().getTagName().equals("input") && 
-//							(((WebComponent) gComponent).getElement().getAttribute("type").equals("submit")) )
-//					{
-//						return true;
-//						
-//					}
-//				}
-//			}
-//		}
-//		return false;
-	    return true;
+		if(gComponent instanceof WebComponent) {
+			WebComponent webComponent = (WebComponent) gComponent;
+			if( webComponent.getElement() instanceof RenderedWebElement ) {
+				RenderedWebElement renderedWebElement = (RenderedWebElement) webComponent.getElement();
+				if(renderedWebElement.isDisplayed()) {
+					String tagName = webComponent.getElement().getTagName().toLowerCase();
+					if("input".equals(tagName) && 
+						"submit".equals(webComponent.getElement().getAttribute("type").toLowerCase())) {
+						return true;
+					}
+					if("button".equals(tagName)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	@Override

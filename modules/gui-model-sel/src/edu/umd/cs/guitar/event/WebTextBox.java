@@ -15,11 +15,19 @@ public class WebTextBox implements GEvent {
 	@Override
 	public boolean isSupportedBy(GComponent gComponent) {
 		if(gComponent instanceof WebComponent) {
-			if( ((WebComponent) gComponent).getElement() instanceof RenderedWebElement ) {
-				if(((RenderedWebElement) ((WebComponent) gComponent).getElement()).isDisplayed()) {
-					if(((WebComponent) gComponent).getElement().getTagName().equals("input") && 
-							(((WebComponent) gComponent).getElement().getAttribute("type").equals("textbox") || ((WebComponent) gComponent).getElement().getAttribute("type").equals("textbox")) )
-						return true; 
+			WebComponent webComponent = (WebComponent) gComponent;
+			if( webComponent.getElement() instanceof RenderedWebElement ) {
+				RenderedWebElement renderedWebElement = (RenderedWebElement) webComponent.getElement();
+				if(renderedWebElement.isDisplayed()) {
+					if("input".equals(webComponent.getElement().getTagName().toLowerCase())) {
+						String type = webComponent.getElement().getAttribute("type").toLowerCase();
+						if ("text".equals(type) || "password".equals(type)) {
+							return true;
+						}
+					}
+					if("textarea".equals(webComponent.getElement().getTagName().toLowerCase())) {
+						return true;
+					}
 				}
 			}
 		}
