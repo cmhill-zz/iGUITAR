@@ -224,15 +224,15 @@ public class SequenceLengthCoverage extends TCPlugin {
 
 				tc.setStep(lStep);
 
-				String sPath = TestCaseGeneratorConfiguration.OUTPUT_DIR
-				+ File.separator + sTestName;
-				System.out.println("Writting to " + sPath );
-				IO.writeObjToFile(tc, sPath);
+  				String sPath = TestCaseGeneratorConfiguration.OUTPUT_DIR
+						+ File.separator + sTestName;
+				File file = new File(sPath);
+                                if (!file.exists()) {
+					System.out.println("Writting to " + sPath );
+					IO.writeObjToFile(tc, sPath);
 
-				// System.out.println(sTestName);
-//				writeToFile(TestCaseGeneratorConfiguration.OUTPUT_DIR
-//						+ File.separator + sTestName, tTestCase);
-				index++;
+					index++;
+           			}
 			}
 		} else {
 
