@@ -25,8 +25,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.StaleElementReferenceException;
 
-import edu.umd.cs.guitar.model.GHashcodeGenerator;
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.GIDGenerator;
 import edu.umd.cs.guitar.model.GUITARConstants;
@@ -449,6 +449,15 @@ public class Ripper
                     nChildren = gChildrenList.size();
             }
 
+        }
+        catch (StaleElementReferenceException sere)
+        {
+        	// This can happen when performing an action causes a page navigation in the current window,
+        	// for example, when submitting a form.
+        	// So we'll return the component we calculated anyway so it gets added to the GUI map.
+        	// I'm not entirely sure this is the right thing to do, but it gets us further anyway.
+        	GUITARLog.log.error("element went away", sere);
+        	return retComp;
         }
         catch (Exception e)
         {
