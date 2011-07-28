@@ -19,18 +19,10 @@
  */
 package edu.umd.cs.guitar.model;
 
-import java.awt.AWTException;
 import java.awt.Component;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
 import java.awt.Window;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -40,16 +32,10 @@ import java.util.List;
 import javax.accessibility.Accessible;
 import javax.accessibility.AccessibleAction;
 import javax.accessibility.AccessibleContext;
-import javax.imageio.ImageIO;
-import javax.swing.JComponent;
 import javax.swing.JTabbedPane;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
-import edu.umd.cs.guitar.event.JFCActionHandler;
-import edu.umd.cs.guitar.event.JFCEditableTextHandler;
-import edu.umd.cs.guitar.event.JFCSelectionHandler;
-import edu.umd.cs.guitar.event.JFCValueHandler;
 import edu.umd.cs.guitar.model.data.PropertyType;
 import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.util.GUITARLog;
@@ -634,36 +620,9 @@ public class JFCXComponent extends GComponent {
 
 		EventManager em = EventManager.getInstance();
 
-		for (Class<? extends GEvent> event : em.getEvents()) {
-			Constructor<? extends GEvent> constructor;
-			try {
-
-				constructor = event.getConstructor(new Class[] {});
-				Object obj = constructor.newInstance();
-				if (obj instanceof GEvent) {
-					GEvent gEvent = (GEvent) obj;
-					if (gEvent.isSupportedBy(this))
-						retEvents.add(gEvent);
-				}
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		for (GEvent gEvent : em.getEvents()) {
+			if (gEvent.isSupportedBy(this))
+				retEvents.add(gEvent);
 		}
 
 		// AccessibleContext aContext = component.getAccessibleContext();

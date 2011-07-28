@@ -278,7 +278,15 @@ public class WebRipperMonitor extends GRipperMonitor {
 		EventManager em = EventManager.getInstance();
 		
 		for (Class<? extends GEvent> event : WebConstants.DEFAULT_SUPPORTED_EVENTS) {
-			em.registerEvent(event);
+			try {
+				em.registerEvent(event.newInstance());
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if(config.PROFILE != null) {

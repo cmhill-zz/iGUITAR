@@ -124,11 +124,12 @@ public class WebConstants {
 	public static final String INDEX_TAG = "Index";
 	public static final String TAGID_TAG = "Tag ID";
 	public static final String HREF_TAG = "Href";
+	public static final String NAME_TAG = "Name";
 	
 	/**
 	 * List of properties used to identify a widget on the GUI
 	 */
-	public static List<String> ID_PROPERTIES = Arrays.asList(TITLE_TAG, TAGID_TAG, HREF_TAG);
+	public static List<String> ID_PROPERTIES = Arrays.asList(TITLE_TAG, TAGID_TAG, HREF_TAG, NAME_TAG);
 
 	// public static List<Class<? extends JFCEventHandler>>
 	// DEFAULT_SUPPORTED_EVENTS = Arrays

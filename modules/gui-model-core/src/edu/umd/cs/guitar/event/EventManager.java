@@ -35,7 +35,7 @@ public class EventManager {
 
 	static EventManager instance = null;
 	
-	List<Class<? extends GEvent>> events = new ArrayList<Class<? extends GEvent>>();
+	List<GEvent> events = new ArrayList<GEvent>();
 	
 
 	private EventManager() {
@@ -48,7 +48,7 @@ public class EventManager {
 		return instance;
 	}
 	
-	public void registerEvent(Class<? extends GEvent> event){
+	public void registerEvent(GEvent event){
 //		if (event.isAssignableFrom(GEvent.class))
 			events.add(event);
 	}
@@ -56,7 +56,7 @@ public class EventManager {
 	/**
 	 * @return the events
 	 */
-	public List<Class<? extends GEvent>> getEvents() {
+	public List<GEvent> getEvents() {
 		return events;
 	}
 

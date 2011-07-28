@@ -36,7 +36,6 @@ import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
 import edu.umd.cs.guitar.event.JFCEventHandler;
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
-import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.GWindow;
 import edu.umd.cs.guitar.model.JFCApplication;
@@ -46,7 +45,6 @@ import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.PropertyType;
 import edu.umd.cs.guitar.util.GUITARLog;
-import edu.umd.cs.guitar.replayer.GReplayerMonitor;
 
 /**
  * Replayer monitor for Java Swing (JFC) application
@@ -138,7 +136,15 @@ public class JFCReplayerMonitor extends GReplayerMonitor {
 		EventManager em = EventManager.getInstance();
 
 		for (Class<? extends JFCEventHandler> event : JFCConstants.DEFAULT_SUPPORTED_EVENTS) {
-			em.registerEvent(event);
+			try {
+				em.registerEvent(event.newInstance());
+			} catch (InstantiationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalAccessException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 	}

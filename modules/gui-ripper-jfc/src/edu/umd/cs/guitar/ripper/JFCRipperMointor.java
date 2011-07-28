@@ -39,27 +39,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.accessibility.Accessible;
 import javax.accessibility.AccessibleAction;
 import javax.accessibility.AccessibleContext;
-import javax.accessibility.AccessibleSelection;
 import javax.accessibility.AccessibleText;
 import javax.imageio.ImageIO;
 
-import org.apache.log4j.Logger;
 import org.netbeans.jemmy.EventTool;
-import org.netbeans.jemmy.QueueTool;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
-import edu.umd.cs.guitar.event.GThreadEvent;
-import edu.umd.cs.guitar.event.JFCActionHandler;
 import edu.umd.cs.guitar.event.JFCActionEDT;
-import edu.umd.cs.guitar.event.JFCEditableTextHandler;
 import edu.umd.cs.guitar.event.JFCEventHandler;
-import edu.umd.cs.guitar.event.JFCSelectFromParent;
-import edu.umd.cs.guitar.event.JFCSelectionHandler;
-import edu.umd.cs.guitar.event.JFCValueHandler;
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
 import edu.umd.cs.guitar.model.GApplication;
 import edu.umd.cs.guitar.model.GComponent;
@@ -448,7 +438,15 @@ public class JFCRipperMointor extends GRipperMonitor {
 		EventManager em = EventManager.getInstance();
 
 		for (Class<? extends JFCEventHandler> event : JFCConstants.DEFAULT_SUPPORTED_EVENTS) {
-			em.registerEvent(event);
+			try {
+				em.registerEvent(event.newInstance());
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		// Registering customized supported event
@@ -465,9 +463,15 @@ public class JFCRipperMointor extends GRipperMonitor {
 			try {
 				Class<? extends GEvent> cEvent = (Class<? extends GEvent>) Class
 						.forName(sEvent);
-				em.registerEvent(cEvent);
+				em.registerEvent(cEvent.newInstance());
 			} catch (ClassNotFoundException e) {
 				GUITARLog.log.error(e);
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		}

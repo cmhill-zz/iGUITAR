@@ -20,8 +20,6 @@
 package edu.umd.cs.guitar.model;
 
 import java.awt.Point;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,36 +79,9 @@ public class WebComponent extends GComponent {
 		List<GEvent> retEvents = new ArrayList<GEvent>();
 		EventManager em = EventManager.getInstance();
 
-		for (Class<? extends GEvent> event : em.getEvents()) {
-			Constructor<? extends GEvent> constructor;
-			try {
-
-				constructor = event.getConstructor(new Class[] {});
-				Object obj = constructor.newInstance();
-				if (obj instanceof GEvent) {
-					GEvent gEvent = (GEvent) obj;
-					if (gEvent.isSupportedBy(this))
-						retEvents.add(gEvent);
-				}
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		for (GEvent gEvent : em.getEvents()) {
+			if (gEvent.isSupportedBy(this))
+				retEvents.add(gEvent);
 		}
 
 		return retEvents;
@@ -203,6 +174,18 @@ public class WebComponent extends GComponent {
 			retList.add(p);
 		}
 		
+		// name
+		sValue = null;
+		sValue = getName();
+		if (sValue != null) {
+			p = factory.createPropertyType();
+			p.setName(WebConstants.NAME_TAG);
+			lPropertyValue = new ArrayList<String>();
+			lPropertyValue.add(sValue);
+			p.setValue(lPropertyValue);
+			retList.add(p);
+		}
+		
 		// Get Screenshot
 		return retList;
 	}
@@ -213,6 +196,10 @@ public class WebComponent extends GComponent {
 	
 	private String getHref() {
 		return element.getAttribute("href");
+	}
+
+	private String getName() {
+		return element.getAttribute("name");
 	}
 
 	private String getValue() {

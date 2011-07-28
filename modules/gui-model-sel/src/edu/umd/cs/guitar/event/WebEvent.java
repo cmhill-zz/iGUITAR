@@ -20,8 +20,17 @@ public class WebEvent implements GEvent {
 			if(webComponent.getElement() instanceof RenderedWebElement) {
 				RenderedWebElement renderedWebElement = (RenderedWebElement) webComponent.getElement();
 				if(renderedWebElement.isDisplayed()) {
-					if("a".equals(webComponent.getElement().getTagName().toLowerCase()))
-						return true; 
+					if("a".equals(webComponent.getElement().getTagName().toLowerCase())) {
+						String href = webComponent.getElement().getAttribute("href");
+						if(href == null) {
+							return false;
+						}
+						if(href.toLowerCase().startsWith("javascript:") || href.startsWith("#")) {
+							// Assume javascript URLs and intrapage anchors don't navigate away.
+							return true;
+						}
+						return true; //or false to avoid navigating all over the place
+					}
 				}
 			}
 		}
