@@ -22,11 +22,13 @@ package edu.umd.cs.guitar.model;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Window;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.accessibility.Accessible;
@@ -134,6 +136,15 @@ public class JFCXComponent extends GComponent {
 			p.setValue(lPropertyValue);
 			retList.add(p);
 
+		}
+		
+		// get ActionListeners
+		List<String> actionListener = getActionListenerClasses();
+		if (actionListener != null) {
+			p = factory.createPropertyType();
+			p.setName("ActionListeners");
+			p.setValue(actionListener);
+			retList.add(p);
 		}
 
 		// Get bean properties
@@ -585,6 +596,38 @@ public class JFCXComponent extends GComponent {
 			return null;
 		}
 		return retIcon;
+	}
+	
+	private List<String> getActionListenerClasses() {
+		List<String> ret = null;
+		Class<?> c = component.getClass();
+		try {
+			Method m = c.getMethod("getActionListeners");
+			if (m.getReturnType() == ActionListener[].class) {
+				ActionListener[] listeners = (ActionListener[]) m
+						.invoke(component);
+				if (listeners != null && listeners.length > 0) {
+					// it is quite usual that only one listener is registered
+					if (listeners.length == 1) {
+						ret = new ArrayList<String>();
+						ret.add(listeners[0].getClass().getName());
+					} else {
+						// to avoid duplicates a HashSet is used
+						HashSet<String> tmp = new HashSet<String>();
+						for (ActionListener al : listeners) {
+							tmp.add(al.getClass().getName());
+						}
+						ret = new ArrayList<String>(tmp);
+					}
+				}
+			}
+		} catch (SecurityException e) {
+		} catch (NoSuchMethodException e) {
+		} catch (IllegalArgumentException e) {
+		} catch (IllegalAccessException e) {
+		} catch (InvocationTargetException e) {
+		}
+		return ret;
 	}
 
 	//TODO: Move this one to an external configuration file

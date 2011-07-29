@@ -71,7 +71,25 @@ public class EventWrapper {
 	public void setAction(String action) {
 		this.action = action;
 	}
-
+	
+	List<String> listeners;
+	
+	/**
+	 * 
+	 * @return the listeners
+	 */
+	public List<String> getListeners(){
+		return listeners;
+	}
+	
+	/**
+	 * 
+	 * @param the listeners
+	 */
+	public void setListeners( List<String> listeners ){
+		this.listeners = listeners;
+	}
+	
 	/**
 	 * @return the component
 	 */

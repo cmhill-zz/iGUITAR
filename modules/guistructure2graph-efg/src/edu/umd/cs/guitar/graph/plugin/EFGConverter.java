@@ -115,6 +115,8 @@ public class EFGConverter implements GraphConverter {
 
 			dEvent.setAction(wEvent.getAction());
 
+			dEvent.setListeners(wEvent.getListeners());
+			
 			if (wEvent.getComponent().getWindow().isRoot()
 					&& !wEvent.isHidden())
 				dEvent.setInitial(true);
@@ -275,6 +277,8 @@ public class EFGConverter implements GraphConverter {
 				wEvent.setID(sEventID);
 				wEvent.setAction(action);
 				wEvent.setComponent(component);
+				wEvent.setListeners(component
+						.getValueListByName("ActionListeners"));
 				wEventList.add(wEvent);
 			}
 
