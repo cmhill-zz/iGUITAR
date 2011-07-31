@@ -36,6 +36,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
+import edu.umd.cs.guitar.event.GEventConfigurable;
+import edu.umd.cs.guitar.event.WebEventConfiguration;
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.GWindow;
 import edu.umd.cs.guitar.model.WebComponent;
@@ -277,9 +279,16 @@ public class WebRipperMonitor extends GRipperMonitor {
 	public void setUp() {
 		EventManager em = EventManager.getInstance();
 		
+		WebEventConfiguration eventConfig = new WebEventConfiguration();
+		eventConfig.setNoNavigateHrefs(config.NO_NAVIGATE_HREFS);
 		for (Class<? extends GEvent> event : WebConstants.DEFAULT_SUPPORTED_EVENTS) {
 			try {
-				em.registerEvent(event.newInstance());
+				GEvent gevent = event.newInstance();
+				if (gevent instanceof GEventConfigurable) {
+					GEventConfigurable configurable = (GEventConfigurable) gevent;
+					configurable.configure(eventConfig);
+				}
+				em.registerEvent(gevent);
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

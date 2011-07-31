@@ -19,7 +19,8 @@ public class WebRipperConfiguration extends NewGRipperConfiguration{
 	public Browser BROWSER = null; // Browser to use
 	public String BROWSER_PATH = null; // Browser to use
 	public boolean help = false;
-
+	public boolean NO_NAVIGATE_HREFS = false;
+	
     public WebRipperConfiguration() {
 		opts.addOption( "u", "website-url", true, "root URL for the website under test" );
 		opts.addOption( "w", "width", true, "max number of links to scan on a single page" );
@@ -27,6 +28,7 @@ public class WebRipperConfiguration extends NewGRipperConfiguration{
         opts.addOption( "g", "graph-file", true, "desired file name for DOT file and JPEG graph of website structure");
         opts.addOption( "p", "profile", true, "desired Firefox profile to use");
         opts.addOption( "b", "browser", true, "desired browser to use. One of {Firefox, IE, HTMLUnit, Chrome}");
+        opts.addOption( "n", "no-navigate-hrefs", false, "skip href navigation when ripping");
         opts.addOption( "bp", "browser-path", true, "path to the browser executable, if different from its default location");
     }
 
@@ -45,6 +47,10 @@ public class WebRipperConfiguration extends NewGRipperConfiguration{
 		
 		if(cmd.getOptionValue("browser-path") != null)
 			BROWSER_PATH = (cmd.getOptionValue("browser-path"));
+		
+		if(cmd.hasOption("no-navigate-hrefs")) {
+			NO_NAVIGATE_HREFS = true;
+		}
 		
 		DOT_FILE = cmd.getOptionValue("graph-file");
 		

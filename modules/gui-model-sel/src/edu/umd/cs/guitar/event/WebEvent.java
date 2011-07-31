@@ -11,8 +11,10 @@ import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.WebComponent;
 import edu.umd.cs.guitar.model.WebWindowHandler;
 
-public class WebEvent implements GEvent {
+public class WebEvent implements GEvent, GEventConfigurable {
 	
+	private boolean noNavigateHrefs;
+
 	@Override
 	public boolean isSupportedBy(GComponent gComponent) {
 		if(gComponent instanceof WebComponent) {
@@ -29,7 +31,11 @@ public class WebEvent implements GEvent {
 							// Assume javascript URLs and intrapage anchors don't navigate away.
 							return true;
 						}
-						return true; //or false to avoid navigating all over the place
+						if(noNavigateHrefs) {
+							// We're not supposed to follow hrefs that navigate away.
+							return false;
+						}
+						return true;
 					}
 				}
 			}
@@ -91,5 +97,10 @@ public class WebEvent implements GEvent {
 				wwh.createNewWindow(finalURL);
 			}
 		}
+	}
+
+	@Override
+	public void configure(GEventConfiguration config) {
+		noNavigateHrefs = ((WebEventConfiguration) config).isNoNavigateHrefs();
 	}
 }
