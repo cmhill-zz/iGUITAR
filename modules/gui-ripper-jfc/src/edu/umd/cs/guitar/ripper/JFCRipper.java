@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.apache.log4j.Level;
 import org.kohsuke.args4j.CmdLineException;
 
 import edu.umd.cs.guitar.model.GIDGenerator;
