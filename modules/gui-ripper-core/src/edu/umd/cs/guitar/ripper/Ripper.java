@@ -449,22 +449,19 @@ public class Ripper
             }
 
         }
-//        catch (StaleElementReferenceException sere)
-//        {
-//        	// This can happen when performing an action causes a page navigation in the current window,
-//        	// for example, when submitting a form.
-//        	// So we'll return the component we calculated anyway so it gets added to the GUI map.
-//        	// I'm not entirely sure this is the right thing to do, but it gets us further anyway.
-//        	GUITARLog.log.error("element went away", sere);
-//        	return retComp;
-//        }
         catch (Exception e)
         {
-            // logOld.println("ripComponent exception");
-            // e.printStackTrace();
-            GUITARLog.log.error("ripComponent exception", e);
+        	if (e.getClass().getName().contains("StaleElementReferenceException")) {
+            	// This can happen when performing an action causes a page navigation in the current window,
+            	// for example, when submitting a form.
+        		GUITARLog.log.warn("element went away: " + e.getMessage());
+        	} else {
+        		GUITARLog.log.error("ripComponent exception", e);
+        	}
 
-            return null;
+        	// We'll return the component we calculated anyway so it gets added to the GUI map.
+        	// I'm not entirely sure this is the right thing to do, but it gets us further anyway.
+            return retComp;
         }
         return retComp;
     }
