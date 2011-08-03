@@ -144,7 +144,7 @@ public class WebConstants {
 	"log4j.properties"; // This name needs to be a command-line parameter
 	
 	//The URL for a site with one link to a new page.
-	public static final String NEW_PAGE_URL = "http://www.phand.net/test.html"; 
+	public static final String NEW_PAGE_URL = "http://www.cs.umd.edu/~baonn/gtac/index.html"; 
 	//Keys to send to password
 	public static final String KEYS_TO_SEND = "WebGUITAR_TEST";
 	

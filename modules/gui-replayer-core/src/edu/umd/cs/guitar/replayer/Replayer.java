@@ -373,12 +373,18 @@ public class Replayer {
 		} else
 			gEvent.perform(gComponent, parameters, optionalValues);
 
-		TestStepEndEventArgs stepEndArgs = new TestStepEndEventArgs(step,
-				gComponent.extractProperties(), gWindow.extractGUIProperties());
 		// -----------------------
 		// Monitor after step
-		for (GTestMonitor aTestMonitor : lTestMonitor) {
-			aTestMonitor.afterStep(stepEndArgs);
+		if (!lTestMonitor.isEmpty()) {
+			try {
+				TestStepEndEventArgs stepEndArgs = new TestStepEndEventArgs(step,
+						gComponent.extractProperties(), gWindow.extractGUIProperties());
+				for (GTestMonitor aTestMonitor : lTestMonitor) {
+					aTestMonitor.afterStep(stepEndArgs);
+				}
+			} catch (Exception e) {
+				log.error("Failed to collect post-event state", e);
+			}
 		}
 	}
 
