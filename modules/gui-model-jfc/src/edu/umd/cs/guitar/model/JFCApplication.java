@@ -23,16 +23,16 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.JarInputStream;
@@ -55,6 +55,42 @@ public class JFCApplication extends GApplication {
 	int iInitialDelay;
 
 	final String[] URL_PREFIX = { "file:", "jar:", "http:" };
+
+	/**
+	 * This class loader dynamically load jar file to the current classpath
+	 * 
+	 */
+	private class RuntimeJarFileLoader extends URLClassLoader {
+		public RuntimeJarFileLoader(URL[] urls) {
+			super(urls);
+		}
+
+		/**
+		 * add the Jar file to the classpath
+		 * 
+		 * @param path
+		 * @throws MalformedURLException
+		 */
+		public void addFile(String path) throws MalformedURLException {
+			// construct the jar url path
+			String urlPath = "jar:file:" + path + "!/";
+
+			// invoke the base method
+			addURL(new URL(urlPath));
+		}
+
+		/**
+		 * add the Jar file to the classpath
+		 * 
+		 * @param path
+		 * @throws MalformedURLException
+		 */
+		public void addFile(String paths[]) throws MalformedURLException {
+			if (paths != null)
+				for (int i = 0; i < paths.length; i++)
+					addFile(paths[i]);
+		}
+	}
 
 	/**
 	 * Application with jar file
@@ -82,13 +118,35 @@ public class JFCApplication extends GApplication {
 			// TODO: is method is not stable yet and required the jar file
 			// already exist in the class path. Need to dynamically add the
 			// current jar to the classpath
-			
-			String jarFilePath = entrance;
-			File jarFile = new File(jarFilePath);
+			// initialize with empty path
 
-			URL myJarFile = new URL("jar", "file:", jarFile.getAbsolutePath()
-					+ "!/");
+			// get jar file name
 
+			// These code tries to load jar file dynamically but not successful
+			// yet
+			/*
+			 * String jarFilePath = entrance; File jarFile = new
+			 * File(jarFilePath); String jarFileAbsPath =
+			 * jarFile.getAbsolutePath(); String jarFileURLPath = "jar:file:/" +
+			 * jarFileAbsPath + "!/"; URL jarFileURL= new URL(jarFileURLPath);
+			 * // load current classloader URLClassLoader currentClassLoader =
+			 * (URLClassLoader) URLClassLoader .getSystemClassLoader();
+			 * 
+			 * URL[] curURLs = currentClassLoader.getURLs(); URL[] newURLs = new
+			 * URL[curURLs.length+1];
+			 * 
+			 * for (int i = 0;i <curURLs.length;i++){ newURLs[i] = curURLs[i]; }
+			 * newURLs[newURLs.length-1] = jarFileURL;
+			 * 
+			 * currentClassLoader = new URLClassLoader(newURLs,
+			 * URLClassLoader.getSystemClassLoader());
+			 * 
+			 * Thread.currentThread().setContextClassLoader(currentClassLoader);
+			 * 
+			 * for (URL url: ((URLClassLoader)
+			 * Thread.currentThread().getContextClassLoader()).getURLs()){
+			 * System.out.println(url.getPath()); }
+			 */
 			// TODO: do a more comprehensive manifest parsing rather than just
 			// getting the main class name
 			InputStream is;
@@ -125,6 +183,7 @@ public class JFCApplication extends GApplication {
 		// System URLs
 		URLClassLoader sysLoader = (URLClassLoader) ClassLoader
 				.getSystemClassLoader();
+
 		URL urls[] = sysLoader.getURLs();
 		for (int i = 0; i < urls.length; i++) {
 			lURLs.add(urls[i]);
