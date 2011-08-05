@@ -99,27 +99,11 @@ public class GUIMapWrapper extends GUIMap
      */
     public String getWidgetProperty(String eID, String property)
     {
-        WidgetMapElementType widget = getWidgetMap(eID);
-        ComponentType component = widget.getComponent();
-        ComponentTypeWrapper wComponent = new ComponentTypeWrapper(component);
-
-        return wComponent.getFirstValueByName(property);
-    }
-
-    /**
-     * Convert from event ID to a widget property. This method is used to
-     * convert event ID to some readable string
-     * 
-     * @return
-     */
-    public String toProperty(String eventID, String property)
-    {
-
         String value = null;
-        if (eventID == null)
+        if (eID == null)
             return value;
 
-        WidgetMapElementType widget = getWidgetMap(eventID);
+        WidgetMapElementType widget = getWidgetMap(eID);
         if (widget != null)
         {
             ComponentType component = widget.getComponent();
@@ -128,5 +112,30 @@ public class GUIMapWrapper extends GUIMap
         }
 
         return value;
+
     }
+
+    // /**
+    // * Convert from event ID to a widget property. This method is used to
+    // * convert event ID to some readable string
+    // *
+    // * @return
+    // */
+    // public String toProperty(String eventID, String property)
+    // {
+    //
+    // String value = null;
+    // if (eventID == null)
+    // return value;
+    //
+    // WidgetMapElementType widget = getWidgetMap(eventID);
+    // if (widget != null)
+    // {
+    // ComponentType component = widget.getComponent();
+    // ComponentTypeWrapper wComponent = new ComponentTypeWrapper(component);
+    // value = wComponent.getFirstValueByName(property);
+    // }
+    //
+    // return value;
+    // }
 }

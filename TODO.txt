@@ -1,9 +1,11 @@
+==================================
+	TODO LIST FOR GUITAR
+	Date: 08/05/2011
+==================================
 
 - Supply a better user guide
 
-- Test and setup sample workflow for swt and web
-
-- Create a common entry for all tools. It should do all common tasks such as log setup, cleanup ...Each tool should be a plugin running on the GUITAR platform 
+- Create a common entry for all tools. It should do all common tasks such as log setup, cleanup ...Each tool should be a plugin running on the common GUITAR platform 
 
 - Write a common launching script for all tools 
 
@@ -13,11 +15,9 @@
 
 - Change gui2efg to use commons argument flags
 
-- Get rid of jemmy (used to delay between events) so GUITAR can work as an independent tool (low priority) 
-
 - Use maven build system instead of ant to better support module dependencies management
 
-- Group modules by platform (need to change the build system) 
+- Group modules by platform (require to change the build system) 
 
 - Migrate the UNO plugin to the framework, to work with OpenOffice GUI
 
@@ -25,4 +25,18 @@
 
 - Cleanup and redefine APIs for GUITAR  
 
+================================
+PLATFORM SPECIFIC PLUGINS
+================================
 
+------------------------------
+- JFC GUITAR:
+	+ Enable start application directly from jar file
+	+ Get rid of jemmy (used to delay between events) so GUITAR can work as an independent tool (low priority) 
+	
+------------------------------	
+- SWT GUITAR
+	- Test and setup sample workflow 
+
+------------------------------
+- Web GUITAR 
