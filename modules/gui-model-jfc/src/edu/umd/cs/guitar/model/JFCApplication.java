@@ -89,31 +89,15 @@ public class JFCApplication extends GApplication {
 
 					URL appURL = new URL(sURL);
 					lURLs.add(appURL);
-
-					// GUITARLog.log.debug("GOT Application URL!!!!");
-					// GUITARLog.log.debug("Original: " + sURL);
-					// GUITARLog.log.debug("Converted: " + appURL.getPath());
-
 					break;
 				}
 			}
 		}
 
 		URL[] arrayURLs = (lURLs.toArray(new URL[lURLs.size()]));
-		// --------------
-		// GUITARLog.log.debug("=============================");
-		// GUITARLog.log.debug("Application URLs: ");
-		// GUITARLog.log.debug("-----------------------------");
-		// for (URL url : arrayURLs) {
-		// GUITARLog.log.debug("\t" + url.getPath());
-		// }
-		// GUITARLog.log.debug("");
-
 		// ---------------
-
 		URLClassLoader loader = new URLClassLoader(arrayURLs);
 		this.cClass = Class.forName(sClassName, true, loader);
-		// this.cClass = Class.forName(sClassName);
 		this.sClassName = sClassName;
 	}
 
@@ -220,10 +204,4 @@ public class JFCApplication extends GApplication {
 		}
 		return retWindows;
 	}
-
-	// @Override
-	// public GUIStructure getCurrentState() {
-	//     
-	// }
-
 }
