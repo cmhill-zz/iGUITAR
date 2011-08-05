@@ -83,9 +83,9 @@ public class JFCReplayerConfiguration extends GReplayerConfiguration {
 
 	@Option(name = "-p", usage = "Pause after each step", aliases = "--pause")
 	static boolean PAUSE = false;
-	
+
 	@Option(name = "-r", usage = "Compare string using regular expression", aliases = "--regular-expression")
-	static boolean REG_USED= false;
+	static boolean USE_REX = false;
 
 	// Cobertura Coverage collection
 	@Option(name = "-cd", usage = "Cobertura coverage output dir", aliases = "--coverage-dir")
@@ -97,5 +97,7 @@ public class JFCReplayerConfiguration extends GReplayerConfiguration {
 
 	@Option(name = "-cc", usage = "Cobertura coverage clean file ", aliases = "--coverage-clean")
 	static String COVERAGE_CLEAN_FILE = null;
-
+	
+	@Option(name = "-jar", usage = "Automatically looking for the main class name in jar file specified by -c")
+	public static boolean USE_JAR = false;
 }

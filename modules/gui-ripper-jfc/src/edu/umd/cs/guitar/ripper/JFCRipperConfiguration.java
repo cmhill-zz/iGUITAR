@@ -58,11 +58,15 @@ public class JFCRipperConfiguration extends GRipperConfiguration {
     @Option(name = "-j", usage = "Java Virtual Machine options for the Application Under Test", aliases = "--jvm-options")
     static public String JVM_OPTIONS;
 
-    @Option(name = "-cf", usage = "Configure file for the ripper defining terminal, ignored components and ignored windows", aliases = "--configure-file")
+    @Option(name = "-cf", usage = "configure file for the ripper defining terminal, ignored components and ignored windows", aliases = "--configure-file")
     public static String CONFIG_FILE = //"resources" + File.separator + "config"
            // + File.separator + 
             "configuration.xml";
     
-    @Option(name = "-ce", usage = "Customized event list (usually aut-specific events)", aliases = "--event-list")
+    @Option(name = "-ce", usage = "customized event list (usually aut-specific events)", aliases = "--event-list")
     public static String CUSTOMIZED_EVENT_LIST = null;
+    
+    @Option(name = "-jar", usage = "Automatically looking for the main class name in jar file specified b-c")
+    public static boolean USE_JAR = false;
+    
 }

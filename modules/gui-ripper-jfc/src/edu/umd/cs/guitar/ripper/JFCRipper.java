@@ -87,12 +87,13 @@ public class JFCRipper {
 		if (CONFIG.help) {
 			throw new CmdLineException("");
 		}
+
 		System.setProperty(GUITARLog.LOGFILE_NAME_SYSTEM_PROPERTY,
 				JFCRipperConfiguration.LOG_FILE);
 
 		long nStartTime = System.currentTimeMillis();
 		ripper = new Ripper(GUITARLog.log);
-		
+
 		// -------------------------
 		// Setup configuration
 		// -------------------------
@@ -121,7 +122,7 @@ public class JFCRipper {
 		logWidget.setOpenWindow(lOpenWins);
 		logWidget.setCloseWindow(lCloseWins);
 
-//		IO.writeObjToFile(logWidget, JFCRipperConfiguration.LOG_WIDGET_FILE);
+		// IO.writeObjToFile(logWidget, JFCRipperConfiguration.LOG_WIDGET_FILE);
 
 		// ------------------
 		// Elapsed time:
@@ -215,12 +216,12 @@ public class JFCRipper {
 		// Setup tab components ripper filter
 		GComponentFilter jTab = JFCTabFilter.getInstance();
 		ripper.addComponentFilter(jTab);
-		
+
 		// Set up Monitor
 		ripper.setMonitor(jMonitor);
-		
+
 		// Set up IDGenerator
-		
+
 		GIDGenerator jIDGenerator = JFCDefaultIDGeneratorSimple.getInstance();
 		ripper.setIDGenerator(jIDGenerator);
 

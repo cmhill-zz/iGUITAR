@@ -342,7 +342,7 @@ public class JFCReplayerMonitor extends GReplayerMonitor {
 				URLs = new String[0];
 
 			application = new JFCApplication(
-					JFCReplayerConfiguration.MAIN_CLASS, false, URLs);
+					JFCReplayerConfiguration.MAIN_CLASS, JFCReplayerConfiguration.USE_JAR, URLs);
 
 			String[] args;
 

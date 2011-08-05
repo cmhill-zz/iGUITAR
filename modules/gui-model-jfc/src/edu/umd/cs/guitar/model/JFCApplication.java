@@ -21,7 +21,6 @@ package edu.umd.cs.guitar.model;
 
 import java.awt.Frame;
 import java.awt.Window;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,9 +29,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.JarInputStream;
@@ -40,7 +37,6 @@ import java.util.jar.Manifest;
 
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
 import edu.umd.cs.guitar.util.GUITARLog;
-import edu.umd.cs.guitar.model.JFCXWindow;
 
 /**
  * Implementation for {@link GApplication} for Java Swing
@@ -97,14 +93,14 @@ public class JFCApplication extends GApplication {
 	 * 
 	 * @param entrance
 	 *            either main jar file path or main class name
-	 * @param isJar
+	 * @param useJar
 	 *            true if <code> entrance </code> is a jar file
 	 * @param URLs
 	 *            application URLs
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
-	public JFCApplication(String entrance, boolean isJar, String[] URLs)
+	public JFCApplication(String entrance, boolean useJar, String[] URLs)
 			throws ClassNotFoundException, IOException {
 		super();
 
@@ -113,7 +109,7 @@ public class JFCApplication extends GApplication {
 
 		// check if main class is loaded from a jar file
 
-		if (isJar) {
+		if (useJar) {
 
 			// TODO: is method is not stable yet and required the jar file
 			// already exist in the class path. Need to dynamically add the

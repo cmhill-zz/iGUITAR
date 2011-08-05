@@ -145,7 +145,7 @@ public class JFCReplayer {
 			// replayer.addTestMonitor(debugMonitor);
 
 			// Set up string comparator
-			jMonitor.setUseReg(JFCReplayerConfiguration.REG_USED);
+			jMonitor.setUseReg(JFCReplayerConfiguration.USE_REX);
 			
 			replayer.setMonitor(jMonitor);
 			replayer.setTimeOut(JFCReplayerConfiguration.TESTCASE_TIMEOUT);

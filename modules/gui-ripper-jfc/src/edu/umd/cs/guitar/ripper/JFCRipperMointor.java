@@ -489,7 +489,7 @@ public class JFCRipperMointor extends GRipperMonitor {
 			else
 				URLs = new String[0];
 
-			application = new JFCApplication(JFCRipperConfiguration.MAIN_CLASS, false,
+			application = new JFCApplication(JFCRipperConfiguration.MAIN_CLASS, JFCRipperConfiguration.USE_JAR,
 					URLs);
 
 			// Parsing arguments
