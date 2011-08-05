@@ -22,6 +22,7 @@ package edu.umd.cs.guitar.replayer;
 
 import java.awt.Frame;
 import java.awt.Window;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.security.Permission;
 import java.util.ArrayList;
@@ -341,7 +342,7 @@ public class JFCReplayerMonitor extends GReplayerMonitor {
 				URLs = new String[0];
 
 			application = new JFCApplication(
-					JFCReplayerConfiguration.MAIN_CLASS, URLs);
+					JFCReplayerConfiguration.MAIN_CLASS, false, URLs);
 
 			String[] args;
 
@@ -370,6 +371,9 @@ public class JFCReplayerMonitor extends GReplayerMonitor {
 		} catch (ClassNotFoundException e) {
 			GUITARLog.log.error(e);
 			throw new ApplicationConnectException();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}

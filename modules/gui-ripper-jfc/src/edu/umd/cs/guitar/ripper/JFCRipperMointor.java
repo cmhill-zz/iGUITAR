@@ -489,7 +489,7 @@ public class JFCRipperMointor extends GRipperMonitor {
 			else
 				URLs = new String[0];
 
-			application = new JFCApplication(JFCRipperConfiguration.MAIN_CLASS,
+			application = new JFCApplication(JFCRipperConfiguration.MAIN_CLASS, false,
 					URLs);
 
 			// Parsing arguments
@@ -522,6 +522,9 @@ public class JFCRipperMointor extends GRipperMonitor {
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			GUITARLog.log.error(e);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		// -----------------------------

@@ -113,8 +113,6 @@ public class JFCRipper {
 		GUITARLog.log.info("Number of Windows: "
 				+ dGUIStructure.getGUI().size());
 		GUITARLog.log.info("GUI file:" + JFCRipperConfiguration.GUI_FILE);
-		GUITARLog.log.info("Open Component file:"
-				+ JFCRipperConfiguration.LOG_WIDGET_FILE);
 		ComponentListType lOpenWins = ripper.getlOpenWindowComps();
 		ComponentListType lCloseWins = ripper.getlCloseWindowComp();
 		ObjectFactory factory = new ObjectFactory();
@@ -220,8 +218,6 @@ public class JFCRipper {
 		
 		// Set up Monitor
 		ripper.setMonitor(jMonitor);
-		
-		// Set up HashcodeGenerator
 		
 		// Set up IDGenerator
 		

@@ -41,21 +41,9 @@ public class JFCRipperConfiguration extends GRipperConfiguration {
     @Option(name = "-l", usage = "log file name ", aliases = "--log-file")
     static public String LOG_FILE = Util.getTimeStamp() + ".log";
 
-    @Option(name = "-ow", usage = "log file name ", aliases = "--open-win-file")
-    static public String LOG_WIDGET_FILE = "log_widget.xml";
 
     @Option(name = "-i", usage = "initial waiting time for the application to get stablized before being ripped", aliases = "--initial-wait")
     static public Integer INITIAL_WAITING_TIME = 500;
-
-    // @Option(name = "-iw", usage =
-    // "file  containing a list of windows should be ignored during ripping ",
-    // aliases = "--ignore-window-file")
-    // static public String IGNORE_WIN_FILE;
-    //
-    // @Option(name = "-ic", usage =
-    // "file  containing a list of components should be ignored during ripping ",
-    // aliases = "--ignore-component-file")
-    // static public String IGNORE_COMPONENT_FILE;
 
     // Application Under Test
     @Option(name = "-c", usage = "<REQUIRED> main class name for the Application Under Test ", aliases = "--main-class", required = true)

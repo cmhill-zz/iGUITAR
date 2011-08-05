@@ -21,13 +21,22 @@ package edu.umd.cs.guitar.model;
 
 import java.awt.Frame;
 import java.awt.Window;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.jar.Attributes;
+import java.util.jar.JarInputStream;
+import java.util.jar.Manifest;
 
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
 import edu.umd.cs.guitar.util.GUITARLog;
@@ -43,34 +52,73 @@ import edu.umd.cs.guitar.model.JFCXWindow;
 public class JFCApplication extends GApplication {
 
 	private Class<?> cClass;
-	String sClassName;
 	int iInitialDelay;
-
-	/**
-	 * @param sClassName
-	 * @param iInitalDelay
-	 * @throws ClassNotFoundException
-	 */
-	@Deprecated
-	public JFCApplication(String sClassName, int iInitialDelay)
-			throws ClassNotFoundException {
-		super();
-		this.cClass = Class.forName(sClassName);
-		this.sClassName = sClassName;
-		this.iInitialDelay = iInitialDelay;
-	}
 
 	final String[] URL_PREFIX = { "file:", "jar:", "http:" };
 
 	/**
+	 * Application with jar file
+	 * 
+	 * @param entrance
+	 *            either main jar file path or main class name
+	 * @param isJar
+	 *            true if <code> entrance </code> is a jar file
+	 * @param URLs
+	 *            application URLs
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	public JFCApplication(String entrance, boolean isJar, String[] URLs)
+			throws ClassNotFoundException, IOException {
+		super();
+
+		// main class name to start the application
+		String mainClass;
+
+		// check if main class is loaded from a jar file
+
+		if (isJar) {
+
+			// TODO: is method is not stable yet and required the jar file
+			// already exist in the class path. Need to dynamically add the
+			// current jar to the classpath
+			
+			String jarFilePath = entrance;
+			File jarFile = new File(jarFilePath);
+
+			URL myJarFile = new URL("jar", "file:", jarFile.getAbsolutePath()
+					+ "!/");
+
+			// TODO: do a more comprehensive manifest parsing rather than just
+			// getting the main class name
+			InputStream is;
+			is = new FileInputStream(entrance);
+			JarInputStream jarStream = new JarInputStream(is);
+			Manifest mf = (Manifest) jarStream.getManifest();
+
+			Attributes attributes = mf.getMainAttributes();
+			mainClass = (attributes.getValue("Main-Class"));
+
+		} else {
+			mainClass = entrance;
+		}
+
+		this.cClass = initilizeMainClass(mainClass, URLs);
+
+	}
+
+	/**
+	 * Initialize the main class
+	 * <p>
+	 * 
 	 * @param sClassName
 	 * @param sURLs
-	 * @throws ClassNotFoundException
+	 * @return
 	 * @throws MalformedURLException
+	 * @throws ClassNotFoundException
 	 */
-	public JFCApplication(String sClassName, String[] sURLs)
-			throws ClassNotFoundException, MalformedURLException {
-		super();
+	private Class<?> initilizeMainClass(String sClassName, String[] sURLs)
+			throws MalformedURLException, ClassNotFoundException {
 
 		Set<URL> lURLs = new HashSet<URL>();
 
@@ -97,8 +145,8 @@ public class JFCApplication extends GApplication {
 		URL[] arrayURLs = (lURLs.toArray(new URL[lURLs.size()]));
 		// ---------------
 		URLClassLoader loader = new URLClassLoader(arrayURLs);
-		this.cClass = Class.forName(sClassName, true, loader);
-		this.sClassName = sClassName;
+
+		return Class.forName(sClassName, true, loader);
 	}
 
 	/*
@@ -129,23 +177,19 @@ public class JFCApplication extends GApplication {
 
 		Method method;
 
-		
 		try {
 			method = cClass.getMethod("main", new Class[] { String[].class });
-			
+
 			GUITARLog.log.debug("Main method FOUND!");
-			
+
 			if (method != null) {
 				method.invoke(null, new Object[] { args });
 				GUITARLog.log.debug("Main method INVOKED!");
 			}
-			
 
 			else
 				throw new ApplicationConnectException();
 
-			// } catch (SecurityException e) {
-			// // TODO Auto-generated catch block
 		} catch (NoSuchMethodException e) {
 			GUITARLog.log
 					.debug("Coundn't find main method for the application");
