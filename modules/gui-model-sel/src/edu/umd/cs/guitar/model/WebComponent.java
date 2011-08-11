@@ -98,6 +98,14 @@ public class WebComponent extends GComponent {
 
 	@Override
 	public String getTypeVal() {
+		// Make submit buttons "terminal" because we assume that they are going to do a form post
+		// and end the page. This isn't a perfect approximation in many web apps, but it's the
+		// best we can do right now.
+		String tagName = element.getTagName().toLowerCase();
+		if("input".equals(tagName) && 
+			"submit".equals(element.getAttribute("type").toLowerCase())) {
+			return GUITARConstants.TERMINAL;
+		}
 		return GUITARConstants.SYSTEM_INTERACTION;
 	}
 
