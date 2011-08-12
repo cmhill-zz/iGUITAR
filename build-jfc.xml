@@ -71,7 +71,7 @@
 
 	<!-- ${jfc.name}-guitar config -->
 	<property name="jg.name" value="${jfc.name}-guitar" />
-	<property name="jg.modules" value="gui-model-core,gui-model-${jfc.name},${jrp-spec.modules},${jrl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules}" />
+	<property name="jg.modules" value="gui-model-core,gui-model-${jfc.name},${jrp-spec.modules},${jrl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules},testcase-generator-program-analysis" />
 	
 	
 	<!-- ${jfc.name}-replayer -->
