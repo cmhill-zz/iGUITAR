@@ -48,16 +48,18 @@ public abstract class ReplayerMain {
             replayer = new Replayer(tc, config.GUI_FILE, config.EFG_FILE);
             GReplayerMonitor monitor = createMonitor();
 
-            // Adds a GUI state record monitor
-            StateMonitorFull stateMonitor = new StateMonitorFull(
-                config.GUI_STATE_FILE, config.DELAY);
-
-            // Set the id generator for the state monitor
-            GIDGenerator idGenerator = getIdGenerator();
-            stateMonitor.setIdGenerator(idGenerator);
-
-            replayer.addTestMonitor(stateMonitor);
-
+            if (config.GUI_STATE_FILE.length() > 0) {
+	            // Adds a GUI state record monitor
+	            StateMonitorFull stateMonitor = new StateMonitorFull(
+	                config.GUI_STATE_FILE, config.DELAY);
+	
+	            // Set the id generator for the state monitor
+	            GIDGenerator idGenerator = getIdGenerator();
+	            stateMonitor.setIdGenerator(idGenerator);
+	
+	            replayer.addTestMonitor(stateMonitor);
+            }
+            
             // TODO: Add additional test monitors
 
             replayer.setMonitor(monitor);
