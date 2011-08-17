@@ -122,7 +122,9 @@ public class TestCaseGenerator
             EFG efg = (EFG) IO.readObjFromFile(TestCaseGeneratorConfiguration.EFG_FILE, EFG.class);
 
             generator.generate(efg, TestCaseGeneratorConfiguration.OUTPUT_DIR,
-                            TestCaseGeneratorConfiguration.MAX_NUMBER);
+                            TestCaseGeneratorConfiguration.MAX_NUMBER,
+                            TestCaseGeneratorConfiguration.NO_DUPLICATE_EVENT,
+                            TestCaseGeneratorConfiguration.TREAT_TERMINAL_EVENT_SPECIALLY);
 
         }
         catch (CmdLineException e)

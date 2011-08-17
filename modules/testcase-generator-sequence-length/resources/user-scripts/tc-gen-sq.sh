@@ -3,15 +3,9 @@
 # GUITAR tc-gen.sh
 ##################################
 function usage {
-	echo "Usage: tc-gen.sh <EFG file> <length>  <maximum number> <tc-dir>"
+	echo "Usage: tc-gen.sh -e <EFG file> -l <length> -m <maximum number> -d
+        <tc-dir> [-D no-duplicate-event] [-T treat-terminal-event-specially]"
 }
-
-if [ $# -lt 4 ]
-then
-	echo "Usage: tc-gen.sh <EFG file> <length>  <maximum number> <tc-dir>"
-	exit 1
-fi
-
 
 base_dir=`dirname $0`
 guitar_lib=$base_dir/jars
@@ -32,15 +26,11 @@ then
     JAVA_CMD_PREFIX="java"
 fi
 
-efg=$1
-length=$2
-max=$3
-tc_dir=$4
 plugin=SequenceLengthCoverage
 
 classpath=$guitar_classpath:$base_dir
 
-TCGEN_CMD="$JAVA_CMD_PREFIX $GUITAR_OPTS -cp $classpath $tcgen_launcher -p $plugin -e $efg -m $max -d $tc_dir -l $length"
+TCGEN_CMD="$JAVA_CMD_PREFIX $GUITAR_OPTS -cp $classpath $tcgen_launcher -p $plugin $@"
 $TCGEN_CMD
 
 

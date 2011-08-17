@@ -75,12 +75,16 @@ public class RandomSequenceLengthCoverage extends TCPlugin {
 	 * @see edu.umd.cs.guitar.testcase.plugin.TCPlugin#generate()
 	 */
 	@Override
-	public void generate(EFG efg, String outputDir, int nMaxNumber) {
+	public void generate(EFG efg, String outputDir, int nMaxNumber,
+                             boolean noDuplicateEvent, boolean treatTerminalEventSpecially) {
 
 		new File(outputDir).mkdir();
 
 		this.efg = efg;
 		this.nMaxNumber = nMaxNumber;
+                //TODO: check duplicate when generating test cases.
+                this.noDuplicateEvent = noDuplicateEvent;
+                this.treatTerminalEventSpecially = treatTerminalEventSpecially;
 
 		initialize();
 

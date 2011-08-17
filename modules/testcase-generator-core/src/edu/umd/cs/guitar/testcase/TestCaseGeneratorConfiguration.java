@@ -59,6 +59,16 @@ public class TestCaseGeneratorConfiguration {
             aliases = "--dir")
     static public String OUTPUT_DIR = "TC";
 
+    @Option(name = "-D",
+            usage = "allow duplicate event",
+            aliases = "--no-duplicate-event")
+    static public boolean NO_DUPLICATE_EVENT;
+
+    @Option(name = "-T",
+            usage = "treat TERMINAL event specially",
+            aliases = "--treat-terminal-event-specially")
+    static public boolean TREAT_TERMINAL_EVENT_SPECIALLY;
+
     @Option(name = "-?",
             usage = "print this help message",
             aliases = "--help")

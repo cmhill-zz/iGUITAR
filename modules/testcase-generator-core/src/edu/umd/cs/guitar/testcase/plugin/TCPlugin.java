@@ -84,6 +84,9 @@ public abstract class TCPlugin {
     */
    Hashtable<EventType, Vector<EventType>> succs;
    EFG efg;
+   boolean noDuplicateEvent;
+   boolean treatTerminalEventSpecially;
+   LinkedList<EventType> terminalEvents;
 
 
    /**
@@ -121,8 +124,11 @@ public abstract class TCPlugin {
     * @param efg
     * @param outputDir
     * @param nMaxNumber
+    * @param noDuplicateEvent
+    * @param treatTerminalEventSpecially
     */
-   abstract public void generate(EFG efg, String outputDir, int nMaxNumber);
+   abstract public void generate(EFG efg, String outputDir, int nMaxNumber,
+                                 boolean noDuplicateEvent, boolean treatTerminalEventSpecially);
 
 
    /**
@@ -426,4 +432,41 @@ public abstract class TCPlugin {
       IO.writeObjToFile(tc, tCName);
    }
 
+
+   /**
+    *
+    * Check if given event already appears in an event list.
+    *
+    * <p>
+    *
+    * @param event
+    * @param eventList
+    */
+   boolean
+   isDuplicateEvent(EventType event, LinkedList<EventType> eventList) {
+      for (EventType existingEvent: eventList) {
+          if (event.getEventId().equals(existingEvent.getEventId()))
+              return true;
+      }
+      return false;
+   }
+   
+
+   /**
+    *
+    * Check if given event is TERMINAL event.
+    *
+    * <p>
+    *
+    * @param event
+    */
+   boolean
+   isTerminalEvent(EventType event) {
+     String type = event.getType();
+     if (type.equals(GUITARConstants.TERMINAL))
+       return true;
+     return false;
+   }
+
+      
 } // End of class

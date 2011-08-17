@@ -69,12 +69,16 @@ public class SequenceLengthCoverage extends TCPlugin {
 	 * @see edu.umd.cs.guitar.testcase.plugin.TCPlugin#generate()
 	 */
 	@Override
-	public void generate(EFG efg, String outputDir, int nMaxNumber) {
+	public void generate(EFG efg, String outputDir, int nMaxNumber,
+                             boolean noDuplicateEvent, boolean treatTerminalEventSpecially) {
 
 		new File(outputDir).mkdir();
 
 		this.efg = efg;
 		this.nMaxNumber = nMaxNumber;
+                this.noDuplicateEvent = noDuplicateEvent;
+                this.terminalEvents = new LinkedList<EventType>();
+                this.treatTerminalEventSpecially = treatTerminalEventSpecially;
 
 		initialize();
 		List<EventType> eventList = efg.getEvents().getEvent();
@@ -85,22 +89,30 @@ public class SequenceLengthCoverage extends TCPlugin {
 		nAllTestCases = 0;
 		index = 0;
 		for (EventType event : eventList) {
+                        if (treatTerminalEventSpecially && isTerminalEvent(event)) {
+                                terminalEvents.add(event);
+                        }
 			if (isSelectedEvent(event)) {
 				interactionEventList.add(event);
 			}
 		}
+
+                System.out.println("InteractionEvent " + interactionEventList.size());
 		for (EventType e : interactionEventList) {
+			LinkedList<EventType> initialList = new LinkedList<EventType>();
+			initialList.add(e);
 			nAllTestCases += countTestCases(
-					TestCaseGeneratorConfiguration.LENGTH, e);
+					TestCaseGeneratorConfiguration.LENGTH, initialList);
 		}
-		
 		
 		
 		for (EventType aEvent : eventList) {
 			LinkedList<EventType> initialList = new LinkedList<EventType>();
+                        if (treatTerminalEventSpecially && isTerminalEvent(aEvent))
+                                continue;
 			initialList.add(aEvent);
 			generateWithLength(TestCaseGeneratorConfiguration.LENGTH,
-					initialList);
+                                           initialList);
 		}
 	}
 
@@ -144,19 +156,24 @@ public class SequenceLengthCoverage extends TCPlugin {
 	 * @param root
 	 * @return
 	 */
-	private int countTestCases(int length, EventType root) {
+	//private int countTestCases(int length, EventType root) {
+	private int countTestCases(int length, LinkedList<EventType> prefix) {
 
 		if (length <= 1) {
 			return 1;
 		} else {
 			int count = 0;
 
-			for (EventType succEvent : succs.get(root)) {
-
+			for (EventType succEvent : succs.get(prefix.getLast())) {
+				LinkedList<EventType> extendedPrefix = new LinkedList<EventType>(
+						prefix);
 				// Ignore non-interaction events
 				if (!isSelectedEvent(succEvent))
 					continue;
-				count += countTestCases(length - 1, succEvent);
+                                if (noDuplicateEvent && isDuplicateEvent(succEvent, prefix))
+                                        continue;
+                                extendedPrefix.add(succEvent);
+				count += countTestCases(length - 1, extendedPrefix);
 
 			}
 
@@ -165,8 +182,17 @@ public class SequenceLengthCoverage extends TCPlugin {
 	}
 	
 	private boolean isSelectedEvent(EventType event) {
+                // Ignore non-interaction events and termination events
+                if (treatTerminalEventSpecially) {
+                    String type = event.getType();
+                    if (type.equals(GUITARConstants.TERMINAL) ||
+                        !type.equals(GUITARConstants.SYSTEM_INTERACTION)) {
+                            return false;
+                    }
+                }
 		return true;
 	}
+
 	int nAllTestCases;
 
 	private void generateWithLength(int length, LinkedList<EventType> postfix) {
@@ -175,6 +201,12 @@ public class SequenceLengthCoverage extends TCPlugin {
 			return;
 
 		if (length <= 1) {
+                        if (treatTerminalEventSpecially) {
+                              // Add TERMINAL event to the end of the test case
+                              // Currently, add first terminal event. If there are many, need 
+                              // a way to figure out which one to add
+                              postfix.add(terminalEvents.getFirst());
+                        }
 
 			LinkedList<EventType> path = getPathToRoot(postfix.getFirst());
 
@@ -241,6 +273,10 @@ public class SequenceLengthCoverage extends TCPlugin {
 			for (EventType succEvent : succs.get(lastEvent)) {
 				LinkedList<EventType> extendedPostfix = new LinkedList<EventType>(
 						postfix);
+				if (!isSelectedEvent(succEvent))
+					continue;
+                                if (noDuplicateEvent && isDuplicateEvent(succEvent, postfix))
+                                  continue;
 				extendedPostfix.addLast(succEvent);
 				generateWithLength(length - 1, extendedPostfix);
 			}
