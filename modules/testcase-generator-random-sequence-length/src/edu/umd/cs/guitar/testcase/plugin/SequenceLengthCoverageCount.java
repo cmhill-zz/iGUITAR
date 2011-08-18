@@ -62,7 +62,10 @@ public class SequenceLengthCoverageCount extends TCPlugin {
 	 * @see edu.umd.cs.guitar.testcase.plugin.TCPlugin#generate()
 	 */
 	@Override
-	public void generate(EFG efg, String outputDir, int nMaxNumber) {
+	public void generate(EFG efg, String outputDir, int nMaxNumber,
+                             boolean noDuplicateEvent, boolean treatTerminalEventSpecially) {
+                // Note: noDuplicateEvent and treatTerminalEventSpecially haven't
+                // been used here.
 
 		this.efg = efg;
 
