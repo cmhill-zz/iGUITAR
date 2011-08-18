@@ -47,6 +47,7 @@ public interface GUITARConstants {
 
 	final static String ID_TAG_NAME = "ID";
 	final static String TITLE_TAG_NAME = "Title";
+	final static String NAME_TAG_NAME = "Name";
 
 	final static String ROOTWINDOW_TAG_NAME = "Rootwindow";
 	final static String MODAL_TAG_NAME = "Modal";

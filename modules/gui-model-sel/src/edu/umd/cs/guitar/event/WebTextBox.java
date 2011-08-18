@@ -54,6 +54,9 @@ public class WebTextBox implements GEvent {
 					return;
 			}
 			
+			// TODO(smcmaster): Look for "inputValue" in the optional data.
+			// If it's there, send its first String value.
+			// If not, use this default value.
 			el.sendKeys(WebConstants.KEYS_TO_SEND);
 		}
 	}

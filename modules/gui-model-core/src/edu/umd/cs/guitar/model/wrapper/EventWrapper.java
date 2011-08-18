@@ -313,4 +313,8 @@ public class EventWrapper {
 		return GUITARConstants.SYSTEM_INTERACTION;
 
 	}
+
+	public String getName() {
+		return component.getFirstValueByName(GUITARConstants.NAME_TAG_NAME);
+	}
 }

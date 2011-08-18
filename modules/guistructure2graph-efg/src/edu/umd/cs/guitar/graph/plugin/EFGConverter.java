@@ -112,9 +112,8 @@ public class EFGConverter implements GraphConverter {
 					GUITARConstants.ID_TAG_NAME));
 
 			dEvent.setType(wEvent.getType());
-
+			dEvent.setName(wEvent.getName());
 			dEvent.setAction(wEvent.getAction());
-
 			dEvent.setListeners(wEvent.getListeners());
 			
 			if (wEvent.getComponent().getWindow().isRoot()
