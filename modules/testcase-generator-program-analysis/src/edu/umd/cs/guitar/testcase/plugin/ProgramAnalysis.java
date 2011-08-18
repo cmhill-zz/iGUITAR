@@ -163,7 +163,10 @@ public class ProgramAnalysis extends TCPlugin {
 	 * @see edu.umd.cs.guitar.testcase.plugin.TCPlugin#generate()
 	 */
 	@Override
-	public void generate(EFG efg, String outputDir, int nMaxNumber) {
+	public void generate(EFG efg, String outputDir, int nMaxNumber,
+                             boolean noDuplicateEvent, boolean treatTerminalEventSpecially) {
+                // Note: noDuplicateEvent and treatTerminalEventSpecially haven't
+                // been used here.
 
 		TCGeneratorMethod m = GENERATOR_METHODS
 				.get(ProgramAnalysisConfiguration.METHOD.toLowerCase());
@@ -216,7 +219,7 @@ public class ProgramAnalysis extends TCPlugin {
 		ProgramAnalysisConfiguration.SCOPE = "../../dist/guitar/jfc-aut/Rachota/bin";
 		ProgramAnalysisConfiguration.METHOD = "prefix";
 		ProgramAnalysisConfiguration.LENGTH = 1;
-		pa.generate(efg, "../../dist/guitar/Rachota/TC", 0);
+		pa.generate(efg, "../../dist/guitar/Rachota/TC", 0, false, false);
 	}
 
 }
