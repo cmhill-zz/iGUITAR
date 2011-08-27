@@ -1,22 +1,3 @@
-version 1.9.4.1:
-	* Fix a problem that occurs in Tomcat.   When TouchCollector 
-	  initializes, it calls ProjectData.initialize() which (with 
-	  Tomcat only) eventually calls TouchCollector.   However, 
-	  TouchCollector's static members have not been initialized.   
-	  Added a test that highlights this problem.   (Thanks to Jack Cobb
-	  for suggesting the fix).
-	* Runs on Java 5.  (Fix for Bug 2962599).
-	
-
-version 1.9.4:
-	* Cobertura is now up to 10x faster. Aggregates changes in
-	  temporary TouchCollector class (thread-safe, but lock-free) and after that
-	  applies it on real model (ProjectData) as a batch operation. (Piotr Tabor)
-	* Fixed "Some packages are included more then once" bug (#2875576) that
-	  caused some counts on the HTML report to be incorrect.  (Charlie Squires)
-	* Fixed "Inner classes not counted in coverage report total" bug (#2943320)
-	  (Charlie Squires)
-
 version 1.9.3:
 	* Update to the latest Javancss (32.53) to fix some complexity calculation
 	  problems.  Bug #2824425. (John Lewis)
