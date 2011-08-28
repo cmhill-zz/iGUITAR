@@ -1,4 +1,4 @@
-package edu.umd.cs.guitar.graph.coverter;
+package edu.umd.cs.guitar.graph.converter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
