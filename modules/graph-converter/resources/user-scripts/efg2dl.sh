@@ -4,7 +4,7 @@
 # GUITAR efg2dl.sh
 #--------------------------------
 function usage {
-   echo "Usage: $0 -e <EFG file>"
+   echo "Usage: $0 -e <EFG-file> <GUI-file> <DL-file>"
 }
 
 base_dir=`dirname $0`
