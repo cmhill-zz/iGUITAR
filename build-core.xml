@@ -67,7 +67,7 @@
 	<property name="tg.modules" value="gui-model-core,${tg-spec.modules}" />
 
 	<property name="g2g.name" value="graph2graph" />
-	<property name="g2g-spec.modules" value="graph2graph-core,graph2graph-efg2eig,graph2graph-efg2ecig,graph2graph-graph-info" />
+	<property name="g2g-spec.modules" value="graph2graph-core,graph2graph-efg2eig,graph2graph-efg2ecig,graph2graph-graph-info,graph-converter" />
 	<property name="g2g.modules" value="gui-model-core,${g2g-spec.modules}" />
 
 	<property name="a2e.name" value="abs2exec-tc" />
