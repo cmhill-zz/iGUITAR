@@ -127,4 +127,9 @@ public interface GUITARConstants {
 	 */
 	public static final int REACHING_EDGE = 2;
 
+	/**
+	 * The PropertyName Name where we store an input value associated with an event.
+	 */
+	public static final String INPUT_VALUE_PROPERTY_TYPE = "InputValue";
+
 }
