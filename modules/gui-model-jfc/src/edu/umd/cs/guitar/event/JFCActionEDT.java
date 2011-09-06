@@ -109,7 +109,7 @@ public class JFCActionEDT implements GEvent {
 	 * .model.GXComponent, java.lang.Object)
 	 */
 	@Override
-	public void perform(GComponent gComponent, Object parameters, Hashtable<String, List<String>> optionalData) {
+	public void perform(GComponent gComponent, List<String>  parameters, Hashtable<String, List<String>> optionalData) {
 		perform(gComponent,optionalData);
 	}
 

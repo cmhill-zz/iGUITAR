@@ -48,7 +48,7 @@ public abstract class GThreadEvent implements GEvent {
 	static DispatchThreadGroup threadGroup;
 
 	@Override
-	public void perform(GComponent gComponent, Object parameters,
+	public void perform(GComponent gComponent, List<String>  parameters,
 			Hashtable<String, List<String>> optionalData) {
 		Thread t = new Thread(threadGroup, new DispatchThread(gComponent,
 				parameters, optionalData));

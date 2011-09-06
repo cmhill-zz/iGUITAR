@@ -54,7 +54,8 @@ public interface GEvent {
 	 * @param gComponent
 	 * @param parameters
 	 */
-	public abstract void perform(GComponent gComponent, Object parameters, Hashtable<String, List<String>> optionalData);
+//	public abstract void perform(GComponent gComponent, Object parameters, Hashtable<String, List<String>> optionalData);
+	public abstract void perform(GComponent gComponent, List<String> parameters, Hashtable<String, List<String>> optionalData);
 
 	/**
 	 * Perform the event without argument

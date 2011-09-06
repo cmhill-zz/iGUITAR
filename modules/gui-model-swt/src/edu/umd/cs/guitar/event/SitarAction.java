@@ -117,7 +117,7 @@ public abstract class SitarAction implements GEvent {
 	 */
 	@Deprecated
 	@Override
-	public final void perform(GComponent gComponent, Object parameters,
+	public final void perform(GComponent gComponent, List<String>  parameters,
 			Hashtable<String, List<String>> optionalData) {
 
 		perform(gComponent, optionalData);
