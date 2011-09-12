@@ -31,111 +31,123 @@ import edu.umd.cs.guitar.model.data.GUIStructure;
 import edu.umd.cs.guitar.model.data.RowType;
 import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.model.wrapper.GUIStructureWrapper;
+import edu.umd.cs.guitar.model.wrapper.GUITypeWrapper;
 
 /**
  * @author <a href="mailto:baonn@cs.umd.edu"> Bao N. Nguyen </a>
  */
-public class EFG2DL
-{
+public class EFG2DL {
 
-    private static final String SPLITER = " ";
+	private static final int MAX_WINDOW_TITLE_LENGTH = 10;
+	private static final String SPLITER = " ";
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args)
-    {
-        if (args.length < 3)
-        {
-            System.out.println("Usage:" + EFG2DL.class.getName() + "<gui file> <efg file>  <DL file> ");
-            System.exit(1);
-        }
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		if (args.length < 3) {
+			System.out.println("Usage:" + EFG2DL.class.getName()
+					+ "<gui file> <efg file>  <DL file> ");
+			System.exit(1);
+		}
 
-        String guiFile;
-        String efgFile;
-        String dlFile;
+		String guiFile;
+		String efgFile;
+		String dlFile;
 
-        guiFile = args[0];
-        efgFile = args[1];
-        dlFile = args[2];
+		guiFile = args[0];
+		efgFile = args[1];
+		dlFile = args[2];
 
-        convert(guiFile, efgFile, dlFile);
+		convert(guiFile, efgFile, dlFile);
 
-        System.out.println("DONE");
+		System.out.println("DONE");
 
-    }
+	}
 
-    public static void convert(String guiFile, String efgFile, String dlFile)
-    {
-        EFG efg = (EFG) IO.readObjFromFile(efgFile, EFG.class);
-        GUIStructure gui = (GUIStructure) IO.readObjFromFile(guiFile, GUIStructure.class);
-        StringBuffer result = toCVS(gui, efg);
+	public static void convert(String guiFile, String efgFile, String dlFile) {
+		EFG efg = (EFG) IO.readObjFromFile(efgFile, EFG.class);
+		GUIStructure gui = (GUIStructure) IO.readObjFromFile(guiFile,
+				GUIStructure.class);
+		StringBuffer result = toCVS(gui, efg);
 
-        try
-        {
-            // Create file
-            FileWriter fstream = new FileWriter(dlFile);
-            BufferedWriter out = new BufferedWriter(fstream);
-            out.write(result.toString());
-            // Close the output stream
-            out.close();
-        }
-        catch (Exception e)
-        {// Catch exception if any
-            System.err.println("Error: " + e.getMessage());
-        }
+		try {
+			// Create file
+			FileWriter fstream = new FileWriter(dlFile);
+			BufferedWriter out = new BufferedWriter(fstream);
+			out.write(result.toString());
+			// Close the output stream
+			out.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
 
-    }
+	}
 
-    public static StringBuffer toCVS(GUIStructure gui, EFG efg)
-    {
+	public static StringBuffer toCVS(GUIStructure gui, EFG efg) {
 
-        GUIStructureWrapper wGUI = new GUIStructureWrapper(gui);
+		GUIStructureWrapper wGUI = new GUIStructureWrapper(gui);
+		wGUI.parseData();
 
-        StringBuffer result = new StringBuffer();
+		StringBuffer result = new StringBuffer();
 
-        List<EventType> lEvents = efg.getEvents().getEvent();
-        String header = "DL N=" + lEvents.size();
-        header += ("\n");
-        header += "format = fullmatrix";
-        header += ("\n");
-        result.append(header);
+		List<EventType> lEvents = efg.getEvents().getEvent();
+		String header = "DL N=" + lEvents.size();
+		header += ("\n");
+		header += "format = fullmatrix";
+		header += ("\n");
+		result.append(header);
 
-        // Set up node
-        String label = "labels:\n";
+		// Set up node
+		String label = "labels:\n";
 
-        for (EventType event : efg.getEvents().getEvent())
-        {
-            String widgetID = event.getWidgetId();
-            ComponentTypeWrapper component = wGUI.getComponentFromID(widgetID);
-            String title=" ";
-            if (component != null)
-                title= component.getFirstValueByName(GUITARConstants.TITLE_TAG_NAME);
-            title = title.replaceFirst(",", ":");
-            // Set up label
-            label += (title + ",");
-        }
-        result.append(label);
-        result.append("\n");
+		for (EventType event : efg.getEvents().getEvent()) {
+			String widgetID = event.getWidgetId();
 
-        // Matrix
-        result.append("Data:\n");
-        List<RowType> lRows = efg.getEventGraph().getRow();
+			ComponentTypeWrapper component = wGUI.getComponentFromID(widgetID);
 
-        for (int row = 0; row < lRows.size(); row++)
-        {
-            List<Integer> lE = lRows.get(row).getE();
-            String line = "";
-            // line += event.getEventId();
+			String widgetTitle = " ";
+			String windowTitle = "";
+			if (component != null) {
+				widgetTitle = component
+						.getFirstValueByName(GUITARConstants.TITLE_TAG_NAME);
+				GUITypeWrapper window = component.getWindow();
+				if (window != null) {
+					windowTitle = component.getWindow().getTitle();
+				}
 
-            for (int col = 0; col < lE.size(); col++)
-            {
-                line = line + SPLITER + lE.get(col);
-            }
-            result.append(line);
-            result.append("\n");
-        }
+			}
 
-        return result;
-    }
+			if (windowTitle.length() > MAX_WINDOW_TITLE_LENGTH) {
+				windowTitle = windowTitle.substring(0, MAX_WINDOW_TITLE_LENGTH)
+						+ "...";
+			}
+
+			widgetTitle = widgetTitle.replaceFirst(",", ":");
+			windowTitle = windowTitle.replaceFirst(",", ":");
+
+			// Set up label
+			label += (windowTitle + " - " + widgetTitle + ",");
+		}
+		result.append(label);
+		result.append("\n");
+
+		// Matrix
+		result.append("Data:\n");
+		List<RowType> lRows = efg.getEventGraph().getRow();
+
+		for (int row = 0; row < lRows.size(); row++) {
+			List<Integer> lE = lRows.get(row).getE();
+			String line = "";
+			// line += event.getEventId();
+
+			for (int col = 0; col < lE.size(); col++) {
+				line = line + SPLITER + lE.get(col);
+			}
+			result.append(line);
+			result.append("\n");
+		}
+
+		return result;
+	}
 }

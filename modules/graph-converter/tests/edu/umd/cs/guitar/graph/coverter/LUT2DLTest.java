@@ -23,6 +23,8 @@ import java.io.File;
 
 import org.junit.Test;
 
+import edu.umd.cs.guitar.graph.converter.LUT2DL;
+
 /**
  * @author <a href="mailto:baonn@cs.umd.edu"> Bao N. Nguyen </a>
  */

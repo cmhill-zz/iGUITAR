@@ -486,21 +486,30 @@ public class ComponentTypeWrapper {
 	 * @return
 	 */
 	public ComponentTypeWrapper getChildByID(String ID) {
-		String sTitle = getFirstValueByName(GUITARConstants.ID_TAG_NAME);
+		String sID = getFirstValueByName(GUITARConstants.ID_TAG_NAME);
 
-		if (ID.equals(sTitle)) {
+		if (ID.equals(sID)) {
 			return this;
 		} else if (dComponentType instanceof ContainerType) {
-			ContainerType container = (ContainerType) dComponentType;
-			List<ComponentType> lChildrend = container.getContents()
-					.getWidgetOrContainer();
 
-			ComponentTypeWrapper retComp = null;
+			List<ComponentTypeWrapper> lChildrenWrapper = children;
+			if (lChildrenWrapper == null) {
+				lChildrenWrapper = new ArrayList<ComponentTypeWrapper>();
 
-			for (ComponentType child : lChildrend) {
-				ComponentTypeWrapper childAdapter = new ComponentTypeWrapper(
-						child);
-				retComp = childAdapter.getChildByID(ID);
+				ContainerType container = (ContainerType) dComponentType;
+				List<ComponentType> lChildren = container.getContents()
+						.getWidgetOrContainer();
+
+				for (ComponentType child : lChildren) {
+					ComponentTypeWrapper childAdapter = new ComponentTypeWrapper(
+							child);
+					lChildrenWrapper.add(childAdapter);
+
+				}
+
+			}
+			for (ComponentTypeWrapper childAdapter : lChildrenWrapper) {
+				ComponentTypeWrapper retComp = childAdapter.getChildByID(ID);
 				if (retComp != null)
 					return retComp;
 			}

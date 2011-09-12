@@ -19,12 +19,17 @@
  */
 package edu.umd.cs.guitar.model;
 
+import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -42,92 +47,107 @@ import edu.umd.cs.guitar.util.GUITARLog;
 // @Deprecated
 public class IO {
 
-    /**
-     * Read an object from a XML file
-     * 
-     * @param is
-     *            input stream
-     * @param cls
-     *            class of object to be read
-     * @return object
-     */
-    public static Object readObjFromFile(InputStream is, Class<?> cls) {
+	/**
+	 * Read an object from a XML file
+	 * 
+	 * @param is
+	 *            input stream
+	 * @param cls
+	 *            class of object to be read
+	 * @return object
+	 */
+	public static Object readObjFromFile(InputStream is, Class<?> cls) {
 
-        Object retObj = null;
-        try {
+		Object retObj = null;
+		try {
 
-            String packageName = cls.getPackage().getName();
-            JAXBContext jc = JAXBContext.newInstance(packageName);
+			String packageName = cls.getPackage().getName();
+			JAXBContext jc = JAXBContext.newInstance(packageName);
 
-            Unmarshaller u = jc.createUnmarshaller();
-            retObj = u.unmarshal(is);
+			InputStreamReader isr = new InputStreamReader(is, "UTF-8");
+			
+			Unmarshaller u = jc.createUnmarshaller();
+			
+//			retObj = u.unmarshal(is);
+			retObj = u.unmarshal(isr);
 
-        } catch (JAXBException e) {
+		} catch (JAXBException e) {
 			GUITARLog.log.error(e);
-        }
-        return retObj;
-    }
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retObj;
+	}
 
-    /**
-     * Read an object from a XML file
-     * 
-     * @param sFileName
-     *            file name
-     * @param cls
-     *            class of object
-     * @return the object to be read
-     */
-    public static Object readObjFromFile(String sFileName, Class<?> cls) {
-        Object retObj = null;
-        try {
-            retObj = readObjFromFile(new FileInputStream(sFileName), cls);
-        } catch (FileNotFoundException e) {
-        	GUITARLog.log.error(sFileName + " not found!!!");
-        }
-        return retObj;
-    }
+	/**
+	 * Read an object from a XML file
+	 * 
+	 * @param sFileName
+	 *            file name
+	 * @param cls
+	 *            class of object
+	 * @return the object to be read
+	 */
+	public static Object readObjFromFile(String sFileName, Class<?> cls) {
+		Object retObj = null;
+		try {
 
-    /**
-     * Write an object to XML file
-     * 
-     * @param object
-     *            object to write
-     * @param os
-     *            output stream
-     */
-    public static void writeObjToFile(Object object, OutputStream os) {
-        String packageName = object.getClass().getPackage().getName();
-        JAXBContext jc;
-        try {
-            jc = JAXBContext.newInstance(packageName);
-            Marshaller marshaller = jc.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
-                    Boolean.TRUE);
-            marshaller.marshal(object, os);
-            os.close();
-        } catch (JAXBException e) {
+			File file = new File(sFileName);
+			FileInputStream fis = new FileInputStream(file);
+
+			retObj = readObjFromFile(fis, cls);
+		} catch (FileNotFoundException e) {
+			GUITARLog.log.error(sFileName + " not found!!!");
+		}
+		return retObj;
+	}
+
+	/**
+	 * Write an object to XML file
+	 * 
+	 * @param object
+	 *            object to write
+	 * @param os
+	 *            output stream
+	 */
+	public static void writeObjToFile(Object object, OutputStream os) {
+		String packageName = object.getClass().getPackage().getName();
+		JAXBContext jc;
+		try {
+			jc = JAXBContext.newInstance(packageName);
+			Marshaller marshaller = jc.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+					Boolean.TRUE);
+			marshaller.marshal(object, os);
+			os.close();
+		} catch (JAXBException e) {
 			GUITARLog.log.error(e);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			GUITARLog.log.error(e);
-        }
-    }
+		}
+	}
 
-    /**
-     * Write an object to XML file
-     * 
-     * <p>
-     * 
-     * @param object
-     *            Object to write
-     * @param sFileName
-     *            file name
-     */
-    public static void writeObjToFile(Object object, String sFileName) {
-        try {
-            writeObjToFile(object, new FileOutputStream(sFileName));
-        } catch (FileNotFoundException e) {
-            GUITARLog.log.error(sFileName + " NOT FOUND!!!");
-        }
-    }
+	/**
+	 * Write an object to XML file
+	 * 
+	 * <p>
+	 * 
+	 * @param object
+	 *            Object to write
+	 * @param sFileName
+	 *            file name
+	 */
+	public static void writeObjToFile(Object object, String sFileName) {
+		try {
+			writeObjToFile(object, new FileOutputStream(sFileName));
+		} catch (FileNotFoundException e) {
+			GUITARLog.log.error(sFileName + " NOT FOUND!!!");
+		}
+	}
+
 }
+
+
+

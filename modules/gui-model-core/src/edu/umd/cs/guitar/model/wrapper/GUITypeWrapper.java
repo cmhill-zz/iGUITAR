@@ -141,9 +141,14 @@ public class GUITypeWrapper {
 	}
 
 	public ComponentTypeWrapper getChildByID(String ID) {
-		ComponentTypeWrapper container = new ComponentTypeWrapper(dGUIType
-				.getContainer());
-		return container.getChildByID(ID);
+		
+		
+		ComponentTypeWrapper subContainer = container;
+		
+		if (subContainer == null)
+			subContainer = new ComponentTypeWrapper(dGUIType.getContainer());
+
+		return subContainer.getChildByID(ID);
 	}
 
 	public void setValueByName(String sTitle, String sName, String sValue) {
@@ -314,14 +319,14 @@ public class GUITypeWrapper {
 				allAvailWindows.addAll(allParentAvailWindows);
 			}
 
-//			ComponentTypeWrapper invoker = window.getInvoker();
-//
-//			if (invoker != null) {
-//				Set<GUITypeWrapper> allParentAvailWindows;
-//				GUITypeWrapper parentWindow = invoker.getWindow();
-//				allParentAvailWindows = getAvailableWindowHelper(parentWindow);
-//				allAvailWindows.addAll(allParentAvailWindows);
-//			}
+			// ComponentTypeWrapper invoker = window.getInvoker();
+			//
+			// if (invoker != null) {
+			// Set<GUITypeWrapper> allParentAvailWindows;
+			// GUITypeWrapper parentWindow = invoker.getWindow();
+			// allParentAvailWindows = getAvailableWindowHelper(parentWindow);
+			// allAvailWindows.addAll(allParentAvailWindows);
+			// }
 			allAvailWindows.add(window);
 		}
 		// System.out.println("----------------------------");
@@ -397,7 +402,7 @@ public class GUITypeWrapper {
 		ComponentTypeWrapper containerA = new ComponentTypeWrapper(container);
 		containerA.updateID();
 	}
-	
+
 	/**
 	 * Generate ID for widgets based on a hashcode generator
 	 * 

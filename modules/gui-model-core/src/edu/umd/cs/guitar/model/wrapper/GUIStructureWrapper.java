@@ -97,7 +97,6 @@ public class GUIStructureWrapper {
 
 		if (!(obj instanceof GUITypeWrapper))
 			return false;
-
 		for (GUIType gui : dGUIStructure.getGUI()) {
 			GUITypeWrapper guiA = new GUITypeWrapper(gui);
 			if (guiA.equals(obj))
@@ -149,10 +148,18 @@ public class GUIStructureWrapper {
 	 */
 	public ComponentTypeWrapper getComponentFromID(String ID) {
 		ComponentTypeWrapper retComp = null;
+		
+		List<GUITypeWrapper> lGUIType= lGUI;
+		if(lGUIType==null){
+			parseData();
+//			lGUIType =new ArrayList<GUITypeWrapper>();
+//			for (GUIType gui : this.dGUIStructure.getGUI()) {
+//				lGUIType.add(new GUITypeWrapper(gui));
+//			}	
+		}
 
-		for (GUIType gui : this.dGUIStructure.getGUI()) {
-			GUITypeWrapper guiAdapter = new GUITypeWrapper(gui);
-			retComp = guiAdapter.getChildByID(ID);
+		for (GUITypeWrapper wGUI : lGUIType) {
+			retComp = wGUI.getChildByID(ID);
 			if (retComp != null)
 				break;
 		}

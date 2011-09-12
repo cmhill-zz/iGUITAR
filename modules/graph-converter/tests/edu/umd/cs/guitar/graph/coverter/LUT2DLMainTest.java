@@ -21,8 +21,6 @@ package edu.umd.cs.guitar.graph.coverter;
 
 import org.junit.Test;
 
-import edu.umd.cs.guitar.Main;
-
 /**
  * @author <a href="mailto:baonn@cs.umd.edu"> Bao N. Nguyen </a>
  */
@@ -31,10 +29,10 @@ public class LUT2DLMainTest
     @Test
     public void testMain()
     {
-        System.out.println("Testing " + LUT2DLMain.class.getCanonicalName());
-        String[] args = new String[] { LUT2DLMain.class.getCanonicalName() };
-
-        Main.main(args);
+//        System.out.println("Testing " + LUT2DLMain.class.getCanonicalName());
+//        String[] args = new String[] { LUT2DLMain.class.getCanonicalName() };
+//
+//        Main.main(args);
 
     }
 
