@@ -20,6 +20,8 @@
 
 package edu.umd.cs.guitar.testcase.plugin;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
@@ -66,8 +68,8 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 			// first, find prefix sequences
 			findSeq(allseq, seq);
 			
-			// then, choose a prefix sequence
-			chooseSeq(allseq);
+			// then, choose a prefix sequences
+			chooseSeq(allseq, 5);
 		}
 	}
 	
@@ -109,42 +111,55 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 	}
 	
 	/**
-	 * Chooses a prefix sequence
+	 * Chooses prefix sequences
 	 * @param allseq
+	 * @param max
 	 */
-	protected void chooseSeq(LinkedList<LinkedList<EventNode>> allseq) {
-		// selected sequence and selected dependency
-		LinkedList<EventNode> selseq = null;
-		int seldep = -1;
-		
-		// iterate list of sequences
-		for ( LinkedList<EventNode> seq : allseq ) {
-			int curdep = 0;
-			for ( int i = 0; i < seq.size() - 1; i++ ) {
-				// add current dependency
-				curdep += seq.get(i).dependencyToWriter(seq.get(i + 1));;
+	protected void chooseSeq(LinkedList<LinkedList<EventNode>> allseq, int max) {
+		// sort all sequences by dependency
+		Collections.sort(allseq, new Comparator<LinkedList<EventNode>>() {
+			public int compare(LinkedList<EventNode> l1, LinkedList<EventNode> l2) {
+				int dep1 = getDependency(l1);
+				int dep2 = getDependency(l2);
+				
+				if ( dep1 > dep2 )
+					return 1;
+				else if (dep1 < dep2)
+					return -1;
+				
+				return 0;
 			}
 			
-			if ( curdep > seldep ) {
-				// new dependency and new sequence
-				seldep = curdep;
-				selseq = seq;
-			}
-		}
+			protected int getDependency(LinkedList<EventNode> l) {
+				int dep = 0;				
+				for ( int i = 0; i < l.size() - 1; i++ ) {
+					dep += l.get(i).dependencyToWriter(l.get(i + 1));;
+				}
+				return dep;
+			}			
+		});
 		
 		try {
-			// convert to EventType list
-			LinkedList<EventType> selseq2 = new LinkedList<EventType>();
-			for ( EventNode e : selseq ) {
-				selseq2.add(e.getEvent());
-			}
-			
-			// write the test case
-			if (out.createSequenceTC(selseq2)) {
-				// if test case was created test if maxTC is reached
-				countTC++;
-				if (!(maxTC <= 0) && countTC >= maxTC)
-					throw new MaxTCReachedException();
+			// choose the top sequences
+			for ( int i = allseq.size() - 1; i >= 0; i-- ) {
+				if ( 0 == max )
+					break;
+				
+				// convert to EventType list
+				LinkedList<EventType> l2 = new LinkedList<EventType>();
+				for ( EventNode e : allseq.get(i) ) {
+					l2.add(e.getEvent());
+				}
+				
+				// write the test case
+				if (out.createSequenceTC(l2)) {
+					// if test case was created if maxTC is reached
+					countTC++;
+					if (!(maxTC <= 0) && countTC >= maxTC)
+						throw new MaxTCReachedException();
+				}
+				
+				max--;
 			}
 		}
 		catch ( Exception e ) {
