@@ -33,6 +33,11 @@ public class ProgramAnalysisConfiguration extends TestCaseGeneratorConfiguration
             aliases = "--method")
     static public String METHOD = null;
 	
+	@Option(name = "-sh",
+            usage = "consider shared events (=1) or not (=0, default)",
+            aliases = "--shared")
+    static public int SH = 0;
+	
 	final public static String SEPERATOR = ";";
 	
 	public static String[] getClassScope(){

@@ -204,8 +204,11 @@ public class ProgramAnalysis extends TCPlugin {
 		System.out.println("Events: " + eventList.size());
 		List<EventNode> edg = EventNode.createEDG(eventList, db);
 		System.out.println("EDG size: " + edg.size());
-		edg = filterSharedEvents(edg);
-		System.out.println("Filtered: " + edg.size());
+		
+		if ( 1 == ProgramAnalysisConfiguration.SH ) {
+			edg = filterSharedEvents(edg);
+			System.out.println("Filtered: " + edg.size());
+		}
 
 		m.generate(edg, initialEvents, preds, succs, out, nMaxNumber,
 				ProgramAnalysisConfiguration.LENGTH);
