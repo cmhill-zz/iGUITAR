@@ -321,7 +321,7 @@
 	</xs:element>
 	
 	
-		<xs:element name="LogWidget">
+	<xs:element name="LogWidget">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="OpenWindow" type="ComponentListType"/>
@@ -330,6 +330,25 @@
 		</xs:complexType>
 	</xs:element>
 
+
+	<!-- ++++++++++++++++++++
+		Test Data
+	++++++++++++++++++++-->
+	
+	<xs:complexType name="TestDataElementType">
+		<xs:sequence>
+			<xs:element name="Window" type="ComponentType"/>
+			<xs:element name="Component" type="ComponentType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="TestData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TestDataElement" type="TestDataElementType"/>								
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 
 
 </xs:schema>

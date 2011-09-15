@@ -44,7 +44,7 @@ public class WebEvent implements GEvent, GEventConfigurable {
 	}
 
 	@Override
-	public void perform(GComponent gComponent, Object parameters,
+	public void perform(GComponent gComponent, List<String> parameters,
 			Hashtable<String, List<String>> optionalData) {
 		perform(gComponent, optionalData);
 	}

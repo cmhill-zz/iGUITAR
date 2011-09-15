@@ -36,7 +36,7 @@ public class WebTextBox implements GEvent {
 	}
 
 	@Override
-	public void perform(GComponent gComponent, Object parameters,
+	public void perform(GComponent gComponent, List<String> parameters,
 			Hashtable<String, List<String>> optionalData) {
 		perform(gComponent, optionalData);
 	}

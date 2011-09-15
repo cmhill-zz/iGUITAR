@@ -25,8 +25,8 @@ public class WebToggleCheckbox implements GEvent {
 	}
 
 	@Override
-	public void perform(GComponent gComponent, Object parameters,
-			Hashtable<String, List<String>> optionalData) {
+	public void perform(GComponent gComponent, List<String> parameters,
+			Hashtable<String, List<String>> optionalData)  {
 		if(gComponent instanceof WebComponent) {
 			WebComponent we = (WebComponent) gComponent;
 			we.getElement().toggle();
