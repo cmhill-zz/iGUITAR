@@ -20,8 +20,10 @@
 
 package edu.umd.cs.guitar.testcase.plugin;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,6 +45,8 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 	
 	private int countTC;
 	
+	private HashMap<String, Integer> deps = new HashMap<String, Integer>();
+	
 	@Override
 	public void generate(List<EventNode> edg, List<EventType> initialEvents,
 			Hashtable<EventType, Vector<EventType>> preds,
@@ -56,6 +60,18 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 		this.maxTC = maxTC;
 		this.countTC = 0;
 		
+		int i = 0;
+		for ( EventNode e : edg ) {
+			for ( EventNode f : edg ) {
+				String key = e.getEvent().getEventId() + "_" + f.getEvent().getEventId();
+				int dep = e.dependencyToWriter(f);
+				System.out.println(++i + " " + e.getEvent().getEventId() + "_" + f.getEvent().getEventId()
+						+ " = " + dep);
+				
+				deps.put(key, dep);
+			}
+		}		
+		
 		// iterate the EDG
 		for ( EventNode e : edg ) {			
 			// create list of sequences
@@ -66,10 +82,12 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 			seq.add(e);
 			
 			// first, find prefix sequences
+			System.out.println("finding...");
 			findSeq(allseq, seq);
 			
 			// then, choose a prefix sequences
-			chooseSeq(allseq, 5);
+			System.out.println("choosing...");
+			chooseSeq(allseq, 100);
 		}
 	}
 	
@@ -87,10 +105,13 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 			return;
 		}		
 		
-		// iterate EDG		
+		// iterate EDG
 		for ( EventNode e : edg ) {
 			// ignore terminal events
 			if ( TCUtil.isTerminalEvent(e.getEvent()) )
+				continue;
+			
+			if (e.getEvent().getEventId().equals(seq.getLast().getEvent().getEventId()))
 				continue;
 			
 			// dependency available?
@@ -107,7 +128,12 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 		// no prefix found?
 		if ( !prefixFound ) {
 			allseq.add(seq);
-		}	
+		}
+	}
+	
+	class QualityPair {
+		public int i;
+		public int q;
 	}
 	
 	/**
@@ -116,7 +142,7 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 	 * @param max
 	 */
 	protected void chooseSeq(LinkedList<LinkedList<EventNode>> allseq, int max) {
-		// sort all sequences by dependency
+		/*// sort all sequences by dependency
 		Collections.sort(allseq, new Comparator<LinkedList<EventNode>>() {
 			public int compare(LinkedList<EventNode> l1, LinkedList<EventNode> l2) {
 				int dep1 = getDependency(l1);
@@ -137,9 +163,66 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 				}
 				return dep;
 			}			
+		});*/
+		
+		List<QualityPair> qpl = new ArrayList<QualityPair>();		
+		for ( int i = 0; i < allseq.size(); i++ ) {
+			System.out.println(i + 1 + " / " + allseq.size());
+			int dep = 0;
+			LinkedList<EventNode> l = allseq.get(i);
+			
+			for ( int j = 0; j < l.size() - 1; j++ ) {
+				EventNode e1 = l.get(j);
+				EventNode e2 = l.get(j + 1);
+				
+				dep += deps.get(e1.getEvent().getEventId() + "_" + e2.getEvent().getEventId());
+			}
+			
+			QualityPair qp = new QualityPair();
+			qp.i = i;
+			qp.q = dep;			
+			qpl.add(qp);
+		}
+		
+		Collections.sort(qpl, new Comparator<QualityPair>() {			
+			public int compare(QualityPair q1, QualityPair q2) {
+				if ( q1.q < q2.q ) {
+					return -1;
+				}
+				if ( q1.q > q2.q ) {
+					return 1;
+				}
+				return 0;
+			}
 		});
 		
 		try {
+			
+			for ( int i = qpl.size() - 1; i >= 0; i-- ) {
+				if ( 0 == max )
+					break;
+				
+				QualityPair qp = qpl.get(i);
+				LinkedList<EventNode> l1 = allseq.get(qp.i);
+				
+				// convert to EventType list
+				LinkedList<EventType> l2 = new LinkedList<EventType>();
+				for ( EventNode e : l1 ) {
+					l2.add(e.getEvent());
+				}
+				
+				// write the test case
+				if (out.createSequenceTC(l2)) {
+					// if test case was created if maxTC is reached
+					countTC++;
+					if (!(maxTC <= 0) && countTC >= maxTC)
+						throw new MaxTCReachedException();
+				}
+				
+				max--;
+			}
+			
+			/*
 			// choose the top sequences
 			for ( int i = allseq.size() - 1; i >= 0; i-- ) {
 				if ( 0 == max )
@@ -161,6 +244,7 @@ public class MaxPrefixGenerator implements TCGeneratorMethod {
 				
 				max--;
 			}
+			*/
 		}
 		catch ( Exception e ) {
 			e.printStackTrace();
