@@ -233,12 +233,12 @@ public class ProgramAnalysis extends TCPlugin {
 	 * To enable debugging from eclipse
 	 */
 	public static void main(String[] args) {
-		EFG efg = (EFG) IO.readObjFromFile("/Users/stephan/Desktop/greybox/exp/guitar/aut/rachota/EFG.xml", EFG.class);
+		EFG efg = (EFG) IO.readObjFromFile("EFG.xml", EFG.class);
 		ProgramAnalysis pa = new ProgramAnalysis();
-		ProgramAnalysisConfiguration.SCOPE = "/Users/stephan/Desktop/greybox/exp/guitar/aut/rachota/bin/Rachota.jar";
+		ProgramAnalysisConfiguration.SCOPE = ".jar";
 		ProgramAnalysisConfiguration.METHOD = "prefix_max";
 		ProgramAnalysisConfiguration.LENGTH = 3;
-		pa.generate(efg, "/Users/stephan/Desktop/tc", 0, false, false);
+		pa.generate(efg, "/tmp/tc", 0, false, false);
 	}
 
 }
