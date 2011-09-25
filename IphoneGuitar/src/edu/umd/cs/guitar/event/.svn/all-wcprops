@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/guitar/!svn/ver/2816/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event
+END
+GEventConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/guitar/!svn/ver/2785/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event/GEventConfiguration.java
+END
+GThreadEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/guitar/!svn/ver/2815/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event/GThreadEvent.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/guitar/!svn/ver/2742/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event/package-info.java
+END
+GEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/guitar/!svn/ver/2816/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event/GEvent.java
+END
+GEventConfigurable.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/guitar/!svn/ver/2785/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event/GEventConfigurable.java
+END
+EventManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/guitar/!svn/ver/2782/trunk/modules/gui-model-core/src/edu/umd/cs/guitar/event/EventManager.java
+END
