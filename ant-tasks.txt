@@ -1,0 +1,18 @@
+The script supports the following targets:
+
+	dist: distribute all tools for all platforms.
+	[platform].dist: distribute all tools for a specified [platform]. Result is distributed under dist/guitar
+	[platform].dist-rp: distribute the ripper for a specified [platform]. Result is distributed under dist/guitar
+	[platform].dist-rl: distribute the replayer for a specified [platform]. Result is distributed under dist/guitar
+
+	release: release all tools for all platforms. Result is distributed under dist/tools
+	release-[platform]: release all tools for a specific [platform]. Result is distributed under dist/tools
+
+	clean: clean all builds
+
+Currrently supported platforms:
+	jfc: Java Swing 
+	sel: Selenium 
+
+Build a module:
+	ant -f modules/[module name]/build.xml [target]

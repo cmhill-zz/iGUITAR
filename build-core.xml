@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Copyright (c) 2009-@year@. The  GUITAR group  at the University of
+    Maryland. Names of owners of this group may be obtained by sending
+    an e-mail to atif@cs.umd.edu
+  
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files
+    (the "Software"), to deal in the Software without restriction,
+    including without limitation  the rights to use, copy, modify, merge,
+    publish,  distribute, sublicense, and/or sell copies of the Software,
+    and to  permit persons  to whom  the Software  is furnished to do so,
+    subject to the following conditions:
+  
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+  
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO  EVENT SHALL THE  AUTHORS OR COPYRIGHT  HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR  OTHER LIABILITY,  WHETHER IN AN  ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Manage at tool level of guitar modules
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path
+                       to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path
+                       to ant 1.8.2 or higher
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Atif M Memon, atif@cs.umd.edu
+             
+  Version:   $Revision: 1$
+             $Date: 2011-07-02$
+             $Author: Bao N. Nguyen$
+             
+   Version:  $Revision: 1$
+             $Date: 2009-09-18$
+             $Author: Atif M Memon$
+ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="core.tool" basedir=".">
+
+	<property name="platform-core.name" value="platform-core" />
+	<property name="platform-core-spec.modules" value="gui-model-core,gui-ripper-core,gui-replayer-core" />
+	
+	<property name="s2g.name" value="guistructure2graph" />
+	<property name="s2g-spec.modules" value="guistructure2graph-core,guistructure2graph-efg" />
+	<property name="s2g.modules" value="gui-model-core,${s2g-spec.modules}" />
+
+	<property name="tg.name" value="testcase-generator" />
+	<property name="tg-spec.modules" value="testcase-generator-core,testcase-generator-sequence-length,testcase-generator-random-sequence-length" />
+	<property name="tg.modules" value="gui-model-core,${tg-spec.modules}" />
+
+	<property name="g2g.name" value="graph2graph" />
+	<property name="g2g-spec.modules" value="graph2graph-core,graph2graph-efg2eig,graph2graph-efg2ecig,graph2graph-graph-info,graph-converter" />
+	<property name="g2g.modules" value="gui-model-core,${g2g-spec.modules}" />
+
+	<property name="a2e.name" value="abs2exec-tc" />
+	<property name="a2e-spec.modules" value="abs2exec-tc-core,abs2exec-tc-efg2eig,abs2exec-tc-path2root" />
+	<property name="a2e.modules" value="gui-model-core,${a2e-spec.modules}" />
+
+	<property name="core.name" value="core-guitar" />
+	<property name="core.modules" value="${platform-core-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules}"/>
+
+	<!-- all core -->
+	<!-- ${jfc.name}guitar  -->
+	<target name="dist" description="distribute guitar-core">
+		<antcall target="dist-tool">
+			<param name="modules" value="${core.modules}" />
+			<param name="platform" value="${core.name}" />
+		</antcall>
+
+	</target>
+	
+	<target name="pack" depends="backup-guitar,dist" description="pack core tools">
+		<!-- package -->
+		<antcall target="pack-tool">
+			<param name="tool" value="${core.name}" />
+		</antcall>
+		<!-- restore guitar -->
+		<delete dir="${global.dist.guitar.dir}" />
+		<move todir="${global.dist.guitar.dir}" failonerror="false">
+			<fileset dir="${tmp.dir}" />
+		</move>
+
+	</target>
+
+	
+	<!-- guistructure2graph -->
+	<target name="dist-s2g" description="distribute guistructure to graph module">
+		<antcall target="dist-tool">
+			<param name="tool" value="${s2g.name}" />
+			<param name="modules" value="${s2g.modules}" />
+		</antcall>
+
+	</target>
+
+	<target name="pack-s2g" description="pack guistructure to graph module">
+		<set.timestamp />
+		<antcall target="pack-tool">
+			<param name="tool" value="${s2g.name}" />
+			<param name="modules" value="${s2g.modules}" />
+		</antcall>
+	</target>
+
+	<target name="clean-s2g" description="clean guistructure to graph module">
+		<antcall target="clean-tool">
+			<param name="tool" value="${s2g.name}" />
+		</antcall>
+	</target>
+
+	<!-- testcase-generator -->
+	<target name="dist-tg" description="distribute testcase-generator module">
+		<antcall target="dist-tool">
+			<param name="tool" value="${tg.name}" />
+			<param name="modules" value="${tg.modules}" />
+		</antcall>
+
+	</target>
+
+	<target name="pack-tg" description="pack testcase-generator module">
+		<set.timestamp />
+		<antcall target="pack-tool">
+			<param name="tool" value="${tg.name}" />
+			<param name="modules" value="${tg.modules}" />
+		</antcall>
+	</target>
+
+	<target name="clean-tg" description="clean testcase-generator module">
+		<antcall target="clean-tool">
+			<param name="tool" value="${tg.name}" />
+		</antcall>
+	</target>
+	
+
+	<!-- abs2exec-tc -->
+	<target name="dist-a2e" description="distribute abs2exec-tc module">
+		<antcall target="dist-tool">
+			<param name="tool" value="${a2e.name}" />
+			<param name="modules" value="${a2e.modules}" />
+		</antcall>
+
+	</target>
+
+	<target name="pack-a2e" description="pack testcase-generator module">
+		<set.timestamp />
+		<antcall target="pack-tool">
+			<param name="tool" value="${a2e.name}" />
+			<param name="modules" value="${a2e.modules}" />
+		</antcall>
+	</target>
+
+	<target name="clean-a2e" description="clean testcase-generator module">
+		<antcall target="clean-tool">
+			<param name="tool" value="${a2e.name}" />
+		</antcall>
+	</target>
+
+	<!-- graph2graph -->
+	<target name="dist-g2g" description="distribute graph2graph module">
+		<antcall target="dist-tool">
+			<param name="tool" value="${g2g.name}" />
+			<param name="modules" value="${g2g.modules}" />
+		</antcall>
+
+	</target>
+
+	<target name="pack-g2g" description="pack graph2graph module">
+		<set.timestamp />
+		<antcall target="pack-tool">
+			<param name="tool" value="${g2g.name}" />
+			<param name="modules" value="${g2g.modules}" />
+		</antcall>
+	</target>
+
+	<target name="clean-g2g" description="clean graph2graph module">
+		<antcall target="clean-tool">
+			<param name="tool" value="${g2g.name}" />
+		</antcall>
+	</target>
+	
+	<property name="tmp.dir" value="${global.dist.guitar.dir}.bak" />
+	<target name="backup-guitar" description="backup">
+		<move todir="${tmp.dir}" failonerror="false">
+			<fileset dir="${global.dist.guitar.dir}" />
+		</move>
+	</target>
+</project>

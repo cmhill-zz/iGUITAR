@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+	<Tag name="a" type="widget" property1="href"/>
+	<Tag name="img" type="widget" property1="src" property2="alt" property3="width" property4="height"/>
+	<Tag name="input" type="widget" property1="type" property2="name" property3="value" property4="size" property5="maxlength" />
+	<Tag name="embed" type="widget" property1="src" property2="width" property3="height" />
+</Configuration>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Copyright (c) 2009-@year@. The  GUITAR group  at the University of
+    Maryland. Names of owners of this group may be obtained by sending
+    an e-mail to atif@cs.umd.edu
+  
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files
+    (the "Software"), to deal in the Software without restriction,
+    including without limitation  the rights to use, copy, modify, merge,
+    publish,  distribute, sublicense, and/or sell copies of the Software,
+    and to  permit persons  to whom  the Software  is furnished to do so,
+    subject to the following conditions:
+  
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+  
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO  EVENT SHALL THE  AUTHORS OR COPYRIGHT  HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR  OTHER LIABILITY,  WHETHER IN AN  ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Manage at tool level of guitar modules
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path
+                       to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path
+                       to ant 1.8.2 or higher
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Atif M Memon, atif@cs.umd.edu
+             
+  Version:   $Revision: 1$
+             $Date: 2011-07-02$
+             $Author: Bao N. Nguyen$
+             
+   Version:  $Revision: 1$
+             $Date: 2009-09-18$
+             $Author: Atif M Memon$
+ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="build.utils" default="help" basedir=".">
+	<property file="build.properties" />
+
+
+	<!--=========================
+			Utilitity tasks
+		=========================-->
+	
+
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="lib/ant/lib/ant-contrib-0.6.jar" />
+		</classpath>
+	</taskdef>
+
+
+	<!-- Third party jar files for distribution -->
+	<fileset id="3rd-dist.file.ref" dir="${global.shared.lib.dir}" includes="*.jar" erroronmissingdir="false" />
+
+	<!-- Time stamp -->
+	<macrodef name="set.timestamp">
+		<sequential>
+			<tstamp>
+				<format property="current.time" pattern="yyyy.MM.dd" />
+			</tstamp>
+		</sequential>
+	</macrodef>
+
+	<!-- Help -->
+	<target name="help">
+		<echo message="This build script will create the complete GUITAR suite of tools!" />
+		<echo message="The script supports the following targets:" />
+		<echo message="dist-(tool name): simply invokes the build.xml files in each module." />
+	</target>
+
+	<!-- get svn revision -->
+	<macrodef name="svnrevision">
+		<sequential>
+			<exec executable="svnversion" outputproperty="repository.revision">
+				<arg value="-c" />
+				<redirector>
+					<outputfilterchain>
+						<tokenfilter>
+							<replaceregex pattern="[0-9]+\:" replace="" />
+							<replaceregex pattern="[M]" replace="" />
+						</tokenfilter>
+					</outputfilterchain>
+				</redirector>
+			</exec>
+		</sequential>
+	</macrodef>
+	<!--=========================
+		Parameterized tasks
+	=========================-->
+
+	<!-- Parameterized task to pack a tool
+			Parameters: 
+				tool: name of the tool
+				modules: modules included in the tool
+	-->
+	<target name="pack-tool">
+		<svnrevision />
+		<mkdir dir="${global.dist.tools.dir}" />
+		<tar destfile="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar" basedir="${global.dist.guitar.dir}" />
+		<bzip2 src="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar" destfile="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar.bz2"/>
+		<delete file="${global.dist.tools.dir}/${tool}-r${repository.revision}.tar"/>
+	</target>
+	
+	<!-- Parameterized task to distribute a tool
+			Parameters: 
+				tool:  name of tool
+				modules: modules included in the 
+	-->
+	<target name="dist-tool">
+		<for list="${modules}" param="module">
+			<sequential>
+				<!-- build submodules -->
+				<antcall target="dist-module">
+					<param name="module" value="@{module}" />
+				</antcall>
+
+				<!-- copy example -->
+				<copy todir="${global.dist.guitar.dir}">
+					<fileset dir="example-aut" includes="${platform}-aut/**" />
+				</copy>
+			</sequential>
+		</for>
+	</target>
+
+
+	<!-- Parameterized task to clean  a tool  -->
+	<target name="clean-tool">
+		<delete dir="${global.dist.guitar.dir}" />
+	</target>
+
+	<!-- Parameterized task to generate jar for a module  -->
+	<target name="dist-module" description="dist  a module">
+		<ant antfile="build.xml" dir="${global.modules.dir}/${module}" target="dist" />
+	</target>
+
+	<!-- Parameterized task to generate jar for a module  -->
+	<target name="jar-module" description="jar  a module">
+		<ant antfile="build.xml" dir="${global.modules.dir}/${module}" target="jar" />
+	</target>
+
+	<!-- Parameterized task to generate doc for a module  -->
+	<target name="doc-module" description="generate doc for  a module">
+		<ant antfile="build.xml" dir="${global.modules.dir}/${module}" target="doc" />
+	</target>
+
+</project>

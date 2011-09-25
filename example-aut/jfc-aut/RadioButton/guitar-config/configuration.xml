@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+	
+	<IgnoredComponents>
+		<!-- Ignore the gray menu item -->
+		<FullComponent>
+			<Window>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>Radio Button Demo</Value>
+					</Property> 
+				</Attributes>
+			</Window>
+
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>Gray</Value>
+					</Property>
+
+					<Property>
+						<Name>Class</Name>
+						<Value>javax.swing.JRadioButtonMenuItem</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		
+	</IgnoredComponents>
+	
+	<TerminalComponents>
+		<!-- Declare OK as a terminal component -->
+		<FullComponent>
+			<Component>
+				<Attributes>
+					<Property>
+						<Name>Title</Name>
+						<Value>OK</Value>
+					</Property>
+				</Attributes>
+			</Component>
+		</FullComponent>
+		
+	</TerminalComponents>
+	
+</Configuration>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Copyright (c) 2009-@year@. The  GUITAR group  at the University of
+    Maryland. Names of owners of this group may be obtained by sending
+    an e-mail to atif@cs.umd.edu
+  
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files
+    (the "Software"), to deal in the Software without restriction,
+    including without limitation  the rights to use, copy, modify, merge,
+    publish,  distribute, sublicense, and/or sell copies of the Software,
+    and to  permit persons  to whom  the Software  is furnished to do so,
+    subject to the following conditions:
+  
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+  
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO  EVENT SHALL THE  AUTHORS OR COPYRIGHT  HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR  OTHER LIABILITY,  WHETHER IN AN  ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Purpose:  Manage at tool level of guitar modules
+
+             Ant-Download: http://jakarta.apache.org/ant
+             Ant-Manual:   http://jakarta.apache.org/ant/manual/index.html
+
+             GUITAR-Homepage:    http://guitar.sourceforge.net
+
+   Precondition: 1. Ant should be installed.
+                 2. JAVA_HOME environment variable contains the path
+                       to JDK1.6 or higher
+                 3. ANT_HOME environment variable contains the path
+                       to ant 1.8.2 or higher
+
+   Language: XML
+   Compiler: Ant
+   Authors:  Atif M Memon, atif@cs.umd.edu
+             
+  Version:   $Revision: 1$
+             $Date: 2011-07-02$
+             $Author: Bao N. Nguyen$
+             
+   Version:  $Revision: 1$
+             $Date: 2009-09-18$
+             $Author: Atif M Memon$
+ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<project name="sel.tool" default="dist" basedir=".">
+	<import file="build-utils.xml" as="utils" />
+	<include file="${basedir}/build-core.xml" as="core" />
+
+	<!-- tool constants -->
+	<property name="sel.name" value="sel" />
+
+	<property name="srp.name" value="${sel.name}-ripper" />
+	<property name="srp-spec.modules" value="gui-ripper-core,gui-ripper-${sel.name}" />
+	<property name="srp.modules" value="gui-model-core,gui-model-${sel.name},${srp-spec.modules}" />
+
+	<property name="srl.name" value="${sel.name}-replayer" />
+	<property name="srl-spec.modules" value="gui-replayer-core,gui-replayer-${sel.name}" />
+	<property name="srl.modules" value="gui-model-core,gui-model-${sel.name},${srl-spec.modules}" />
+
+	<!-- ${sel.name}-guitar config -->
+	<property name="sg.name" value="${sel.name}-guitar" />
+	<property name="sg.modules" value="gui-model-core,gui-model-${sel.name},${srp-spec.modules},${srl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules}" />
+	
+	<property name="tmp.dir" value="${global.dist.guitar.dir}.bak" />
+	<target name="backup-guitar" description="backup">
+		<move todir="${tmp.dir}" failonerror="false">
+			<fileset dir="${global.dist.guitar.dir}" />
+		</move>
+	</target>
+	
+	<!-- ${sel.name}-replayer -->
+	<target name="dist-rl" description="distribute ${sel.name}replayer tool">
+		<antcall target="dist-tool">
+			<param name="modules" value="${srl.modules}" />
+			<param name="platform" value="${sel.name}" />
+		</antcall>
+	</target>
+
+
+
+	<target name="pack-rl" depends="backup-guitar,dist-rl" description="pack ${sel.name}replayer tool">
+		<!-- package -->
+		<antcall target="pack-tool">
+			<param name="tool" value="${srl.name}" />
+		</antcall>
+		<!-- restore guitar -->
+		<delete dir="${global.dist.guitar.dir}" />
+		<move todir="${global.dist.guitar.dir}" failonerror="false">
+			<fileset dir="${tmp.dir}" />
+		</move>
+
+	</target>
+
+	<!-- ${sel.name}ripper -->
+	<target name="dist-rp" description="distribute ${sel.name}ripper tool">
+		<antcall target="dist-tool">
+			<param name="modules" value="${srp.modules}" />
+			<param name="platform" value="${sel.name}" />
+		</antcall>
+
+	</target>
+
+	<target name="pack-rp" depends="backup-guitar,dist-rp">
+		<!-- package -->
+		<antcall target="pack-tool">
+			<param name="tool" value="${srp.name}" />
+		</antcall>
+		<!-- restore guitar -->
+		<delete dir="${global.dist.guitar.dir}" />
+		<move todir="${global.dist.guitar.dir}" failonerror="false">
+			<fileset dir="${tmp.dir}" />
+		</move>
+
+	</target>
+
+	<!-- ${sel.name}guitar  -->
+	<target name="dist" description="distribute sel-guitar tool">
+		<antcall target="dist-tool">
+			<param name="modules" value="${sg.modules}" />
+			<param name="platform" value="${sel.name}" />
+		</antcall>
+
+	</target>
+
+	<target name="pack" depends="backup-guitar, dist">
+		<antcall target="pack-tool">
+			<param name="tool" value="${sg.name}" />
+		</antcall>
+		<!-- restore guitar -->
+		<delete dir="${global.dist.guitar.dir}" />
+		<move todir="${global.dist.guitar.dir}" failonerror="false" >
+			<fileset dir="${tmp.dir}" />
+		</move>
+
+	</target>
+
+</project>

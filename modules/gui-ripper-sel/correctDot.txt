@@ -1,0 +1,5 @@
+digraph graphname {
+"http://www.phand.net";"http://www.phand.net/" -> "http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A9%3A%22SHEN2010O%22%3B%7D";
+"http://www.phand.net/" -> "http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A7%3A%22AT2009J%22%3B%7D";
+"http://www.phand.net/" -> "http://www.phand.net/pictures/album.php?dir=a%3A1%3A%7Bi%3A0%3Bs%3A9%3A%22SNOW2009D%22%3B%7D";
+}
