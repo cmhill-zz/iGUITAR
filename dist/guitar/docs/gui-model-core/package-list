@@ -1,0 +1,6 @@
+edu.umd.cs.guitar.event
+edu.umd.cs.guitar.exception
+edu.umd.cs.guitar.model
+edu.umd.cs.guitar.model.data
+edu.umd.cs.guitar.model.wrapper
+edu.umd.cs.guitar.util

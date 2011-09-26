@@ -22,7 +22,7 @@ package edu.umd.cs.guitar.ripper;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
-import edu.umd.cs.guitar.model.CommServer;
+import edu.umd.cs.guitar.model.IphCommServer;
 
 /**
  * 
@@ -41,7 +41,7 @@ public class IphRipperMain {
         CmdLineParser parser = new CmdLineParser(configuration);
         final IphRipper iphRipper = new IphRipper(configuration);
 
-        CommServer cs = new CommServer();
+        IphCommServer cs = new IphCommServer();
         
         try {
             // parser.setUsageWidth(Integer.MAX_VALUE);

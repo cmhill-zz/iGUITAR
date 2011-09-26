@@ -78,7 +78,7 @@
 	<property name="core.modules" value="${platform-core-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules}"/>
 
 	<!-- all core -->
-	<!-- ${jfc.name}guitar  -->
+	<!-- ${iph.name}guitar  -->
 	<target name="dist" description="distribute guitar-core">
 		<antcall target="dist-tool">
 			<param name="modules" value="${core.modules}" />

@@ -48,7 +48,7 @@ public class IphApplication extends GApplication {
 	 * 
 	 * @see edu.umd.cs.guitar.util.GApplication#start(java.lang.String[])
 	 */
-	public void connect(String[] args, CommClient commClient) throws ApplicationConnectException {
+	public void connect(String[] args, IphCommServer iphCommServer) throws ApplicationConnectException {
 
 		GUITARLog.log.debug("=============================");
 		GUITARLog.log.debug("Application Parameters: ");
@@ -57,19 +57,18 @@ public class IphApplication extends GApplication {
 			GUITARLog.log.debug("\t" + args[i]);
 		GUITARLog.log.debug("");
 
-		Method method;
 		
-		commClient.connect();
-		
-		try {
-			while (System.in.read() != 0)
-			System.out.println(commClient.request(CommConstants.INVOKE_MAIN_METHOD));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		iphCommServer.setUpIServerSocket();
+		if (iphCommServer.waitForConnection()) {
+			iphCommServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
+			if (iphCommServer.hear() != null) {
+				System.out.println("Response heard!!");
+			}
+		} else {
+			System.out.println("Connection failed! System is exiting!");
+			System.exit(1);
 		}
-		System.out.println("Requesting Main Method!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Rongjian Lan");
-
+		
 		try {
 			Thread.sleep(iInitialDelay);
 		} catch (InterruptedException e) {

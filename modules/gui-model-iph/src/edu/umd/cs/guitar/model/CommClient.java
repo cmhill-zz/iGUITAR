@@ -29,7 +29,7 @@ public class CommClient {
     }
     public CommClient() {
     	SERVER_HOST = "localhost";
-    	PORT_NUM = 8082;     
+    	PORT_NUM = 8081;     
     }
     
     public void close() {
@@ -106,7 +106,7 @@ public class CommClient {
     	 return null;
     }
     
-//    public static void main(String[] args) throws IOException {
-//    	
-//    }
+    public static void main(String[] args) throws IOException {
+    	(new CommClient()).connect();
+    }
 }

@@ -60,15 +60,15 @@
 	<import file="build-utils.xml" as="utils"/>
 	
 	<include file="${ant-build.dir}/build-core.xml" as="core"/> 
-	<include file="${ant-build.dir}/build-jfc.xml" as="jfc"/>
+	<include file="${ant-build.dir}/build-iph.xml" as="iph"/>
 	<include file="${ant-build.dir}/build-sel.xml" as="sel"/>
 	
-	<target name="dist" description="Release all tools" depends="jfc.dist,sel.dist" />
+	<target name="dist" description="Release all tools" depends="iph.dist,sel.dist" />
 
-	<target name="release" description="Release all tools" depends="release-core,release-jfc,release-sel" />
+	<target name="release" description="Release all tools" depends="release-core,release-iph,release-sel" />
 
 	<target name="release-core" description="Release all sel modules" depends="core.pack" />
-	<target name="release-jfc" description="Release all jfc modules" depends="jfc.pack-rp,jfc.pack-rl,jfc.pack" />
+	<target name="release-iph" description="Release all iph modules" depends="iph.pack-rp,iph.pack-rl,iph.pack" />
 	<target name="release-sel" description="Release all sel modules" depends="sel.pack-rp,sel.pack-rl,sel.pack" />
 	
 	
