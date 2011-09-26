@@ -51,96 +51,17 @@ public class IphTabFilter extends GComponentFilter {
 	private IphTabFilter() {
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * edu.umd.cs.guitar.ripper.ComponentFilter#isProcess(edu.umd.cs.guitar.
-	 * model.GXComponent)
-	 */
 	@Override
 	public boolean isProcess(GComponent component, GWindow window) {
-
-		if (!(component instanceof IphComponent))
-			return false;
-
-		IphComponent jComponent = (IphComponent) component;
-		boolean isProcess = (jComponent.getComponent() instanceof JTabbedPane);
-		return isProcess;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * edu.umd.cs.guitar.ripper.ComponentFilter#ripComponent(edu.umd.cs.guitar
-	 * .model.GXComponent)
-	 */
 	@Override
 	public ComponentType ripComponent(GComponent component, GWindow window) {
-
-		ComponentType retComp = component.extractProperties();
-		ComponentTypeWrapper wRetComp = new ComponentTypeWrapper(retComp);
-
-		// Remove the event in Tab
-		wRetComp.removeProperty(GUITARConstants.EVENT_TAG_NAME);
-
-		IphComponent jComponent = (IphComponent) component;
-
-		// Accessible aTabPanel = jComponent.getAComponent();
-		// AccessibleContext aContext = aTabPanel.getAccessibleContext();
-		// AccessibleSelection eSelection = aContext.getAccessibleSelection();
-		//        
-		// List<GXComponent> jTabItems = component.getChildren();
-		//        
-		// for(GXComponent jTabItem: jTabItems){
-		// eSelection.
-		// }
-
-		JTabbedPane jTab = (JTabbedPane) jComponent.getComponent();
-
-		// Debug
-		// debbug(jTab);
-
-		int nChild = jTab.getComponentCount();
-
-		for (int i = 0; i < nChild; i++) {
-/*
-			Component child = jTab.getComponent(i);
-			// GComponent gChild = new IphComponent((Accessible) child);
-			GComponent gChild = new IphComponent(child,window);
-			// Select tab
-			// Debugger.pause("About to select");
-			GEvent eTabSelect = new IphSelectFromParent();
-			eTabSelect.perform(gChild, null);
-			// jTab.setSelectedComponent(child);
-			// End Select tab
-
-			ComponentType guiChild = ripper.ripComponent(gChild, window);
-			ComponentTypeWrapper wGuiChild = new ComponentTypeWrapper(guiChild);
-
-			wGuiChild.addValueByName(GUITARConstants.EVENT_TAG_NAME,
-					IphSelectFromParent.class.getName());
-
-			// Debug
-			// Debugger.pause("Child index: "+jTab.get);
-
-			// End of Debug
-
-			((ContainerType) retComp).getContents().getWidgetOrContainer().add(
-					guiChild);
-					*/
-		}
-
-		// for (GXComponent gTabItem : gTabItems) {
-		// Debugger.pause("Tab");
-		//            
-		// Component jTabIem = (Component) ((IphComponent) gTabItem)
-		// .getAComponent();
-		// jTab.setSelectedComponent(jTabIem);
-		//            
-		// }
-
-		return retComp;
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 }

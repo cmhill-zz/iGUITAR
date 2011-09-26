@@ -50,319 +50,58 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
  */
 public class IphWindow extends GWindow {
 
-	Window window;
-
-	/**
-	 * Get the Iph window object.
-	 * 
-	 * <p>
-	 * 
-	 * @return the window
-	 */
-	public Window getWindow() {
-		return window;
-	}
-
-	/**
-	 * Constructor
-	 * 
-	 * <p>
-	 * 
-	 * @param window
-	 */
-	public IphWindow(Window window) {
-		this.window = window;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GXWindow#extractWindowInfo()
-	 */
-	@Override
-	public GUIType extractGUIProperties() {
-		GUIType retGUI;
-
-		ObjectFactory factory = new ObjectFactory();
-		retGUI = factory.createGUIType();
-
-		// Window
-
-		AccessibleContext wContext = window.getAccessibleContext();
-		ComponentType dWindow = factory.createComponentType();
-		ComponentTypeWrapper gaWindow = new ComponentTypeWrapper(dWindow);
-		dWindow = gaWindow.getDComponentType();
-
-		gaWindow.addValueByName("Size", wContext.getAccessibleComponent()
-				.getSize().toString());
-
-		retGUI.setWindow(dWindow);
-
-		// Container
-
-		ComponentType dContainer = factory.createContainerType();
-		ComponentTypeWrapper gaContainer = new ComponentTypeWrapper(dContainer);
-
-		gaContainer.addValueByName("Size", wContext.getAccessibleComponent()
-				.getSize().toString());
-		dContainer = gaContainer.getDComponentType();
-
-		ContentsType dContents = factory.createContentsType();
-		((ContainerType) dContainer).setContents(dContents);
-
-		retGUI.setContainer((ContainerType) dContainer);
-
-		return retGUI;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GXWindow#getContainer()
-	 */
-	@Override
-	public GComponent getContainer() {
-		return new IphComponent((Component) window, this);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GXWindow#isModal()
-	 */
-	@Override
-	public boolean isModal() {
-		
-		// Check if there is an isModal method 
-		Boolean isModal = null;
-		try {
-			Class<?> partypes[] = new Class[0];
-			Method m = window.getClass().getMethod("isModal", partypes);
-			if (m != null) {
-				Object obj = (m.invoke(window, new Object[0]));
-
-				if (obj != null) {
-					isModal = (Boolean) obj;
-				}
-			}
-
-		} catch (SecurityException e) {
-		} catch (NoSuchMethodException e) {
-		} catch (IllegalArgumentException e) {
-		} catch (IllegalAccessException e) {
-		} catch (InvocationTargetException e) {
-		}
-
-		if (isModal != null)
-			return isModal;
-
-		// If there is no an isModal method then try to access states 
-		AccessibleContext context = window.getAccessibleContext();
-		if (context == null)
-			return false;
-		AccessibleStateSet states = context.getAccessibleStateSet();
-		if (states.contains(AccessibleState.MODAL))
-			return true;
-		else
-			return false;
-	}
-
-	// /*
-	// * (non-Javadoc)
-	// *
-	// * @see edu.umd.cs.guitar.model.GXObject#getID()
-	// */
-	// @Override
-	// public String getTitle() {
-	// return getName();
-	// }
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GXObject#getName()
-	 */
 	@Override
 	public String getTitle() {
-
-		String sName = null;
-
-		// Check for accessibility name
-		AccessibleContext aContext = window.getAccessibleContext();
-		if (aContext != null) {
-			sName = aContext.getAccessibleName();
-			if (sName != null)
-				return sName;
-		}
-
-		sName = window.getClass().getName();
-		return sName;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GXWindow#getGUIProperties()
-	 */
-	@Override
-	public List<PropertyType> getGUIProperties() {
-		return getGUIBeanProperties();
-		// return null;
-	}
-
-	/**
-	 * Get all bean properties of the component
-	 * 
-	 * @return
-	 */
-	private List<PropertyType> getGUIBeanProperties() {
-		List<PropertyType> retList = new ArrayList<PropertyType>();
-		Method[] methods = window.getClass().getMethods();
-		PropertyType p;
-		List<String> lPropertyValue;
-
-		for (Method m : methods) {
-			if (m.getParameterTypes().length > 0) {
-				continue;
-			}
-			String sMethodName = m.getName();
-			String sPropertyName = sMethodName;
-
-			if (sPropertyName.startsWith("get")) {
-				sPropertyName = sPropertyName.substring(3);
-			} else if (sPropertyName.startsWith("is")) {
-				sPropertyName = sPropertyName.substring(2);
-			} else
-				continue;
-
-			// make sure property is in lower case
-			sPropertyName = sPropertyName.toLowerCase();
-
-			if (IphConstants.WINDOW_PROPERTIES_LIST.contains(sPropertyName)) {
-
-				Object value;
-				try {
-					value = m.invoke(window, new Object[0]);
-					if (value != null) {
-						p = factory.createPropertyType();
-						lPropertyValue = new ArrayList<String>();
-						lPropertyValue.add(value.toString());
-						p.setName(sPropertyName);
-						p.setValue(lPropertyValue);
-						retList.add(p);
-					}
-				} catch (IllegalArgumentException e) {
-				} catch (IllegalAccessException e) {
-				} catch (InvocationTargetException e) {
-				}
-			}
-		}
-		return retList;
-	}
-
-	// /*
-	// * (non-Javadoc)
-	// *
-	// * @see java.lang.Object#equals(java.lang.Object)
-	// */
-	//
-	// public boolean equals1(Object window) {
-	// if (!window.getClass().equals(this.getClass()))
-	// return false;
-	// IphWindow jxWindow = (IphWindow) window;
-	// String myID = getTitle();
-	// String otherID = jxWindow.getTitle();
-	// if (myID.equals(otherID))
-	// return true;
-	// else
-	// return false;
-	// }
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((window == null) ? 0 : getTitle().hashCode());
-		return result;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		IphWindow other = (IphWindow) obj;
-		if (window == null) {
-			if (other.window != null)
-				return false;
-		} else {
-			String myID = getTitle();
-			String otherID = other.getTitle();
-			if (!myID.equals(otherID))
-				return false;
-		}
-		return true;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GWindow#isValidWindow()
-	 */
-	@Override
-	public boolean isValid() {
-		// Check if window is visible
-		if (!this.window.isVisible())
-			return false;
-
-		String title = getTitle();
-		if (title == null)
-			return false;
-
-		if (INVALID_WINDOW_TITLE.contains(title))
-			return false;
-
-		return true;
-	}
-
-	/**
-	 * List of invalid window titles
-	 */
-	static List<String> INVALID_WINDOW_TITLE = Arrays.asList("",
-			"javax.swing.Popup$HeavyWeightWindow");
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GObject#getX()
-	 */
 	@Override
 	public int getX() {
-		return window.getX();
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.model.GObject#getY()
-	 */
 	@Override
 	public int getY() {
-		return window.getY();
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<PropertyType> getGUIProperties() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean equals(Object window) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public GUIType extractGUIProperties() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isValid() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public GComponent getContainer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isModal() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

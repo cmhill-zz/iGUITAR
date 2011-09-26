@@ -13,6 +13,8 @@ import org.kohsuke.args4j.CmdLineException;
 import edu.umd.cs.guitar.model.GIDGenerator;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.IO;
+import edu.umd.cs.guitar.model.IphConstants;
+import edu.umd.cs.guitar.model.IphDefaultIDGenerator;
 import edu.umd.cs.guitar.model.JFCConstants;
 import edu.umd.cs.guitar.model.JFCDefaultIDGeneratorSimple;
 import edu.umd.cs.guitar.model.data.AttributesType;
@@ -27,6 +29,7 @@ import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.ripper.filter.GComponentFilter;
 import edu.umd.cs.guitar.ripper.filter.IphIgnoreSignExpandFilter;
+import edu.umd.cs.guitar.ripper.filter.IphTabFilter;
 import edu.umd.cs.guitar.ripper.filter.JFCIgnoreSignExpandFilter;
 import edu.umd.cs.guitar.ripper.filter.JFCTabFilter;
 import edu.umd.cs.guitar.util.DefaultFactory;
@@ -132,12 +135,12 @@ public class IphRipper {
 
 		try {
 			conf = (Configuration) IO.readObjFromFile(
-					JFCRipperConfiguration.CONFIG_FILE, Configuration.class);
+					IphRipperConfiguration.CONFIG_FILE, Configuration.class);
 
 			if (conf == null) {
 				InputStream in = getClass()
 						.getClassLoader()
-						.getResourceAsStream(JFCRipperConfiguration.CONFIG_FILE);
+						.getResourceAsStream(IphRipperConfiguration.CONFIG_FILE);
 				conf = (Configuration) IO.readObjFromFile(in,
 						Configuration.class);
 			}
@@ -159,7 +162,7 @@ public class IphRipper {
 			ComponentType component = cTermWidget.getComponent();
 			AttributesType attributes = component.getAttributes();
 			if (attributes != null)
-				JFCConstants.sTerminalWidgetSignature
+				IphConstants.sTerminalWidgetSignature
 						.add(new AttributesTypeWrapper(component
 								.getAttributes()));
 		}
@@ -183,7 +186,7 @@ public class IphRipper {
 					String sWindowTitle = winAdapter
 							.getFirstValueByName(GUITARConstants.TITLE_TAG_NAME);
 					if (sWindowTitle != null)
-						JFCConstants.sIgnoredWins.add(sWindowTitle);
+						IphConstants.sIgnoredWins.add(sWindowTitle);
 
 				} else
 					lIgnoredComps.add(fullComp);
@@ -196,7 +199,7 @@ public class IphRipper {
 		ripper.addComponentFilter(iIgnoreExpand);
 
 		// Setup tab components ripper filter
-		GComponentFilter jTab = JFCTabFilter.getInstance();
+		GComponentFilter jTab = IphTabFilter.getInstance();
 		ripper.addComponentFilter(jTab);
 
 		// Set up Monitor
@@ -204,8 +207,8 @@ public class IphRipper {
 
 		// Set up IDGenerator
 
-		GIDGenerator jIDGenerator = JFCDefaultIDGeneratorSimple.getInstance();
-		ripper.setIDGenerator(jIDGenerator);
+		GIDGenerator iIDGenerator = IphDefaultIDGenerator.getInstance();
+		ripper.setIDGenerator(iIDGenerator);
 
 	}
 
