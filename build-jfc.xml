@@ -61,23 +61,23 @@
 	<!-- tool constants -->
 	<property name="iph.name" value="iph" />
 
-	<property name="irp.name" value="${iph.name}-ripper" />
-	<property name="irp-spec.modules" value="gui-ripper-core,gui-ripper-${iph.name}" />
-	<property name="irp.modules" value="gui-model-core,gui-model-${iph.name},${irp-spec.modules}" />
+	<property name="jrp.name" value="${iph.name}-ripper" />
+	<property name="jrp-spec.modules" value="gui-ripper-core,gui-ripper-${iph.name}" />
+	<property name="jrp.modules" value="gui-model-core,gui-model-${iph.name},${jrp-spec.modules}" />
 
-	<property name="irl.name" value="${iph.name}-replayer" />
-	<property name="irl-spec.modules" value="gui-replayer-core,gui-replayer-${iph.name}" />
-	<property name="irl.modules" value="gui-model-core,gui-model-${iph.name},${irl-spec.modules}" />
+	<property name="jrl.name" value="${iph.name}-replayer" />
+	<property name="jrl-spec.modules" value="gui-replayer-core,gui-replayer-${iph.name}" />
+	<property name="jrl.modules" value="gui-model-core,gui-model-${iph.name},${jrl-spec.modules}" />
 
 	<!-- ${iph.name}-guitar config -->
-	<property name="ig.name" value="${iph.name}-guitar" />
-	<property name="ig.modules" value="gui-model-core,gui-model-${iph.name},${irp-spec.modules},${irl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules},testcase-generator-program-analysis" />
+	<property name="jg.name" value="${iph.name}-guitar" />
+	<property name="jg.modules" value="gui-model-core,gui-model-${iph.name},${jrp-spec.modules},${jrl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules},testcase-generator-program-analysis" />
 	
 	
 	<!-- ${iph.name}-replayer -->
 	<target name="dist-rl" description="distribute ${iph.name}replayer tool">
 		<antcall target="dist-tool">
-			<param name="modules" value="${irl.modules}" />
+			<param name="modules" value="${jrl.modules}" />
 			<param name="platform" value="${iph.name}" />
 		</antcall>
 	</target>
@@ -92,7 +92,7 @@
 	<target name="pack-rl" depends="backup-guitar,dist-rl" description="pack ${iph.name}replayer tool">
 		<!-- package -->
 		<antcall target="pack-tool">
-			<param name="tool" value="${irl.name}" />
+			<param name="tool" value="${jrl.name}" />
 		</antcall>
 		<!-- restore guitar -->
 		<delete dir="${global.dist.guitar.dir}" />
@@ -105,7 +105,7 @@
 	<!-- ${iph.name}ripper -->
 	<target name="dist-rp" description="distribute ${iph.name}ripper tool">
 		<antcall target="dist-tool">
-			<param name="modules" value="${irp.modules}" />
+			<param name="modules" value="${jrp.modules}" />
 			<param name="platform" value="${iph.name}" />
 		</antcall>
 
@@ -114,7 +114,7 @@
 	<target name="pack-rp" depends="backup-guitar,dist-rp">
 		<!-- package -->
 		<antcall target="pack-tool">
-			<param name="tool" value="${irp.name}" />
+			<param name="tool" value="${jrp.name}" />
 		</antcall>
 		<!-- restore guitar -->
 		<delete dir="${global.dist.guitar.dir}" />
@@ -127,7 +127,7 @@
 	<!-- ${iph.name}guitar  -->
 	<target name="dist" description="distribute iph-guitar tool">
 		<antcall target="dist-tool">
-			<param name="modules" value="${ig.modules}" />
+			<param name="modules" value="${jg.modules}" />
 			<param name="platform" value="${iph.name}" />
 		</antcall>
 
@@ -135,7 +135,7 @@
 
 	<target name="pack" depends="backup-guitar, dist">
 		<antcall target="pack-tool">
-			<param name="tool" value="${ig.name}" />
+			<param name="tool" value="${jg.name}" />
 		</antcall>
 		<!-- restore guitar -->
 		<delete dir="${global.dist.guitar.dir}" />
