@@ -53,32 +53,32 @@
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-<project name="iph.tool" default="dist" basedir=".">
+<project name="jfc.tool" default="dist" basedir=".">
 	<import file="build-utils.xml" as="utils" />
 	
 	<include file="${basedir}/build-core.xml" as="core" />
 
 	<!-- tool constants -->
-	<property name="iph.name" value="iph" />
+	<property name="jfc.name" value="jfc" />
 
-	<property name="jrp.name" value="${iph.name}-ripper" />
-	<property name="jrp-spec.modules" value="gui-ripper-core,gui-ripper-${iph.name}" />
-	<property name="jrp.modules" value="gui-model-core,gui-model-${iph.name},${jrp-spec.modules}" />
+	<property name="jrp.name" value="${jfc.name}-ripper" />
+	<property name="jrp-spec.modules" value="gui-ripper-core,gui-ripper-${jfc.name}" />
+	<property name="jrp.modules" value="gui-model-core,gui-model-${jfc.name},${jrp-spec.modules}" />
 
-	<property name="jrl.name" value="${iph.name}-replayer" />
-	<property name="jrl-spec.modules" value="gui-replayer-core,gui-replayer-${iph.name}" />
-	<property name="jrl.modules" value="gui-model-core,gui-model-${iph.name},${jrl-spec.modules}" />
+	<property name="jrl.name" value="${jfc.name}-replayer" />
+	<property name="jrl-spec.modules" value="gui-replayer-core,gui-replayer-${jfc.name}" />
+	<property name="jrl.modules" value="gui-model-core,gui-model-${jfc.name},${jrl-spec.modules}" />
 
-	<!-- ${iph.name}-guitar config -->
-	<property name="jg.name" value="${iph.name}-guitar" />
-	<property name="jg.modules" value="gui-model-core,gui-model-${iph.name},${jrp-spec.modules},${jrl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules},testcase-generator-program-analysis" />
+	<!-- ${jfc.name}-guitar config -->
+	<property name="jg.name" value="${jfc.name}-guitar" />
+	<property name="jg.modules" value="gui-model-core,gui-model-${jfc.name},${jrp-spec.modules},${jrl-spec.modules},${s2g-spec.modules},${tg-spec.modules},${g2g-spec.modules},${a2e-spec.modules},testcase-generator-program-analysis" />
 	
 	
-	<!-- ${iph.name}-replayer -->
-	<target name="dist-rl" description="distribute ${iph.name}replayer tool">
+	<!-- ${jfc.name}-replayer -->
+	<target name="dist-rl" description="distribute ${jfc.name}replayer tool">
 		<antcall target="dist-tool">
 			<param name="modules" value="${jrl.modules}" />
-			<param name="platform" value="${iph.name}" />
+			<param name="platform" value="${jfc.name}" />
 		</antcall>
 	</target>
 
@@ -89,7 +89,7 @@
 		</move>
 	</target>
 
-	<target name="pack-rl" depends="backup-guitar,dist-rl" description="pack ${iph.name}replayer tool">
+	<target name="pack-rl" depends="backup-guitar,dist-rl" description="pack ${jfc.name}replayer tool">
 		<!-- package -->
 		<antcall target="pack-tool">
 			<param name="tool" value="${jrl.name}" />
@@ -102,11 +102,11 @@
 
 	</target>
 
-	<!-- ${iph.name}ripper -->
-	<target name="dist-rp" description="distribute ${iph.name}ripper tool">
+	<!-- ${jfc.name}ripper -->
+	<target name="dist-rp" description="distribute ${jfc.name}ripper tool">
 		<antcall target="dist-tool">
 			<param name="modules" value="${jrp.modules}" />
-			<param name="platform" value="${iph.name}" />
+			<param name="platform" value="${jfc.name}" />
 		</antcall>
 
 	</target>
@@ -124,11 +124,11 @@
 
 	</target>
 
-	<!-- ${iph.name}guitar  -->
-	<target name="dist" description="distribute iph-guitar tool">
+	<!-- ${jfc.name}guitar  -->
+	<target name="dist" description="distribute jfc-guitar tool">
 		<antcall target="dist-tool">
 			<param name="modules" value="${jg.modules}" />
-			<param name="platform" value="${iph.name}" />
+			<param name="platform" value="${jfc.name}" />
 		</antcall>
 
 	</target>
