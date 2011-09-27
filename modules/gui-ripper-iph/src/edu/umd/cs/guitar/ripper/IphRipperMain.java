@@ -41,7 +41,7 @@ public class IphRipperMain {
         CmdLineParser parser = new CmdLineParser(configuration);
         final IphRipper iphRipper = new IphRipper(configuration);
 
-        IphCommServer cs = new IphCommServer();
+        //IphCommServer cs = new IphCommServer();
         
         try {
             // parser.setUsageWidth(Integer.MAX_VALUE);

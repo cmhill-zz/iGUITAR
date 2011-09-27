@@ -27,7 +27,7 @@
 
 
 function usage {
-	echo "Usage: iphripper.sh.sh -cp <aut classpath> -sh <aut serverhost> -p <port> [guitar arguments]"
+	echo "Usage: iphripper.sh -cp <aut classpath> -sh <aut serverhost> -p <port> [guitar arguments]"
 }
 
 base_dir=`dirname $0`

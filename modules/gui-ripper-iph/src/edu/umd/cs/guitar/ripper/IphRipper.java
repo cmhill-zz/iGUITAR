@@ -14,7 +14,7 @@ import edu.umd.cs.guitar.model.GIDGenerator;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.IO;
 import edu.umd.cs.guitar.model.IphConstants;
-import edu.umd.cs.guitar.model.IphDefaultIDGenerator;
+import edu.umd.cs.guitar.model.IphIDGenerator;
 import edu.umd.cs.guitar.model.JFCConstants;
 import edu.umd.cs.guitar.model.JFCDefaultIDGeneratorSimple;
 import edu.umd.cs.guitar.model.data.AttributesType;
@@ -207,7 +207,7 @@ public class IphRipper {
 
 		// Set up IDGenerator
 
-		GIDGenerator iIDGenerator = IphDefaultIDGenerator.getInstance();
+		GIDGenerator iIDGenerator = IphIDGenerator.getInstance();
 		ripper.setIDGenerator(iIDGenerator);
 
 	}

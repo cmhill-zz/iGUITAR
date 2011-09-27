@@ -38,6 +38,7 @@ import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.GWindow;
 import edu.umd.cs.guitar.model.IphApplication;
+import edu.umd.cs.guitar.model.IphCommServer;
 import edu.umd.cs.guitar.model.IphComponent;
 import edu.umd.cs.guitar.model.IphConstants;
 import edu.umd.cs.guitar.model.IphWindow;
@@ -115,17 +116,20 @@ public class IphRipperMonitor extends GRipperMonitor {
 	public void setUp() {
 
 		// Init commClient
-		commClient = new CommClient(IphRipperConfiguration.SERVER_HOST, IphRipperConfiguration.PORT);
+		// commClient = new CommClient(IphRipperConfiguration.SERVER_HOST, IphRipperConfiguration.PORT);
 		
 		// Set up parameters
 		sIgnoreWindowList = IphConstants.sIgnoredWins;
 
 		// Start the application
 		IphApplication application;
+		
+		// Start up the communication server.
+        IphCommServer cs = new IphCommServer();
+		
 		try {
 			
 			application = new IphApplication();
-
 			// Parsing arguments
 			String[] args;
 			if (IphRipperConfiguration.ARGUMENT_LIST != null)
@@ -137,7 +141,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 			GUITARLog.log.debug("Requesting server host:" + this.configuration.SERVER_HOST);
 			GUITARLog.log.debug("Requesting server port:" + this.configuration.PORT);
 			
-			application.connect(args, commClient);
+			application.connect(args, cs);
 
 			// Delay
 			try {

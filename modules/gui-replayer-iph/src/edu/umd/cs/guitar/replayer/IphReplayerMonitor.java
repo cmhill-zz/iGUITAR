@@ -4,6 +4,8 @@ import java.util.List;
 
 import edu.umd.cs.guitar.event.GEvent;
 import edu.umd.cs.guitar.model.GWindow;
+import edu.umd.cs.guitar.model.data.ComponentType;
+import edu.umd.cs.guitar.model.data.PropertyType;
 
 public class IphReplayerMonitor extends GReplayerMonitor{
 
