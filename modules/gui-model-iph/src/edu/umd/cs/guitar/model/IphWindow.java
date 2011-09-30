@@ -50,6 +50,18 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
  */
 public class IphWindow extends GWindow {
 
+	String title;
+	int x;
+	int y;
+	boolean isValid;
+	boolean isModal;
+	public IphWindow(String _title, int _x, int _y, boolean _isValid, boolean _isModal) {
+		title = _title;
+		x = _x;
+		y = _y;
+		isValid = _isValid;
+		isModal = _isModal;
+	}
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
@@ -89,7 +101,7 @@ public class IphWindow extends GWindow {
 	@Override
 	public boolean isValid() {
 		// TODO Auto-generated method stub
-		return false;
+		return IphCommServer.requestVisible(getTitle());
 	}
 
 	@Override

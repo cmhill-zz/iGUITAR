@@ -1,4 +1,6 @@
 package edu.umd.cs.guitar.model;
+import edu.umd.cs.guitar.model.GWindow;
+
 import java.awt.Frame;
 import java.awt.Window;
 import java.io.FileInputStream;
@@ -9,6 +11,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.jar.Attributes;
@@ -85,8 +88,22 @@ public class IphApplication extends GApplication {
 
 	@Override
 	public Set<GWindow> getAllWindow() {
-		// TODO Auto-generated method stub
+		Set<GWindow> retWindows = new HashSet<GWindow>();
+		for (GWindow gw : IphCommServer.requestMainView()) {
+			retWindows.addAll(getAllOwnedWindow(gw.getTitle()));
+		}
+		
 		return null;
+	}
+	
+	public Set<GWindow> getAllOwnedWindow(String viewID) {
+		Set<GWindow> retWindows = new HashSet<GWindow>();
+		ArrayList<String> viewIDs = new ArrayList<String>();
+		viewIDs = IphCommServer.requestAllOwnedView(viewID);
+		for (String id : viewIDs) {
+			retWindows.addAll(getAllOwnedWindow(id));
+		}
+		return retWindows;
 	}
 
 }
