@@ -55,12 +55,14 @@ public class IphWindow extends GWindow {
 	int y;
 	boolean isValid;
 	boolean isModal;
-	public IphWindow(String _title, int _x, int _y, boolean _isValid, boolean _isModal) {
+	public IphWindow(String _title, int _x, int _y, boolean _isValid, boolean _isModal, boolean _isRoot) {
+		// A window is invalid when it is not visible
 		title = _title;
 		x = _x;
 		y = _y;
 		isValid = _isValid;
 		isModal = _isModal;
+		setRoot(_isRoot);
 	}
 	@Override
 	public String getTitle() {

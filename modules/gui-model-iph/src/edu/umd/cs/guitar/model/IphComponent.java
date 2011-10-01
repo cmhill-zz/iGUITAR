@@ -130,6 +130,11 @@ public class IphComponent extends GComponent {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public boolean isClickable() {
+		// Rongjian Lan: I need this API, please implement it
+		return false;
+	}
 
 	
 

@@ -167,7 +167,7 @@ public class IphRipper {
 								.getAttributes()));
 		}
 
-		GRipperMonitor jMonitor = new IphRipperMonitor(CONFIG);
+		GRipperMonitor iMonitor = new IphRipperMonitor(CONFIG);
 
 		List<FullComponentType> lIgnoredComps = new ArrayList<FullComponentType>();
 		// List<String> ignoredWindow = new ArrayList<String>();
@@ -199,11 +199,11 @@ public class IphRipper {
 		ripper.addComponentFilter(iIgnoreExpand);
 
 		// Setup tab components ripper filter
-		GComponentFilter jTab = IphTabFilter.getInstance();
-		ripper.addComponentFilter(jTab);
+		GComponentFilter iTab = IphTabFilter.getInstance();
+		ripper.addComponentFilter(iTab);
 
 		// Set up Monitor
-		ripper.setMonitor(jMonitor);
+		ripper.setMonitor(iMonitor);
 
 		// Set up IDGenerator
 

@@ -32,9 +32,13 @@ public class IphApplication extends GApplication {
 
 	private Class<?> cClass;
 	int iInitialDelay;
-
+	IphCommServer commServer;
 	final String[] URL_PREFIX = { "file:", "jar:", "http:" };
 
+	public Set<GWindow> allWindows;
+	public IphApplication(IphCommServer cs) {
+		commServer = cs;
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -43,7 +47,12 @@ public class IphApplication extends GApplication {
 	@Override
 	public void connect() throws ApplicationConnectException {
 		String[] args = new String[0];
-		connect(args);
+		if (commServer != null) {
+			connect(args, commServer);
+		} else {
+			throw new ApplicationConnectException();
+		}
+		
 	}
 
 	/*
@@ -60,11 +69,14 @@ public class IphApplication extends GApplication {
 			GUITARLog.log.debug("\t" + args[i]);
 		GUITARLog.log.debug("");
 
+		if (commServer == null) {
+			commServer = iphCommServer;
+		}
 		
-		iphCommServer.setUpIServerSocket();
-		if (iphCommServer.waitForConnection()) {
-			iphCommServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
-			if (iphCommServer.hear() != null) {
+		commServer.setUpIServerSocket();
+		if (commServer.waitForConnection()) {
+			commServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
+			if (commServer.hear() != null) {
 				System.out.println("Response heard!!");
 			}
 		} else {
@@ -93,7 +105,7 @@ public class IphApplication extends GApplication {
 			retWindows.addAll(getAllOwnedWindow(gw.getTitle()));
 		}
 		
-		return null;
+		return retWindows;
 	}
 	
 	public Set<GWindow> getAllOwnedWindow(String viewID) {

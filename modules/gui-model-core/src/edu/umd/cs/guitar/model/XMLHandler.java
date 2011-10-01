@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -56,7 +57,7 @@ public class XMLHandler {
 
         Object retObj = null;
         try {
-
+        	JAXB
             String packageName = cls.getPackage().getName();
             JAXBContext jc = JAXBContext.newInstance(packageName);
 
