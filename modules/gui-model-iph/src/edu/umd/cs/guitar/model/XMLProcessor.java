@@ -4,6 +4,8 @@ package edu.umd.cs.guitar.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Stack;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -20,20 +22,66 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class XMLProcessor {
  
 //	public static void main(String[] args) {
-//		(new XMLProcessor()).create();
+//		(new XMLProcessor()).createXmlFile();
 //	}
+	public Document parse(File file) {
+			try {
+				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder docBuilder;
+				docBuilder = docFactory.newDocumentBuilder();
 
-	public void parse(File file) {
-		
+				Document doc = docBuilder.newDocument();
+				doc = docBuilder.parse(file);
+				return doc;
+			} catch (ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
 	}
-	public File createXmlFile() {
+	
+	public String getValue(File file, String propertyName) {
+		Document doc = parse(file);
 		
+		NodeList nodeList = doc.getChildNodes();
+		NodeList currentList;
+		Node currentNode;
+		
+		Stack<NodeList> all = new Stack<NodeList>(); //Stack for traverse the doc
+		all.push(nodeList);
+		while (all.size() != 0) {
+			currentList = all.pop();
+			for (int i = 0; i < currentList.getLength(); i++) {
+				currentNode = currentList.item(i);
+				if (!currentNode.hasChildNodes()) {
+					if (currentNode.getParentNode().getNodeName() == propertyName) {
+						return currentNode.getNodeValue();
+					}
+				} else {
+					all.push(currentNode.getChildNodes());
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	public File createXmlFile() {
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -91,7 +139,7 @@ public class XMLProcessor {
 			System.out.println("File saved!");
 			
 			doc1 = docBuilder.parse(resultFile);
-			//System.out.println(doc.getChildNodes().item(0).getChildNodes().item(0).getChildNodes().getLength());
+			System.out.println(getValue(resultFile, "salary"));
 
 
 			return resultFile;
