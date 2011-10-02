@@ -80,6 +80,16 @@ public class XMLProcessor {
 		return null;
 	}
 	
+	/* Desired XML format for IphWindow
+		-<Attributes>
+			-<Property>
+				<Name>Title</Name>
+				<Value>window_A<Value>
+			-</Property>
+			...
+			...
+		-</Attributes>
+	*/
 	public static void parseProperties(Map<String, String> nameValueMap, String inputString) {
 		if (nameValueMap == null) 
 			nameValueMap = new HashMap<String, String>();
@@ -109,6 +119,7 @@ public class XMLProcessor {
 			}
 		}
 	}
+	
 	public static void parseProperties(Map<String, String> nameValueMap, File file) {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
@@ -117,6 +128,83 @@ public class XMLProcessor {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	/* Desired XML format for IphWindow
+		- <Window>
+			-<Attributes>
+				-<Property>
+					<Name>Title</Name>
+					<Value>window_A<Value>
+				-</Property>
+				...
+				...
+			-</Attributes>
+		-</Window>            
+	*/
+	public static void parseWindowList(List<IphWindow> lWindow, String xmlContent) {
+		Document doc = parse(xmlContent);
+		
+		NodeList windowList = doc.getChildNodes();
+		Node currentWindow;
+		ArrayList<String> it;
+		
+		String className = null;
+		String title = null;
+		int x = 0;
+		int y = 0;
+		int width = 0;
+		int height = 0;
+		boolean isVisible = false;
+		boolean isModal = false;;
+		boolean isEnabled = false;;
+		boolean isRoot = false;;
+		for (int i = 0; i < windowList.getLength(); i++) {
+			currentWindow = windowList.item(i);
+			NodeList propertyList = currentWindow.getChildNodes().item(0).getChildNodes();
+			for (int j = 0; j < propertyList.getLength(); j++) {
+				String nodeName = propertyList.item(j).getNodeName();
+				switch (nodeName) {
+				case "Class":
+					className = propertyList.item(j).getNodeValue();
+					break;
+				case "Title":
+					title = propertyList.item(j).getNodeName();
+					break;
+				case "X":
+					x = Integer.valueOf(propertyList.item(j).getNodeValue());
+					break;
+				case "Y":
+					y = Integer.valueOf(propertyList.item(j).getNodeValue());
+					break;
+				case "Width":
+					width = Integer.valueOf(propertyList.item(j).getNodeValue());
+					break;
+				case "Height":
+					height = Integer.valueOf(propertyList.item(j).getNodeValue());
+					break;
+				case "Modal":
+					isModal = Boolean.valueOf(propertyList.item(j).getNodeValue());
+					break;
+			    case "Visible":
+			    	isVisible = Boolean.valueOf(propertyList.item(j).getNodeValue());
+					break;
+			    case "Rootwindow":
+					isRoot = Boolean.valueOf(propertyList.item(j).getNodeValue());
+					break;
+				case "Enabled":
+					isEnabled = Boolean.valueOf(propertyList.item(j).getNodeValue());
+					break;
+				default:
+					break;
+				}
+				IphWindow iWindow = new IphWindow(title, className, x, y, width, height, isVisible, isModal, isEnabled, isRoot);
+				lWindow.add(iWindow);
+			
+			}
 		}
 	}
 	
@@ -220,31 +308,5 @@ public class XMLProcessor {
 			  ioe.printStackTrace();
 		  }
 		  return null;
-	}
-
-	public static void parseWindowList(List<IphWindow> lWindow, String xmlContent) {
-		Document doc = parse(xmlContent);
-		
-		NodeList nodeList = doc.getChildNodes();
-		NodeList currentList;
-		Node currentNode;
-		
-		Stack<NodeList> all = new Stack<NodeList>(); //Stack for traverse the doc
-		all.push(nodeList);
-		while (all.size() != 0) {
-			currentList = all.pop();
-			for (int i = 0; i < currentList.getLength(); i++) {
-				currentNode = currentList.item(i);
-				if (!currentNode.hasChildNodes()) {
-					if (currentNode.getParentNode().getNodeName() == propertyName) {
-						return currentNode.getNodeValue();
-					}
-				} else {
-					all.push(currentNode.getChildNodes());
-				}
-			}
-		}
-		
-		return null;
 	}
 }

@@ -64,15 +64,18 @@ public class IphWindow extends GWindow {
 	boolean isVisible;
 	boolean isModal;
 	boolean isEnabled;
-	public IphWindow(String _title, int _x, int _y, boolean _isVisible, boolean _isModal, boolean _isRoot) {
+	public IphWindow(String _title, String _className, int _x, int _y, int _width, int _height, boolean _isVisible, boolean _isModal, boolean _isEnabled, boolean _isRoot) {
 		// A window is invalid when it is not visible
 		title = _title;
+		className = _className;
 		x = _x;
 		y = _y;
+		width = _width;
+		height = _height;
 		isVisible = _isVisible;
 		isModal = _isModal;
+		isEnabled = _isEnabled;
 		setRoot(_isRoot);
-		
 		accessibleComponentSize =  "[width=" + getWidth() + ",height=" + getHeight() + "]";
 	}
 	

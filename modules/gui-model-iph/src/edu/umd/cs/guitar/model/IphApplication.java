@@ -30,10 +30,8 @@ import edu.umd.cs.guitar.util.GUITARLog;
  */
 public class IphApplication extends GApplication {
 
-	private Class<?> cClass;
 	int iInitialDelay;
 	IphCommServer commServer;
-	final String[] URL_PREFIX = { "file:", "jar:", "http:" };
 
 	public Set<GWindow> allWindows;
 	
@@ -98,23 +96,28 @@ public class IphApplication extends GApplication {
 		connect(args, commServer);
 	}
 
+	// Complete - Rongjian Lan
 	@Override
 	public Set<GWindow> getAllWindow() {
 		Set<GWindow> retWindows = new HashSet<GWindow>();
-		String xml = IphCommServer.requestMainView();
-		//for (GWindow gw : ) {
-			retWindows.addAll(getAllOwnedWindow(gw.getTitle()));
-		//}
+		String xmlContent = IphCommServer.requestMainView();
+		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
+		XMLProcessor.parseWindowList(windows, xmlContent);
+		for (IphWindow iWindow : windows) {
+			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
+		}
 		
 		return retWindows;
 	}
 	
-	public Set<GWindow> getAllOwnedWindow(String viewID) {
+	// Complete - Rongjian Lan
+	public Set<GWindow> getAllOwnedWindow(String viewTitle) {
 		Set<GWindow> retWindows = new HashSet<GWindow>();
-		ArrayList<String> viewIDs = new ArrayList<String>();
-		XMLProcessor.parseWindowList(IphCommServer.requestAllOwnedView(viewID));
-		for (String id : viewIDs) {
-			retWindows.addAll(getAllOwnedWindow(id));
+		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
+		XMLProcessor.parseWindowList(windows, IphCommServer.requestAllOwnedView(viewTitle));
+		retWindows.addAll(windows);
+		for (IphWindow iWindow : windows) {
+			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
 		}
 		return retWindows;
 	}

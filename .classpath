@@ -92,6 +92,6 @@
 	<classpathentry kind="lib" path="modules/gui-replayer-sel/resources/config/ant-contrib-0.6.jar"/>
 	<classpathentry kind="lib" path="modules/gui-ripper-sel/resources/java-getopt-1.0.13.jar"/>
 	<classpathentry kind="lib" path="modules/gui-ripper-sel/resources/selenium-server-standalone-2.0b1.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
