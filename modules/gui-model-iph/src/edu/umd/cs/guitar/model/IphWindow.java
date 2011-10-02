@@ -191,6 +191,7 @@ public class IphWindow extends GWindow {
 		return true;
 	}
 
+	// Need to talk to Hua He
 	@Override
 	public GComponent getContainer() {
 		return new IphComponent(this);

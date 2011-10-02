@@ -31,13 +31,9 @@ import edu.umd.cs.guitar.util.GUITARLog;
 public class IphApplication extends GApplication {
 
 	int iInitialDelay;
-	IphCommServer commServer;
 
 	public Set<GWindow> allWindows;
 	
-	public IphApplication(IphCommServer cs) {
-		commServer = cs;
-	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -46,36 +42,22 @@ public class IphApplication extends GApplication {
 	@Override
 	public void connect() throws ApplicationConnectException {
 		String[] args = new String[0];
-		if (commServer != null) {
-			connect(args, commServer);
-		} else {
-			throw new ApplicationConnectException();
-		}
-		
+		connect(args);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.umd.cs.guitar.util.GApplication#start(java.lang.String[])
-	 */
-	public void connect(String[] args, IphCommServer iphCommServer) throws ApplicationConnectException {
-
+	@Override
+	public void connect(String[] args) throws ApplicationConnectException {
 		GUITARLog.log.debug("=============================");
 		GUITARLog.log.debug("Application Parameters: ");
 		GUITARLog.log.debug("-----------------------------");
 		for (int i = 0; i < args.length; i++)
 			GUITARLog.log.debug("\t" + args[i]);
 		GUITARLog.log.debug("");
-
-		if (commServer == null) {
-			commServer = iphCommServer;
-		}
 		
-		commServer.setUpIServerSocket();
-		if (commServer.waitForConnection()) {
-			commServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
-			if (commServer.hear() == IphCommServerConstants.APP_LAUNCHED) {
+		IphCommServer.setUpIServerSocket();
+		if (IphCommServer.waitForConnection()) {
+			IphCommServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
+			if (IphCommServer.hear() == IphCommServerConstants.APP_LAUNCHED) {
 				System.out.println("The application has been launched!");
 			}
 		} else {
@@ -91,18 +73,13 @@ public class IphApplication extends GApplication {
 		}
 	}
 
-	@Override
-	public void connect(String[] args) throws ApplicationConnectException {
-		connect(args, commServer);
-	}
-
 	// Complete - Rongjian Lan
 	@Override
 	public Set<GWindow> getAllWindow() {
 		Set<GWindow> retWindows = new HashSet<GWindow>();
-		String xmlContent = IphCommServer.requestMainView();
+		
 		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
-		XMLProcessor.parseWindowList(windows, xmlContent);
+		IphCommServer.requestMainView(windows);
 		for (IphWindow iWindow : windows) {
 			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
 		}
@@ -114,7 +91,7 @@ public class IphApplication extends GApplication {
 	public Set<GWindow> getAllOwnedWindow(String viewTitle) {
 		Set<GWindow> retWindows = new HashSet<GWindow>();
 		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
-		XMLProcessor.parseWindowList(windows, IphCommServer.requestAllOwnedView(viewTitle));
+		IphCommServer.requestAllOwnedView(windows, viewTitle);
 		retWindows.addAll(windows);
 		for (IphWindow iWindow : windows) {
 			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));

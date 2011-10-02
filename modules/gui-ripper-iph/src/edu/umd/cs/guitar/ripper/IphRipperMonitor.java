@@ -17,6 +17,7 @@ import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.GWindow;
 import edu.umd.cs.guitar.model.IphApplication;
 import edu.umd.cs.guitar.model.IphCommServer;
+import edu.umd.cs.guitar.model.IphCommServerConstants;
 import edu.umd.cs.guitar.model.IphComponent;
 import edu.umd.cs.guitar.model.IphConstants;
 import edu.umd.cs.guitar.model.IphWindow;
@@ -39,7 +40,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 	
 	
 	public IphApplication application;
-	IphCommServer cs;
+
 	
 	/**
 	 * Temporary list of windows opened during the expand event is being
@@ -99,12 +100,9 @@ public class IphRipperMonitor extends GRipperMonitor {
 		// Start the application
 		
 		
-		// Start up the communication server.
-        cs = new IphCommServer();
-		
 		try {
 			
-			application = new IphApplication(cs);
+			application = new IphApplication();
 			
 			// Parsing arguments
 			String[] args;
@@ -175,7 +173,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 	public void cleanUp() {
 		// TODO Auto-generated method stub
 		application = null;
-		cs = null;
+		IphCommServer.close();
 	}
 
 	// Complete - Rongjian Lan
@@ -206,8 +204,8 @@ public class IphRipperMonitor extends GRipperMonitor {
 	// Complete - Rongjian Lan
 	@Override
 	public void resetWindowCache() {
-		this.tempOpenedWinStack.clear();
-		this.tempClosedWinStack.clear();
+		tempOpenedWinStack.clear();
+		tempClosedWinStack.clear();
 	}
 
 	// Complete - Rongjian lan
@@ -217,7 +215,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 			return;
 		
 		if (tempOpenedWinStack.contains(window.getTitle())) {
-			cs.request("Close window :" + window.getTitle());
+			IphCommServer.request(IphCommServerConstants.CLOSE_WINDOW + window.getTitle());
 			tempClosedWinStack.add(window);
 		}		
 	}

@@ -7,9 +7,9 @@ import java.io.*;
 
 public class IphCommServer {
 
-	ServerSocket iServerSocket;
+	static ServerSocket iServerSocket;
 
-	Socket iSocket;
+	static Socket iSocket;
 
 	static PrintWriter toIphone;
 	static BufferedReader fromIphone;
@@ -20,8 +20,9 @@ public class IphCommServer {
 	private static int time_out = 0;
 	private static int port_num = 8081;
 
-
-	public boolean setUpIServerSocket() {
+	private static boolean connected = false;
+	
+	public static boolean setUpIServerSocket() {
 		iServerSocket = null;
 		try {
 			iServerSocket = new ServerSocket(port_num);
@@ -33,7 +34,7 @@ public class IphCommServer {
 		return true;
 	}
 
-	public boolean waitForConnection() {
+	public static boolean waitForConnection() {
 		// If server not set up, set up first
 		if (iServerSocket == null) {
 			setUpIServerSocket();
@@ -48,6 +49,7 @@ public class IphCommServer {
 		try {
 			iSocket = iServerSocket.accept();
 			iSocket.setSoTimeout(time_out);
+			connected = true;
 			System.out.println("Connection set up successfully!");
 		} catch (IOException e) {
 			System.err.println("Accept failed.");
@@ -65,10 +67,7 @@ public class IphCommServer {
 		return true;
 	}
 
-	public static void getWindowProperties(Map<String, String> nameValueMap, String title) {
-		requestAndHear(IphCommServerConstants.GET_WINDOW_PROPERTY_LIST + title);
-		XMLProcessor.parseProperties(nameValueMap, file)
-	}
+	
 	
 	
 	public static String hear(){
@@ -84,44 +83,50 @@ public class IphCommServer {
 		return null;
 	}
 
-	public void setTimeOut(int timeout) {
+	public static void setTimeOut(int timeout) {
 		time_out = timeout;
 	}
 	
-	public int getTimeOut() {
+	public static int getTimeOut() {
 		return time_out;
 	}
 	
-	public void setPortNum(int port) {
+	public static void setPortNum(int port) {
 		port_num = port;
 	}
 	
-	public int getPortNum() {
+	public static int getPortNum() {
 		return port_num;
 	}
 	
+	public static boolean isConnected() {
+		return connected;
+	}
 	public static void request(String request) {
-		toIphone.write(request);
+		if (isConnected() == true) {
+			toIphone.write(request);
+		}
 	}
 	
 	public static String requestAndHear(String request) {
-		toIphone.write(request);
-		return hear();
+		if (isConnected() == true) {
+			toIphone.write(request);
+			return hear();
+		} else {
+			return null;
+		}
 	}
-
-	public IphCommServer(int port) {
+	
+	public static void setPort(int port) {
 		port_num = port;
 	}
 	
-	public IphCommServer(int port, int timeout) {
+	public static void setPortAndTimeout(int port, int timeout) {
 		port_num = port;
 		time_out = timeout;
 	}
-	public IphCommServer() {
-		
-	}
 
-	public void close() {
+	public static void close() {
 		try {
 			fromIphone.close();
 			toIphone.close();
@@ -132,14 +137,17 @@ public class IphCommServer {
 		}
 	}
 
-	public static String requestMainView() {
-		// TODO Auto-generated method stub
-		return null;
+	// Comm API
+	public static void requestMainView(ArrayList<IphWindow> windows) {
+		XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_WINDOW_LIST));
 	}
 
-	public static String requestAllOwnedView(String viewID) {
-		// TODO Auto-generated method stub
-		return null;
+	public static void requestAllOwnedView(ArrayList<IphWindow> windows, String title) {
+		XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_OWNED_WINDOW_LIST + title));
 	}
 
+	public static void getWindowProperties(Map<String, String> nameValueMap, String title) {
+		String xmlContent = requestAndHear(IphCommServerConstants.GET_WINDOW_PROPERTY_LIST + title);
+		XMLProcessor.parseProperties(nameValueMap, xmlContent);
+	}
 }

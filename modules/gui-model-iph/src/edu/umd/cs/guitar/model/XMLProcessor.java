@@ -208,7 +208,7 @@ public class XMLProcessor {
 		}
 	}
 	
-	public String getValue(File file, String propertyName) {
+	public static String getValue(File file, String propertyName) {
 		Document doc = parse(file);
 		
 		NodeList nodeList = doc.getChildNodes();
@@ -234,7 +234,7 @@ public class XMLProcessor {
 		return null;
 	}
 	
-	public File createXmlFile() {
+	public static File createXmlFile() {
 		
 		// Function test
 		try {
