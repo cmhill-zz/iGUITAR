@@ -57,7 +57,7 @@ public class XMLHandler {
 
         Object retObj = null;
         try {
-        	JAXB
+        	
             String packageName = cls.getPackage().getName();
             JAXBContext jc = JAXBContext.newInstance(packageName);
 
