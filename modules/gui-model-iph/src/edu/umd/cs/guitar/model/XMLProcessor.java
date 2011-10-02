@@ -3,12 +3,18 @@ package edu.umd.cs.guitar.model;
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.StringBufferInputStream;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,22 +56,13 @@ public class XMLProcessor {
 	}
 	
 	public static Document parse(InputStream is) {
-		InputStreamReader isr = new InputStreamReader(is);
-		BufferedReader br = new BufferedReader(isr);
-		try {
-			return parse(br.readLine());
-		} catch (IOException e) {
-			return null;
-		}
-	}
-	public static Document parse(String inputString) {
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder;
 			docBuilder = docFactory.newDocumentBuilder();
 
 			Document doc = docBuilder.newDocument();
-			doc = docBuilder.parse(inputString);
+			doc = docBuilder.parse(is);
 			return doc;
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
@@ -78,6 +75,10 @@ public class XMLProcessor {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public static Document parse(String inputString) {
+		InputStream is = new StringBufferInputStream(inputString);
+		return parse(is);
 	}
 	
 	/* Desired XML format for IphWindow
@@ -208,6 +209,24 @@ public class XMLProcessor {
 		}
 	}
 	
+	public static void seperate(String xmlContent) {
+		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder;
+		try {
+			docBuilder = docFactory.newDocumentBuilder();
+			
+			Document doc = parse(xmlContent);
+			NodeList nl = doc.getChildNodes();
+			doc = docBuilder.newDocument();
+			doc.appendChild(nl.item(0));
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
 	public static String getValue(File file, String propertyName) {
 		Document doc = parse(file);
 		
