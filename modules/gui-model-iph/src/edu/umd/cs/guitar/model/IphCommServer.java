@@ -1,6 +1,8 @@
 package edu.umd.cs.guitar.model;
 
 import java.net.*;
+import java.util.ArrayList;
+import java.util.Map;
 import java.io.*;
 
 public class IphCommServer {
@@ -9,8 +11,8 @@ public class IphCommServer {
 
 	Socket iSocket;
 
-	PrintWriter toIphone;
-	BufferedReader fromIphone;
+	static PrintWriter toIphone;
+	static BufferedReader fromIphone;
 
 	//XMLProcessor xmlProcessor;
 	//File xmlFile;
@@ -63,7 +65,13 @@ public class IphCommServer {
 		return true;
 	}
 
-	public String hear(){
+	public static void getWindowProperties(Map<String, String> nameValueMap, String title) {
+		requestAndHear(IphCommServerConstants.GET_WINDOW_PROPERTY_LIST + title);
+		XMLProcessor.parseProperties(nameValueMap, file)
+	}
+	
+	
+	public static String hear(){
 		String inputLine;
 		try {
 			while ((inputLine = fromIphone.readLine()) != null) {
@@ -92,11 +100,11 @@ public class IphCommServer {
 		return port_num;
 	}
 	
-	public void request(String request) {
+	public static void request(String request) {
 		toIphone.write(request);
 	}
 	
-	public String requestAndHear(String request) {
+	public static String requestAndHear(String request) {
 		toIphone.write(request);
 		return hear();
 	}
@@ -122,6 +130,16 @@ public class IphCommServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static String requestMainView() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static String requestAllOwnedView(String viewID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

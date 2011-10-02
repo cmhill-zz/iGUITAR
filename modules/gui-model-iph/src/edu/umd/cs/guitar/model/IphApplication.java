@@ -36,6 +36,7 @@ public class IphApplication extends GApplication {
 	final String[] URL_PREFIX = { "file:", "jar:", "http:" };
 
 	public Set<GWindow> allWindows;
+	
 	public IphApplication(IphCommServer cs) {
 		commServer = cs;
 	}
@@ -76,8 +77,8 @@ public class IphApplication extends GApplication {
 		commServer.setUpIServerSocket();
 		if (commServer.waitForConnection()) {
 			commServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
-			if (commServer.hear() != null) {
-				System.out.println("Response heard!!");
+			if (commServer.hear() == IphCommServerConstants.APP_LAUNCHED) {
+				System.out.println("The application has been launched!");
 			}
 		} else {
 			System.out.println("Connection failed! System is exiting!");
@@ -94,16 +95,16 @@ public class IphApplication extends GApplication {
 
 	@Override
 	public void connect(String[] args) throws ApplicationConnectException {
-		// TODO Auto-generated method stub
-		
+		connect(args, commServer);
 	}
 
 	@Override
 	public Set<GWindow> getAllWindow() {
 		Set<GWindow> retWindows = new HashSet<GWindow>();
-		for (GWindow gw : IphCommServer.requestMainView()) {
+		String xml = IphCommServer.requestMainView();
+		//for (GWindow gw : ) {
 			retWindows.addAll(getAllOwnedWindow(gw.getTitle()));
-		}
+		//}
 		
 		return retWindows;
 	}
@@ -111,7 +112,7 @@ public class IphApplication extends GApplication {
 	public Set<GWindow> getAllOwnedWindow(String viewID) {
 		Set<GWindow> retWindows = new HashSet<GWindow>();
 		ArrayList<String> viewIDs = new ArrayList<String>();
-		viewIDs = IphCommServer.requestAllOwnedView(viewID);
+		XMLProcessor.parseWindowList(IphCommServer.requestAllOwnedView(viewID));
 		for (String id : viewIDs) {
 			retWindows.addAll(getAllOwnedWindow(id));
 		}

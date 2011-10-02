@@ -27,7 +27,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.accessibility.AccessibleContext;
 import javax.accessibility.AccessibleState;
@@ -50,72 +53,149 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
  */
 public class IphWindow extends GWindow {
 
+	private String accessibleComponentSize = null;
+	private String className = null;
+	
 	String title;
 	int x;
 	int y;
-	boolean isValid;
+	int width;
+	int height;
+	boolean isVisible;
 	boolean isModal;
-	public IphWindow(String _title, int _x, int _y, boolean _isValid, boolean _isModal, boolean _isRoot) {
+	boolean isEnabled;
+	public IphWindow(String _title, int _x, int _y, boolean _isVisible, boolean _isModal, boolean _isRoot) {
 		// A window is invalid when it is not visible
 		title = _title;
 		x = _x;
 		y = _y;
-		isValid = _isValid;
+		isVisible = _isVisible;
 		isModal = _isModal;
 		setRoot(_isRoot);
+		
+		accessibleComponentSize =  "[width=" + getWidth() + ",height=" + getHeight() + "]";
 	}
+	
+	
+	private int getHeight() {
+		return height;
+	}
+	
+	private int getWidth() {
+		return width;
+	}
+	
+	private String getClassName() {
+		return className;
+	}
+	
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		return title;
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return x;
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return y;
 	}
 
 	@Override
 	public List<PropertyType> getGUIProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		List<PropertyType> retList = new ArrayList<PropertyType>();
+		
+		PropertyType p;
+		Map<String, String> nameValueMap = new HashMap<String, String>();
+		IphCommServer.getWindowProperties(nameValueMap, title);
+		List<String> lPropertyValue;
+		for(Entry<String, String> entry : nameValueMap.entrySet()) {
+			try{ 
+				p = factory.createPropertyType();
+				lPropertyValue = new ArrayList<String>();
+				lPropertyValue.add(entry.getValue());
+				p.setName(entry.getKey());
+				p.setValue(lPropertyValue);
+				retList.add(p);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+	
+		}
+		return retList;
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((this.title == "") ? 0 : getTitle().hashCode());
+		return result;
+	}
+	
+	@Override
 	public boolean equals(Object window) {
-		// TODO Auto-generated method stub
+		if (window != null) {
+			return this.hashCode() == ((IphWindow) window).hashCode();
+		}
 		return false;
 	}
 
 	@Override
 	public GUIType extractGUIProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		GUIType retGUI;
+
+		ObjectFactory factory = new ObjectFactory();
+		retGUI = factory.createGUIType();
+
+		// Window
+		ComponentType dWindow = factory.createComponentType();
+		ComponentTypeWrapper gaWindow = new ComponentTypeWrapper(dWindow);
+		dWindow = gaWindow.getDComponentType();
+
+		gaWindow.addValueByName("Size", accessibleComponentSize);
+
+		retGUI.setWindow(dWindow);
+
+		// Container
+
+		ComponentType dContainer = factory.createContainerType();
+		ComponentTypeWrapper gaContainer = new ComponentTypeWrapper(dContainer);
+
+		gaContainer.addValueByName("Size", accessibleComponentSize);
+		dContainer = gaContainer.getDComponentType();
+
+		ContentsType dContents = factory.createContentsType();
+		((ContainerType) dContainer).setContents(dContents);
+
+		retGUI.setContainer((ContainerType) dContainer);
+
+		return retGUI;
 	}
 
 	@Override
 	public boolean isValid() {
-		// TODO Auto-generated method stub
-		return IphCommServer.requestVisible(getTitle());
+		if (isVisible == false) {
+			return false;
+		}
+		if (title == null || title == "") {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public GComponent getContainer() {
-		// TODO Auto-generated method stub
-		return null;
+		return new IphComponent(this);
 	}
 
 	@Override
 	public boolean isModal() {
-		// TODO Auto-generated method stub
-		return false;
+		return isModal;
 	}
 
 }

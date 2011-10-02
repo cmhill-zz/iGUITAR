@@ -1,40 +1,17 @@
 package edu.umd.cs.guitar.ripper;
 
-import java.awt.AWTEvent;
-import java.awt.AWTException;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.Window;
-import java.awt.event.AWTEventListener;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.accessibility.AccessibleAction;
-import javax.accessibility.AccessibleContext;
-import javax.accessibility.AccessibleText;
-import javax.imageio.ImageIO;
 
 import org.netbeans.jemmy.EventTool;
 
-import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
 import edu.umd.cs.guitar.event.IphEvent;
-import edu.umd.cs.guitar.event.JFCActionEDT;
-import edu.umd.cs.guitar.event.JFCEventHandler;
+
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
-import edu.umd.cs.guitar.model.CommClient;
-import edu.umd.cs.guitar.model.GApplication;
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.GWindow;
@@ -43,19 +20,15 @@ import edu.umd.cs.guitar.model.IphCommServer;
 import edu.umd.cs.guitar.model.IphComponent;
 import edu.umd.cs.guitar.model.IphConstants;
 import edu.umd.cs.guitar.model.IphWindow;
-import edu.umd.cs.guitar.model.JFCApplication;
-import edu.umd.cs.guitar.model.JFCConstants;
-import edu.umd.cs.guitar.model.JFCXComponent;
-import edu.umd.cs.guitar.model.JFCXWindow;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**
  * 
- * Monitor for the ripper to handle Java Swing specific features
+ * Monitor for the ripper to handle Iphone specific features
  * 
  * @see GRipperMonitor
  * 
- * @author <a href="mailto:baonn@cs.umd.edu"> Bao Nguyen </a>
+ * @author <a href="mailto:baonn@cs.umd.edu"> Author </a>
  */
 public class IphRipperMonitor extends GRipperMonitor {
 	// Logger logger;
@@ -94,9 +67,6 @@ public class IphRipperMonitor extends GRipperMonitor {
 		// this.logger = logger;
 		this.configuration = configuration;
 	}
-
-
-
 	
 
 	/*
@@ -119,6 +89,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 	 * @see edu.umd.cs.guitar.ripper.RipperMonitor#setUp()
 	 */
 	
+	// Complete - Rongjian Lan
 	@Override
 	public void setUp() {
 
@@ -199,6 +170,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 		return retWindowList;
 	}
 
+	// Preliminary implementation - Rongjian Lan
 	@Override
 	public void cleanUp() {
 		// TODO Auto-generated method stub
@@ -250,6 +222,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 		}		
 	}
 
+	// Complete -Rongjian Lan
 	@Override
 	public void expandGUI(GComponent component) {
 		if (component == null)
@@ -267,6 +240,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 		new EventTool().waitNoEvent(configuration.DELAY);
 	}
 
+	// Preliminary implementation - Rongjian Lan
 	@Override
 	boolean isExpandable(GComponent gComponent, GWindow window) {
 		IphComponent component = (IphComponent) gComponent;

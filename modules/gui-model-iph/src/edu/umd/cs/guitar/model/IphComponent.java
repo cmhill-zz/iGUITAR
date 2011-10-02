@@ -57,7 +57,7 @@ public class IphComponent extends GComponent {
 		// TODO Auto-generated constructor stub
 	}
 
-	Component component;
+
 
 	@Override
 	public String getTitle() {
