@@ -22,7 +22,6 @@ package edu.umd.cs.guitar.ripper;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
-import edu.umd.cs.guitar.model.IphCommServer;
 
 /**
  * 

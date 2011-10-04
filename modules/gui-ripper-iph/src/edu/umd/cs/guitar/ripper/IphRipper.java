@@ -15,8 +15,6 @@ import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.IO;
 import edu.umd.cs.guitar.model.IphConstants;
 import edu.umd.cs.guitar.model.IphIDGenerator;
-import edu.umd.cs.guitar.model.JFCConstants;
-import edu.umd.cs.guitar.model.JFCDefaultIDGeneratorSimple;
 import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentListType;
 import edu.umd.cs.guitar.model.data.ComponentType;
@@ -30,8 +28,6 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
 import edu.umd.cs.guitar.ripper.filter.GComponentFilter;
 import edu.umd.cs.guitar.ripper.filter.IphIgnoreSignExpandFilter;
 import edu.umd.cs.guitar.ripper.filter.IphTabFilter;
-import edu.umd.cs.guitar.ripper.filter.JFCIgnoreSignExpandFilter;
-import edu.umd.cs.guitar.ripper.filter.JFCTabFilter;
 import edu.umd.cs.guitar.util.DefaultFactory;
 import edu.umd.cs.guitar.util.GUITARLog;
 
@@ -92,13 +88,13 @@ public class IphRipper {
 		}
 
 		GUIStructure dGUIStructure = ripper.getResult();
-		IO.writeObjToFile(dGUIStructure, JFCRipperConfiguration.GUI_FILE);
+		IO.writeObjToFile(dGUIStructure, IphRipperConfiguration.GUI_FILE);
 
 		GUITARLog.log.info("-----------------------------");
 		GUITARLog.log.info("OUTPUT SUMARY: ");
 		GUITARLog.log.info("Number of Windows: "
 				+ dGUIStructure.getGUI().size());
-		GUITARLog.log.info("GUI file:" + JFCRipperConfiguration.GUI_FILE);
+		GUITARLog.log.info("GUI file:" + IphRipperConfiguration.GUI_FILE);
 		ComponentListType lOpenWins = ripper.getlOpenWindowComps();
 		ComponentListType lCloseWins = ripper.getlCloseWindowComp();
 		ObjectFactory factory = new ObjectFactory();
@@ -107,7 +103,7 @@ public class IphRipper {
 		logWidget.setOpenWindow(lOpenWins);
 		logWidget.setCloseWindow(lCloseWins);
 
-		// IO.writeObjToFile(logWidget, JFCRipperConfiguration.LOG_WIDGET_FILE);
+		//IO.writeObjToFile(logWidget, IphRipperConfiguration.LOG_WIDGET_FILE);
 
 		// ------------------
 		// Elapsed time:
@@ -116,7 +112,7 @@ public class IphRipper {
 		DateFormat df = new SimpleDateFormat("HH : mm : ss: SS");
 		df.setTimeZone(TimeZone.getTimeZone("GMT"));
 		GUITARLog.log.info("Ripping Elapsed: " + df.format(nDuration));
-		GUITARLog.log.info("Log file: " + JFCRipperConfiguration.LOG_FILE);
+		GUITARLog.log.info("Log file: " + IphRipperConfiguration.LOG_FILE);
 	}
 
 	/**

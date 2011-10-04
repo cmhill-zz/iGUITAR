@@ -25,13 +25,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import edu.umd.cs.guitar.event.GEvent;
-import edu.umd.cs.guitar.event.JFCActionHandler;
-import edu.umd.cs.guitar.event.JFCEditableTextHandler;
-import edu.umd.cs.guitar.event.JFCEventHandler;
-import edu.umd.cs.guitar.event.JFCSelectFromParent;
-import edu.umd.cs.guitar.event.JFCSelectionHandler;
-import edu.umd.cs.guitar.event.JFCValueHandler;
+
 import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 
 /**
@@ -69,7 +63,20 @@ public class IphConstants {
 			"y", "height", "width", "opaque", "visible", "alwaysOnTop",
 			"defaultLookAndFeelDecorated", "font", "foreground", "insets",
 			"resizable", "background", "colorModel", "iconImage", "locale");
-
+	
+	// Window Attributes
+	
+	public static final String WINDOW_TITLE = "Title";
+	public static final String WINDOW_CLASS = "Class";
+	public static final String WINDOW_ENABLED = "Enabled";
+	public static final String WINDOW_VISIBLE = "Visible";
+	public static final String WINDOW_MODAL = "Modal";
+	public static final String WINDOW_ROOTWINDOW = "Rootwindow";
+	public static final String WINDOW_WIDTH = "Width";
+	public static final String WINDOW_HEIGHT = "Height";
+	public static final String WINDOW_X = "X";
+	public static final String WINDOW_Y = "Y";
+	public static final String WINDOW_JPEG = "JPEG";
 	/**
 	 * List of properties used to identify a widget on the GUI
 	 */

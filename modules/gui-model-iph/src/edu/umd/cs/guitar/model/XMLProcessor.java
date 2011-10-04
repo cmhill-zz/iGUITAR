@@ -42,6 +42,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import edu.umd.cs.guitar.model.data.ComponentType;
+import edu.umd.cs.guitar.model.data.Configuration;
+import edu.umd.cs.guitar.model.data.ContainerType;
+import edu.umd.cs.guitar.model.data.GUIType;
+import edu.umd.cs.guitar.model.data.PropertyType;
+import edu.umd.cs.guitar.ripper.IphRipperConfiguration;
+
 public class XMLProcessor {
  
 //	public static void main(String[] args) {
@@ -134,6 +141,7 @@ public class XMLProcessor {
 	
 	
 	
+	
 	/* Desired XML format for IphWindow
 		- <Window>
 			-<Attributes>
@@ -146,13 +154,36 @@ public class XMLProcessor {
 			-</Attributes>
 		-</Window>            
 	*/
+	
+	public static String getProperty(List<PropertyType> pList, String propertyName) {
+		for (PropertyType p : pList) {
+			 String name =  p.getName();
+			 if (name == IphConstants.WINDOW_CLASS) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_TITLE) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_X) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_Y) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_WIDTH) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_HEIGHT) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_ENABLED) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_VISIBLE)
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_MODAL) 
+				 return p.getValue().get(0);
+			 if (name == IphConstants.WINDOW_ROOTWINDOW) 
+				 return p.getValue().get(0);			 
+		 }
+		return null;
+	}
 	public static void parseWindowList(List<IphWindow> lWindow, String xmlContent) {
-		Document doc = parse(xmlContent);
 		
-		NodeList windowList = doc.getChildNodes();
-		Node currentWindow;
-		ArrayList<String> it;
-		
+		ArrayList<PropertyType> pList = null;
 		String className = null;
 		String title = null;
 		int x = 0;
@@ -163,49 +194,57 @@ public class XMLProcessor {
 		boolean isModal = false;;
 		boolean isEnabled = false;;
 		boolean isRoot = false;;
-		for (int i = 0; i < windowList.getLength(); i++) {
-			currentWindow = windowList.item(i);
-			NodeList propertyList = currentWindow.getChildNodes().item(0).getChildNodes();
-			for (int j = 0; j < propertyList.getLength(); j++) {
-				String nodeName = propertyList.item(j).getNodeName();
-				switch (nodeName) {
-				case "Class":
-					className = propertyList.item(j).getNodeValue();
-					break;
-				case "Title":
-					title = propertyList.item(j).getNodeName();
-					break;
-				case "X":
-					x = Integer.valueOf(propertyList.item(j).getNodeValue());
-					break;
-				case "Y":
-					y = Integer.valueOf(propertyList.item(j).getNodeValue());
-					break;
-				case "Width":
-					width = Integer.valueOf(propertyList.item(j).getNodeValue());
-					break;
-				case "Height":
-					height = Integer.valueOf(propertyList.item(j).getNodeValue());
-					break;
-				case "Modal":
-					isModal = Boolean.valueOf(propertyList.item(j).getNodeValue());
-					break;
-			    case "Visible":
-			    	isVisible = Boolean.valueOf(propertyList.item(j).getNodeValue());
-					break;
-			    case "Rootwindow":
-					isRoot = Boolean.valueOf(propertyList.item(j).getNodeValue());
-					break;
-				case "Enabled":
-					isEnabled = Boolean.valueOf(propertyList.item(j).getNodeValue());
-					break;
-				default:
-					break;
-				}
-				IphWindow iWindow = new IphWindow(title, className, x, y, width, height, isVisible, isModal, isEnabled, isRoot);
-				lWindow.add(iWindow);
+		ArrayList<String> subViews = null;
+		
+		writeToFile(xmlContent, "Windows.xml");
+		GUIType gui = (GUIType) IO.readObjFromFile("Windows.xml", GUIType.class);
+		
+		
+		Stack<ContainerType> viewStack = new Stack<ContainerType>();
+		viewStack.push( gui.getContainer());
+		
+		while (!viewStack.isEmpty()) {
+			ContainerType currentContainer = viewStack.pop();
+			pList = (ArrayList<PropertyType>) currentContainer.getAttributes().getProperty();
 			
+			ArrayList<ComponentType> lContainer = (ArrayList<ComponentType>) currentContainer.getContents().getWidgetOrContainer();
+			
+			
+			subViews = new ArrayList<String>();
+			
+			for (ComponentType ct : lContainer) {
+				ContainerType temp = (ContainerType) ct;
+				subViews.add(getProperty(temp.getAttributes().getProperty(), IphConstants.WINDOW_TITLE));
+				viewStack.push(temp);
 			}
+			
+			
+			for (PropertyType p : pList) {
+				 String name =  p.getName();
+				 if (name == IphConstants.WINDOW_CLASS) 
+					 className = p.getValue().get(0);
+				 if (name == IphConstants.WINDOW_TITLE) 
+					 title = p.getValue().get(0);
+				 if (name == IphConstants.WINDOW_X) 
+					 x = Integer.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_Y) 
+					 y = Integer.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_WIDTH) 
+					 width = Integer.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_HEIGHT) 
+					 height = Integer.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_ENABLED) 
+					 isEnabled = Boolean.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_VISIBLE)
+					 isVisible = Boolean.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_MODAL) 
+					 isModal = Boolean.valueOf(p.getValue().get(0));
+				 if (name == IphConstants.WINDOW_ROOTWINDOW) 
+					 isRoot = Boolean.valueOf(p.getValue().get(0));			 
+			 }
+			
+			IphWindow iWindow = new IphWindow(title, className, x, y, width, height, isVisible, isModal, isEnabled, isRoot, subViews);
+			lWindow.add(iWindow);
 		}
 	}
 	
@@ -253,6 +292,25 @@ public class XMLProcessor {
 		return null;
 	}
 	
+	public static void writeToFile(String xmlContent, String fileName) {
+		
+		try {
+			Document doc = parse(xmlContent);
+			File resultFile = new File("G:\\file.xml");
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(resultFile);
+			// Output to console for testing
+		    //StreamResult result = new StreamResult(System.out);
+			transformer.transform(source, result);
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("File saved!");
+	}
 	public static File createXmlFile() {
 		
 		// Function test

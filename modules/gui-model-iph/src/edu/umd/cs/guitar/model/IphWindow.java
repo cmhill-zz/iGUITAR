@@ -64,7 +64,9 @@ public class IphWindow extends GWindow {
 	boolean isVisible;
 	boolean isModal;
 	boolean isEnabled;
-	public IphWindow(String _title, String _className, int _x, int _y, int _width, int _height, boolean _isVisible, boolean _isModal, boolean _isEnabled, boolean _isRoot) {
+	
+	ArrayList<String> subViews = null;
+	public IphWindow(String _title, String _className, int _x, int _y, int _width, int _height, boolean _isVisible, boolean _isModal, boolean _isEnabled, boolean _isRoot, ArrayList<String> _subViews) {
 		// A window is invalid when it is not visible
 		title = _title;
 		className = _className;
@@ -77,6 +79,7 @@ public class IphWindow extends GWindow {
 		isEnabled = _isEnabled;
 		setRoot(_isRoot);
 		accessibleComponentSize =  "[width=" + getWidth() + ",height=" + getHeight() + "]";
+		subViews = _subViews;
 	}
 	
 	

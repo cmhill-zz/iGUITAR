@@ -20,7 +20,7 @@ import edu.umd.cs.guitar.model.IphCommServer;
 import edu.umd.cs.guitar.model.IphCommServerConstants;
 import edu.umd.cs.guitar.model.IphComponent;
 import edu.umd.cs.guitar.model.IphConstants;
-import edu.umd.cs.guitar.model.IphWindow;
+
 import edu.umd.cs.guitar.util.GUITARLog;
 
 /**
@@ -227,8 +227,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 			return;
 
 		GUITARLog.log.info("Expanding *" + component.getTitle() + "*...");
-
-		// GThreadEvent action = new JFCActionHandler();
+		
 		GEvent action = new IphEvent();
 
 		action.perform(component, null);
@@ -246,7 +245,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 		if (ID == null)
 			return false;
 
-		if ("".equals(ID))
+		if (ID.equals(""))
 			return false;
 
 		if (!component.isEnable()) {
