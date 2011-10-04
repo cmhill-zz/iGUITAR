@@ -76,6 +76,7 @@ public class XMLProcessor {
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
 		try {
+			// TODO readline() will stop at "\n", Just one line?
 			return parse(br.readLine());
 		} catch (IOException e) {
 			return null;
