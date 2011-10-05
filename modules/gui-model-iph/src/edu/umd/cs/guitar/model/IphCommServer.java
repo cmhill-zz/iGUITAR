@@ -149,17 +149,18 @@ public class IphCommServer {
 
 	// Comm API
 	public static void requestMainView(ArrayList<IphWindow> windows) {
-		//XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_WINDOW_LIST));
-		//public Object readObjFromFile(InputStream is, Class<?> cls) {
+		// Create a XML handler to parse the iPhone client's GUI response.
 		XMLHandler xmlHandler = new XMLHandler();
-		//xmlHandler.readObjFromFile(InputStream is, Class<?> cls) {
-		//IphWindow mainWindow = new IphWindow();
-		//windows.add(e)
-		ByteArrayInputStream bs = new ByteArrayInputStream(requestAndHear(IphCommServerConstants.GET_WINDOW_LIST).getBytes());
 		
-		GUIStructure guiWindow = (GUIStructure) xmlHandler.readObjFromFile(bs, GUIStructure.class); //Class<?> cls) {	
-		windows.add(new IphWindow(guiWindow.getGUI().get(0))); //guiWindow.getWindow());
-		System.out.println(guiWindow);
+		// The xml handler needs an InputStream.
+		ByteArrayInputStream bs = new ByteArrayInputStream(
+				requestAndHear(IphCommServerConstants.GET_WINDOW_LIST).getBytes());
+		
+		// We can create the GUIStructure here using the xml handler.
+		GUIStructure guiWindow = (GUIStructure) xmlHandler.readObjFromFile(bs, GUIStructure.class);
+		
+		// Pass the GUI to the new IphWindow object.
+		windows.add(new IphWindow(guiWindow.getGUI().get(0)));
 	}
 
 	public static void requestAllOwnedView(ArrayList<IphWindow> windows, String title) {
