@@ -53,7 +53,10 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
  */
 public class IphWindow extends GWindow {
 
+	public GUIType guiType = null;
+	
 	private String accessibleComponentSize = null;
+	
 	private String className = null;
 	
 	String title;
@@ -79,7 +82,21 @@ public class IphWindow extends GWindow {
 		accessibleComponentSize =  "[width=" + getWidth() + ",height=" + getHeight() + "]";
 	}
 	
+	public IphWindow(GUIType guiType) {
+		this.guiType = guiType;
+		this.isRoot = true;
+		
+		System.out.println("Creating IphWindow, with attributes: ");
+		for (PropertyType propertyType : guiType.getWindow().getAttributes().getProperty()) {
+			System.out.print(propertyType.getName() + "\t:\t");
+			for (String value : propertyType.getValue()) {
+				System.out.print(value + " ");
+			}
+			System.out.println();
+		}
+	}
 	
+	/*
 	private int getHeight() {
 		return height;
 	}
@@ -105,8 +122,35 @@ public class IphWindow extends GWindow {
 	@Override
 	public int getY() {
 		return y;
+	} */
+	
+	@Override
+	public String getTitle() {
+		return guiType.getWindow().getAttributes().getProperty().get(4).getValue().get(0);
 	}
 
+	@Override
+	public int getX() {
+		return new Integer(guiType.getWindow().getAttributes().getProperty().get(0).getValue().get(0));
+	}
+
+	@Override
+	public int getY() {
+		return new Integer(guiType.getWindow().getAttributes().getProperty().get(1).getValue().get(0));
+	}
+	
+	private int getWidth() {
+		return new Integer(guiType.getWindow().getAttributes().getProperty().get(2).getValue().get(0));
+	}
+	
+	private int getHeight() {
+		return new Integer(guiType.getWindow().getAttributes().getProperty().get(3).getValue().get(0));
+	}
+	
+	private String getClassName() {
+		return guiType.getWindow().getAttributes().getProperty().get(4).getValue().get(0);
+	}
+	
 	@Override
 	public List<PropertyType> getGUIProperties() {
 		List<PropertyType> retList = new ArrayList<PropertyType>();
@@ -182,10 +226,11 @@ public class IphWindow extends GWindow {
 
 	@Override
 	public boolean isValid() {
-		if (isVisible == false) {
+		// TODO(cmhill): Add isVisible to the objc iphone xml document.
+		/*if (isVisible == false) {
 			return false;
-		}
-		if (title == null || title == "") {
+		}*/
+		if (this.getTitle() == null || this.getTitle() == "") {
 			return false;
 		}
 		return true;

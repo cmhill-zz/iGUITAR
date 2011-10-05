@@ -1,4 +1,5 @@
 package edu.umd.cs.guitar.model;
+
 import edu.umd.cs.guitar.model.GWindow;
 
 import java.awt.Frame;
@@ -81,7 +82,8 @@ public class IphApplication extends GApplication {
 		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
 		IphCommServer.requestMainView(windows);
 		for (IphWindow iWindow : windows) {
-			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
+			//retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
+			retWindows.add(iWindow);
 		}
 		
 		return retWindows;

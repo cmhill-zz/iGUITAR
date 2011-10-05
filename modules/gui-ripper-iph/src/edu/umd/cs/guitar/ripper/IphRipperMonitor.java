@@ -147,6 +147,8 @@ public class IphRipperMonitor extends GRipperMonitor {
 				application.allWindows = application.getAllWindow();
 			}
 			for (GWindow window : application.allWindows) {
+				System.out.println("Checking window : " + window.getTitle() + 
+						" (isRoote : " + window.isRoot() + " | isValid : " + window.isValid() + ")");
 				if (window.isRoot() && window.isValid()) {
 					retWindowList.add(window);
 				}
