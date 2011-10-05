@@ -73,7 +73,7 @@ public class IphComponent extends GComponent {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	@Override
 	public int getY() {
 		// TODO Auto-generated method stub
