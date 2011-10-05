@@ -71,6 +71,11 @@ public class IphApplication extends GApplication {
 //			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
 //		}
 		retWindows.addAll(windows);
+		for (IphWindow iWindow : windows) {
+			//retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
+			retWindows.add(iWindow);
+		}
+		
 		return retWindows;
 	}
 	

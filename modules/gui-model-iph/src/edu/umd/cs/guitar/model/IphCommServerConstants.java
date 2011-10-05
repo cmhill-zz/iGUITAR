@@ -12,4 +12,10 @@ public class IphCommServerConstants {
 	public static final String GET_OWNED_WINDOW_LIST = "get owned window list";
 	public static final String GET_WINDOW_PROPERTY_LIST = "get window property list";
 	public static final String CLOSE_WINDOW = "close window";
+	
+	// event
+	public static final String WINDOW_OPENED = "window opened";
+	public static final String WINDOW_CLOSED = "window closed";
+
+
 }

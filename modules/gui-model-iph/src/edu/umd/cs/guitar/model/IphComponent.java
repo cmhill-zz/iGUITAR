@@ -38,6 +38,8 @@ import javax.swing.JTabbedPane;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
+import edu.umd.cs.guitar.model.data.ComponentType;
+import edu.umd.cs.guitar.model.data.ContentsType;
 import edu.umd.cs.guitar.model.data.PropertyType;
 import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.util.GUITARLog;
@@ -52,12 +54,13 @@ import edu.umd.cs.guitar.util.GUITARLog;
  */
 public class IphComponent extends GComponent {
 
+	ComponentType componentType= null;
+	ContentsType contentType = null;
 	public IphComponent(GWindow window) {
 		super(window);
-		// TODO Auto-generated constructor stub
+		componentType = ((IphWindow) window).guiType.getContainer();
+		contentType = ((IphWindow) window).guiType.getContainer().getContents();
 	}
-
-
 
 	@Override
 	public String getTitle() {

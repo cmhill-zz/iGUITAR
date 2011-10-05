@@ -77,31 +77,28 @@ public class CommClient {
     	return true;
     }
     
+    public void hearAndReply() {
+    	String fromServer;
+    	try {
+			while ((fromServer = in.readLine()) != null) {
+				if (fromServer == IphCommServerConstants.GET_WINDOW_LIST) {
+					FileReader fr = new FileReader(new File("G:\\window.xml"));
+					BufferedReader br = new BufferedReader(fr);
+					out.write(br.readLine());
+					break;
+				}
+			 }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     public String request(String request) throws IOException {
     	out.println(request);
     	System.out.println("Client: Request sent");
     	String fromServer;
     	 while ((fromServer = in.readLine()) != null) {
     		 return fromServer;
-	        	//System.out.println(fromServer + "\n");
-//	        	if (fromServer.contains("<?xml version=")) {
-//	        		storeFile("logs.file", fromServer);
-//	        		try {
-//	        			//Parse the xml content
-//						DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-//						DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-//						Document doc = docBuilder.newDocument();
-//						
-//						doc = docBuilder.parse(requestedFile);
-//						System.out.println(doc.getXmlVersion());
-//					} catch (ParserConfigurationException pce) {
-//						pce.printStackTrace();
-//					} catch (SAXException saxe) {
-//						saxe.printStackTrace();
-//					} catch (IOException e) {
-//						e.printStackTrace();
-//					}
-//	        	}
 		 	}
     	 return null;
     }

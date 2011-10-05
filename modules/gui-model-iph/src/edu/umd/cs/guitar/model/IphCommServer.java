@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.io.*;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Window;
+
+import edu.umd.cs.guitar.model.data.GUIStructure;
+import edu.umd.cs.guitar.model.data.GUIType;
+
 public class IphCommServer {
 
 	static ServerSocket iServerSocket;
@@ -73,6 +78,7 @@ public class IphCommServer {
 		String inputLine;
 		try {
 			while ((inputLine = fromIphone.readLine()) != null) {
+				System.out.println("Received response: " + inputLine);
 				return inputLine;
 			}
 		} catch (IOException e) {
@@ -103,13 +109,17 @@ public class IphCommServer {
 	}
 	public static void request(String request) {
 		if (isConnected() == true) {
-			toIphone.write(request);
+			char[] buffer = request.toCharArray();
+			System.out.println("Sending request: " + new String(buffer));
+			toIphone.write(buffer);
+			toIphone.flush();
 		}
 	}
 	
 	public static String requestAndHear(String request) {
 		if (isConnected() == true) {
-			toIphone.write(request);
+			request(request);
+			//toIphone.write(request);
 			return hear();
 		} else {
 			return null;
@@ -138,7 +148,18 @@ public class IphCommServer {
 
 	// Comm API
 	public static void requestMainView(ArrayList<IphWindow> windows) {
-		XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_WINDOW_LIST));
+		// Create a XML handler to parse the iPhone client's GUI response.
+		XMLHandler xmlHandler = new XMLHandler();
+		
+		// The xml handler needs an InputStream.
+		ByteArrayInputStream bs = new ByteArrayInputStream(
+				requestAndHear(IphCommServerConstants.GET_WINDOW_LIST).getBytes());
+		
+		// We can create the GUIStructure here using the xml handler.
+		GUIStructure guiWindow = (GUIStructure) xmlHandler.readObjFromFile(bs, GUIStructure.class);
+		
+		// Pass the GUI to the new IphWindow object.
+		windows.add(new IphWindow(guiWindow.getGUI().get(0)));
 	}
 
 	public static void requestAllOwnedView(ArrayList<IphWindow> windows, String title) {
