@@ -38,6 +38,9 @@ import javax.swing.JTabbedPane;
 
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
+import edu.umd.cs.guitar.model.data.ComponentType;
+import edu.umd.cs.guitar.model.data.ContainerType;
+import edu.umd.cs.guitar.model.data.ContentsType;
 import edu.umd.cs.guitar.model.data.PropertyType;
 import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.util.GUITARLog;
@@ -52,59 +55,101 @@ import edu.umd.cs.guitar.util.GUITARLog;
  */
 public class IphComponent extends GComponent {
 
+	ComponentType componentType = null;
+	ContentsType contentsType = null;
+	IphComponent parent = null;
+	
 	public IphComponent(GWindow window) {
 		super(window);
-		// TODO Auto-generated constructor stub
+		componentType = ((IphWindow) window).guiType.getContainer();
+		contentsType = ((IphWindow) window).guiType.getContainer().getContents();
 	}
 
-
+	public IphComponent(ComponentType childComp, IphComponent parent) {
+		super(parent.window);
+		
+		this.componentType = childComp;
+		
+		if (childComp instanceof ContainerType) {
+			this.contentsType = ((ContainerType) childComp).getContents();
+		}
+		this.parent = parent;
+	}
 
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		return componentType.getAttributes().getProperty().get(4).getValue().get(0);
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return new Integer(componentType.getAttributes().getProperty().get(0).getValue().get(0));
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return new Integer(componentType.getAttributes().getProperty().get(1).getValue().get(0));
 	}
-
-	@Override
-	public List<PropertyType> getGUIProperties() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private int getWidth() {
+		return new Integer(componentType.getAttributes().getProperty().get(2).getValue().get(0));
+	}
+	
+	private int getHeight() {
+		return new Integer(componentType.getAttributes().getProperty().get(3).getValue().get(0));
+	}
+	
+	private String getClassName() {
+		return componentType.getAttributes().getProperty().get(4).getValue().get(0);
 	}
 
 	@Override
 	public String getClassVal() {
 		// TODO Auto-generated method stub
-		return null;
+		return componentType.getAttributes().getProperty().get(4).getValue().get(0);
+	}
+
+	@Override
+	public List<PropertyType> getGUIProperties() {
+		// TODO Auto-generated method stub
+		return componentType.getAttributes().getProperty();
 	}
 
 	@Override
 	public List<GEvent> getEventList() {
 		// TODO Auto-generated method stub
-		return null;
+		//return null;
+		return new ArrayList<GEvent>();
 	}
 
 	@Override
 	public List<GComponent> getChildren() {
 		// TODO Auto-generated method stub
-		return null;
+		List<GComponent> iphChildren = new ArrayList<GComponent>();
+		
+		if (this.componentType instanceof ContainerType) {
+			if (((ContainerType) componentType).getContents() == null) {
+				
+			} else {
+				for (ComponentType child : ((ContainerType) componentType).getContents().getWidgetOrContainer()) {
+					iphChildren.add(new IphComponent(child, this));
+				}
+			}
+		} else {
+		
+			/*for (ComponentType child : ) {
+				//iphChildren.add(new IphComponent(child, this));
+			}*/
+		}
+		
+		return iphChildren;
+		//return null;
 	}
 
 	@Override
 	public GComponent getParent() {
 		// TODO Auto-generated method stub
-		return null;
+		return parent;
 	}
 
 	@Override
@@ -116,6 +161,9 @@ public class IphComponent extends GComponent {
 	@Override
 	public boolean hasChildren() {
 		// TODO Auto-generated method stub
+		if ( this.contentsType != null && this.contentsType.getWidgetOrContainer().size() > 0)
+			return true;
+		
 		return false;
 	}
 

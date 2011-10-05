@@ -245,6 +245,8 @@ public class IphRipperMonitor extends GRipperMonitor {
 	boolean isExpandable(GComponent gComponent, GWindow window) {
 		IphComponent component = (IphComponent) gComponent;
 		String ID = component.getTitle();
+		
+		System.out.println("Title : " + ID);
 		if (ID == null)
 			return false;
 

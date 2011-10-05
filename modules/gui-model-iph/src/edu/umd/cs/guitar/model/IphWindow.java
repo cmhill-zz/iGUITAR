@@ -152,7 +152,18 @@ public class IphWindow extends GWindow {
 	}
 	
 	@Override
-	public List<PropertyType> getGUIProperties() {
+	public List<PropertyType> getGUIProperties() {	
+		/*for (PropertyType propertyType : guiType.getWindow().getAttributes().getProperty()) {
+			System.out.print(propertyType.getName() + "\t:\t");
+			for (String value : propertyType.getValue()) {
+				System.out.print(value + " ");
+			}
+			System.out.println();
+		}*/
+		
+		return guiType.getWindow().getAttributes().getProperty();
+		/*
+		
 		List<PropertyType> retList = new ArrayList<PropertyType>();
 		
 		PropertyType p;
@@ -171,8 +182,7 @@ public class IphWindow extends GWindow {
 				e.printStackTrace();
 			}
 	
-		}
-		return retList;
+		}*/
 	}
 
 	@Override
@@ -194,6 +204,9 @@ public class IphWindow extends GWindow {
 
 	@Override
 	public GUIType extractGUIProperties() {
+		return guiType;
+		
+		/*
 		GUIType retGUI;
 
 		ObjectFactory factory = new ObjectFactory();
@@ -221,7 +234,7 @@ public class IphWindow extends GWindow {
 
 		retGUI.setContainer((ContainerType) dContainer);
 
-		return retGUI;
+		return retGUI;*/
 	}
 
 	@Override
@@ -240,6 +253,7 @@ public class IphWindow extends GWindow {
 	@Override
 	public GComponent getContainer() {
 		return new IphComponent(this);
+		//return gui;
 	}
 
 	@Override
