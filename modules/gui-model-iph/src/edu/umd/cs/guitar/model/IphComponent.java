@@ -75,7 +75,7 @@ public class IphComponent extends GComponent {
 		}
 		this.parent = parent;
 	}
-
+	
 	@Override
 	public String getTitle() {
 		return componentType.getAttributes().getProperty().get(4).getValue().get(0);
@@ -85,7 +85,7 @@ public class IphComponent extends GComponent {
 	public int getX() {
 		return new Integer(componentType.getAttributes().getProperty().get(0).getValue().get(0));
 	}
-
+	
 	@Override
 	public int getY() {
 		return new Integer(componentType.getAttributes().getProperty().get(1).getValue().get(0));

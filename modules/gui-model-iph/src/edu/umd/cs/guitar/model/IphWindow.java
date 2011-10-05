@@ -67,7 +67,9 @@ public class IphWindow extends GWindow {
 	boolean isVisible;
 	boolean isModal;
 	boolean isEnabled;
-	public IphWindow(String _title, String _className, int _x, int _y, int _width, int _height, boolean _isVisible, boolean _isModal, boolean _isEnabled, boolean _isRoot) {
+	
+	ArrayList<String> subViews = null;
+	public IphWindow(String _title, String _className, int _x, int _y, int _width, int _height, boolean _isVisible, boolean _isModal, boolean _isEnabled, boolean _isRoot, ArrayList<String> _subViews) {
 		// A window is invalid when it is not visible
 		title = _title;
 		className = _className;
@@ -80,6 +82,7 @@ public class IphWindow extends GWindow {
 		isEnabled = _isEnabled;
 		setRoot(_isRoot);
 		accessibleComponentSize =  "[width=" + getWidth() + ",height=" + getHeight() + "]";
+		subViews = _subViews;
 	}
 	
 	public IphWindow(GUIType guiType) {
@@ -153,36 +156,7 @@ public class IphWindow extends GWindow {
 	
 	@Override
 	public List<PropertyType> getGUIProperties() {	
-		/*for (PropertyType propertyType : guiType.getWindow().getAttributes().getProperty()) {
-			System.out.print(propertyType.getName() + "\t:\t");
-			for (String value : propertyType.getValue()) {
-				System.out.print(value + " ");
-			}
-			System.out.println();
-		}*/
-		
 		return guiType.getWindow().getAttributes().getProperty();
-		/*
-		
-		List<PropertyType> retList = new ArrayList<PropertyType>();
-		
-		PropertyType p;
-		Map<String, String> nameValueMap = new HashMap<String, String>();
-		IphCommServer.getWindowProperties(nameValueMap, title);
-		List<String> lPropertyValue;
-		for(Entry<String, String> entry : nameValueMap.entrySet()) {
-			try{ 
-				p = factory.createPropertyType();
-				lPropertyValue = new ArrayList<String>();
-				lPropertyValue.add(entry.getValue());
-				p.setName(entry.getKey());
-				p.setValue(lPropertyValue);
-				retList.add(p);
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			}
-	
-		}*/
 	}
 
 	@Override
@@ -252,6 +226,7 @@ public class IphWindow extends GWindow {
 	// Need to talk to Hua He
 	@Override
 	public GComponent getContainer() {
+		
 		return new IphComponent(this);
 		//return gui;
 	}

@@ -72,8 +72,7 @@ public class IphCommServer {
 		return true;
 	}
 
-	
-	
+
 	
 	public static String hear(){
 		String inputLine;
