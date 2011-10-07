@@ -49,45 +49,34 @@ import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
  * 
  * @see GWindow
  * 
- * @author <a href="mailto:baonn@cs.umd.edu"> Bao Nguyen </a>
+ * @author <a href="mailto:baonn@cs.umd.edu"> Rongjian Lan </a>
  */
 public class IphWindow extends GWindow {
 
 	public GUIType guiType = null;
-	
-	private String accessibleComponentSize = null;
-	
+		
 	private String className = null;
-	
-	String title;
-	int x;
-	int y;
-	int width;
-	int height;
-	boolean isVisible;
-	boolean isModal;
-	boolean isEnabled;
-	
-	ArrayList<String> subViews = null;
-	public IphWindow(String _title, String _className, int _x, int _y, int _width, int _height, boolean _isVisible, boolean _isModal, boolean _isEnabled, boolean _isRoot, ArrayList<String> _subViews) {
-		// A window is invalid when it is not visible
-		title = _title;
-		className = _className;
-		x = _x;
-		y = _y;
-		width = _width;
-		height = _height;
-		isVisible = _isVisible;
-		isModal = _isModal;
-		isEnabled = _isEnabled;
-		setRoot(_isRoot);
-		accessibleComponentSize =  "[width=" + getWidth() + ",height=" + getHeight() + "]";
-		subViews = _subViews;
-	}
+	private String title;
+	private int x;
+	private int y;
+	private int width;
+	private int height;
+	private boolean isVisible;
+	//private boolean isModal;
+	private boolean isEnabled;
 	
 	public IphWindow(GUIType guiType) {
 		this.guiType = guiType;
-		this.isRoot = true;
+		
+		title = GUITypeParser.getValueByName(this, "className").get(0);
+		className =  GUITypeParser.getValueByName(this, "className").get(0);;
+		x =  Integer.valueOf(GUITypeParser.getValueByName(this, "x").get(0));
+		y =  Integer.valueOf(GUITypeParser.getValueByName(this, "y").get(0));
+		width = Integer.valueOf(GUITypeParser.getValueByName(this, "width").get(0));
+		height = Integer.valueOf(GUITypeParser.getValueByName(this, "height").get(0));
+		//isVisible = Boolean.valueOf(XMLProcessor.getValueByName(this, "visible").get(0));
+		//isEnabled = Boolean.valueOf(XMLProcessor.getValueByName(this, "enabled").get(0));
+		this.setRoot(true);
 		
 		System.out.println("Creating IphWindow, with attributes: ");
 		for (PropertyType propertyType : guiType.getWindow().getAttributes().getProperty()) {
@@ -99,7 +88,6 @@ public class IphWindow extends GWindow {
 		}
 	}
 	
-	/*
 	private int getHeight() {
 		return height;
 	}
@@ -125,34 +113,8 @@ public class IphWindow extends GWindow {
 	@Override
 	public int getY() {
 		return y;
-	} */
+	} 
 	
-	@Override
-	public String getTitle() {
-		return guiType.getWindow().getAttributes().getProperty().get(4).getValue().get(0);
-	}
-
-	@Override
-	public int getX() {
-		return new Integer(guiType.getWindow().getAttributes().getProperty().get(0).getValue().get(0));
-	}
-
-	@Override
-	public int getY() {
-		return new Integer(guiType.getWindow().getAttributes().getProperty().get(1).getValue().get(0));
-	}
-	
-	private int getWidth() {
-		return new Integer(guiType.getWindow().getAttributes().getProperty().get(2).getValue().get(0));
-	}
-	
-	private int getHeight() {
-		return new Integer(guiType.getWindow().getAttributes().getProperty().get(3).getValue().get(0));
-	}
-	
-	private String getClassName() {
-		return guiType.getWindow().getAttributes().getProperty().get(4).getValue().get(0);
-	}
 	
 	@Override
 	public List<PropertyType> getGUIProperties() {	
@@ -170,45 +132,20 @@ public class IphWindow extends GWindow {
 	
 	@Override
 	public boolean equals(Object window) {
-		if (window != null) {
+		if (window == null) {
+			return false;
+		}
+		
+		if (window.getClass() == this.getClass()) {
 			return this.hashCode() == ((IphWindow) window).hashCode();
 		}
+		
 		return false;
 	}
 
 	@Override
 	public GUIType extractGUIProperties() {
 		return guiType;
-		
-		/*
-		GUIType retGUI;
-
-		ObjectFactory factory = new ObjectFactory();
-		retGUI = factory.createGUIType();
-
-		// Window
-		ComponentType dWindow = factory.createComponentType();
-		ComponentTypeWrapper gaWindow = new ComponentTypeWrapper(dWindow);
-		dWindow = gaWindow.getDComponentType();
-
-		gaWindow.addValueByName("Size", accessibleComponentSize);
-
-		retGUI.setWindow(dWindow);
-
-		// Container
-
-		ComponentType dContainer = factory.createContainerType();
-		ComponentTypeWrapper gaContainer = new ComponentTypeWrapper(dContainer);
-
-		gaContainer.addValueByName("Size", accessibleComponentSize);
-		dContainer = gaContainer.getDComponentType();
-
-		ContentsType dContents = factory.createContentsType();
-		((ContainerType) dContainer).setContents(dContents);
-
-		retGUI.setContainer((ContainerType) dContainer);
-
-		return retGUI;*/
 	}
 
 	@Override
@@ -223,17 +160,14 @@ public class IphWindow extends GWindow {
 		return true;
 	}
 
-	// Need to talk to Hua He
 	@Override
 	public GComponent getContainer() {
-		
 		return new IphComponent(this);
-		//return gui;
 	}
 
 	@Override
 	public boolean isModal() {
-		return isModal;
+		return false; //isModal;
 	}
 
 }

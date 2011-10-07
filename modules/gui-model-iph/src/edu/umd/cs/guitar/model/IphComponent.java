@@ -19,39 +19,20 @@
  */
 package edu.umd.cs.guitar.model;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Window;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-
-import javax.accessibility.Accessible;
-import javax.accessibility.AccessibleAction;
-import javax.accessibility.AccessibleContext;
-import javax.swing.JTabbedPane;
-
-import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.ContainerType;
 import edu.umd.cs.guitar.model.data.ContentsType;
 import edu.umd.cs.guitar.model.data.PropertyType;
-import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
-import edu.umd.cs.guitar.util.GUITARLog;
-
 /**
  * Implementation for {@link GWindow} for Java Swing
  * 
  * @see GWindow
  * 
  * 
- * @author <a href="mailto:baonn@cs.umd.edu"> Bao Nguyen </a>
+ * @author <a href="mailto:baonn@cs.umd.edu"> Hua He </a>
  */
 public class IphComponent extends GComponent {
 

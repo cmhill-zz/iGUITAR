@@ -50,10 +50,12 @@ import edu.umd.cs.guitar.model.data.PropertyType;
 import edu.umd.cs.guitar.ripper.IphRipperConfiguration;
 
 public class XMLProcessor {
- 
-//	public static void main(String[] args) {
-//		(new XMLProcessor()).createXmlFile();
-//	}
+
+	/**
+	 * Parse an xml file into Document object
+	 * @param file xml source
+	 * @return Document object
+	 */
 	public static Document parse(File file) {
 			try {
 				return parse(new FileInputStream(file));
@@ -62,6 +64,21 @@ public class XMLProcessor {
 			}
 	}
 	
+	/**
+	 * Parse an xml string into Document object
+	 * @param inputString xml string
+	 * @return Document object
+	 */
+	public static Document parse(String inputString) {
+		InputStream is = new StringBufferInputStream(inputString);
+		return parse(is);
+	}
+	
+	/**
+	 * Parse an xml InputStream into Document object
+	 * @param is InputStream
+	 * @return Document object
+	 */
 	public static Document parse(InputStream is) {
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -72,32 +89,16 @@ public class XMLProcessor {
 			doc = docBuilder.parse(is);
 			return doc;
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
-	public static Document parse(String inputString) {
-		InputStream is = new StringBufferInputStream(inputString);
-		return parse(is);
-	}
 	
-	/* Desired XML format for IphWindow
-		-<Attributes>
-			-<Property>
-				<Name>Title</Name>
-				<Value>window_A<Value>
-			-</Property>
-			...
-			...
-		-</Attributes>
-	*/
+	
 	public static void parseProperties(Map<String, String> nameValueMap, String inputString) {
 		if (nameValueMap == null) 
 			nameValueMap = new HashMap<String, String>();
@@ -139,22 +140,6 @@ public class XMLProcessor {
 		}
 	}
 	
-	
-	
-	
-	/* Desired XML format for IphWindow
-		- <Window>
-			-<Attributes>
-				-<Property>
-					<Name>Title</Name>
-					<Value>window_A<Value>
-				-</Property>
-				...
-				...
-			-</Attributes>
-		-</Window>            
-	*/
-	
 	public static String getProperty(List<PropertyType> pList, String propertyName) {
 		for (PropertyType p : pList) {
 			 String name =  p.getName();
@@ -181,98 +166,18 @@ public class XMLProcessor {
 		 }
 		return null;
 	}
-	public static void parseWindowList(List<IphWindow> lWindow, String xmlContent) {
-		
-		ArrayList<PropertyType> pList = null;
-		String className = null;
-		String title = null;
-		int x = 0;
-		int y = 0;
-		int width = 0;
-		int height = 0;
-		boolean isVisible = false;
-		boolean isModal = false;;
-		boolean isEnabled = false;;
-		boolean isRoot = false;;
-		ArrayList<String> subViews = null;
-		
-		writeToFile(xmlContent, "Windows.xml");
-		GUIType gui = (GUIType) IO.readObjFromFile("Windows.xml", GUIType.class);
-		
-		
-		Stack<ContainerType> viewStack = new Stack<ContainerType>();
-		viewStack.push( gui.getContainer());
-		
-		while (!viewStack.isEmpty()) {
-			ContainerType currentContainer = viewStack.pop();
-			pList = (ArrayList<PropertyType>) currentContainer.getAttributes().getProperty();
-			
-			ArrayList<ComponentType> lContainer = (ArrayList<ComponentType>) currentContainer.getContents().getWidgetOrContainer();
-			
-			
-			subViews = new ArrayList<String>();
-			
-			for (ComponentType ct : lContainer) {
-				ContainerType temp = (ContainerType) ct;
-				subViews.add(getProperty(temp.getAttributes().getProperty(), IphConstants.WINDOW_TITLE));
-				viewStack.push(temp);
-			}
-			
-			
-			for (PropertyType p : pList) {
-				 String name =  p.getName();
-				 if (name == IphConstants.WINDOW_CLASS) 
-					 className = p.getValue().get(0);
-				 if (name == IphConstants.WINDOW_TITLE) 
-					 title = p.getValue().get(0);
-				 if (name == IphConstants.WINDOW_X) 
-					 x = Integer.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_Y) 
-					 y = Integer.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_WIDTH) 
-					 width = Integer.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_HEIGHT) 
-					 height = Integer.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_ENABLED) 
-					 isEnabled = Boolean.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_VISIBLE)
-					 isVisible = Boolean.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_MODAL) 
-					 isModal = Boolean.valueOf(p.getValue().get(0));
-				 if (name == IphConstants.WINDOW_ROOTWINDOW) 
-					 isRoot = Boolean.valueOf(p.getValue().get(0));			 
-			 }
-			
-			IphWindow iWindow = new IphWindow(title, className, x, y, width, height, isVisible, isModal, isEnabled, isRoot, subViews);
-			lWindow.add(iWindow);
-		}
-	}
 	
-	public static void seperate(String xmlContent) {
-		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder docBuilder;
-		try {
-			docBuilder = docFactory.newDocumentBuilder();
-			
-			Document doc = parse(xmlContent);
-			NodeList nl = doc.getChildNodes();
-			doc = docBuilder.newDocument();
-			doc.appendChild(nl.item(0));
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-	}
+	/**
+	 * Get the value associated with the given property name in an xml file
+	 * @param file
+	 * @param propertyName
+	 * @return property value
+	 */
 	public static String getValue(File file, String propertyName) {
 		Document doc = parse(file);
-		
 		NodeList nodeList = doc.getChildNodes();
 		NodeList currentList;
 		Node currentNode;
-		
 		Stack<NodeList> all = new Stack<NodeList>(); //Stack for traverse the doc
 		all.push(nodeList);
 		while (all.size() != 0) {
@@ -288,15 +193,18 @@ public class XMLProcessor {
 				}
 			}
 		}
-		
 		return null;
 	}
 	
+	/**
+	 * Write xml into file
+	 * @param xmlContent
+	 * @param fileName
+	 */
 	public static void writeToFile(String xmlContent, String fileName) {
-		
 		try {
 			Document doc = parse(xmlContent);
-			File resultFile = new File("G:\\file.xml");
+			File resultFile = new File(fileName);
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			
@@ -311,8 +219,12 @@ public class XMLProcessor {
 		}
 		System.out.println("File saved!");
 	}
+	
+	/**
+	 * Create xml file
+	 * @return
+	 */
 	public static File createXmlFile() {
-		
 		// Function test
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -373,12 +285,11 @@ public class XMLProcessor {
 			doc1 = docBuilder.parse(resultFile);
 			System.out.println(getValue(resultFile, "salary"));
 
-
 			return resultFile;
 		  } catch (ParserConfigurationException pce) {
-			pce.printStackTrace();
+			  pce.printStackTrace();
 		  } catch (TransformerException tfe) {
-			tfe.printStackTrace();
+			  tfe.printStackTrace();
 		  } catch (SAXException se) {
 			  se.printStackTrace();
 		  } catch (IOException ioe) {

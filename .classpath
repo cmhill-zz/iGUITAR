@@ -93,25 +93,25 @@
 	<classpathentry kind="lib" path="modules/gui-ripper-sel/resources/java-getopt-1.0.13.jar"/>
 	<classpathentry kind="lib" path="modules/gui-ripper-sel/resources/selenium-server-standalone-2.0b1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/abs2exec-tc-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/abs2exec-tc-efg2eig.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/abs2exec-tc-path2root.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/graph2graph-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/graph2graph-efg2ecig.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/graph2graph-efg2eig.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/graph2graph-graph-info.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/graph-converter.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/gui-model-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/gui-model-iph.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/gui-replayer-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/gui-replayer-iph.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/gui-ripper-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/gui-ripper-iph.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/guistructure2graph-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/guistructure2graph-efg.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/testcase-generator-core.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/testcase-generator-program-analysis.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/testcase-generator-random-sequence-length.jar"/>
-	<classpathentry kind="lib" path="G:/workspace/iGUITAR/dist/guitar/jars/guitar-lib/testcase-generator-sequence-length.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/abs2exec-tc-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/abs2exec-tc-efg2eig.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/abs2exec-tc-path2root.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/graph-converter.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/graph2graph-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/graph2graph-efg2ecig.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/graph2graph-efg2eig.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/graph2graph-graph-info.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/gui-model-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/gui-model-iph.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/gui-replayer-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/gui-replayer-iph.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/gui-ripper-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/gui-ripper-iph.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/guistructure2graph-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/guistructure2graph-efg.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/testcase-generator-core.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/testcase-generator-program-analysis.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/testcase-generator-random-sequence-length.jar"/>
+	<classpathentry kind="lib" path="dist/guitar/jars/guitar-lib/testcase-generator-sequence-length.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
