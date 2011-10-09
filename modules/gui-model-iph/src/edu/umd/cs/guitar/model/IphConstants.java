@@ -80,9 +80,10 @@ public class IphConstants {
 	/**
 	 * List of properties used to identify a widget on the GUI
 	 */
-	public static List<String> ID_PROPERTIES = Arrays.asList("Title", "Class",
-			"Icon", "Index");
-
+	public static List<String> ID_PROPERTIES = Arrays.asList("className", "x", "y");
+//	public static List<String> ID_PROPERTIES = Arrays.asList("Title", "Class",
+//			"Icon", "Index");
+	//"className", "address"
 	/**
 	 * Iph specific tags
 	 * 

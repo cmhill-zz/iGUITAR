@@ -29,7 +29,30 @@ public class CommClient {
     }
     public CommClient() {
     	SERVER_HOST = "localhost";
-    	PORT_NUM = 8081;     
+    	PORT_NUM = 8089;     
+    	
+    	thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				try {
+					thread.sleep(2000);
+					System.out.println("client sleep for 2s");
+					connect();
+
+					thread.sleep(100);
+					hearAndReply();
+					System.out.println("Client: stop hearing");
+
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+			}
+    		
+    	});
+    	thread.start();
     }
     
     public void close() {
@@ -47,12 +70,14 @@ public class CommClient {
     public boolean connect() {
     	return connect(SERVER_HOST, PORT_NUM);
     }
+    
     public boolean connect(String host, int port) {
         try {
             socket = new Socket(host, port);
             socket.setSoTimeout(TIME_OUT);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            System.out.println("Client: connected!");
         } catch (UnknownHostException e) {
             System.err.println("Failed to connect to host: " + host);
             return false;
@@ -80,19 +105,26 @@ public class CommClient {
     public void hearAndReply() {
     	String fromServer;
     	try {
+    		System.out.println("Client: Hearing");////
 			while ((fromServer = in.readLine()) != null) {
-				if (fromServer == IphCommServerConstants.GET_WINDOW_LIST) {
+				System.out.println("Client: " + fromServer + " heared");
+				if (fromServer.equals(IphCommServerConstants.GET_WINDOW_LIST)) {
+					System.out.println("Sending XML");
 					FileReader fr = new FileReader(new File("G:\\window.xml"));
 					BufferedReader br = new BufferedReader(fr);
-					out.write(br.readLine());
+					out.println(br.readLine());
+					out.flush();
 					break;
+				} else {
+					return;
 				}
 			 }
+			System.out.println("Client: Hearing--");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
+    
     public String request(String request) throws IOException {
     	out.println(request);
     	System.out.println("Client: Request sent");
@@ -103,7 +135,4 @@ public class CommClient {
     	 return null;
     }
     
-    public static void main(String[] args) throws IOException {
-    	(new CommClient()).connect();
-    }
 }

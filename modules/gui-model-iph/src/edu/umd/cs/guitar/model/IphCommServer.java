@@ -18,7 +18,7 @@ public class IphCommServer {
 	static BufferedReader fromIphone;
 
 	private static int time_out = 0;
-	private static int port_num = 8081;
+	private static int port_num = 8081;	
 
 	private static boolean connected = false;
 	
@@ -61,14 +61,11 @@ public class IphCommServer {
 			fromIphone= new BufferedReader(new InputStreamReader(iSocket.getInputStream()));
 			System.out.println("IOStream initialized successfully!");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return true;
 	}
 
-
-	
 	public static String hear(){
 		String inputLine;
 		try {
@@ -77,7 +74,6 @@ public class IphCommServer {
 				return inputLine;
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -114,7 +110,6 @@ public class IphCommServer {
 	public static String requestAndHear(String request) {
 		if (isConnected() == true) {
 			request(request);
-			//toIphone.write(request);
 			return hear();
 		} else {
 			return null;
@@ -141,14 +136,19 @@ public class IphCommServer {
 		}
 	}
 
-	// Comm API
+	/**
+	 * Request the GUIStructure in xml format from the Object-C Guitar, and fill in IphWindow list with WindowType
+	 * @param windows
+	 */
 	public static void requestMainView(ArrayList<IphWindow> windows) {
 		// Create a XML handler to parse the iPhone client's GUI response.
 		XMLHandler xmlHandler = new XMLHandler();
 		
+		System.out.println("Did request");
 		// The xml handler needs an InputStream.
 		ByteArrayInputStream bs = new ByteArrayInputStream(
 				requestAndHear(IphCommServerConstants.GET_WINDOW_LIST).getBytes());
+		
 		
 		// We can create the GUIStructure here using the xml handler.
 		GUIStructure guiWindow = (GUIStructure) xmlHandler.readObjFromFile(bs, GUIStructure.class);
@@ -156,13 +156,8 @@ public class IphCommServer {
 		// Pass the GUI to the new IphWindow object.
 		windows.add(new IphWindow(guiWindow.getGUI().get(0)));
 	}
-
-	public static void requestAllOwnedView(ArrayList<IphWindow> windows, String title) {
-		// XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_OWNED_WINDOW_LIST + title));
-	}
-
-	public static void getWindowProperties(Map<String, String> nameValueMap, String title) {
-		String xmlContent = requestAndHear(IphCommServerConstants.GET_WINDOW_PROPERTY_LIST + title);
-		// XMLProcessor.parseProperties(nameValueMap, xmlContent);
-	}
+//	public static void getWindowProperties(Map<String, String> nameValueMap, String title) {
+//		String xmlContent = requestAndHear(IphCommServerConstants.GET_WINDOW_PROPERTY_LIST + title);
+//		XMLProcessor.parseProperties(nameValueMap, xmlContent);
+//	}
 }

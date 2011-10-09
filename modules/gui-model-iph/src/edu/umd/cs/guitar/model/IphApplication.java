@@ -41,6 +41,16 @@ public class IphApplication extends GApplication {
 			GUITARLog.log.debug("\t" + args[i]);
 		GUITARLog.log.debug("");
 		
+//		IphCommServer.setUpIServerSocket();
+//		if (IphCommServer.waitForConnection()) {
+//			IphCommServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
+//			if (IphCommServer.hear() == IphCommServerConstants.APP_LAUNCHED) {
+//				System.out.println("The application has been launched!");
+//			}
+//		} else {
+//			System.out.println("Connection failed! System is exiting!");
+//			System.exit(1);
+//		}
 		IphCommServer.setUpIServerSocket();
 		if (IphCommServer.waitForConnection()) {
 			IphCommServer.request(IphCommServerConstants.INVOKE_MAIN_METHOD);
@@ -63,32 +73,19 @@ public class IphApplication extends GApplication {
 	// Complete - Rongjian Lan
 	@Override
 	public Set<GWindow> getAllWindow() {
-		Set<GWindow> retWindows = new HashSet<GWindow>();
+		if (allWindows == null) {
+			allWindows = new HashSet<GWindow>();
+		} else {
+			return allWindows;
+		}
+		// Set<GWindow> retWindows = new HashSet<GWindow>();
 		
 		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
 		IphCommServer.requestMainView(windows);
-//		for (IphWindow iWindow : windows) {
-//			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
-//		}
-		retWindows.addAll(windows);
+		allWindows.addAll(windows);
 		for (IphWindow iWindow : windows) {
-			//retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
-			retWindows.add(iWindow);
+			allWindows.add(iWindow);
 		}
-		
-		return retWindows;
+		return allWindows;
 	}
-	
-//	// Complete - Rongjian Lan
-//	public Set<GWindow> getAllOwnedWindow(String viewTitle) {
-//		Set<GWindow> retWindows = new HashSet<GWindow>();
-//		ArrayList<IphWindow> windows = new ArrayList<IphWindow>();
-//		IphCommServer.requestAllOwnedView(windows, viewTitle);
-//		retWindows.addAll(windows);
-//		for (IphWindow iWindow : windows) {
-//			retWindows.addAll(getAllOwnedWindow(iWindow.getTitle()));
-//		}
-//		return retWindows;
-//	}
-
 }

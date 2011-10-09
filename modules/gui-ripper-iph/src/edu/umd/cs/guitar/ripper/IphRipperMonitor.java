@@ -12,6 +12,7 @@ import edu.umd.cs.guitar.event.IphEvent;
 import edu.umd.cs.guitar.event.IphTouchEvent;
 
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
+import edu.umd.cs.guitar.model.CommClient;
 import edu.umd.cs.guitar.model.GComponent;
 import edu.umd.cs.guitar.model.GUITARConstants;
 import edu.umd.cs.guitar.model.GWindow;
@@ -111,6 +112,9 @@ public class IphRipperMonitor extends GRipperMonitor {
 			GUITARLog.log.debug("Requesting server host:" + this.configuration.SERVER_HOST);
 			GUITARLog.log.debug("Requesting server port:" + this.configuration.PORT);
 			
+			// set up the client
+			//new CommClient();
+			
 			application.connect(args);
 
 			// Delay
@@ -125,7 +129,6 @@ public class IphRipperMonitor extends GRipperMonitor {
 			}
 
 		}  catch (ApplicationConnectException e) {
-			// TODO Auto-generated catch block
 			GUITARLog.log.error(e);
 		}
 
