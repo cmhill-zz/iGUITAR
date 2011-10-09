@@ -1,0 +1,44 @@
+2011-10-09 13:18:24.253 ButtonTest[11344:903] Should be here.
+2011-10-09 13:18:24.364 ButtonTest[11344:903] SBSetAccelerometerClientEventsEnabled failed: (ipc/send) invalid destination port
+2011-10-09 13:18:24.424 ButtonTest[11344:903] Handle event.
+2011-10-09 13:18:24.424 ButtonTest[11344:903] NSStreamEventOpenCompleted
+2011-10-09 13:18:24.425 ButtonTest[11344:903] Handle event.
+2011-10-09 13:18:24.426 ButtonTest[11344:903] Received stream
+2011-10-09 13:18:24.426 ButtonTest[11344:903] invoke main method
+2011-10-09 13:18:24.427 ButtonTest[11344:903] In main method call.
+2011-10-09 13:18:24.427 ButtonTest[11344:903] Done sending message.
+2011-10-09 13:18:24.428 ButtonTest[11344:903] Finishing main method call.
+2011-10-09 13:18:24.570 ButtonTest[11344:903] Handle event.
+2011-10-09 13:18:24.571 ButtonTest[11344:903] Received stream
+2011-10-09 13:18:24.572 ButtonTest[11344:903] get root window list
+2011-10-09 13:18:24.572 ButtonTest[11344:903] Adding window tags.
+2011-10-09 13:18:24.573 ButtonTest[11344:903] Header: <GUIStructure><GUI><Window>
+2011-10-09 13:18:24.575 ButtonTest[11344:903] <GUIStructure><GUI><Window><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>320</Value></Property><Property><Name>height</Name><Value>480</Value></Property><Property><Name>className</Name><Value>UIWindow</Value></Property><Property><Name>address</Name><Value>78797392</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Window><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>20</Value></Property><Property><Name>width</Name><Value>320</Value></Property><Property><Name>height</Name><Value>460</Value></Property><Property><Name>className</Name><Value>UIView</Value></Property><Property><Name>address</Name><Value>78913824</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>95</Value></Property><Property><Name>y</Name><Value>78</Value></Property><Property><Name>width</Name><Value>134</Value></Property><Property><Name>height</Name><Value>37</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81819360</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>36</Value></Property><Property><Name>y</Name><Value>9</Value></Property><Property><Name>width</Name><Value>62</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78913568</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>20</Value></Property><Property><Name>y</Name><Value>156</Value></Property><Property><Name>width</Name><Value>280</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78916640</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container></GUI></GUIStructure>
+2011-10-09 13:18:24.576 ButtonTest[11344:903] Done sending message.
+2011-10-09 13:18:24.576 ButtonTest[11344:903] Finishing get root window list.
+2011-10-09 13:18:25.099 ButtonTest[11344:903] Handle event.
+2011-10-09 13:18:25.100 ButtonTest[11344:903] Received stream
+2011-10-09 13:18:25.101 ButtonTest[11344:903] INVOKE TOUCH UIView 78913824
+2011-10-09 13:18:25.102 ButtonTest[11344:903] Done sending message.
+2011-10-09 13:18:25.103 ButtonTest[11344:903] Received TOUCH request.
+2011-10-09 13:18:25.103 ButtonTest[11344:903] Looking for view: UIView, with address: 78913824.
+2011-10-09 13:18:25.104 ButtonTest[11344:903] Looking for view: UIView, with address: 78913824.
+2011-10-09 13:18:25.126 ButtonTest[11344:903] ...class names are equal
+2011-10-09 13:18:25.126 ButtonTest[11344:903] ...address is equal too!
+2011-10-09 13:18:25.127 ButtonTest[11344:903] Found a good view to touch!
+2011-10-09 13:18:25.128 ButtonTest[11344:903] Sending response back
+2011-10-09 13:18:25.129 ButtonTest[11344:903] Done sending message.
+2011-10-09 13:18:25.267 ButtonTest[11344:903] Handle event.
+2011-10-09 13:18:25.270 ButtonTest[11344:903] Received stream
+2011-10-09 13:18:25.271 ButtonTest[11344:903] INVOKE TOUCH UIRoundedRectButton 81819360
+2011-10-09 13:18:25.272 ButtonTest[11344:903] Done sending message.
+2011-10-09 13:18:25.272 ButtonTest[11344:903] Received TOUCH request.
+2011-10-09 13:18:25.273 ButtonTest[11344:903] Looking for view: UIRoundedRectButton, with address: 81819360.
+2011-10-09 13:18:25.273 ButtonTest[11344:903] Looking for view: UIRoundedRectButton, with address: 81819360.
+2011-10-09 13:18:25.274 ButtonTest[11344:903] Looking for view: UIRoundedRectButton, with address: 81819360.
+2011-10-09 13:18:25.275 ButtonTest[11344:903] ...class names are equal
+2011-10-09 13:18:25.275 ButtonTest[11344:903] ...address is equal too!
+2011-10-09 13:18:25.276 ButtonTest[11344:903] Found a good view to touch!
+2011-10-09 13:18:25.277 ButtonTest[11344:903] Wow, someone touched me!
+2011-10-09 13:18:25.277 ButtonTest[11344:903] Sending response back
+2011-10-09 13:18:25.278 ButtonTest[11344:903] Done sending message.
