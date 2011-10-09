@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.io.*;
 
-import com.gargoylesoftware.htmlunit.javascript.host.Window;
-
 import edu.umd.cs.guitar.model.data.GUIStructure;
 import edu.umd.cs.guitar.model.data.GUIType;
 
@@ -18,9 +16,6 @@ public class IphCommServer {
 
 	static PrintWriter toIphone;
 	static BufferedReader fromIphone;
-
-	//XMLProcessor xmlProcessor;
-	//File xmlFile;
 
 	private static int time_out = 0;
 	private static int port_num = 8081;
@@ -163,11 +158,11 @@ public class IphCommServer {
 	}
 
 	public static void requestAllOwnedView(ArrayList<IphWindow> windows, String title) {
-		XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_OWNED_WINDOW_LIST + title));
+		// XMLProcessor.parseWindowList(windows, requestAndHear(IphCommServerConstants.GET_OWNED_WINDOW_LIST + title));
 	}
 
 	public static void getWindowProperties(Map<String, String> nameValueMap, String title) {
 		String xmlContent = requestAndHear(IphCommServerConstants.GET_WINDOW_PROPERTY_LIST + title);
-		XMLProcessor.parseProperties(nameValueMap, xmlContent);
+		// XMLProcessor.parseProperties(nameValueMap, xmlContent);
 	}
 }

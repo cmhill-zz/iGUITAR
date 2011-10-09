@@ -31,13 +31,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.accessibility.Accessible;
-import javax.accessibility.AccessibleAction;
-import javax.accessibility.AccessibleContext;
-import javax.swing.JTabbedPane;
-
 import edu.umd.cs.guitar.event.EventManager;
 import edu.umd.cs.guitar.event.GEvent;
+import edu.umd.cs.guitar.event.IphTouchEvent;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.ContainerType;
 import edu.umd.cs.guitar.model.data.ContentsType;
@@ -102,6 +98,10 @@ public class IphComponent extends GComponent {
 	private String getClassName() {
 		return componentType.getAttributes().getProperty().get(4).getValue().get(0);
 	}
+	
+	public String getAddress() {
+		return componentType.getAttributes().getProperty().get(5).getValue().get(0);
+	}
 
 	@Override
 	public String getClassVal() {
@@ -117,14 +117,21 @@ public class IphComponent extends GComponent {
 
 	@Override
 	public List<GEvent> getEventList() {
-		// TODO Auto-generated method stub
-		//return null;
-		return new ArrayList<GEvent>();
+		List<GEvent> eventList = new ArrayList<GEvent>();
+		for (PropertyType property : this.getGUIProperties()) {
+			// Go through the properties and find if one contains
+			// INVOKE, TOUCH.
+			if (property.getName().equals("INVOKE") &&
+					property.getValue().get(0).equals("TOUCH")) {
+				eventList.add(new IphTouchEvent());
+			}
+		}
+		
+		return eventList;
 	}
 
 	@Override
 	public List<GComponent> getChildren() {
-		// TODO Auto-generated method stub
 		List<GComponent> iphChildren = new ArrayList<GComponent>();
 		
 		if (this.componentType instanceof ContainerType) {
@@ -135,32 +142,23 @@ public class IphComponent extends GComponent {
 					iphChildren.add(new IphComponent(child, this));
 				}
 			}
-		} else {
-		
-			/*for (ComponentType child : ) {
-				//iphChildren.add(new IphComponent(child, this));
-			}*/
-		}
+		} 
 		
 		return iphChildren;
-		//return null;
 	}
 
 	@Override
 	public GComponent getParent() {
-		// TODO Auto-generated method stub
 		return parent;
 	}
 
 	@Override
 	public String getTypeVal() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getClassName();
 	}
 
 	@Override
 	public boolean hasChildren() {
-		// TODO Auto-generated method stub
 		if ( this.contentsType != null && this.contentsType.getWidgetOrContainer().size() > 0)
 			return true;
 		
@@ -169,21 +167,27 @@ public class IphComponent extends GComponent {
 
 	@Override
 	public boolean isTerminal() {
-		// TODO Auto-generated method stub
-		return false;
+		return hasChildren();
 	}
 
 	@Override
 	public boolean isEnable() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	public boolean isClickable() {
 		// Rongjian Lan: I need this API, please implement it
+		for (PropertyType property : this.getGUIProperties()) {
+			// Go through the properties and find if one contains
+			// INVOKE, TOUCH.
+			if (property.getName().equals("INVOKE") &&
+					property.getValue().get(0).equals("TOUCH")) {
+				System.out.println("IphComponent : " + this.getClassVal()
+						+ ", supports TOUCH (clickable)");
+				return true;
+			}
+		}
+		
 		return false;
 	}
-
-	
-
 }

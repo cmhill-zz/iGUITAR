@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import org.netbeans.jemmy.EventTool;
 
 import edu.umd.cs.guitar.event.GEvent;
 import edu.umd.cs.guitar.event.IphEvent;
+import edu.umd.cs.guitar.event.IphTouchEvent;
 
 import edu.umd.cs.guitar.exception.ApplicationConnectException;
 import edu.umd.cs.guitar.model.GComponent;
@@ -38,10 +38,8 @@ public class IphRipperMonitor extends GRipperMonitor {
 	List<String> sIgnoreWindowList = new ArrayList<String>();
 	List<String> sRootWindows = new ArrayList<String>();
 	
-	
 	public IphApplication application;
 
-	
 	/**
 	 * Temporary list of windows opened during the expand event is being
 	 * performed. Those windows are in a native form to prevent data loss.
@@ -52,8 +50,6 @@ public class IphRipperMonitor extends GRipperMonitor {
 	volatile LinkedList<GWindow> tempClosedWinStack = new LinkedList<GWindow>();
 	
 	private static final int INITIAL_DELAY = 1000;
-
-	
 	
 	/**
 	 * Constructor
@@ -148,7 +144,7 @@ public class IphRipperMonitor extends GRipperMonitor {
 			}
 			for (GWindow window : application.allWindows) {
 				System.out.println("Checking window : " + window.getTitle() + 
-						" (isRoote : " + window.isRoot() + " | isValid : " + window.isValid() + ")");
+						" (isRoot : " + window.isRoot() + " | isValid : " + window.isValid() + ")");
 				if (window.isRoot() && window.isValid()) {
 					retWindowList.add(window);
 				}
@@ -230,13 +226,16 @@ public class IphRipperMonitor extends GRipperMonitor {
 
 		GUITARLog.log.info("Expanding *" + component.getTitle() + "*...");
 		
-		GEvent action = new IphEvent();
+		GEvent action = new IphTouchEvent();
 
-		action.perform(component, null);
+		if (action.isSupportedBy(component))
+			action.perform(component, null);
+		
 		GUITARLog.log.info("Waiting  " + configuration.DELAY
 				+ "ms for a new window to open");
 
-		new EventTool().waitNoEvent(configuration.DELAY);
+		// Removed below because it broke the client.
+		//new EventTool().waitNoEvent(configuration.DELAY);
 	}
 
 	// Preliminary implementation - Rongjian Lan
@@ -260,8 +259,8 @@ public class IphRipperMonitor extends GRipperMonitor {
 		if (!component.isClickable())
 			return false;
 
-		if (component.getTypeVal().equals(GUITARConstants.TERMINAL))
-			return false;
+		//if (component.getTypeVal().equals(GUITARConstants.TERMINAL))
+		//	return false;
 
 		return true;
 	}
