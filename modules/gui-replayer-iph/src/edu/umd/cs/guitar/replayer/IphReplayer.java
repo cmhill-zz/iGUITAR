@@ -51,12 +51,10 @@ import edu.umd.cs.guitar.model.data.FullComponentType;
 import edu.umd.cs.guitar.model.data.TestCase;
 import edu.umd.cs.guitar.model.wrapper.AttributesTypeWrapper;
 import edu.umd.cs.guitar.model.wrapper.ComponentTypeWrapper;
-import edu.umd.cs.guitar.replayer.monitor.CoberturaCoverageMonitor;
 import edu.umd.cs.guitar.replayer.monitor.GTestMonitor;
 import edu.umd.cs.guitar.replayer.monitor.PauseMonitor;
 import edu.umd.cs.guitar.replayer.monitor.StateMonitorFull;
 import edu.umd.cs.guitar.replayer.monitor.TimeMonitor;
-import edu.umd.cs.guitar.ripper.IphRipperConfiguration;
 import edu.umd.cs.guitar.replayer.IphReplayerConfiguration;
 import edu.umd.cs.guitar.util.GUITARLog;
 
