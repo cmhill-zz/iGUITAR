@@ -22,6 +22,8 @@ package edu.umd.cs.guitar.model;
 import java.util.ArrayList;
 import java.util.List;
 import edu.umd.cs.guitar.event.GEvent;
+import edu.umd.cs.guitar.event.IphSwipeEvent;
+import edu.umd.cs.guitar.event.IphSwipeEventThread;
 import edu.umd.cs.guitar.event.IphTouchEvent;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.ContainerType;
@@ -110,6 +112,9 @@ public class IphComponent extends GComponent {
 			if (property.getName().equals("INVOKE") &&
 					property.getValue().get(0).equals("TOUCH")) {
 				eventList.add(new IphTouchEvent());
+			}else if (property.getName().equals("INVOKE") &&
+					property.getValue().get(0).equals("SWIPE")) {
+				eventList.add(new IphSwipeEvent());
 			}
 		}
 		
