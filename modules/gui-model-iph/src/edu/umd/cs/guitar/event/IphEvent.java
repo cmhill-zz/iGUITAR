@@ -28,15 +28,15 @@ public class IphEvent implements GEvent{
 		String eventname = new String();
 		List<GEvent> eventlist = iphComponent.getEventList();
 		for (GEvent event:eventlist){
-			if (event instanceof IphTouchEvent){
-				eventname += "INVOKE_TOUCH";
+			if (event instanceof IphTouchEventThread){
+				eventname += "TOUCH";
 			}
 			if(event instanceof IphSwipeEvent){
-				eventname += "INVOKE_SWIPE";
+				eventname += "SWIPE";
 			}
 		}
 		String eventrequest = new String();
-		eventrequest = "expand" + eventname + " " + address + " " + classname;
+		eventrequest = "INVOKE " + eventname + " " + address + " " + classname;
 		IphCommServer.request(eventrequest);
 	}
 
