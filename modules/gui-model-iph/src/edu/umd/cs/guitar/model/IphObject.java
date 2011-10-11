@@ -1,3 +1,6 @@
+///I do not think this iphobject is useful because we never use it. 
+///Everything is from GObject instead of this iphObject.
+
 package edu.umd.cs.guitar.model;
 
 import java.util.List;
