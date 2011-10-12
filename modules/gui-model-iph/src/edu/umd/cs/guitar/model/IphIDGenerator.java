@@ -1,3 +1,5 @@
+///Direct Usage of DefaultIDGenerator is good, I did not see any changes necessary yet.
+
 package edu.umd.cs.guitar.model;
 
 import java.util.ArrayList;
