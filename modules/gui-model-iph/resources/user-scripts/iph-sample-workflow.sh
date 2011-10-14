@@ -88,6 +88,7 @@ logs_dir="$output_dir/logs"
 #------------------------
 
 # Preparing output directories
+rm -rf ./Demo &> /dev/null
 mkdir -p $output_dir
 mkdir -p $testcases_dir
 mkdir -p $states_dir
@@ -99,7 +100,8 @@ echo "About to rip the application "
 read -p "Press ENTER to continue..."
 #cmd="$SCRIPT_DIR/jfc-ripper.sh -cp $aut_classpath -c $mainclass -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file"
 # Moved -sp localhost
-cmd="$SCRIPT_DIR/iph-ripper.sh -cp $aut_classpath -p $port -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file"
+echo "Running ripper."
+cmd="$SCRIPT_DIR/iph-ripper.sh -cp $aut_classpath -p $port -g  $gui_file -cf $configuration -d $ripper_delay -i $intial_wait -l $log_file &> ripper.out &"
 
 # Adding application arguments if needed 
 if [ ! -z $args ] 
@@ -109,6 +111,21 @@ fi
 echo $cmd
 eval $cmd
 
+# Execute the iphone program.
+sleep 1
+echo "Building iphone client..."
+cmd="xcodebuild -configuration \"Debug\" -target \"TestScriptRunner\" -sdk iphonesimulator4.3 &> iph_ripper.out &"
+echo $cmd
+eval $cmd
+echo
+
+sleep 5
+
+kill_iph_skd="ps aux | grep iphone | awk '{print \$2}' | xargs -n 1 -I {} kill -9 {} &> /dev/null"
+echo "Cleaning up iphone sdk/client."
+#echo $kill_iph_skd
+eval $kill_iph_skd
+sleep 1
 # Converting GUI structure to EFG
 #echo ""
 #echo "About to convert GUI structure file to Event Flow Graph (EFG) file" 
@@ -138,7 +155,7 @@ for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`
    
     # Removed -c
     
-   	cmd="$SCRIPT_DIR/iph-replayer.sh -cp $aut_classpath -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -so 1000 -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta -cf $SCRIPT_DIR/configuration.xml"
+   	cmd="$SCRIPT_DIR/iph-replayer.sh -cp $aut_classpath -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -so 1000 -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta -cf $SCRIPT_DIR/configuration.xml &> replayer.out &"
    	# adding application arguments if needed 
    	if [ ! -z $args ] 
    	then 
@@ -146,5 +163,25 @@ for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`
    	fi	
    	echo $cmd 
    	eval $cmd
+
+
+	# Execute the iphone program.
+	sleep 2
+	echo "Building iphone client..."
+	cmd="xcodebuild -configuration \"Debug\" -target \"TestScriptRunner\" -sdk iphonesimulator4.3 &> iph_replayer.out &"
+	echo $cmd
+	eval $cmd
+
+	sleep 4
+	
+	echo "Cleaning up iphone sdk/client."
+	#echo $kill_iph_skd
+	eval $kill_iph_skd
+	sleep 1
+	grep "TERMINATED" replayer.out
+	echo
 done
 
+echo "For ripper details, check file: ./ripper.out"
+echo "For replayer details, check file: ./replayer.out"
+echo "For iphone output, check file: ./errorLogFromLastBuild.txt"

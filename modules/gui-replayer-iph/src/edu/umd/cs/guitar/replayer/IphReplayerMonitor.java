@@ -15,7 +15,6 @@ import edu.umd.cs.guitar.model.IphConstants;
 import edu.umd.cs.guitar.model.data.AttributesType;
 import edu.umd.cs.guitar.model.data.ComponentType;
 import edu.umd.cs.guitar.model.data.PropertyType;
-import edu.umd.cs.guitar.ripper.IphRipperConfiguration;
 import edu.umd.cs.guitar.util.GUITARLog;
 
 public class IphReplayerMonitor extends GReplayerMonitor{
