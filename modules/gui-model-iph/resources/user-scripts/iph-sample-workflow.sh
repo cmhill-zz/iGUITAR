@@ -24,14 +24,6 @@ port=8082
 # application main class
 mainclass="ButtonTest"
 
-# Change the following 2 lines for the classpath and the main class of your 
-# application. The example is for CrosswordSage, another real world example
-# in the jfc-aut directory (http://crosswordsage.sourceforge.net/)
-
-#aut_classpath=$SCRIPT_DIR/iph-aut/ButtonTest/
-#aut_classpath=$SCRIPT_DIR/jfc-aut/CrosswordSage/bin:$SCRIPT_DIR/jfc-aut/CrosswordSage/bin/CrosswordSage.jar
-#mainclass="crosswordsage.MainScreen"
-
 #------------------------
 # Sample command line arguments 
 args=""
@@ -42,6 +34,12 @@ jvm_options=""
 # and terminal widgets 
 configuration="$aut_dir/guitar-config/configuration.xml"
 
+# xcode startup and compile time.
+xcode_build_time=10
+
+# xcode time to run after it has already been built.
+xcode_replay_time=30
+
 # intial waiting time
 # change this if your application need more time to start
 intial_wait=100
@@ -50,11 +48,14 @@ intial_wait=100
 ripper_delay=100
 
 # the length of test suite
-tc_length=2
+tc_length=3
 
 # delay time between two events during replaying  
 # this number is generally smaller than the $ripper_delay
-relayer_delay=1000
+replayer_delay=1000
+
+# delay time between two steps during replaying
+replayer_so=5000
 
 #------------------------
 # Output artifacts 
@@ -119,13 +120,13 @@ echo $cmd
 eval $cmd
 echo
 
-sleep 5
+sleep $xcode_build_time
 
 kill_iph_skd="ps aux | grep iphone | awk '{print \$2}' | xargs -n 1 -I {} kill -9 {} &> /dev/null"
 echo "Cleaning up iphone sdk/client."
 #echo $kill_iph_skd
 eval $kill_iph_skd
-sleep 1
+
 # Converting GUI structure to EFG
 #echo ""
 #echo "About to convert GUI structure file to Event Flow Graph (EFG) file" 
@@ -155,7 +156,7 @@ for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`
    
     # Removed -c
     
-   	cmd="$SCRIPT_DIR/iph-replayer.sh -cp $aut_classpath -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $relayer_delay -so 1000 -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta -cf $SCRIPT_DIR/configuration.xml &> replayer.out &"
+   	cmd="$SCRIPT_DIR/iph-replayer.sh -cp $aut_classpath -g $gui_file -e $efg_file -t $testcase -i $intial_wait -d $replayer_delay -so $replayer_so -l $logs_dir/$test_name.log -gs $states_dir/$test_name.sta -cf $SCRIPT_DIR/configuration.xml &> replayer.out &"
    	# adding application arguments if needed 
    	if [ ! -z $args ] 
    	then 
@@ -172,12 +173,12 @@ for testcase in `find $testcases_dir -name "*.tst"| head -n$testcase_num`
 	echo $cmd
 	eval $cmd
 
-	sleep 4
+	sleep $xcode_replay_time
 	
 	echo "Cleaning up iphone sdk/client."
 	#echo $kill_iph_skd
 	eval $kill_iph_skd
-	sleep 1
+
 	grep "TERMINATED" replayer.out
 	echo
 done

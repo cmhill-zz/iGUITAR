@@ -9,6 +9,10 @@
 #import "HelloWorldAppDelegate.h"
 #import "HelloWorldViewController.h"
 
+#ifdef SCRIPT_DRIVEN_TEST_MODE_ENABLED	
+#import "ScriptRunner.h"
+#endif
+
 @implementation HelloWorldAppDelegate
 
 @synthesize window;
@@ -26,6 +30,9 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 
+#ifdef SCRIPT_DRIVEN_TEST_MODE_ENABLED
+	[[[ScriptRunner alloc] init] autorelease];
+#endif
     return YES;
 }
 

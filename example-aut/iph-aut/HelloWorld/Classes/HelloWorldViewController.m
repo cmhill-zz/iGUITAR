@@ -10,25 +10,75 @@
 
 @implementation HelloWorldViewController
 
-- (IBAction)changeSeg{
-	if(segment.selectedSegmentIndex == 0){
-		self.view.backgroundColor = [UIColor redColor];
+- (IBAction)changeColorSeg:(id)sender{
+	NSLog(@"Changing color.");
+	if(redOrBlueSegment.selectedSegmentIndex == 0){
+		NSLog(@"Changing color to blue.");
+		// self.view.backgroundColor = [UIColor redColor];
+		redOrBlue = false;
+		[sender setSelectedSegmentIndex:0];
 	}
-	if(segment.selectedSegmentIndex == 1){
-		self.view.backgroundColor = [UIColor blueColor];
+	if(redOrBlueSegment.selectedSegmentIndex == 1){
+		NSLog(@"Changing color to red.");
+		// self.view.backgroundColor = [UIColor blueColor];
+		[sender setSelectedSegmentIndex:1];
+		redOrBlue = true;
 	}
 }
 
+- (IBAction)changeShapeSeg:(id)sender{
+	NSLog(@"Changing shape.");
+	if(circleOrSquareSegment.selectedSegmentIndex == 0){
+		NSLog(@"Changing shape to square.");
+		// self.view.backgroundColor = [UIColor redColor];
+		circleOrSquare = false;
+		[sender setSelectedSegmentIndex:0];
+	}
+	if(circleOrSquareSegment.selectedSegmentIndex == 1){
+		NSLog(@"Changing shape to circle.");
+		// self.view.backgroundColor = [UIColor blueColor];
+		[sender setSelectedSegmentIndex:1];
+		circleOrSquare = true;
+	}
+}
+
+- (IBAction)resetShape {
+	NSLog(@"Resetting shape.");
+	[circleOrSquareView setDrawing:false];
+	[circleOrSquareView setNeedsDisplay];
+	[redOrBlueSegment setSelectedSegmentIndex:0];
+	[circleOrSquareSegment setSelectedSegmentIndex:0];
+}
+
+- (IBAction)createShape {
+	NSLog(@"Trying to draw shape");
+	//circleOrSquareView = [[CircleOrSquareView alloc] initWithFrame:[self.view frame]];
+	[circleOrSquareView setDrawing:true];
+	[circleOrSquareView drawRedOrBlue:redOrBlue withCircleOrSquare:circleOrSquare];
+	[circleOrSquareView setNeedsDisplay];
+	//[circleOrSquareView drawRect:[circleOrSquareView frame]];
+	//[circleOrSquareView drawRect:[circleOrSquareView frame]];
+}
 /*
+- (void)drawRect:(CGRect)rect {
+	NSLog(@"Drawing shape");
+	CGContextRef contextRef = UIGraphicsGetCurrentContext();
+	CGContextSetRGBFillColor(contextRef, 0, 0, 255, 0.1);
+	CGContextSetRGBStrokeColor(contextRef, 0, 0, 255, 0.5);
+	// Draw a circle (border only)
+	CGContextStrokeEllipseInRect(contextRef, CGRectMake(100, 100, 25, 25));          
+
+}*/
+
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+		//circleOrSquareView = [[CircleOrSquareView alloc] initWithFrame:[self.view frame]]; //initWithFrame:[circleOrSquareImageView frame]];
     }
     return self;
 }
-*/
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
