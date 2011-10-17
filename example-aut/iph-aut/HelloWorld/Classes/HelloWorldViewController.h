@@ -15,14 +15,24 @@
 	IBOutlet CircleOrSquareView* circleOrSquareView;
 	Boolean redOrBlue;
 	Boolean circleOrSquare;
-	IBOutlet UISegmentedControl *circleOrSquareSegment;
-	IBOutlet UISegmentedControl *redOrBlueSegment;
+	// IBOutlet UISegmentedControl *circleOrSquareSegment;
+	// IBOutlet UISegmentedControl *redOrBlueSegment;
+	
+	IBOutlet UIButton *rectangleButton;
+	IBOutlet UIButton *circleButton;
+	IBOutlet UIButton *redButton;
+	IBOutlet UIButton *blueButton;
 }
 
-- (IBAction)changeColorSeg:(id)sender;
-- (IBAction)changeShapeSeg:(id)sender;
+// - (IBAction)changeColorSeg:(id)sender;
+// - (IBAction)changeShapeSeg:(id)sender;
 - (IBAction)resetShape;
 - (IBAction)createShape;
+
+- (IBAction)selectRedButton:(id)sender;
+- (IBAction)selectBlueButton:(id)sender;
+- (IBAction)selectCircleButton:(id)sender;
+- (IBAction)selectRectangleButton:(id)sender;
 
 @end
 

@@ -1,0 +1,479 @@
+[main] INFO  Testcase: ./Demo/testcases/t_e126975388_e1805196104_e2039562228_e126975388_e1805196104.tst
+[main] INFO  Log file: ./Demo/logs/t_e126975388_e1805196104_e2039562228_e126975388_e1805196104.log
+[main] INFO  GUI state file: ./Demo/states/t_e126975388_e1805196104_e2039562228_e126975388_e1805196104.sta
+[main] INFO  Test monitor: edu.umd.cs.guitar.replayer.monitor.StateMonitorFull is created
+[main] INFO  Test monitor: edu.umd.cs.guitar.replayer.monitor.TimeMonitor is created
+Server set up successfully!
+Connection set up successfully!
+IOStream initialized successfully!
+Sending request: invoke main method
+Received response: Hello
+[main] INFO  Initial waiting: 100ms...
+[main] INFO  Connecting to application...
+[main] INFO  Application is connected.
+Did request
+Sending request: get root window list
+Received response: <GUIStructure><GUI><Window><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>320</Value></Property><Property><Name>height</Name><Value>480</Value></Property><Property><Name>className</Name><Value>UIWindow</Value></Property><Property><Name>address</Name><Value>81849984</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Window><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>20</Value></Property><Property><Name>width</Name><Value>320</Value></Property><Property><Name>height</Name><Value>460</Value></Property><Property><Name>className</Name><Value>UIView</Value></Property><Property><Name>address</Name><Value>81842112</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>102</Value></Property><Property><Name>y</Name><Value>16</Value></Property><Property><Name>width</Name><Value>110</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>81854768</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>94</Value></Property><Property><Name>y</Name><Value>117</Value></Property><Property><Name>width</Name><Value>131</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>81969264</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>27</Value></Property><Property><Name>y</Name><Value>214</Value></Property><Property><Name>width</Name><Value>121</Value></Property><Property><Name>height</Name><Value>37</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81972704</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>12</Value></Property><Property><Name>y</Name><Value>9</Value></Property><Property><Name>width</Name><Value>97</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>81974256</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>175</Value></Property><Property><Name>y</Name><Value>214</Value></Property><Property><Name>width</Name><Value>121</Value></Property><Property><Name>height</Name><Value>37</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81975680</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>40</Value></Property><Property><Name>y</Name><Value>9</Value></Property><Property><Name>width</Name><Value>41</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>81968496</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>72</Value></Property><Property><Name>y</Name><Value>270</Value></Property><Property><Name>width</Name><Value>175</Value></Property><Property><Name>height</Name><Value>175</Value></Property><Property><Name>className</Name><Value>CircleOrSquareView</Value></Property><Property><Name>address</Name><Value>81845408</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>175</Value></Property><Property><Name>height</Name><Value>175</Value></Property><Property><Name>className</Name><Value>CircleOrSquareView</Value></Property><Property><Name>address</Name><Value>81974720</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>48</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81976944</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>8</Value></Property><Property><Name>y</Name><Value>3</Value></Property><Property><Name>width</Name><Value>9</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>81977440</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>80</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81977632</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>0</Value></Property><Property><Name>height</Name><Value>0</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>81978224</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>144</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81978416</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>8</Value></Property><Property><Name>y</Name><Value>3</Value></Property><Property><Name>width</Name><Value>9</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>81979008</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>175</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>81979200</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>0</Value></Property><Property><Name>height</Name><Value>0</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>81979792</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>51</Value></Property><Property><Name>y</Name><Value>50</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>81979984</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>51</Value></Property><Property><Name>y</Name><Value>82</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>81980304</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>56</Value></Property><Property><Name>y</Name><Value>146</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>81980576</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>56</Value></Property><Property><Name>y</Name><Value>178</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>81980848</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container></GUI></GUIStructure>
+Creating IphWindow, with attributes: 
+x	:	0 
+y	:	0 
+width	:	320 
+height	:	480 
+className	:	UIWindow 
+address	:	81849984 
+INVOKE	:	TOUCH 
+[main] INFO  edu.umd.cs.guitar.replayer.monitor.TimeMonitor test monitor is applied
+[main] INFO  Executing test case
+[main] INFO  6
+[main] INFO  ---------------------
+[main] INFO  EventID: e2039562228
+event: edu.umd.cs.guitar.model.data.EventType@7df1bd98
+EXPAND
+w2039562228
+Action: edu.umd.cs.guitar.event.IphTouchEvent
+event: edu.umd.cs.guitar.model.data.EventType@9d686c1
+SYSTEM INTERACTION
+w3919267776
+event: edu.umd.cs.guitar.model.data.EventType@6328edf2
+SYSTEM INTERACTION
+w3933818176
+event: edu.umd.cs.guitar.model.data.EventType@141dddba
+EXPAND
+w2352924896
+event: edu.umd.cs.guitar.model.data.EventType@34c7e8a7
+SYSTEM INTERACTION
+w1584091384
+event: edu.umd.cs.guitar.model.data.EventType@307b4703
+EXPAND
+w2353308436
+event: edu.umd.cs.guitar.model.data.EventType@6d732ed2
+SYSTEM INTERACTION
+w1607143488
+event: edu.umd.cs.guitar.model.data.EventType@25071521
+EXPAND
+w126975388
+event: edu.umd.cs.guitar.model.data.EventType@73fc3c84
+SYSTEM INTERACTION
+w1805196104
+event: edu.umd.cs.guitar.model.data.EventType@34e93999
+EXPAND
+w2356030468
+event: edu.umd.cs.guitar.model.data.EventType@3bc486f2
+SYSTEM INTERACTION
+w1779516020
+event: edu.umd.cs.guitar.model.data.EventType@63779885
+EXPAND
+w2356138496
+event: edu.umd.cs.guitar.model.data.EventType@40be76c7
+SYSTEM INTERACTION
+w1786325000
+event: edu.umd.cs.guitar.model.data.EventType@18682406
+EXPAND
+w2356169100
+event: edu.umd.cs.guitar.model.data.EventType@5d15126e
+SYSTEM INTERACTION
+w1788333776
+event: edu.umd.cs.guitar.model.data.EventType@126d2380
+EXPAND
+w2356280344
+event: edu.umd.cs.guitar.model.data.EventType@3b35b1f3
+SYSTEM INTERACTION
+w1795342148
+event: edu.umd.cs.guitar.model.data.EventType@4235e6e3
+SYSTEM INTERACTION
+w3937738344
+event: edu.umd.cs.guitar.model.data.EventType@60c9630a
+SYSTEM INTERACTION
+w3937750124
+event: edu.umd.cs.guitar.model.data.EventType@4585572a
+SYSTEM INTERACTION
+w3937842100
+event: edu.umd.cs.guitar.model.data.EventType@351daa0e
+SYSTEM INTERACTION
+w3937850664
+[main] INFO  Window Title: *UIWindow*
+[main] INFO  Widget ID: *w2039562228*
+[main] INFO  
+[main] INFO  Finding window *UIWindow*....
+Trying to find GWindow: UIWindow
+Checking window : UIWindow (isRoot : true | isValid : true)
+[main] INFO  FOUND
+[main] INFO  
+Start of getRootWindows
+...in GUI
+Returning: 1
+[GUITypeWrapper [ID=UIWindow]]
+[GUITypeWrapper [ID=UIWindow]]
+[main] INFO  Finding widget *w2039562228*....
+[main] INFO  FOUND
+[main] INFO  Widget Title: *UIView*
+[main] INFO  
+[main] INFO  Action: *edu.umd.cs.guitar.event.IphTouchEvent
+[main] INFO  
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIView 81842112
+Received response: Received INVOKE request!
+[main] INFO  Delaying for 5000 ms to get a stable GUI state....
+[main] INFO  Recording GUI state....
+[main] INFO  DONE
+[main] INFO  Dumping out state ... 
+[main] INFO  DONE
+[main] INFO  Step Timer elapsed Time: 198
+[main] INFO  ---------------------
+[main] INFO  EventID: e126975388
+event: edu.umd.cs.guitar.model.data.EventType@7df1bd98
+EXPAND
+w2039562228
+event: edu.umd.cs.guitar.model.data.EventType@9d686c1
+SYSTEM INTERACTION
+w3919267776
+event: edu.umd.cs.guitar.model.data.EventType@6328edf2
+SYSTEM INTERACTION
+w3933818176
+event: edu.umd.cs.guitar.model.data.EventType@141dddba
+EXPAND
+w2352924896
+event: edu.umd.cs.guitar.model.data.EventType@34c7e8a7
+SYSTEM INTERACTION
+w1584091384
+event: edu.umd.cs.guitar.model.data.EventType@307b4703
+EXPAND
+w2353308436
+event: edu.umd.cs.guitar.model.data.EventType@6d732ed2
+SYSTEM INTERACTION
+w1607143488
+event: edu.umd.cs.guitar.model.data.EventType@25071521
+EXPAND
+w126975388
+Action: edu.umd.cs.guitar.event.IphTouchEvent
+event: edu.umd.cs.guitar.model.data.EventType@73fc3c84
+SYSTEM INTERACTION
+w1805196104
+event: edu.umd.cs.guitar.model.data.EventType@34e93999
+EXPAND
+w2356030468
+event: edu.umd.cs.guitar.model.data.EventType@3bc486f2
+SYSTEM INTERACTION
+w1779516020
+event: edu.umd.cs.guitar.model.data.EventType@63779885
+EXPAND
+w2356138496
+event: edu.umd.cs.guitar.model.data.EventType@40be76c7
+SYSTEM INTERACTION
+w1786325000
+event: edu.umd.cs.guitar.model.data.EventType@18682406
+EXPAND
+w2356169100
+event: edu.umd.cs.guitar.model.data.EventType@5d15126e
+SYSTEM INTERACTION
+w1788333776
+event: edu.umd.cs.guitar.model.data.EventType@126d2380
+EXPAND
+w2356280344
+event: edu.umd.cs.guitar.model.data.EventType@3b35b1f3
+SYSTEM INTERACTION
+w1795342148
+event: edu.umd.cs.guitar.model.data.EventType@4235e6e3
+SYSTEM INTERACTION
+w3937738344
+event: edu.umd.cs.guitar.model.data.EventType@60c9630a
+SYSTEM INTERACTION
+w3937750124
+event: edu.umd.cs.guitar.model.data.EventType@4585572a
+SYSTEM INTERACTION
+w3937842100
+event: edu.umd.cs.guitar.model.data.EventType@351daa0e
+SYSTEM INTERACTION
+w3937850664
+[main] INFO  Window Title: *UIWindow*
+[main] INFO  Widget ID: *w126975388*
+[main] INFO  
+[main] INFO  Finding window *UIWindow*....
+Trying to find GWindow: UIWindow
+Checking window : UIWindow (isRoot : true | isValid : true)
+[main] INFO  FOUND
+[main] INFO  
+[GUITypeWrapper [ID=UIWindow]]
+[GUITypeWrapper [ID=UIWindow]]
+[main] INFO  Finding widget *w126975388*....
+[main] INFO  FOUND
+[main] INFO  Widget Title: *CircleOrSquareView*
+[main] INFO  
+[main] INFO  Action: *edu.umd.cs.guitar.event.IphTouchEvent
+[main] INFO  
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH CircleOrSquareView 81845408
+Received response: Touch happened for UIView!
+[main] INFO  Delaying for 5000 ms to get a stable GUI state....
+[main] INFO  Recording GUI state....
+[main] INFO  DONE
+[main] INFO  Dumping out state ... 
+[main] INFO  DONE
+[main] INFO  Step Timer elapsed Time: 274
+[main] INFO  ---------------------
+[main] INFO  EventID: e1805196104
+event: edu.umd.cs.guitar.model.data.EventType@7df1bd98
+EXPAND
+w2039562228
+event: edu.umd.cs.guitar.model.data.EventType@9d686c1
+SYSTEM INTERACTION
+w3919267776
+event: edu.umd.cs.guitar.model.data.EventType@6328edf2
+SYSTEM INTERACTION
+w3933818176
+event: edu.umd.cs.guitar.model.data.EventType@141dddba
+EXPAND
+w2352924896
+event: edu.umd.cs.guitar.model.data.EventType@34c7e8a7
+SYSTEM INTERACTION
+w1584091384
+event: edu.umd.cs.guitar.model.data.EventType@307b4703
+EXPAND
+w2353308436
+event: edu.umd.cs.guitar.model.data.EventType@6d732ed2
+SYSTEM INTERACTION
+w1607143488
+event: edu.umd.cs.guitar.model.data.EventType@25071521
+EXPAND
+w126975388
+event: edu.umd.cs.guitar.model.data.EventType@73fc3c84
+SYSTEM INTERACTION
+w1805196104
+Action: edu.umd.cs.guitar.event.IphTouchEvent
+event: edu.umd.cs.guitar.model.data.EventType@34e93999
+EXPAND
+w2356030468
+event: edu.umd.cs.guitar.model.data.EventType@3bc486f2
+SYSTEM INTERACTION
+w1779516020
+event: edu.umd.cs.guitar.model.data.EventType@63779885
+EXPAND
+w2356138496
+event: edu.umd.cs.guitar.model.data.EventType@40be76c7
+SYSTEM INTERACTION
+w1786325000
+event: edu.umd.cs.guitar.model.data.EventType@18682406
+EXPAND
+w2356169100
+event: edu.umd.cs.guitar.model.data.EventType@5d15126e
+SYSTEM INTERACTION
+w1788333776
+event: edu.umd.cs.guitar.model.data.EventType@126d2380
+EXPAND
+w2356280344
+event: edu.umd.cs.guitar.model.data.EventType@3b35b1f3
+SYSTEM INTERACTION
+w1795342148
+event: edu.umd.cs.guitar.model.data.EventType@4235e6e3
+SYSTEM INTERACTION
+w3937738344
+event: edu.umd.cs.guitar.model.data.EventType@60c9630a
+SYSTEM INTERACTION
+w3937750124
+event: edu.umd.cs.guitar.model.data.EventType@4585572a
+SYSTEM INTERACTION
+w3937842100
+event: edu.umd.cs.guitar.model.data.EventType@351daa0e
+SYSTEM INTERACTION
+w3937850664
+[main] INFO  Window Title: *UIWindow*
+[main] INFO  Widget ID: *w1805196104*
+[main] INFO  
+[main] INFO  Finding window *UIWindow*....
+Trying to find GWindow: UIWindow
+Checking window : UIWindow (isRoot : true | isValid : true)
+[main] INFO  FOUND
+[main] INFO  
+[GUITypeWrapper [ID=UIWindow]]
+[GUITypeWrapper [ID=UIWindow]]
+[main] INFO  Finding widget *w1805196104*....
+[main] INFO  FOUND
+[main] INFO  Widget Title: *CircleOrSquareView*
+[main] INFO  
+[main] INFO  Action: *edu.umd.cs.guitar.event.IphTouchEvent
+[main] INFO  
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH CircleOrSquareView 81974720
+Received response: Received INVOKE request!
+[main] INFO  Delaying for 5000 ms to get a stable GUI state....
+[main] INFO  Recording GUI state....
+[main] INFO  DONE
+[main] INFO  Dumping out state ... 
+[main] INFO  DONE
+[main] INFO  Step Timer elapsed Time: 267
+[main] INFO  ---------------------
+[main] INFO  EventID: e2039562228
+event: edu.umd.cs.guitar.model.data.EventType@7df1bd98
+EXPAND
+w2039562228
+Action: edu.umd.cs.guitar.event.IphTouchEvent
+event: edu.umd.cs.guitar.model.data.EventType@9d686c1
+SYSTEM INTERACTION
+w3919267776
+event: edu.umd.cs.guitar.model.data.EventType@6328edf2
+SYSTEM INTERACTION
+w3933818176
+event: edu.umd.cs.guitar.model.data.EventType@141dddba
+EXPAND
+w2352924896
+event: edu.umd.cs.guitar.model.data.EventType@34c7e8a7
+SYSTEM INTERACTION
+w1584091384
+event: edu.umd.cs.guitar.model.data.EventType@307b4703
+EXPAND
+w2353308436
+event: edu.umd.cs.guitar.model.data.EventType@6d732ed2
+SYSTEM INTERACTION
+w1607143488
+event: edu.umd.cs.guitar.model.data.EventType@25071521
+EXPAND
+w126975388
+event: edu.umd.cs.guitar.model.data.EventType@73fc3c84
+SYSTEM INTERACTION
+w1805196104
+event: edu.umd.cs.guitar.model.data.EventType@34e93999
+EXPAND
+w2356030468
+event: edu.umd.cs.guitar.model.data.EventType@3bc486f2
+SYSTEM INTERACTION
+w1779516020
+event: edu.umd.cs.guitar.model.data.EventType@63779885
+EXPAND
+w2356138496
+event: edu.umd.cs.guitar.model.data.EventType@40be76c7
+SYSTEM INTERACTION
+w1786325000
+event: edu.umd.cs.guitar.model.data.EventType@18682406
+EXPAND
+w2356169100
+event: edu.umd.cs.guitar.model.data.EventType@5d15126e
+SYSTEM INTERACTION
+w1788333776
+event: edu.umd.cs.guitar.model.data.EventType@126d2380
+EXPAND
+w2356280344
+event: edu.umd.cs.guitar.model.data.EventType@3b35b1f3
+SYSTEM INTERACTION
+w1795342148
+event: edu.umd.cs.guitar.model.data.EventType@4235e6e3
+SYSTEM INTERACTION
+w3937738344
+event: edu.umd.cs.guitar.model.data.EventType@60c9630a
+SYSTEM INTERACTION
+w3937750124
+event: edu.umd.cs.guitar.model.data.EventType@4585572a
+SYSTEM INTERACTION
+w3937842100
+event: edu.umd.cs.guitar.model.data.EventType@351daa0e
+SYSTEM INTERACTION
+w3937850664
+[main] INFO  Window Title: *UIWindow*
+[main] INFO  Widget ID: *w2039562228*
+[main] INFO  
+[main] INFO  Finding window *UIWindow*....
+Trying to find GWindow: UIWindow
+Checking window : UIWindow (isRoot : true | isValid : true)
+[main] INFO  FOUND
+[main] INFO  
+[GUITypeWrapper [ID=UIWindow]]
+[GUITypeWrapper [ID=UIWindow]]
+[main] INFO  Finding widget *w2039562228*....
+[main] INFO  FOUND
+[main] INFO  Widget Title: *UIView*
+[main] INFO  
+[main] INFO  Action: *edu.umd.cs.guitar.event.IphTouchEvent
+[main] INFO  
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIView 81842112
+Received response: Touch happened for CircleOrSquareView!
+[main] INFO  Delaying for 5000 ms to get a stable GUI state....
+[main] INFO  Recording GUI state....
+[main] INFO  DONE
+[main] INFO  Dumping out state ... 
+[main] INFO  DONE
+[main] INFO  Step Timer elapsed Time: 248
+[main] INFO  ---------------------
+[main] INFO  EventID: e126975388
+event: edu.umd.cs.guitar.model.data.EventType@7df1bd98
+EXPAND
+w2039562228
+event: edu.umd.cs.guitar.model.data.EventType@9d686c1
+SYSTEM INTERACTION
+w3919267776
+event: edu.umd.cs.guitar.model.data.EventType@6328edf2
+SYSTEM INTERACTION
+w3933818176
+event: edu.umd.cs.guitar.model.data.EventType@141dddba
+EXPAND
+w2352924896
+event: edu.umd.cs.guitar.model.data.EventType@34c7e8a7
+SYSTEM INTERACTION
+w1584091384
+event: edu.umd.cs.guitar.model.data.EventType@307b4703
+EXPAND
+w2353308436
+event: edu.umd.cs.guitar.model.data.EventType@6d732ed2
+SYSTEM INTERACTION
+w1607143488
+event: edu.umd.cs.guitar.model.data.EventType@25071521
+EXPAND
+w126975388
+Action: edu.umd.cs.guitar.event.IphTouchEvent
+event: edu.umd.cs.guitar.model.data.EventType@73fc3c84
+SYSTEM INTERACTION
+w1805196104
+event: edu.umd.cs.guitar.model.data.EventType@34e93999
+EXPAND
+w2356030468
+event: edu.umd.cs.guitar.model.data.EventType@3bc486f2
+SYSTEM INTERACTION
+w1779516020
+event: edu.umd.cs.guitar.model.data.EventType@63779885
+EXPAND
+w2356138496
+event: edu.umd.cs.guitar.model.data.EventType@40be76c7
+SYSTEM INTERACTION
+w1786325000
+event: edu.umd.cs.guitar.model.data.EventType@18682406
+EXPAND
+w2356169100
+event: edu.umd.cs.guitar.model.data.EventType@5d15126e
+SYSTEM INTERACTION
+w1788333776
+event: edu.umd.cs.guitar.model.data.EventType@126d2380
+EXPAND
+w2356280344
+event: edu.umd.cs.guitar.model.data.EventType@3b35b1f3
+SYSTEM INTERACTION
+w1795342148
+event: edu.umd.cs.guitar.model.data.EventType@4235e6e3
+SYSTEM INTERACTION
+w3937738344
+event: edu.umd.cs.guitar.model.data.EventType@60c9630a
+SYSTEM INTERACTION
+w3937750124
+event: edu.umd.cs.guitar.model.data.EventType@4585572a
+SYSTEM INTERACTION
+w3937842100
+event: edu.umd.cs.guitar.model.data.EventType@351daa0e
+SYSTEM INTERACTION
+w3937850664
+[main] INFO  Window Title: *UIWindow*
+[main] INFO  Widget ID: *w126975388*
+[main] INFO  
+[main] INFO  Finding window *UIWindow*....
+Trying to find GWindow: UIWindow
+Checking window : UIWindow (isRoot : true | isValid : true)
+[main] INFO  FOUND
+[main] INFO  
+[GUITypeWrapper [ID=UIWindow]]
+[GUITypeWrapper [ID=UIWindow]]
+[main] INFO  Finding widget *w126975388*....
+[main] INFO  FOUND
+[main] INFO  Widget Title: *CircleOrSquareView*
+[main] INFO  
+[main] INFO  Action: *edu.umd.cs.guitar.event.IphTouchEvent
+[main] INFO  
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH CircleOrSquareView 81845408
+[Thread-3] INFO  Step Timer: TIMEOUT!!!

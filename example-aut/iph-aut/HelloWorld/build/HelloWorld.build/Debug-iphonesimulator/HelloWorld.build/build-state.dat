@@ -1,0 +1,608 @@
+THelloWorld
+v7
+r0
+t340572977.046739
+cCheck dependencies
+cProcessInfoPlistFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/Info.plist HelloWorld-Info.plist
+cCompileXIB /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/MainWindow.xib
+cCompileXIB /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorldViewController.xib
+cCopyPlistFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/TestScript.plist TestScript.plist
+cCopyPlistFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/TestScriptRunner-Info.plist TestScriptRunner-Info.plist
+cProcessPCH /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch.gch HelloWorld_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/main.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldAppDelegate.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldViewController.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrSquareView.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/UIView+FullDescription.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/XPathQuery.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/ScriptRunner.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/TouchSynthesis.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld normal i386
+cGenerateDSYMFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app.dSYM /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld
+cTouch /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk
+c000000004E6E619A0000000000000110
+t1315856794
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004D54CFFA00000000002999B0
+t1297403898
+s2726320
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004D54CFE5000000000029DA70
+t1297403877
+s2742896
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004D54CFB80000000000001466
+t1297403832
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004D5615B40000000000000AA1
+t1297487284
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004D5616030000000000766870
+t1297487363
+s7759984
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2/libxml/HTMLparser.h
+c000000004D54CF300000000000002401
+t1297403696
+s9217
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2/libxml/parser.h
+c000000004D54CF3000000000000098A9
+t1297403696
+s39081
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2/libxml/tree.h
+c000000004D54CF300000000000008F14
+t1297403696
+s36628
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2/libxml/xpath.h
+c000000004D54CF300000000000003F47
+t1297403696
+s16199
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2/libxml/xpathInternals.h
+c000000004D54CF300000000000004BF8
+t1297403696
+s19448
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/stdio.h
+c000000004D4F6E9A0000000000004763
+t1297051290
+s18275
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/lib/libxml2.2.7.3.dylib
+c000000004D54CF30000000000011E3F0
+t1297403696
+s1172464
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.h
+c000000004E8805400000000000000360
+t1317537088
+s864
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m
+c000000004E9C62F500000000000039DD
+t1318871797
+s14813
+i"ScriptRunner.h"
+i"UIView+FullDescription.h"
+i"XPathQuery.h"
+i"TouchSynthesis.h"
+i<stdio.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m
+c000000004A8626BE0000000000000FFD
+t1250305726
+s4093
+i"TouchSynthesis.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m
+c000000004E912D540000000000002E25
+t1318137172
+s11813
+i"UIView+FullDescription.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m
+c000000004E8A68240000000000000F49
+t1317693476
+s3913
+i"XPathQuery.h"
+i<libxml/tree.h>
+i<libxml/parser.h>
+i<libxml/HTMLparser.h>
+i<libxml/xpath.h>
+i<libxml/xpathInternals.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.h
+c000000004E95EE8000000000000001F0
+t1318448768
+s496
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m
+c000000004E9C6D790000000000000ACC
+t1318874489
+s2764
+i"CircleOrSquareView.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.h
+c000000004E95E65C00000000000000DF
+t1318446684
+s223
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.m
+c000000004E95E6750000000000000609
+t1318446709
+s1545
+i"CircleOrTriangleView.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.h
+c000000004E95E65C00000000000000DF
+t1318446684
+s223
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.m
+c000000004E95DA6B00000000000005F5
+t1318443627
+s1525
+i"CircleView.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.h
+c000000004E93D6D900000000000001E9
+t1318311641
+s489
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m
+c000000004E9BC5800000000000000B54
+t1318831488
+s2900
+i"HelloWorldAppDelegate.h"
+i"HelloWorldViewController.h"
+i"ScriptRunner.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.h
+c000000004E9C68E300000000000003C3
+t1318873315
+s963
+i<UIKit/UIKit.h>
+i"CircleOrSquareView.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m
+c000000004E9C83700000000000001436
+t1318880112
+s5174
+i"HelloWorldViewController.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorldViewController.xib
+c000000004E9C6C8D000000000000B24E
+t1318874253
+s45646
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorld_Prefix.pch
+c000000004E93D6D900000000000000BD
+t1318311641
+s189
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/MainWindow.xib
+c000000004E93D6D90000000000004E4D
+t1318311641
+s20045
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/ScriptRunner.h
+c000000004E8805400000000000000360
+t1317537088
+s864
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/ScriptRunner.m
+c000000004E973B8100000000000039D8
+t1318534017
+s14808
+i"ScriptRunner.h"
+i"UIView+FullDescription.h"
+i"XPathQuery.h"
+i"TouchSynthesis.h"
+i<stdio.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/TestScript.plist
+c000000004A862C48000000000000068A
+t1250307144
+s1674
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/TestScriptRunner-Info.plist
+c000000004E8A747E00000000000002B1
+t1317696638
+s689
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/TouchSynthesis.h
+c000000004A8625B000000000000003A7
+t1250305456
+s935
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/TouchSynthesis.m
+c000000004A8626BE0000000000000FFD
+t1250305726
+s4093
+i"TouchSynthesis.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/UIView+FullDescription.h
+c000000004E8EA52700000000000002D4
+t1317971239
+s724
+i<UIKit/UIKit.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/UIView+FullDescription.m
+c000000004E912D540000000000002E25
+t1318137172
+s11813
+i"UIView+FullDescription.h"
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/XPathQuery.h
+c0000000049FFCFDF000000000000026A
+t1241501663
+s618
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/XPathQuery.m
+c000000004E8A68240000000000000F49
+t1317693476
+s3913
+i"XPathQuery.h"
+i<libxml/tree.h>
+i<libxml/parser.h>
+i<libxml/HTMLparser.h>
+i<libxml/xpath.h>
+i<libxml/xpathInternals.h>
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app
+t1318880177
+s306
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app.dSYM
+t1318880176
+s102
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld
+t1318880176
+s37228
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorldViewController.nib
+t1318874256
+s7108
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/Info.plist
+t1318871900
+s504
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/MainWindow.nib
+t1318871900
+s1687
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/PkgInfo
+t1318871900
+s8
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/TestScript.plist
+t1318871901
+s874
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/TestScriptRunner-Info.plist
+t1318871901
+s370
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrSquareView.o
+t1318880174
+s44396
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrTriangleView.o
+t1318446748
+s41596
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleView.o
+t1318443631
+s41384
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorld.LinkFileList
+c000000004E9C65C30000000000000515
+t1318872515
+s1301
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldAppDelegate.o
+t1318873317
+s51928
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldViewController.o
+t1318880174
+s46820
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/ScriptRunner.o
+t1318872585
+s3996
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/TouchSynthesis.o
+t1318872585
+s4000
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/UIView+FullDescription.o
+t1318872585
+s55652
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/XPathQuery.o
+t1318872585
+s19324
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/main.o
+t1318872584
+s6356
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/libxml2.2.7.3.dylib
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m
+c000000004E93D6D90000000000000164
+t1318311641
+s356
+i<UIKit/UIKit.h>
+
+N/var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch.gch
+t1318872584
+s15814064
+
+N/var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-fmaxxchmrfnoqobpcbwlgikrrsoi/HelloWorld_Prefix.pch.gch
+t1318872519
+s15814064
+
+NHelloWorld-Info.plist
+c000000004E9BB4EE000000000000038D
+t1318827246
+s909
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies340572973#340572973#0(0"0(0#1#0"8625172672#0"0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrSquareView.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340572973.341407
+e340572975.402042
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrSquareView.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@98"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m340572973#340572975#0(0"0(0#0#90"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m8635357664#2369"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrSquareView.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrSquareView.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrTriangleView.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340139548.635501
+e340139548.784417
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrTriangleView.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@100"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.m340139548#340139548#0(0"0(0#0#92"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.m8626096640#2267"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-fmaxxchmrfnoqobpcbwlgikrrsoi/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleOrTriangleView.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleOrTriangleView.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleView.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340136431.823437
+e340136431.919822
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleView.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@90"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.m340136431#340136431#0(0"0(0#0#82"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.m8634758016#2247"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-fmaxxchmrfnoqobpcbwlgikrrsoi/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/CircleView.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/CircleView.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldAppDelegate.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340566117.679818
+e340566117.774389
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldAppDelegate.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@101"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m340566117#340566117#0(0"0(0#0#93"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m8609676000#2375"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldAppDelegate.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldAppDelegate.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldViewController.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340572973.339880
+e340572974.794657
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldViewController.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@104"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m340572973#340572974#0(0"0(0#0#96"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m8635958752#2381"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/HelloWorldViewController.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorldViewController.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/ScriptRunner.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565385.066742
+e340565385.149304
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/ScriptRunner.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@95"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m340565385#340565385#0(0"0(0#0#87"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m8604681632#2360"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../ScriptRunner.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/ScriptRunner.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/ScriptRunner.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/ScriptRunner.m normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/TouchSynthesis.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565385.082247
+e340565385.148679
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/TouchSynthesis.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@97"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m340565385#340565385#0(0"0(0#0#89"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m8599482720#2364"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../TouchSynthesis.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/TouchSynthesis.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/TouchSynthesis.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/TouchSynthesis.m normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/UIView+FullDescription.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565384.891579
+e340565385.066640
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/UIView+FullDescription.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@105"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m340565384#340565385#0(0"0(0#0#97"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m8635477984#2380"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../UIView+FullDescription.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/UIView+FullDescription.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/UIView+FullDescription.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/UIView+FullDescription.m normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/XPathQuery.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565384.910340
+e340565385.082146
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/XPathQuery.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@93"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m340565384#340565385#0(0"0(0#0#85"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m8634873248#2356"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/Classes/../XPathQuery.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/XPathQuery.o0#
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/XPathQuery.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/XPathQuery.m normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/main.o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565384.522556
+e340565384.776187
+r1
+xCompileC
+xbuild/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/main.o
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m340565384#340565384#0(0"0(0#0#68"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m8638251488#2333"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -include /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/main.m -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/main.o0#
+
+CCompileXIB /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorldViewController.xib
+s340567056.296244
+e340567056.927973
+r1
+xCompileXIB
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorldViewController.xib
+lSLF07#2@39"CompileXIB HelloWorldViewController.xib340567056#340567056#0(0"0(0#0#90"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorldViewController.xib8634760160#670"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.3    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorldViewController.nib /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorldViewController.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCompileXIB /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/MainWindow.xib
+s340134342.003710
+e340134344.486492
+r1
+xCompileXIB
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib340134342#340134344#0(0"0(0#0#76"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/MainWindow.xib8634347808#642"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.3    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/MainWindow.nib /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/MainWindow.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCopyPlistFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/TestScript.plist TestScript.plist
+r0
+
+CCopyPlistFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/TestScriptRunner-Info.plist TestScriptRunner-Info.plist
+r0
+
+CGenerateDSYMFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app.dSYM /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld
+s340572976.642904
+e340572976.975226
+r1
+xGenerateDSYMFile
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app.dSYM
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld
+lSLF07#2@118"GenerateDSYMFile build/Debug-iphonesimulator/HelloWorld.app.dSYM build/Debug-iphonesimulator/HelloWorld.app/HelloWorld340572976#340572976#0(0"0(0#0#115"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld8640565056#461"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app.dSYM0#
+
+CLd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld normal i386
+s340572975.402180
+e340572976.642779
+r1
+xLd
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld
+xnormal
+xi386
+lSLF07#2@120"Link /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld340572975#340572976#0(0"0(0#0#0"8639114272#1107"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -L/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -L/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -filelist /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/Objects-normal/i386/HelloWorld.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -lxml2.2.7.3 -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/HelloWorld0#
+
+CProcessInfoPlistFile /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/Info.plist HelloWorld-Info.plist
+s340134341.937570
+e340134342.003607
+r1
+xProcessInfoPlistFile
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/Info.plist
+xHelloWorld-Info.plist
+lSLF07#2@29"Process HelloWorld-Info.plist340134341#340134342#0(0"0(0#0#83"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorld-Info.plist8635545056#557"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility HelloWorld-Info.plist -genpkginfo /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app/Info.plist0#
+
+CProcessPCH /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch.gch HelloWorld_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565383.621326
+e340565384.522452
+r1
+xProcessPCH
+x/var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch.gch
+xHelloWorld_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile HelloWorld_Prefix.pch340565383#340565384#0(0"0(0#0#83"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorld_Prefix.pch8635636512#2199"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/libxml2 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorld_Prefix.pch -o /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-dfsbvukvsdwygobtdkfogtimgfji/HelloWorld_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-fmaxxchmrfnoqobpcbwlgikrrsoi/HelloWorld_Prefix.pch.gch HelloWorld_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s340565316.912935
+e340565319.953319
+r1
+xProcessPCH
+x/var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-fmaxxchmrfnoqobpcbwlgikrrsoi/HelloWorld_Prefix.pch.gch
+xHelloWorld_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile HelloWorld_Prefix.pch340565316#340565319#0(0"0(0#0#83"/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorld_Prefix.pch8634557824#2093"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-generated-files.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-own-target-headers.hmap -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-all-target-headers.hmap -iquote /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/HelloWorld-project-headers.hmap -F/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/include -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources/i386 -I/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/HelloWorld.build/Debug-iphonesimulator/HelloWorld.build/DerivedSources -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/HelloWorld_Prefix.pch -o /var/folders/sM/sMSAwqctFCKsslljx-RgXE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/HelloWorld_Prefix-fmaxxchmrfnoqobpcbwlgikrrsoi/HelloWorld_Prefix.pch.gch0#
+
+CTouch /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app
+s340572976.975365
+e340572977.046670
+r1
+xTouch
+x/Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app
+lSLF07#2@110"Touch /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app340572976#340572977#0(0"0(0#0#0"8637707200#327"    cd /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/cmhill/Work/737/iGUITAR/example-aut/iph-aut/HelloWorld/build/Debug-iphonesimulator/HelloWorld.app0#
+

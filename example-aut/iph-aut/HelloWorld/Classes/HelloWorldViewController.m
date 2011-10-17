@@ -10,7 +10,7 @@
 
 @implementation HelloWorldViewController
 
-- (IBAction)changeColorSeg:(id)sender{
+/*- (IBAction)changeColorSeg:(id)sender{
 	NSLog(@"Changing color.");
 	if(redOrBlueSegment.selectedSegmentIndex == 0){
 		NSLog(@"Changing color to blue.");
@@ -40,14 +40,19 @@
 		[sender setSelectedSegmentIndex:1];
 		circleOrSquare = true;
 	}
-}
+}*/
 
 - (IBAction)resetShape {
 	NSLog(@"Resetting shape.");
+	[circleButton setTitle:@"" forState:UIControlStateNormal];
+	[rectangleButton setTitle:@"0" forState:UIControlStateNormal];
+	[redButton setTitle:@"0" forState:UIControlStateNormal];
+	[blueButton setTitle:@"" forState:UIControlStateNormal];
+	
 	[circleOrSquareView setDrawing:false];
 	[circleOrSquareView setNeedsDisplay];
-	[redOrBlueSegment setSelectedSegmentIndex:0];
-	[circleOrSquareSegment setSelectedSegmentIndex:0];
+	// [redOrBlueSegment setSelectedSegmentIndex:0];
+	// [circleOrSquareSegment setSelectedSegmentIndex:0];
 }
 
 - (IBAction)createShape {
@@ -59,6 +64,43 @@
 	//[circleOrSquareView drawRect:[circleOrSquareView frame]];
 	//[circleOrSquareView drawRect:[circleOrSquareView frame]];
 }
+
+- (IBAction)selectRedButton:(id)sender {
+	NSLog(@"Selected red button.");
+	
+	[redButton setTitle:@"0" forState:UIControlStateNormal];
+	[blueButton setTitle:@"" forState:UIControlStateNormal];
+	
+	redOrBlue = false;
+}
+- (IBAction)selectBlueButton:(id)sender {
+	NSLog(@"Selected blue button.");
+	
+	[redButton setTitle:@"" forState:UIControlStateNormal];
+	[blueButton setTitle:@"0" forState:UIControlStateNormal];
+	
+	redOrBlue = true;
+}
+- (IBAction)selectCircleButton:(id)sender {
+	NSLog(@"Selected circle button.");
+	
+	[circleButton setTitle:@"0" forState:UIControlStateNormal];
+	[rectangleButton setTitle:@"" forState:UIControlStateNormal];
+	
+	// circleButton.backgroundColor = [UIColor purpleColor];
+	// rectangleButton.backgroundColor = [UIColor whiteColor];
+	circleOrSquare = true;
+}
+- (IBAction)selectRectangleButton:(id)sender {
+	NSLog(@"Selected rectangle button.");
+	
+	[circleButton setTitle:@"" forState:UIControlStateNormal];
+	[rectangleButton setTitle:@"0" forState:UIControlStateNormal];
+	
+	// rectangleButton.backgroundColor = [UIColor purpleColor];
+	circleOrSquare = false;
+}
+
 /*
 - (void)drawRect:(CGRect)rect {
 	NSLog(@"Drawing shape");
@@ -70,12 +112,17 @@
 
 }*/
 
+
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
 		//circleOrSquareView = [[CircleOrSquareView alloc] initWithFrame:[self.view frame]]; //initWithFrame:[circleOrSquareImageView frame]];
+		[circleButton setTitle:@"" forState:UIControlStateNormal];
+		[rectangleButton setTitle:@"0" forState:UIControlStateNormal];
+		[redButton setTitle:@"0" forState:UIControlStateNormal];
+		[blueButton setTitle:@"" forState:UIControlStateNormal];
     }
     return self;
 }

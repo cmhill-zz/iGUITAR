@@ -1,0 +1,9 @@
+Build settings from command line:
+    PLATFORM_NAME = iphonesimulator
+    SDKROOT = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk
+
+
+=== BUILD NATIVE TARGET TestScriptRunner OF PROJECT HelloWorld WITH CONFIGURATION Debug ===
+Check dependencies
+Warning: The Copy Bundle Resources build phase contains this target's Info.plist file 'TestScriptRunner-Info.plist'.
+[WARN]Warning: The Copy Bundle Resources build phase contains this target's Info.plist file 'TestScriptRunner-Info.plist'.

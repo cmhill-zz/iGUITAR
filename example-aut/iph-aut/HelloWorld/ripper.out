@@ -1,0 +1,849 @@
+[main] ERROR ../../../dist/guitar/iph-aut/ButtonTest/guitar-config/configuration.xml not found!!!
+[main] ERROR No configuration file. Using an empty one...
+Server set up successfully!
+Connection set up successfully!
+IOStream initialized successfully!
+Sending request: invoke main method
+Received response: Hello
+[main] INFO  Initial waiting: 100ms...
+Did request
+Sending request: get root window list
+Received response: <GUIStructure><GUI><Window><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>320</Value></Property><Property><Name>height</Name><Value>480</Value></Property><Property><Name>className</Name><Value>UIWindow</Value></Property><Property><Name>address</Name><Value>81870464</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Window><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>20</Value></Property><Property><Name>width</Name><Value>320</Value></Property><Property><Name>height</Name><Value>460</Value></Property><Property><Name>className</Name><Value>UIView</Value></Property><Property><Name>address</Name><Value>78734720</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>102</Value></Property><Property><Name>y</Name><Value>16</Value></Property><Property><Name>width</Name><Value>110</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78744512</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>94</Value></Property><Property><Name>y</Name><Value>117</Value></Property><Property><Name>width</Name><Value>131</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78782880</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>27</Value></Property><Property><Name>y</Name><Value>214</Value></Property><Property><Name>width</Name><Value>121</Value></Property><Property><Name>height</Name><Value>37</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>78786272</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>12</Value></Property><Property><Name>y</Name><Value>9</Value></Property><Property><Name>width</Name><Value>97</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78788480</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>175</Value></Property><Property><Name>y</Name><Value>214</Value></Property><Property><Name>width</Name><Value>121</Value></Property><Property><Name>height</Name><Value>37</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>78789904</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>40</Value></Property><Property><Name>y</Name><Value>9</Value></Property><Property><Name>width</Name><Value>41</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78782112</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>72</Value></Property><Property><Name>y</Name><Value>270</Value></Property><Property><Name>width</Name><Value>175</Value></Property><Property><Name>height</Name><Value>175</Value></Property><Property><Name>className</Name><Value>CircleOrSquareView</Value></Property><Property><Name>address</Name><Value>78786512</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>175</Value></Property><Property><Name>height</Name><Value>175</Value></Property><Property><Name>className</Name><Value>CircleOrSquareView</Value></Property><Property><Name>address</Name><Value>78782496</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>48</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>78791440</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>8</Value></Property><Property><Name>y</Name><Value>3</Value></Property><Property><Name>width</Name><Value>9</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78791984</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>80</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>78792176</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>0</Value></Property><Property><Name>height</Name><Value>0</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78792768</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>144</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>78792960</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>8</Value></Property><Property><Name>y</Name><Value>3</Value></Property><Property><Name>width</Name><Value>9</Value></Property><Property><Name>height</Name><Value>19</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78793552</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>10</Value></Property><Property><Name>y</Name><Value>175</Value></Property><Property><Name>width</Name><Value>26</Value></Property><Property><Name>height</Name><Value>26</Value></Property><Property><Name>className</Name><Value>UIRoundedRectButton</Value></Property><Property><Name>address</Name><Value>78793744</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes><Contents><Container><Attributes><Property><Name>x</Name><Value>0</Value></Property><Property><Name>y</Name><Value>0</Value></Property><Property><Name>width</Name><Value>0</Value></Property><Property><Name>height</Name><Value>0</Value></Property><Property><Name>className</Name><Value>UIButtonLabel</Value></Property><Property><Name>address</Name><Value>78794336</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container><Container><Attributes><Property><Name>x</Name><Value>51</Value></Property><Property><Name>y</Name><Value>50</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78794528</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>51</Value></Property><Property><Name>y</Name><Value>82</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78794848</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>56</Value></Property><Property><Name>y</Name><Value>146</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78795120</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container><Container><Attributes><Property><Name>x</Name><Value>56</Value></Property><Property><Name>y</Name><Value>178</Value></Property><Property><Name>width</Name><Value>77</Value></Property><Property><Name>height</Name><Value>21</Value></Property><Property><Name>className</Name><Value>UILabel</Value></Property><Property><Name>address</Name><Value>78795392</Value></Property><Property><Name>INVOKE</Name><Value>TOUCH</Value></Property></Attributes></Container></Contents></Container></GUI></GUIStructure>
+Creating IphWindow, with attributes: 
+x	:	0 
+y	:	0 
+width	:	320 
+height	:	480 
+className	:	UIWindow 
+address	:	81870464 
+INVOKE	:	TOUCH 
+Checking window : UIWindow (isRoot : true | isValid : true)
+[main] INFO  Number of root windows: 1
+[main] INFO  ----------------------------
+[main] INFO  Ripping window: *UIWindow*
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIView</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIView</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIView
+IphComponent : UIView, supports TOUCH (clickable)
+[main] INFO  Expanding *UIView*...
+IphComponent : UIView, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIView 78734720
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UILabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UILabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UILabel
+IphComponent : UILabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UILabel*...
+IphComponent : UILabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UILabel 78744512
+Received response: Touch happened for UIView!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UILabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UILabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UILabel
+IphComponent : UILabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UILabel*...
+IphComponent : UILabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UILabel 78782880
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIRoundedRectButton
+IphComponent : UIRoundedRectButton, supports TOUCH (clickable)
+[main] INFO  Expanding *UIRoundedRectButton*...
+IphComponent : UIRoundedRectButton, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIRoundedRectButton 78786272
+Received response: Touch happened for UILabel!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIButtonLabel
+IphComponent : UIButtonLabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UIButtonLabel*...
+IphComponent : UIButtonLabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIButtonLabel 78788480
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIRoundedRectButton
+IphComponent : UIRoundedRectButton, supports TOUCH (clickable)
+[main] INFO  Expanding *UIRoundedRectButton*...
+IphComponent : UIRoundedRectButton, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIRoundedRectButton 78789904
+Received response: Touch happened for UIRoundedRectButton!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIButtonLabel
+IphComponent : UIButtonLabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UIButtonLabel*...
+IphComponent : UIButtonLabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIButtonLabel 78782112
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>CircleOrSquareView</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>CircleOrSquareView</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : CircleOrSquareView
+IphComponent : CircleOrSquareView, supports TOUCH (clickable)
+[main] INFO  Expanding *CircleOrSquareView*...
+IphComponent : CircleOrSquareView, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH CircleOrSquareView 78786512
+Received response: Touch happened for UIButtonLabel!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>CircleOrSquareView</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>CircleOrSquareView</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : CircleOrSquareView
+IphComponent : CircleOrSquareView, supports TOUCH (clickable)
+[main] INFO  Expanding *CircleOrSquareView*...
+IphComponent : CircleOrSquareView, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH CircleOrSquareView 78782496
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIRoundedRectButton
+IphComponent : UIRoundedRectButton, supports TOUCH (clickable)
+[main] INFO  Expanding *UIRoundedRectButton*...
+IphComponent : UIRoundedRectButton, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIRoundedRectButton 78791440
+Received response: Touch happened for CircleOrSquareView!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIButtonLabel
+IphComponent : UIButtonLabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UIButtonLabel*...
+IphComponent : UIButtonLabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIButtonLabel 78791984
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIRoundedRectButton
+IphComponent : UIRoundedRectButton, supports TOUCH (clickable)
+[main] INFO  Expanding *UIRoundedRectButton*...
+IphComponent : UIRoundedRectButton, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIRoundedRectButton 78792176
+Received response: Touch happened for UIRoundedRectButton!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIButtonLabel
+IphComponent : UIButtonLabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UIButtonLabel*...
+IphComponent : UIButtonLabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIButtonLabel 78792768
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIRoundedRectButton
+IphComponent : UIRoundedRectButton, supports TOUCH (clickable)
+[main] INFO  Expanding *UIRoundedRectButton*...
+IphComponent : UIRoundedRectButton, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIRoundedRectButton 78792960
+Received response: Touch happened for UIRoundedRectButton!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIButtonLabel
+IphComponent : UIButtonLabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UIButtonLabel*...
+IphComponent : UIButtonLabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIButtonLabel 78793552
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIRoundedRectButton</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIRoundedRectButton
+IphComponent : UIRoundedRectButton, supports TOUCH (clickable)
+[main] INFO  Expanding *UIRoundedRectButton*...
+IphComponent : UIRoundedRectButton, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIRoundedRectButton 78793744
+Received response: Touch happened for UIRoundedRectButton!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UIButtonLabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UIButtonLabel
+IphComponent : UIButtonLabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UIButtonLabel*...
+IphComponent : UIButtonLabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UIButtonLabel 78794336
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UILabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UILabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UILabel
+IphComponent : UILabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UILabel*...
+IphComponent : UILabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UILabel 78794528
+Received response: Touch happened for UIRoundedRectButton!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UILabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UILabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UILabel
+IphComponent : UILabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UILabel*...
+IphComponent : UILabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UILabel 78794848
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UILabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UILabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UILabel
+IphComponent : UILabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UILabel*...
+IphComponent : UILabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UILabel 78795120
+Received response: Touch happened for UILabel!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  
+[main] INFO  ----------------------------------
+[main] INFO  Ripping component: 
+[main] INFO  Signature: 
+[main] INFO  
+<FullComponent>
+	<Window>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UIWindow</Value>
+			</Property> 
+		</Attributes>
+	</Window>
+
+	<Component>
+		<Attributes>
+			<Property>
+				<Name>Title</Name>
+				<Value>UILabel</Value>
+			</Property>
+
+			<Property>
+				<Name>Class</Name>
+				<Value>UILabel</Value>
+			</Property>
+		</Attributes>
+	</Component>
+</FullComponent>
+
+
+Title : UILabel
+IphComponent : UILabel, supports TOUCH (clickable)
+[main] INFO  Expanding *UILabel*...
+IphComponent : UILabel, supports TOUCH
+Send TOUCH message to iphone client.
+Sending request: INVOKE TOUCH UILabel 78795392
+Received response: Received INVOKE request!
+[main] INFO  Waiting  100ms for a new window to open
+[main] INFO  -----------------------------
+[main] INFO  OUTPUT SUMARY: 
+[main] INFO  Number of Windows: 1
+[main] INFO  GUI file:./Demo/Demo.GUI
+[main] INFO  Ripping Elapsed: 00 : 00 : 02: 460
+[main] INFO  Log file: ./Demo/Demo.log
+Ripping is ending

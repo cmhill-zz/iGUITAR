@@ -29,7 +29,6 @@
 		return;
 	}
 	NSLog(@"Drawing shape");
-	NSLog(@"%@", rect);
 	CGContextRef contextRef = UIGraphicsGetCurrentContext();
 	// Draw a circle (border only)
 	//CGContextStrokeEllipseInRect(contextRef, CGRectMake(100, 100, 25, 25));          
